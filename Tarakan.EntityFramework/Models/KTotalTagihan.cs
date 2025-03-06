@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Tarakan.EntityFramework.Models;
+
+public partial class KTotalTagihan
+{
+    public string RegistrationNo { get; set; }
+
+    public decimal? TotTagihan { get; set; }
+
+    public string FirstName { get; set; }
+
+    public string MiddleName { get; set; }
+
+    public string LastName { get; set; }
+}

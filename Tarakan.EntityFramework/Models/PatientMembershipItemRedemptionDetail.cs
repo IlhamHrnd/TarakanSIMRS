@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Tarakan.EntityFramework.Models;
+
+public partial class PatientMembershipItemRedemptionDetail
+{
+    public string TransactionNo { get; set; }
+
+    public long MembershipDetailId { get; set; }
+
+    public decimal ClaimedPoint { get; set; }
+
+    public DateTime? LastUpdateDateTime { get; set; }
+
+    public string LastUpdateByUserId { get; set; }
+}

@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Tarakan.EntityFramework.Models;
+
+public partial class ItemTariffRequest2Item
+{
+    public string TariffRequestNo { get; set; }
+
+    public string ItemId { get; set; }
+
+    public string ClassId { get; set; }
+
+    public decimal Price { get; set; }
+
+    public decimal? PriceInBaseUnit { get; set; }
+
+    public decimal? PriceInBaseUnitWvat { get; set; }
+
+    public decimal? PriceInPurchaseUnit { get; set; }
+
+    public decimal? CostPrice { get; set; }
+
+    public bool? IsAllowCito { get; set; }
+
+    public bool? IsCitoInPercent { get; set; }
+
+    public decimal? CitoValue { get; set; }
+
+    public DateTime? LastUpdateDateTime { get; set; }
+
+    public string LastUpdateByUserId { get; set; }
+
+    public decimal? DiscPercentage { get; set; }
+
+    public bool? IsCitoFromStandardReference { get; set; }
+}
