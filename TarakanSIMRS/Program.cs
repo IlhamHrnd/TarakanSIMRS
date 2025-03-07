@@ -1,4 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Tarakan.BusinessObjects.Helper;
+using Tarakan.BusinessObjects.Interface;
+using Tarakan.BusinessObjects.Query;
 using Tarakan.EntityFramework.Base;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
+Helper.initES(connectionString);
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 
@@ -24,6 +29,9 @@ builder.Services.AddAuthentication("CookieAuth")
         options.LoginPath = "/Account/Login"; // Redirect to custom login page
         options.AccessDeniedPath = "/Account/AccessDenied";
     });
+
+//Register Interface Query
+builder.Services.AddScoped<IAppUser, AppUser>();
 
 var app = builder.Build();
 

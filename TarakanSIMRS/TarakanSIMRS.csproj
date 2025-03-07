@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Tarakan.BusinessObjects\Tarakan.BusinessObjects.csproj" />
     <ProjectReference Include="..\Tarakan.EntityFramework\Tarakan.EntityFramework.csproj" />
   </ItemGroup>
 
