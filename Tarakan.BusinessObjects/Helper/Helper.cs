@@ -18,6 +18,11 @@ namespace Tarakan.BusinessObjects.Helper
 
     public static class Converter
     {
+        public static string EscapeQuery(string value)
+        {
+            return value.Replace("'", "''");
+        }
+
         public static int StringToInt(string value)
         {
             try
@@ -31,6 +36,17 @@ namespace Tarakan.BusinessObjects.Helper
             {
                 return 0;
             }
+        }
+
+        public static bool StringToBool(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return false;
+
+            if (value.Equals("true", StringComparison.CurrentCultureIgnoreCase) || value.Equals("yes", StringComparison.CurrentCultureIgnoreCase) || value == "1")
+                return true;
+
+            return false;
         }
 
         public static int GetAgeInYear(DateTime dateTime)

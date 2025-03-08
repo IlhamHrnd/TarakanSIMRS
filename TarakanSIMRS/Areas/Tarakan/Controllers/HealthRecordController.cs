@@ -9,7 +9,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     {
         public IActionResult HealthRecord()
         {
-            return View(baseModel);
+            return View();
         }
     }
 }
