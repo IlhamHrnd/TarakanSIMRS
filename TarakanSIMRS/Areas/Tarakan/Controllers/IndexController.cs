@@ -14,8 +14,12 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
 
         }
 
-        [HttpGet]
         public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
         {
             return View();
         }

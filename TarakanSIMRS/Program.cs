@@ -26,8 +26,8 @@ builder.Services.AddSession(options =>
 builder.Services.AddAuthentication("Cookies")
     .AddCookie("Cookies", options =>
     {
-        options.LoginPath = "/Account/Login"; // Redirect to custom login page
-        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.LoginPath = "/Home/Login"; // Redirect to custom login page
+        options.AccessDeniedPath = "/Home/Login";
     });
 
 //Register Interface Query

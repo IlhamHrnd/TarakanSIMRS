@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Tarakan\Data\" />
     <Folder Include="Areas\Tarakan\Models\Index\" />
   </ItemGroup>
 
