@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
@@ -7,7 +7,6 @@ using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
 using TarakanSIMRS.Models;
 using TarakanSIMRS.Models.Home;
-using Newtonsoft.Json;
 
 namespace TarakanSIMRS.Controllers
 {
@@ -61,13 +60,12 @@ namespace TarakanSIMRS.Controllers
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.UserData, au.UserName),
-                new Claim(ClaimTypes.Expired, au.ExpireDate.ToString(Const.Date)),
+                new Claim("Username", au.UserName),
+                new Claim("Expired", au.ExpireDate.ToString(Const.Date)),
                 new Claim("ParamedicID", au.ParamedicId),
                 new Claim("ServiceUnitID", au.ServiceUnitId),
                 new Claim("PersonID", au.PersonId is 0 or null ? string.Empty : au.PersonId.ToString()),
-                new Claim(ClaimTypes.Role, au.SruserType),
-                new Claim(ClaimTypes.System, JsonConvert.SerializeObject(_appUser.AppUserGroupProgramDtos(model.UserId)))
+                new Claim("Role", au.SruserType)
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

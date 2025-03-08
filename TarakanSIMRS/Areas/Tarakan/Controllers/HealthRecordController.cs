@@ -5,11 +5,11 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
 {
     [Area("Tarakan")]
     [Authorize]
-    public class HealthRecordController : Controller
+    public class HealthRecordController : BaseController
     {
         public IActionResult HealthRecord()
         {
-            return View();
+            return View(baseModel);
         }
     }
 }
