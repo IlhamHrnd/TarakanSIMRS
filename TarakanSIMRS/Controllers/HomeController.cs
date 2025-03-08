@@ -1,11 +1,13 @@
-using System.Diagnostics;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+using System.Security.Claims;
+using Tarakan.BusinessObjects.Helper;
+using Tarakan.BusinessObjects.Interface;
 using TarakanSIMRS.Models;
 using TarakanSIMRS.Models.Home;
-using Tarakan.BusinessObjects.Interface;
-using Tarakan.BusinessObjects.Helper;
+using Newtonsoft.Json;
 
 namespace TarakanSIMRS.Controllers
 {
@@ -45,18 +47,41 @@ namespace TarakanSIMRS.Controllers
 
         #region Process
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
             var au = _appUser.LoadByPrimaryKey(model.UserId, SecureTarakan.Encrypt(model.Password, _config["Tarakan:Key01"], _config["Tarakan:Key02"]));
-            if (!string.IsNullOrEmpty(au.UserName))
+            if (string.IsNullOrEmpty(au.UserName))
             {
-                
+                ModelState.AddModelError("Failed", "User Not Found");
+                return View(model);
             }
-            ModelState.AddModelError("", "Invalid email or password.");
-            return View(model);
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.UserData, au.UserName),
+                new Claim(ClaimTypes.Expired, au.ExpireDate.ToString(Const.Date)),
+                new Claim("ParamedicID", au.ParamedicId),
+                new Claim("ServiceUnitID", au.ServiceUnitId),
+                new Claim("PersonID", au.PersonId is 0 or null ? string.Empty : au.PersonId.ToString()),
+                new Claim(ClaimTypes.Role, au.SruserType),
+                new Claim(ClaimTypes.System, JsonConvert.SerializeObject(_appUser.AppUserGroupProgramDtos(model.UserId)))
+            };
+
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = true,
+            };
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+            string? returnUrl = TempData["ReturnUrl"]?.ToString();
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+            else
+                return RedirectToAction("Dashboard", "Index", new { area = "Tarakan" });
         }
         #endregion
     }

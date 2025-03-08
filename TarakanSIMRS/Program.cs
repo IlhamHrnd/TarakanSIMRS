@@ -23,8 +23,8 @@ builder.Services.AddSession(options =>
 });
 
 // Add authentication (without Identity)
-builder.Services.AddAuthentication("CookieAuth")
-    .AddCookie("CookieAuth", options =>
+builder.Services.AddAuthentication("Cookies")
+    .AddCookie("Cookies", options =>
     {
         options.LoginPath = "/Account/Login"; // Redirect to custom login page
         options.AccessDeniedPath = "/Account/AccessDenied";
@@ -51,6 +51,11 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapAreaControllerRoute(
+    name: "MyTarakan",
+    areaName: "Tarakan",
+    pattern: "Tarakan/{controller=Index}/{action=Dashboard}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

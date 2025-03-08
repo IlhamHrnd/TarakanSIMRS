@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Areas\Tarakan\Data\" />
     <Folder Include="Areas\Tarakan\Models\Index\" />
-    <Folder Include="Areas\Tarakan\Views\Index\" />
   </ItemGroup>
 
 </Project>

@@ -18,6 +18,21 @@ namespace Tarakan.BusinessObjects.Helper
 
     public static class Converter
     {
+        public static int StringToInt(string value)
+        {
+            try
+            {
+                if (int.TryParse(value, out int result))
+                    return result;
+                else
+                    return 0;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
         public static int GetAgeInYear(DateTime dateTime)
         {
             return GetAge(dateTime, DateTime.Today, 0);

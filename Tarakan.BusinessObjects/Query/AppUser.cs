@@ -1,15 +1,14 @@
-﻿using Tarakan.BusinessObjects.Dto;
+﻿using System.Data;
+using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Interface;
-using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
     public class AppUser : IAppUser
     {
-        private readonly AppDbContext _context;
-        public AppUser(AppDbContext context)
+        public AppUser()
         {
-            _context = context;
+
         }
 
         public AppUserDto LoadByPrimaryKey(string userId, string password)
@@ -48,6 +47,23 @@ namespace Tarakan.BusinessObjects.Query
             };
 
             return result;
+        }
+
+        public DataTable AppUserGroupProgramDtos(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+                return new DataTable();
+
+            var auQ = new EntitySpaces.Generated.AppUserQuery("auQ");
+            var augpQ = new EntitySpaces.Generated.AppUserGroupProgramQuery("augpQ");
+            var auugQ = new EntitySpaces.Generated.AppUserUserGroupQuery("auugQ");
+
+            auQ.Select(auQ.UserID, auugQ.UserGroupID, augpQ.ProgramID, augpQ.IsUserGroupAddAble, augpQ.IsUserGroupEditAble, augpQ.IsUserGroupDeleteAble, augpQ.IsUserGroupApprovalAble, augpQ.IsUserGroupUnApprovalAble,
+                augpQ.IsUserGroupUnVoidAble, augpQ.IsUserGroupVoidAble, augpQ.IsUserGroupExportAble, augpQ.IsUserGroupCrossUnitAble, augpQ.IsUserGroupPowerUserAble)
+                .InnerJoin(auugQ).On(auugQ.UserID == auQ.UserID)
+                .InnerJoin(augpQ).On(augpQ.UserGroupID == auugQ.UserGroupID)
+                .Where(auQ.UserID == userId);
+            return auQ.LoadDataTable();
         }
     }
 }

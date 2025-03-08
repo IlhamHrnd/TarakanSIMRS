@@ -1,20 +1,29 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TarakanSIMRS.Areas.Tarakan.Controllers
 {
-    public class IndexController : Controller
+    [Area("Tarakan")]
+    [Authorize]
+    public class IndexController : BaseController
     {
-        private readonly IHttpContextAccessor _context;
-
-        public IndexController(IHttpContextAccessor context)
+        public IndexController()
         {
-            _context = context;
+
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Dashboard()
         {
             return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }
