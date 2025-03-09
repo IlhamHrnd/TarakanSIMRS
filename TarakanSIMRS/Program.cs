@@ -40,6 +40,7 @@ builder.Services.AddScoped<IVitalSign, VitalSign>();
 builder.Services.AddScoped<IAppStandardReferenceItem, AppStandardReferenceItem>();
 builder.Services.AddScoped<IGuarantorBridging, GuarantorBridging>();
 builder.Services.AddScoped<ICostCalculation, CostCalculation>();
+builder.Services.AddScoped<IMergeBilling, Mergebilling>();
 
 var app = builder.Build();
 
@@ -49,10 +50,6 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
 }
 
 app.UseHttpsRedirection();

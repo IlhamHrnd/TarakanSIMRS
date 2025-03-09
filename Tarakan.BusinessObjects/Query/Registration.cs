@@ -347,89 +347,13 @@ namespace Tarakan.BusinessObjects.Query
 
         public static string RegistrationTransferStatus(bool isAlreadyTransfer, string transferNo)
         {
-            if (!isAlreadyTransfer && !string.IsNullOrEmpty(transferNo))
-            {
-                var pt = new EntitySpaces.Generated.PatientTransfer();
-                var su = new EntitySpaces.Generated.ServiceUnit();
-                var b = new EntitySpaces.Generated.Bed();
-                var asri = new EntitySpaces.Generated.AppStandardReferenceItem();
-
-                if (!pt.LoadByPrimaryKey(transferNo))
-                    return string.Empty;
-
-                if (!su.LoadByPrimaryKey(pt.ToServiceUnitID))
-                    return string.Empty;
-
-                if (!b.LoadByPrimaryKey(pt.ToBedID))
-                    return string.Empty;
-
-                string bedStatus = !asri.LoadByPrimaryKey("BedStatus", b.SRBedStatus) ? string.Empty : asri.ItemName;
-                string bedImage;
-
-                switch (bedStatus)
-                {
-                    case "Pending":
-                        bedImage = "infored16.png";
-                        break;
-
-                    case "Booked":
-                        bedImage = "infoyellow16.png";
-                        break;
-
-                    default:
-                        bedImage = string.Empty;
-                        break;
-                }
-                string title = !string.IsNullOrEmpty(bedImage) ? $"Patient Transfer To {su.ServiceUnitName} Status {bedStatus}" : string.Empty;
-                return $"<p class=\"blinking\">{title} <i class=\"fa-solid fa-triangle-exclamation text-danger\"></i></p>";
-            }
-            else
-                return string.Empty;
+            return EntitySpaces.Generated.Registration.RegistrationTransferStatus(isAlreadyTransfer, transferNo);
         }
 
         [Obsolete]
         public string[] GetMergeRegistration(string regNo)
         {
-            var mb = new EntitySpaces.Generated.MergeBilling();
-            mb.LoadByPrimaryKey(regNo);
-
-            var mbColl = new EntitySpaces.Generated.MergeBillingCollection();
-            var mbQ = new EntitySpaces.Generated.MergeBillingQuery("mbQ");
-            if (!string.IsNullOrEmpty(mb.FromRegistrationNo))
-                mbQ.Select(mbQ.RegistrationNo)
-                    .Where(mbQ.Or(mbQ.RegistrationNo == mb.RegistrationNo, mbQ.FromRegistrationNo == mb.RegistrationNo, mbQ.RegistrationNo == mb.FromRegistrationNo, mbQ.FromRegistrationNo == mb.FromRegistrationNo));
-            else
-                mbQ.Select(mbQ.RegistrationNo)
-                    .Where(mbQ.Or(mbQ.RegistrationNo == mb.RegistrationNo, mbQ.FromRegistrationNo == mb.RegistrationNo));
-            mbColl.Load(mbQ);
-
-            var r = new EntitySpaces.Generated.Registration();
-            r.LoadByPrimaryKey(regNo);
-
-            if (r.SRRegistrationType == Const.Inpatient)
-                return [.. mbColl.Select(m => m.RegistrationNo)];
-
-            var list = string.IsNullOrEmpty(mbColl.SingleOrDefault(m => m.RegistrationNo == regNo).FromRegistrationNo) ?
-                        [.. mbColl.Select(m => m.RegistrationNo)] :
-                        mbColl.Where(m => m.RegistrationNo == regNo).Select(m => m.RegistrationNo).ToArray();
-
-            if (list.Length == 0)
-            {
-                list = new string[_appParameter.ParameterInteger("MaxResultRecord")];
-
-                var dColl = new EntitySpaces.Generated.DepartmentCollection();
-                dColl.Query.Where(dColl.Query.IsActive == true);
-                dColl.LoadAll();
-                var idx = 0;
-
-                foreach (var item in dColl.Select(dept => mbColl.Where(m => m.RegistrationNo.IndexOf(dept.Initial) != -1).Select(m => m.RegistrationNo).ToArray()).SelectMany(r => r))
-                {
-                    list.SetValue(item, idx);
-                    idx++;
-                }
-                return [.. list.Where(l => !string.IsNullOrEmpty(l))];
-            }
-            return list;
+            return EntitySpaces.Generated.Registration.GetMergeRegistration(regNo);
         }
 
         #region Registration Query
@@ -694,7 +618,7 @@ namespace Tarakan.BusinessObjects.Query
                 }
             }
 
-            if (filter.RegistrationDate.HasValue)
+            if (filter.RegistrationDate.HasValue && filter.RegistrationDate.Value.Date != new DateTime(01, 01, 0001))
                 tcQ.Where(rQ.RegistrationDate.Date() == filter.RegistrationDate.Value.Date);
 
             tcQ.Select(rQ.RegistrationQue, rQ.ExternalQueNo)
@@ -799,7 +723,7 @@ namespace Tarakan.BusinessObjects.Query
                 else
                     tcQ.Where(rQ.SRRegistrationType == regType);
 
-                if (filter.RegistrationDate.HasValue)
+                if (filter.RegistrationDate.HasValue && filter.RegistrationDate.Value.Date != new DateTime(01, 01, 0001))
                 {
                     tcQ.Where(rQ.RegistrationDate.Date() == filter.RegistrationDate.Value.Date);
 
@@ -808,7 +732,7 @@ namespace Tarakan.BusinessObjects.Query
                 }
             }
 
-            if (filter.ExamOrderFromDate.HasValue)
+            if (filter.ExamOrderFromDate.HasValue && filter.ExamOrderFromDate.Value.Date != new DateTime(01, 01, 0001))
             {
                 if (!filter.ExamOrderToDate.HasValue)
                     tcQ.Where(tcQ.TransactionDate.Between(filter.ExamOrderFromDate.Value, filter.ExamOrderFromDate.Value.AddDays(1)));
@@ -963,7 +887,7 @@ namespace Tarakan.BusinessObjects.Query
                 subQ.Where($"<LTRIM(RTRIM(LTRIM(patQ.FirstName + ' ' + patQ.MiddleName)) + ' ' + patQ.LastName) LIKE '{searchPat}'>");
             }
 
-            if (filter.RegistrationDate.HasValue)
+            if (filter.RegistrationDate.HasValue && filter.RegistrationDate.Value.Date != new DateTime(01, 01, 0001))
                 subQ.Where($"<CAST(RealizationDateTimeFrom as DATE) = CAST('{filter.RegistrationDate.Value.Date}' AS DATE)>");
 
             subQ.Where(rQ.IsVoid == false)
@@ -1135,7 +1059,7 @@ namespace Tarakan.BusinessObjects.Query
                     rQ.Where($"<RTRIM({patQ.es.JoinAlias}.FirstName+' '+{patQ.es.JoinAlias}.MiddleName)+' '+{patQ.es.JoinAlias}.LastName LIKE '{searchPat}'>");
             }
             var isIncludeInPatient = !string.IsNullOrWhiteSpace(Array.Find(regType, element => element.StartsWith(Const.Inpatient, StringComparison.Ordinal)));
-            if (filter.RegistrationDate.HasValue && !(regType.Length == 1 && isIncludeInPatient))
+            if ((filter.RegistrationDate.HasValue && filter.RegistrationDate.Value.Date != new DateTime(01, 01, 0001)) && !(regType.Length == 1 && isIncludeInPatient))
             {
                 if (regType.Length == 0 || (regType.Length > 1 && isIncludeInPatient))
                     rQ.Where(rQ.Or(rQ.SRRegistrationType == Const.Inpatient, rQ.RegistrationDate == filter.RegistrationDate.Value.Date));

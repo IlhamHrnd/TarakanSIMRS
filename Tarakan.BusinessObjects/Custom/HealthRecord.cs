@@ -42,6 +42,17 @@ namespace Tarakan.BusinessObjects.Custom
             };
         }
 
+        [Obsolete]
+        public static string StateEmrListObsolte(RegistrationDto reg, string statType)
+        {
+            return statType switch
+            {
+                "plafond" => EmrPlafondProgress(reg.RegistrationNo, false),
+                "plafondt" => EmrPlafondProgress(reg.RegistrationNo, true),
+                _ => string.Empty
+            };
+        }
+
         private static string EmrTitle(string serviceunitName, string paramedicName)
         {
             return $"Service Unit: <b>{serviceunitName}</b><br/>&nbsp;&nbsp;Reg To: <b>{paramedicName}</b>";
@@ -61,12 +72,13 @@ namespace Tarakan.BusinessObjects.Custom
 
         private static string EmrTransferStatus(bool isAlreadyTransfer, string transferNo)
         {
-            return Query.Registration.RegistrationTransferStatus(isAlreadyTransfer, transferNo);
+            return EntitySpaces.Generated.Registration.RegistrationTransferStatus(isAlreadyTransfer, transferNo);
         }
 
-        public string EmrPlafondProgress(string regNo, bool isModeText)
+        [Obsolete]
+        private static string EmrPlafondProgress(string regNo, bool isModeText)
         {
-            return _mergeBilling.PlafondProgress(regNo, isModeText);
+            return EntitySpaces.Generated.MergeBilling.PlafondProgress(regNo, isModeText);
         }
         #endregion
     }
