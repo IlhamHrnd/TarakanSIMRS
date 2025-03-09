@@ -160,31 +160,5 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             return View("HealthRecord", filter);
         }
         #endregion
-
-        #region Custom View
-        public static string StateEMRList(RegistrationDto reg, string statType)
-        {
-            return statType switch
-            {
-                "title" => EmrTitle(reg.Group, reg.ParamedicName),
-                "detail" => EmrDetail(reg),
-                _ => string.Empty
-            };
-        }
-
-        private static string EmrTitle(string serviceunitName, string paramedicName)
-        {
-            var result = $"Service Unit: <b>{serviceunitName}</b><br/>&nbsp;&nbsp;Reg To: <b>{paramedicName}</b>";
-            return result;
-        }
-
-        private static string EmrDetail(RegistrationDto reg)
-        {
-            string title = reg.IsDoctorOnDuty ?? false ? "Doctor required" : "New";
-            string icon = reg.IsDoctorOnDuty ?? false ? "<i class=\"fa-solid fa-user-doctor\"></i>" : "<i class=\"fa-solid fa-note-sticky\"></i>";
-            string result = $"<a href=\"#\" onclick=\"javascript:gotoAddUrl('{reg.SRRegistrationType}', '{reg.RegistrationNo}', '{reg.ParamedicID}', '{reg.ServiceUnitID}', '{reg.RoomID}', '{reg.PatientID}', '{reg.IsDoctorOnDuty}'); return false;\" title=\"{title}\">{icon}</a>";
-            return result;
-        }
-        #endregion
     }
 }

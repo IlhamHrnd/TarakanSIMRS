@@ -11,3 +11,8 @@ $(document).ready(function () {
         });
     });
 });
+
+//View
+function gotoAddUrl(regType, regNo, parId, suId, roomId, patId, isDocDuty) {
+    alert("Hello! I am an alert box!");
+}

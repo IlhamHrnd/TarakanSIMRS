@@ -1,5 +1,4 @@
 ﻿@using TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
-@using TarakanSIMRS.Areas.Tarakan.Controllers
 @model HealthRecordViewModel
 @{
     ViewData["Title"] = "Dashboard";
@@ -58,10 +57,28 @@
                             foreach (var item in Model.getRegistration)
                             {
                                 <tr>
-                                    <td scope="row" colspan="18">@Html.Raw(HealthRecordController.StateEMRList(item, "title"))</td>
+                                    <td scope="row" colspan="18">@Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "title"))</td>
                                 </tr>
                                 <tr>
-                                    <td>@Html.Raw(HealthRecordController.StateEMRList(item, "detail"))</td>
+                                    <td>@Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "detail"))</td>
+                                    <td>@item.RegistrationDate @item.RegistrationTime</td>
+                                    <td>@item.RegistrationQue</td>
+                                    <td>@item.MedicalNo<br /><small>@item.RegistrationNo</small></td>
+                                    <td>
+                                        @if (item.IsAlreadyTransfer ?? false)
+                                        {
+                                            @Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "name"))
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "transfer"))
+                                            <br /> @Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "name"))
+                                        }
+                                    </td>
+                                    <td>@item.Sex</td>
+                                    <td>R: @item.RoomName <br />B: @item.BedID</td>
+                                    <td>@item.ReferFrom <br />@item.ReferTo</td>
+                                    <td style="background-color: @Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.GetColorOfTriase(item.SRTriage))">TRG</td>
                                 </tr>
                             }
                         }

@@ -345,6 +345,48 @@ namespace Tarakan.BusinessObjects.Query
             return result;
         }
 
+        public static string RegistrationTransferStatus(bool isAlreadyTransfer, string transferNo)
+        {
+            if (!isAlreadyTransfer && !string.IsNullOrEmpty(transferNo))
+            {
+                var pt = new EntitySpaces.Generated.PatientTransfer();
+                var su = new EntitySpaces.Generated.ServiceUnit();
+                var b = new EntitySpaces.Generated.Bed();
+                var asri = new EntitySpaces.Generated.AppStandardReferenceItem();
+
+                if (!pt.LoadByPrimaryKey(transferNo))
+                    return string.Empty;
+
+                if (!su.LoadByPrimaryKey(pt.ToServiceUnitID))
+                    return string.Empty;
+
+                if (!b.LoadByPrimaryKey(pt.ToBedID))
+                    return string.Empty;
+
+                string bedStatus = !asri.LoadByPrimaryKey("BedStatus", b.SRBedStatus) ? string.Empty : asri.ItemName;
+                string bedImage;
+
+                switch (bedStatus)
+                {
+                    case "Pending":
+                        bedImage = "infored16.png";
+                        break;
+
+                    case "Booked":
+                        bedImage = "infoyellow16.png";
+                        break;
+
+                    default:
+                        bedImage = string.Empty;
+                        break;
+                }
+                string title = !string.IsNullOrEmpty(bedImage) ? $"Patient Transfer To {su.ServiceUnitName} Status {bedStatus}" : string.Empty;
+                return $"<p class=\"blinking\">{title} <i class=\"fa-solid fa-triangle-exclamation text-danger\"></i></p>";
+            }
+            else
+                return string.Empty;
+        }
+
         #region Registration Query
         [Obsolete]
         private DataTable RegistrationInpatient(RegistrationFilter filter, int maxRecord, bool isTransfer, EntitySpaces.Generated.AppUser au)
@@ -417,7 +459,7 @@ namespace Tarakan.BusinessObjects.Query
                 .LeftJoin(salQ).On(salQ.StandardReferenceID == "Salutation" && patQ.SRSalutation == salQ.ItemID)
                 .Where(rQ.SRRegistrationType == Const.Inpatient);
 
-            FilterServiceUnitAndParameter(filter, rQ, au, true, isTransfer);
+            FilterServiceUnitAndParamedic(filter, rQ, au, true, isTransfer);
             FilterRegistrationAndPatient(filter, rQ, patQ, [Const.Inpatient]);
 
             if (au.SRUserType == Const.Doctor)
@@ -481,7 +523,7 @@ namespace Tarakan.BusinessObjects.Query
             else if (regType.Length > 1)
                 rQ.Where(rQ.SRRegistrationType.In(regType));
 
-            FilterServiceUnitAndParameter(filter, rQ, au, false, false);
+            FilterServiceUnitAndParamedic(filter, rQ, au, false, false);
             FilterRegistrationAndPatient(filter, rQ, patQ, regType);
 
             rQ.OrderBy(rQ.RegistrationDate.Descending, rQ.RegistrationQue.Ascending, rQ.ExternalQueNo.Ascending, rQ.RegistrationTime.Ascending)
@@ -716,7 +758,7 @@ namespace Tarakan.BusinessObjects.Query
                 {
                     tcQ.Where(rQ.RegistrationDate.Date() == filter.RegistrationDate.Value.Date);
 
-                    if (!string.IsNullOrEmpty(filter.FromRegistrationTime) || !string.IsNullOrEmpty(filter.ToRegistrationTime))
+                    if ((!string.IsNullOrEmpty(filter.FromRegistrationTime) && filter.FromRegistrationTime != "00:00") || (!string.IsNullOrEmpty(filter.ToRegistrationTime) && filter.ToRegistrationTime != "00:00"))
                         tcQ.Where(rQ.RegistrationTime.Between(filter.FromRegistrationTime, filter.ToRegistrationTime));
                 }
             }
@@ -917,12 +959,12 @@ namespace Tarakan.BusinessObjects.Query
             #endregion
 
             rQ.Select(srQ.RoomName, rQ.RegistrationDate, suQ.ServiceUnitID, parQ.ParamedicName, rQ.RegistrationNo, patQ.MedicalNo, patQ.Sex, gQ.GuarantorName, rQ.PatientID, rQ.IsConsul, rQ.RegistrationQue, rQ.ExternalQueNo,
-            rQ.SRRegistrationType, rQ.RoomID, rQ.BedID, rQ.RegistrationTime, rQ.IsNewPatient, rQ.SRTriage, suQ.IsNeedConfirmationOfAttendance, patQ.DateOfBirth,
-            rQ.SRCovidStatus, rQ.SRPatientRiskStatus, rQ.SRDischargeCondition, "<RTRIM(patQ.FirstName + ' ' + patQ.MiddleName + '' + patQ.LastName) AS PatientName>", suQ.ServiceUnitName.As("Group"),
-            $"<'{au.ParamedicID}' as ParamedicID>", "<'' AS SRBedStatus>", "<'' AS ReferFrom>", "<'' AS ReferFromRegistrationType>", "<'' AS ReferTo>",
-            "<CASE WHEN rQ.ParamedicID IS NULL THEN CAST(0 AS BIT) ELSE CAST(1 AS BIT) END AS IsParamedicNotNull>", "<ISNULL(rQ.IsConfirmedAttendance, 0) AS IsConfirmedAttendance>",
-            rQ.FromRegistrationNo.Coalesce("''").As("FromRegistrationNo"), salQ.ItemName.As("SalutationName"), "<ISNULL(rQ.IsFinishedAttendance, 0) AS IsFinishedAttendance>",
-            "<'true' AS IsAlreadyTransfer>", "<'' AS TransferNo>", $"<CASE WHEN rQ.SRRegistrationType = 'EMR' THEN ((CASE WHEN rQ.ParamedicID = '{doctorOnDutyId}' THEN 'true' ELSE 'false' END)) ELSE 'false' END AS IsDoctorOnDuty>");
+                rQ.SRRegistrationType, rQ.RoomID, rQ.BedID, rQ.RegistrationTime, rQ.IsNewPatient, rQ.SRTriage, suQ.IsNeedConfirmationOfAttendance, patQ.DateOfBirth,
+                rQ.SRCovidStatus, rQ.SRPatientRiskStatus, rQ.SRDischargeCondition, "<RTRIM(patQ.FirstName + ' ' + patQ.MiddleName + '' + patQ.LastName) AS PatientName>", suQ.ServiceUnitName.As("Group"),
+                $"<'{au.ParamedicID}' as ParamedicID>", "<'' AS SRBedStatus>", "<'' AS ReferFrom>", "<'' AS ReferFromRegistrationType>", "<'' AS ReferTo>",
+                "<CASE WHEN rQ.ParamedicID IS NULL THEN CAST(0 AS BIT) ELSE CAST(1 AS BIT) END AS IsParamedicNotNull>", "<ISNULL(rQ.IsConfirmedAttendance, 0) AS IsConfirmedAttendance>",
+                rQ.FromRegistrationNo.Coalesce("''").As("FromRegistrationNo"), salQ.ItemName.As("SalutationName"), "<ISNULL(rQ.IsFinishedAttendance, 0) AS IsFinishedAttendance>",
+                "<'true' AS IsAlreadyTransfer>", "<'' AS TransferNo>", $"<CASE WHEN rQ.SRRegistrationType = 'EMR' THEN ((CASE WHEN rQ.ParamedicID = '{doctorOnDutyId}' THEN 'true' ELSE 'false' END)) ELSE 'false' END AS IsDoctorOnDuty>");
 
             rQ.LeftJoin(srQ).On(rQ.RoomID == srQ.RoomID)
                 .LeftJoin(parQ).On(rQ.ParamedicID == parQ.ParamedicID)
@@ -969,7 +1011,7 @@ namespace Tarakan.BusinessObjects.Query
 
         #region Other
         [Obsolete]
-        private void FilterServiceUnitAndParameter(RegistrationFilter filter, EntitySpaces.Generated.RegistrationQuery rQ, EntitySpaces.Generated.AppUser au, bool isInPatient, bool isTransfer)
+        private void FilterServiceUnitAndParamedic(RegistrationFilter filter, EntitySpaces.Generated.RegistrationQuery rQ, EntitySpaces.Generated.AppUser au, bool isInPatient, bool isTransfer)
         {
             if (string.IsNullOrEmpty(filter.ServiceUnitID))
             {
@@ -1055,7 +1097,7 @@ namespace Tarakan.BusinessObjects.Query
                 else
                     rQ.Where(rQ.RegistrationDate.Date() == filter.RegistrationDate.Value.Date);
 
-                if (!string.IsNullOrEmpty(filter.FromRegistrationTime) || !string.IsNullOrEmpty(filter.ToRegistrationTime))
+                if ((!string.IsNullOrEmpty(filter.FromRegistrationTime) && filter.FromRegistrationTime != "00:00") || (!string.IsNullOrEmpty(filter.ToRegistrationTime) && filter.ToRegistrationTime != "00:00"))
                     rQ.Where(rQ.Or(rQ.SRRegistrationType == Const.Inpatient, rQ.RegistrationTime.Between(filter.FromRegistrationTime, filter.ToRegistrationTime)));
             }
 
