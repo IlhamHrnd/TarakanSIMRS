@@ -2,6 +2,7 @@
 {
     public class BaseModel
     {
+        public string UserID { get; set; }
         public string Username { get; set; }
         public string ParamedicID { get; set; }
         public string ServiceUnitID { get; set; }

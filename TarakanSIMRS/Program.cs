@@ -32,6 +32,12 @@ builder.Services.AddAuthentication("Cookies")
 
 //Register Interface Query
 builder.Services.AddScoped<IAppUser, AppUser>();
+builder.Services.AddScoped<IAppParameter, AppParameter>();
+builder.Services.AddScoped<IRegistration, Registration>();
+builder.Services.AddScoped<IParamedic, Paramedic>();
+builder.Services.AddScoped<IServiceUnit, ServiceUnit>();
+builder.Services.AddScoped<IVitalSign, VitalSign>();
+builder.Services.AddScoped<IAppStandardReferenceItem, AppStandardReferenceItem>();
 
 var app = builder.Build();
 
@@ -41,6 +47,10 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error");
 }
 
 app.UseHttpsRedirection();

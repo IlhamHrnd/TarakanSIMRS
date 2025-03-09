@@ -60,6 +60,7 @@ namespace TarakanSIMRS.Controllers
 
             var claims = new List<Claim>
             {
+                new Claim("UserID", au.UserId),
                 new Claim("Username", au.UserName),
                 new Claim("Expired", au.ExpireDate.ToString(Const.Date)),
                 new Claim("ParamedicID", au.ParamedicId),

@@ -1,0 +1,199 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
+@model FilterHealthRecordViewModel
+
+<form asp-area="Tarakan" asp-controller="HealthRecord" asp-action="FilterHealthRecord" method="post">
+    <div class="modal-header">
+        <h5 class="modal-title" id="titleFilter">Filter Registration</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="card">
+            <div class="card-header">
+                <h3>General</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-5 row align-items-center">
+                    <label for="selectPhysician" class="col-lg-3 col-md-4 col-sm-4 form-label">Physician</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <select class="form-select" asp-for="ParamedicID">
+                            @if (Model.getParamedic != null)
+                            {
+                                @foreach (var item in Model.getParamedic)
+                                {
+                                    <option value="@item.ParamedicID">@item.ParamedicName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-center">
+                    <label for="selectRegistrationType" class="col-lg-3 col-md-4 col-sm-4 form-label">Registration</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <select class="form-select" asp-for="SRRegistrationType">
+                            @if (Model.getRegistrationType != null)
+                            {
+                                @foreach (var item in Model.getRegistrationType)
+                                {
+                                    <option value="@item.ItemID">@item.ItemName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-center">
+                    <label for="selectServiceUnit" class="col-lg-3 col-md-4 col-sm-4 form-label">Service Unit</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <select class="form-select" asp-for="ServiceUnitID">
+                            @if (Model.getServiceUnit != null)
+                            {
+                                @foreach (var item in Model.getServiceUnit)
+                                {
+                                    <option value="@item.ServiceUnitID">@item.ServiceUnitName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-center">
+                    <label class="form-group col-lg-3 col-md-4 col-sm-4 form-label" asp-for="RegistrationNo"></label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <input class="form-control" asp-for="RegistrationNo" />
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-center">
+                    <label class="form-group col-lg-3 col-md-4 col-sm-4 form-label" asp-for="PatientName"></label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <input class="form-control" asp-for="PatientName" />
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-center">
+                    <label for="selectParamedicTeam" class="col-lg-3 col-md-4 col-sm-4 form-label">Paramedic Team Status</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <div class="input-group mb-3">
+                            <select class="form-select" asp-for="SRParamedicTeam">
+                                @if (Model.getParamedicTeam != null)
+                                {
+                                    @foreach (var item in Model.getParamedicTeam)
+                                    {
+                                        <option value="@item.ItemID">@item.ItemName</option>
+                                    }
+                                }
+                            </select>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-check-input" type="checkbox" asp-for="IsIncludeClosed"/> Include Closed
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>For Inpatient</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-5 row align-items-center">
+                    <label class="col-lg-3 col-md-4 col-sm-4 form-label">Include</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-check-input" type="checkbox" asp-for="IsIncludeDischarge" /> Discharged Patients
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-check-input" type="checkbox" asp-for="IsIncludeIPRSOAPInputted" /> SOAP Inputted
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>For Non Inpatient</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-5 row align-items-center">
+                    <label for="selectRegistrationDate" class="col-lg-3 col-md-4 col-sm-4 form-label">Registration Date / Time</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-control date-picker" type="date" asp-for="RegistrationDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-control date-picker" type="time" asp-for="FromRegistrationTime" value="@DateTime.Now.ToString("HH:mm")">
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-control date-picker" type="time" asp-for="ToRegistrationTime" value="@DateTime.Now.ToString("HH:mm")">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-center">
+                    <label for="selectConfirmedAttend" class="col-lg-3 col-md-4 col-sm-4 form-label">Confirmed Attendance Status</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <select class="form-select" asp-for="SRConfirmedAttend">
+                            @if (Model.getConfirmedAttendance != null)
+                            {
+                                @foreach (var item in Model.getConfirmedAttendance)
+                                {
+                                    <option value="@item.ItemID">@item.ItemName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-center">
+                    <label class="col-lg-3 col-md-4 col-sm-4 form-label">Include</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-check-input" type="checkbox" asp-for="IsIncludeNonIPRSOAPInputted" /> SOAP Inputted
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>For Exam Order Patient</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-5 row align-items-center">
+                    <label for="selectRegistrationDate" class="col-lg-3 col-md-4 col-sm-4 form-label">Exam Order Date</label>
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-control date-picker" type="date" asp-for="FromExamOrder" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                </div>
+                            </div><div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input class="form-control date-picker" type="date" asp-for="ToExamOrder" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+</form>

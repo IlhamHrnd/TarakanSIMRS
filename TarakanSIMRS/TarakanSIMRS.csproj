@@ -7,16 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Tarakan\Models\Index\**" />
+    <Content Remove="Areas\Tarakan\Models\Index\**" />
+    <EmbeddedResource Remove="Areas\Tarakan\Models\Index\**" />
+    <None Remove="Areas\Tarakan\Models\Index\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Tarakan.BusinessObjects\Tarakan.BusinessObjects.csproj" />
     <ProjectReference Include="..\Tarakan.EntityFramework\Tarakan.EntityFramework.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Tarakan\Models\Index\" />
   </ItemGroup>
 
 </Project>

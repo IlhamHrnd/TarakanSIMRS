@@ -49,6 +49,13 @@ namespace Tarakan.BusinessObjects.Helper
             return false;
         }
 
+        public static string DateFormat(DateTime? dateTime, string format)
+        {
+            DateTime _dateTime = dateTime ?? DateTime.Now;
+            string _format = !string.IsNullOrEmpty(format) ? _dateTime.ToString(format) : _dateTime.ToString();
+            return _format;
+        }
+
         public static int GetAgeInYear(DateTime dateTime)
         {
             return GetAge(dateTime, DateTime.Today, 0);

@@ -46,6 +46,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             {
                 baseModel = new BaseModel
                 {
+                    UserID = User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value,
                     Username = User.Claims.FirstOrDefault(c => c.Type == "Username")?.Value,
                     ParamedicID = User.Claims.FirstOrDefault(c => c.Type == "ParamedicID")?.Value,
                     ServiceUnitID = User.Claims.FirstOrDefault(c => c.Type == "ServiceUnitID")?.Value,
