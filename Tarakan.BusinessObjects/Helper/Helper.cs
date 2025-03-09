@@ -1,4 +1,5 @@
 ﻿using EntitySpaces.Interfaces;
+using System.Globalization;
 using System.Security.Cryptography;
 using Inter = EntitySpaces.Loader;
 
@@ -47,6 +48,14 @@ namespace Tarakan.BusinessObjects.Helper
                 return true;
 
             return false;
+        }
+
+        public static decimal StringToDecimal(string input, decimal value = 0m)
+        {
+            if (decimal.TryParse(input, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal result))
+                return result;
+
+            return value;
         }
 
         public static string DateFormat(DateTime? dateTime, string format)

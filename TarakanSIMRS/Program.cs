@@ -38,6 +38,8 @@ builder.Services.AddScoped<IParamedic, Paramedic>();
 builder.Services.AddScoped<IServiceUnit, ServiceUnit>();
 builder.Services.AddScoped<IVitalSign, VitalSign>();
 builder.Services.AddScoped<IAppStandardReferenceItem, AppStandardReferenceItem>();
+builder.Services.AddScoped<IGuarantorBridging, GuarantorBridging>();
+builder.Services.AddScoped<ICostCalculation, CostCalculation>();
 
 var app = builder.Build();
 

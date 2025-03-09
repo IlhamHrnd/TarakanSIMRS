@@ -7,10 +7,10 @@ namespace Tarakan.BusinessObjects.Custom
 {
     public class HealthRecord
     {
-        private readonly IRegistration _registration;
-        public HealthRecord(IRegistration registration)
+        private readonly IMergeBilling _mergeBilling;
+        public HealthRecord(IMergeBilling mergeBilling)
         {
-            _registration = registration;
+            _mergeBilling = mergeBilling;
         }
 
         #region Custom View
@@ -62,6 +62,11 @@ namespace Tarakan.BusinessObjects.Custom
         private static string EmrTransferStatus(bool isAlreadyTransfer, string transferNo)
         {
             return Query.Registration.RegistrationTransferStatus(isAlreadyTransfer, transferNo);
+        }
+
+        public string EmrPlafondProgress(string regNo, bool isModeText)
+        {
+            return _mergeBilling.PlafondProgress(regNo, isModeText);
         }
         #endregion
     }

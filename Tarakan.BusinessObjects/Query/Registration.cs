@@ -387,6 +387,51 @@ namespace Tarakan.BusinessObjects.Query
                 return string.Empty;
         }
 
+        [Obsolete]
+        public string[] GetMergeRegistration(string regNo)
+        {
+            var mb = new EntitySpaces.Generated.MergeBilling();
+            mb.LoadByPrimaryKey(regNo);
+
+            var mbColl = new EntitySpaces.Generated.MergeBillingCollection();
+            var mbQ = new EntitySpaces.Generated.MergeBillingQuery("mbQ");
+            if (!string.IsNullOrEmpty(mb.FromRegistrationNo))
+                mbQ.Select(mbQ.RegistrationNo)
+                    .Where(mbQ.Or(mbQ.RegistrationNo == mb.RegistrationNo, mbQ.FromRegistrationNo == mb.RegistrationNo, mbQ.RegistrationNo == mb.FromRegistrationNo, mbQ.FromRegistrationNo == mb.FromRegistrationNo));
+            else
+                mbQ.Select(mbQ.RegistrationNo)
+                    .Where(mbQ.Or(mbQ.RegistrationNo == mb.RegistrationNo, mbQ.FromRegistrationNo == mb.RegistrationNo));
+            mbColl.Load(mbQ);
+
+            var r = new EntitySpaces.Generated.Registration();
+            r.LoadByPrimaryKey(regNo);
+
+            if (r.SRRegistrationType == Const.Inpatient)
+                return [.. mbColl.Select(m => m.RegistrationNo)];
+
+            var list = string.IsNullOrEmpty(mbColl.SingleOrDefault(m => m.RegistrationNo == regNo).FromRegistrationNo) ?
+                        [.. mbColl.Select(m => m.RegistrationNo)] :
+                        mbColl.Where(m => m.RegistrationNo == regNo).Select(m => m.RegistrationNo).ToArray();
+
+            if (list.Length == 0)
+            {
+                list = new string[_appParameter.ParameterInteger("MaxResultRecord")];
+
+                var dColl = new EntitySpaces.Generated.DepartmentCollection();
+                dColl.Query.Where(dColl.Query.IsActive == true);
+                dColl.LoadAll();
+                var idx = 0;
+
+                foreach (var item in dColl.Select(dept => mbColl.Where(m => m.RegistrationNo.IndexOf(dept.Initial) != -1).Select(m => m.RegistrationNo).ToArray()).SelectMany(r => r))
+                {
+                    list.SetValue(item, idx);
+                    idx++;
+                }
+                return [.. list.Where(l => !string.IsNullOrEmpty(l))];
+            }
+            return list;
+        }
+
         #region Registration Query
         [Obsolete]
         private DataTable RegistrationInpatient(RegistrationFilter filter, int maxRecord, bool isTransfer, EntitySpaces.Generated.AppUser au)

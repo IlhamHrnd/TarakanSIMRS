@@ -40,13 +40,6 @@
                             <th>Room / Bed</th>
                             <th>Refer</th>
                             <th>TRG</th>
-                            <th>SOAP</th>
-                            <th>CONF</th>
-                            <th>Covid</th>
-                            <th>Risk</th>
-                            <th>EWS</th>
-                            <th>Presc</th>
-                            <th>Rad</th>
                             <th>Plafond Progress</th>
                             <th></th>
                         </tr>
@@ -57,7 +50,7 @@
                             foreach (var item in Model.getRegistration)
                             {
                                 <tr>
-                                    <td scope="row" colspan="18">@Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "title"))</td>
+                                    <td scope="row" colspan="11">@Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "title"))</td>
                                 </tr>
                                 <tr>
                                     <td>@Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "detail"))</td>

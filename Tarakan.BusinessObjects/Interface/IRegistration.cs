@@ -6,5 +6,6 @@ namespace Tarakan.BusinessObjects.Interface
     public interface IRegistration
     {
         List<RegistrationDto> RegistrationEmr(RegistrationFilter filter, string userId);
+        string[] GetMergeRegistration(string regNo);
     }
 }
