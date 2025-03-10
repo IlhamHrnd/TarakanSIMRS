@@ -16,7 +16,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         private readonly IParamedic _paramedic;
         private readonly IAppStandardReferenceItem _appStandardReferenceItem;
         private readonly IServiceUnit _serviceUnit;
-        public HealthRecordController(IRegistration registration, IParamedic paramedic, IAppStandardReferenceItem appStandardReferenceItem, IServiceUnit serviceUnit)
+        public HealthRecordController(IRegistration registration, IParamedic paramedic, IAppStandardReferenceItem appStandardReferenceItem, IServiceUnit serviceUnit, IConfiguration config) : base(config)
         {
             _registration = registration;
             _paramedic = paramedic;
@@ -28,10 +28,16 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         {
             var model = new HealthRecordViewModel
             {
-                getRegistration = _registration.RegistrationEmr(new RegistrationFilter { }, baseModel.UserID)
+                getRegistration = _registration.RegistrationEmr(new RegistrationFilter { }, baseModel.UserID),
+                IsLoadBillingProgress = IsLoadBillingProgress
             };
 
             return View(model);
+        }
+
+        public IActionResult HealthRecordDetail()
+        {
+            return View();
         }
 
         public async Task<IActionResult> FilterHealthRecord()

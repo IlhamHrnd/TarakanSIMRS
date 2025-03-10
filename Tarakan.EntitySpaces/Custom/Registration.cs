@@ -82,5 +82,19 @@ namespace Tarakan.EntitySpaces.Generated
             else
                 return string.Empty;
         }
+
+        [Obsolete]
+        public static string SoapEntryStatus(string regNo, string parId, string regType)
+        {
+            var rimQ = new RegistrationInfoMedicQuery("rQ");
+
+            rimQ.Select(rimQ.RegistrationInfoMedicID)
+                .Where(rimQ.RegistrationNo == regNo, rimQ.SRMedicalNotesInputType == "SOAP", rimQ.Info1 != string.Empty, rimQ.Or(rimQ.IsDeleted.IsNull(), rimQ.IsDeleted == false));
+
+            if (regType == "IPR")
+                rimQ.Where(rimQ.ParamedicID == parId, rimQ.DateTimeInfo > DateTime.Now);
+
+            return rimQ.LoadDataTable().Rows.Count > 0 ? $"<i class=\"fa-solid fa-bell text-success\" alt=\"SOAP Inputted\" title=\"SOAP Inputted\"></i>" : string.Empty;
+        }
     }
 }

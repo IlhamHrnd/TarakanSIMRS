@@ -9,7 +9,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     [Authorize]
     public class IndexController : BaseController
     {
-        public IndexController()
+        public IndexController(IConfiguration config) : base(config)
         {
 
         }

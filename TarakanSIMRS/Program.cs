@@ -41,6 +41,7 @@ builder.Services.AddScoped<IAppStandardReferenceItem, AppStandardReferenceItem>(
 builder.Services.AddScoped<IGuarantorBridging, GuarantorBridging>();
 builder.Services.AddScoped<ICostCalculation, CostCalculation>();
 builder.Services.AddScoped<IMergeBilling, Mergebilling>();
+builder.Services.AddScoped<IRegistrationInfoSumary, RegistrationInfoSumary>();
 
 var app = builder.Build();
 

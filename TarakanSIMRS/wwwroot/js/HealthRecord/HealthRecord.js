@@ -14,5 +14,40 @@ $(document).ready(function () {
 
 //View
 function gotoAddUrl(regType, regNo, parId, suId, roomId, patId, isDocDuty) {
-    alert("Hello! I am an alert box!");
+    let url = "/Tarakan/HealthRecord/HealthRecordDetail?";
+    let params = [];
+
+    if (regType) {
+        params.push("regType=" + encodeURIComponent(regType));
+    }
+
+    if (regNo) {
+        params.push("regNo=" + encodeURIComponent(regNo));
+    }
+
+    if (parId) {
+        params.push("parId=" + encodeURIComponent(parId));
+    }
+
+    if (suId) {
+        params.push("suId=" + encodeURIComponent(suId));
+    }
+
+    if (roomId) {
+        params.push("roomId=" + encodeURIComponent(roomId));
+    }
+
+    if (patId) {
+        params.push("patId=" + encodeURIComponent(patId));
+    }
+
+    if (isDocDuty) {
+        params.push("isDocDuty=" + encodeURIComponent(isDocDuty));
+    }
+
+    if (params.length > 0) {
+        window.location.href = url + params.join("&");
+    } else {
+        alert("Please enter at least one filter criteria.");
+    }
 }

@@ -345,7 +345,7 @@ namespace Tarakan.BusinessObjects.Query
             return result;
         }
 
-        public static string RegistrationTransferStatus(bool isAlreadyTransfer, string transferNo)
+        public string RegistrationTransferStatus(bool isAlreadyTransfer, string transferNo)
         {
             return EntitySpaces.Generated.Registration.RegistrationTransferStatus(isAlreadyTransfer, transferNo);
         }
@@ -354,6 +354,12 @@ namespace Tarakan.BusinessObjects.Query
         public string[] GetMergeRegistration(string regNo)
         {
             return EntitySpaces.Generated.Registration.GetMergeRegistration(regNo);
+        }
+
+        [Obsolete]
+        public string SoapEntryStatus(string regNo, string parId, string regType)
+        {
+            return EntitySpaces.Generated.Registration.SoapEntryStatus(regNo, parId, regType);
         }
 
         #region Registration Query

@@ -1,4 +1,5 @@
-﻿@using TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
+﻿@using Tarakan.BusinessObjects.Custom
+@using TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
 @model HealthRecordViewModel
 @{
     ViewData["Title"] = "Dashboard";
@@ -40,7 +41,13 @@
                             <th>Room / Bed</th>
                             <th>Refer</th>
                             <th>TRG</th>
-                            <th>Plafond Progress</th>
+                            <th>SOAP</th>
+                            <th>Menu</th>
+                            <th>Risk</th>
+                            @if (Model.IsLoadBillingProgress)
+                            {
+                                <th>Plafond Progress</th>
+                            }
                         </tr>
                     </thead>
                     <tbody>
@@ -49,29 +56,50 @@
                             foreach (var item in Model.getRegistration)
                             {
                                 <tr>
-                                    <td scope="row" colspan="10">@Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "title"))</td>
+                                    @if (Model.IsLoadBillingProgress)
+                                    {
+                                        <td scope="row" colspan="13">@Html.Raw(HealthRecord.StateEMRList(item, "title"))</td>
+                                    }
+                                    else
+                                    {
+                                        <td scope="row" colspan="12">@Html.Raw(HealthRecord.StateEMRList(item, "title"))</td>
+                                    }
                                 </tr>
                                 <tr>
-                                    <td>@Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "detail"))</td>
+                                    <td>@Html.Raw(HealthRecord.StateEMRList(item, "detail"))</td>
                                     <td>@item.RegistrationDate @item.RegistrationTime</td>
                                     <td>@item.RegistrationQue</td>
                                     <td>@item.MedicalNo<br /><small>@item.RegistrationNo</small></td>
                                     <td>
                                         @if (item.IsAlreadyTransfer ?? false)
                                         {
-                                            @Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "name"))
+                                            @Html.Raw(HealthRecord.StateEMRList(item, "name"))
                                         }
                                         else
                                         {
-                                            @Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "transfer"))
-                                            <br /> @Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEMRList(item, "name"))
+                                            @Html.Raw(HealthRecord.StateEMRList(item, "transfer"))
+                                            <br /> @Html.Raw(HealthRecord.StateEMRList(item, "name"))
                                         }
                                     </td>
                                     <td>@item.Sex</td>
                                     <td>R: @item.RoomName <br />B: @item.BedID</td>
                                     <td>@item.ReferFrom <br />@item.ReferTo</td>
-                                    <td style="background-color: @Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.GetColorOfTriase(item.SRTriage))">TRG</td>
-                                    <td>@Html.Raw(Tarakan.BusinessObjects.Custom.HealthRecord.StateEmrListObsolte(item, "plafond"))</td>
+                                    <td style="background-color: @Html.Raw(HealthRecord.GetColorOfTriase(item.SRTriage))">TRG</td>
+                                    <td>@Html.Raw(HealthRecord.StateEmrListObsolte(item, "soap"))</td>
+                                    <td>
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "confirm"))
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "finish"))
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "note")) 
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "medication"))
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "history"))
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "print"))
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "physician"))
+                                    </td>
+                                    <td>@Html.Raw(HealthRecord.StateEMRList(item, "risk"))</td>
+                                    @if (Model.IsLoadBillingProgress)
+                                    {
+                                        <td>@Html.Raw(HealthRecord.StateEmrListObsolte(item, "plafond"))</td>
+                                    }
                                 </tr>
                             }
                         }

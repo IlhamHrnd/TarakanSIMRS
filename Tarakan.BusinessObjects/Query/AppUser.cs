@@ -6,11 +6,6 @@ namespace Tarakan.BusinessObjects.Query
 {
     public class AppUser : IAppUser
     {
-        public AppUser()
-        {
-
-        }
-
         public AppUserDto LoadByPrimaryKey(string userId, string password)
         {
             var result = new AppUserDto();

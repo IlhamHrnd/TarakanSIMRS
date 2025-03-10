@@ -7,6 +7,12 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
 {
     public class BaseController : Controller
     {
+        private readonly IConfiguration _config;
+        public BaseController(IConfiguration config)
+        {
+            _config = config;
+        }
+
         //Variabel
         protected int Page { get; set; }
         protected int PageSize { get; set; }
@@ -16,7 +22,10 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         protected string SuId { get; set; }
         protected string RoomId { get; set; }
         protected string PatId { get; set; }
+        protected bool IsDoctorDuty { get; set; }
         protected BaseModel baseModel { get; set; }
+        protected bool IsLoadBillingProgress { get; set; }
+        protected bool IsLoginDoctor { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
@@ -30,6 +39,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             SuId = Request.Query["suId"];
             RoomId = Request.Query["roomId"];
             PatId = Request.Query["patId"];
+            IsDoctorDuty = Request.Query["isDocDuty"] == "True" || Request.Query["isDocDuty"] == "Yes";
 
             //View Bag
             ViewData["currentPage"] = Page;
@@ -40,6 +50,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             ViewData["suId"] = SuId;
             ViewData["roomId"] = RoomId;
             ViewData["patId"] = PatId;
+            ViewData["isDocDuty"] = IsDoctorDuty;
 
             //User
             if (User.Identity.IsAuthenticated)
@@ -54,6 +65,10 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                     Role = User.Claims.FirstOrDefault(c => c.Type == "Role")?.Value
                 };
             }
+
+            //Condition
+            IsLoadBillingProgress = _config["Tarakan:IsLoadBillingProgress"].ToLower() == "true" || _config["Tarakan:IsLoadBillingProgress"].ToLower() == "yes";
+            IsLoginDoctor = baseModel.Role == Const.Doctor && !string.IsNullOrEmpty(baseModel.ParamedicID);
         }
     }
 }

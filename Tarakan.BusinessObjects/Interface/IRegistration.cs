@@ -7,5 +7,7 @@ namespace Tarakan.BusinessObjects.Interface
     {
         List<RegistrationDto> RegistrationEmr(RegistrationFilter filter, string userId);
         string[] GetMergeRegistration(string regNo);
+        string RegistrationTransferStatus(bool isAlreadyTransfer, string transferNo);
+        string SoapEntryStatus(string regNo, string parId, string regType);
     }
 }
