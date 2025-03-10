@@ -362,6 +362,44 @@ namespace Tarakan.BusinessObjects.Query
             return EntitySpaces.Generated.Registration.SoapEntryStatus(regNo, parId, regType);
         }
 
+        public RegistrationDto LoadByPrimaryKey(string regNo)
+        {
+            var rDto = new RegistrationDto();
+            var r = new EntitySpaces.Generated.Registration();
+            var pat = new EntitySpaces.Generated.Patient();
+            var par = new EntitySpaces.Generated.Paramedic();
+            var su = new EntitySpaces.Generated.ServiceUnit();
+            var g = new EntitySpaces.Generated.Guarantor();
+
+            if (string.IsNullOrEmpty(regNo))
+                return rDto;
+
+            if (!r.LoadByPrimaryKey(regNo))
+                return rDto;
+
+            if (r.IsVoid == true)
+                return rDto;
+
+            if (!pat.LoadByPrimaryKey(r.PatientID))
+                return rDto;
+
+            rDto = new RegistrationDto
+            {
+                MedicalNo = pat.MedicalNo,
+                RegistrationNo = r.RegistrationNo,
+                RegistrationDate = Converter.DateFormat(r.RegistrationDate, Const.Dateshortmonth),
+                Sex = pat.Sex.ToString().ToLower() == "m" ? "Male" : "Female",
+                DateOfBirth = pat.DateOfBirth.HasValue ? pat.DateOfBirth.Value : new DateTime(),
+                GuarantorName = g.LoadByPrimaryKey(r.GuarantorID) ? g.GuarantorName : string.Empty,
+                BpjsSepNo = r.BpjsSepNo,
+                ServiceUnitName = su.LoadByPrimaryKey(r.ServiceUnitID) ? su.ServiceUnitName : string.Empty,
+                ParamedicName = par.LoadByPrimaryKey(r.ParamedicID) ? par.ParamedicName : string.Empty,
+                PatientName = Converter.GetFullName(pat.FirstName, pat.MiddleName, pat.LastName)
+            };
+
+            return rDto;
+        }
+
         #region Registration Query
         [Obsolete]
         private DataTable RegistrationInpatient(RegistrationFilter filter, int maxRecord, bool isTransfer, EntitySpaces.Generated.AppUser au)
@@ -965,7 +1003,10 @@ namespace Tarakan.BusinessObjects.Query
                 rQ.InnerJoin(supQ).On(suQ.ServiceUnitID == supQ.ServiceUnitID && suQ.IsAllowAccessPatientWithServiceUnitParamedic == true && supQ.ParamedicID == au.ParamedicID && supQ.IsActive == true);
             }
             else if (isShowBedStatusPending && isTransfer)
-                RegistrationCheckIn(rQ, filter);
+            {
+                var isInpatient = !string.IsNullOrWhiteSpace(Array.Find(regType, element => element.StartsWith(Const.Inpatient, StringComparison.Ordinal)));
+                RegistrationCheckIn(rQ, filter, isInpatient);
+            }
             else
                 rQ.Where(rQ.ServiceUnitID == filter.ServiceUnitID);
 
@@ -1003,7 +1044,7 @@ namespace Tarakan.BusinessObjects.Query
                 }
             }
             else if (isShowBedStatusPending && isTransfer)
-                RegistrationCheckIn(rQ, filter);
+                RegistrationCheckIn(rQ, filter, isInPatient);
             else
                 rQ.Where(rQ.ServiceUnitID == filter.ServiceUnitID);
 
@@ -1130,15 +1171,17 @@ namespace Tarakan.BusinessObjects.Query
         }
 
         [Obsolete]
-        private void RegistrationCheckIn(EntitySpaces.Generated.RegistrationQuery rQ, RegistrationFilter filter)
+        private void RegistrationCheckIn(EntitySpaces.Generated.RegistrationQuery rQ, RegistrationFilter filter, bool isInpatient)
         {
             var ptQ = new EntitySpaces.Generated.PatientTransferQuery("ptQ");
             var bQ = new EntitySpaces.Generated.BedQuery("bQ");
             var pthQ = new EntitySpaces.Generated.PatientTransferHistoryQuery("pthQ");
-            rQ.InnerJoin(ptQ).On(ptQ.RegistrationNo == rQ.RegistrationNo && ptQ.IsApprove == true && ptQ.FromServiceUnitID == filter.ServiceUnitID)
-                .InnerJoin(bQ).On(bQ.BedID == ptQ.ToBedID && bQ.IsNeedConfirmation == true)
+            rQ.InnerJoin(ptQ).On(ptQ.RegistrationNo == rQ.RegistrationNo && ptQ.IsApprove == true && ptQ.FromServiceUnitID == filter.ServiceUnitID) 
                 .InnerJoin(pthQ).On(pthQ.RegistrationNo == ptQ.RegistrationNo && pthQ.ServiceUnitID == ptQ.ToServiceUnitID && pthQ.BedID == ptQ.ToBedID)
                 .Where(rQ.Or(ptQ.IsValidated.IsNull(), ptQ.IsValidated == false), pthQ.DateOfExit.IsNull());
+
+            if (!isInpatient)
+                rQ.InnerJoin(bQ).On(bQ.BedID == ptQ.ToBedID && bQ.IsNeedConfirmation == true);
         }
 
         [Obsolete]

@@ -1,0 +1,13 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.Patient
+@model PatientInfoViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (Model.getRegistration != null)
+{
+    <div class="border border-secondary p-3">
+        <h3>@Model.getRegistration.PatientName</h3>
+        <p>Details about the patient go here...</p>
+    </div>
+}
