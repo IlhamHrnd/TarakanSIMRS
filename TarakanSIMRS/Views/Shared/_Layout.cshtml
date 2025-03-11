@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TarakanSIMRS</title>
     <partial name="_Styles.cshtml" />
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <partial name="_Header.cshtml" class="fixed-top"/>
@@ -15,5 +16,6 @@
     </div>
     <partial name="_Footer.cshtml" class="fixed-bottom" />
     <partial name="_Scripts.cshtml" />
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
