@@ -1,4 +1,6 @@
 ﻿using System.Data;
+using Tarakan.BusinessObjects.Dto;
+using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
 
 namespace Tarakan.BusinessObjects.Query
@@ -35,6 +37,16 @@ namespace Tarakan.BusinessObjects.Query
                 lastVitalSignDate = Convert.ToDateTime(dr["RecordDate"]);
             }
             return lastVitalSignDate;
+        }
+
+        [Obsolete]
+        public List<VitalSignDto> VitalSignLastValue(string registrationNo, string fromRegistrationNo, bool isWithEwsLevel, DateTime lastDateTime)
+        {
+            var dt = EntitySpaces.Generated.VitalSign.VitalSignLastValue(registrationNo, fromRegistrationNo, isWithEwsLevel, lastDateTime);
+            if (dt.Rows.Count == 0)
+                return [];
+            else
+                return Converter.DataTableToList<VitalSignDto>(dt);
         }
     }
 }

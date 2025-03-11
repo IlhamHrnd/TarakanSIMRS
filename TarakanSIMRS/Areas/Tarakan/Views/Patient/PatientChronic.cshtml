@@ -1,0 +1,13 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.Patient
+@model PatientChronicViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (!string.IsNullOrEmpty(Model.getPatientChronic))
+{
+    <div class="alert-custom" style="background-color: red">
+        <h3 class="mb-1">Chronic Disease :</h3>
+        <div class="glowing m-0">@Model.getPatientChronic <i class="fa-solid fa-triangle-exclamation text-warning"></i></div>
+    </div>
+}

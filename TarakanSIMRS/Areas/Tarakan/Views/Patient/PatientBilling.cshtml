@@ -1,0 +1,15 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.Patient
+@model PatientBillingViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (!string.IsNullOrEmpty(Model.getPatientBilling))
+{
+    <div class="card">
+        <div class="card-header">Billing</div>
+        <div class="card-body">
+            <div class="m-0">@Html.Raw(Model.getPatientBilling)</div>
+        </div>
+    </div>
+}

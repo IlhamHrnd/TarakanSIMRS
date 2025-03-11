@@ -1,0 +1,32 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.Patient
+@model PatientVitalSignViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (Model.getLastVitalSign.Count > 0)
+{
+    <table class="table table-hover table-striped table-striped-columns table-responsive-sm">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.getLastVitalSign)
+            {
+                <tr>
+                    <th scope="row">@item.VitalSignName</th>
+                    <td>@item.RecordDate</td>
+                    <td>@item.RecordTime</td>
+                    <td>@item.QuestionAnswerFormatted</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+}

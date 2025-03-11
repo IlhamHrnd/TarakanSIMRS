@@ -1,0 +1,12 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.Patient
+@model PatientAllergyViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (!string.IsNullOrEmpty(Model.getPatientAllergy))
+{
+    <div class="alert-custom" style="background-color: skyblue">
+        <div>@Html.Raw(Model.getPatientAllergy)</div>
+    </div>
+}

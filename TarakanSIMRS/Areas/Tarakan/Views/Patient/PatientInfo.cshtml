@@ -6,8 +6,47 @@
 
 @if (Model.getRegistration != null)
 {
-    <div class="border border-secondary p-3">
-        <h3>@Model.getRegistration.PatientName</h3>
-        <p>Details about the patient go here...</p>
+    <div class="card">
+        <div class="card-header">@Model.getRegistration.PatientName</div>
+        <div class="card-body">
+            <div class="table-responsive" style="margin: -10px">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Medical No</th>
+                            <td>@Model.getRegistration.MedicalNo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Reg. No</th>
+                            <td>@Model.getRegistration.RegistrationNo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Reg. Date</th>
+                            <td>@Model.getRegistration.RegistrationDate</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gender</th>
+                            <td>@Model.getRegistration.Sex</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">DOB</th>
+                            <td>@Model.getRegistration.DateOfBirth</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Guarantor</th>
+                            <td>@Model.getRegistration.GuarantorName</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Unit</th>
+                            <td>@Model.getRegistration.ServiceUnitName</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Physician</th>
+                            <td>@Model.getRegistration.ParamedicName</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 }

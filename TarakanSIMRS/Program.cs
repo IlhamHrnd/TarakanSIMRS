@@ -43,6 +43,10 @@ builder.Services.AddScoped<ICostCalculation, CostCalculation>();
 builder.Services.AddScoped<IMergeBilling, Mergebilling>();
 builder.Services.AddScoped<IRegistrationInfoSumary, RegistrationInfoSumary>();
 builder.Services.AddScoped<IPatient, Patient>();
+builder.Services.AddScoped<IRegistrationPathway, RegistrationPathway>();
+builder.Services.AddScoped<IEpisodeDiagnose, EpisodeDiagnose>();
+builder.Services.AddScoped<IDiagnose, Diagnose>();
+builder.Services.AddScoped<IMorphology, Morphology>();
 
 var app = builder.Build();
 

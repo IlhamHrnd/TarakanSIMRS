@@ -29,7 +29,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
+                <table id="myTable" class="display table table-striped table-bordered table-hover" style="width:100%">
                     <thead>
                         <tr>
                             <th></th>
@@ -56,16 +56,6 @@
                             foreach (var item in Model.getRegistration)
                             {
                                 <tr>
-                                    @if (Model.IsLoadBillingProgress)
-                                    {
-                                        <td scope="row" colspan="13">@Html.Raw(HealthRecord.StateEMRList(item, "title"))</td>
-                                    }
-                                    else
-                                    {
-                                        <td scope="row" colspan="12">@Html.Raw(HealthRecord.StateEMRList(item, "title"))</td>
-                                    }
-                                </tr>
-                                <tr>
                                     <td>@Html.Raw(HealthRecord.StateEMRList(item, "detail"))</td>
                                     <td>@item.RegistrationDate @item.RegistrationTime</td>
                                     <td>@item.RegistrationQue</td>
@@ -89,7 +79,7 @@
                                     <td>
                                         @Html.Raw(HealthRecord.StateEMRList(item, "confirm"))
                                         @Html.Raw(HealthRecord.StateEMRList(item, "finish"))
-                                        @Html.Raw(HealthRecord.StateEMRList(item, "note")) 
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "note"))
                                         @Html.Raw(HealthRecord.StateEMRList(item, "medication"))
                                         @Html.Raw(HealthRecord.StateEMRList(item, "history"))
                                         @Html.Raw(HealthRecord.StateEMRList(item, "print"))
@@ -104,6 +94,9 @@
                             }
                         }
                     </tbody>
+                    <tfoot>
+                        
+                    </tfoot>
                 </table>
             </div>
 

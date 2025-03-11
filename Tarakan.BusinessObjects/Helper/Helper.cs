@@ -1,5 +1,7 @@
 ﻿using EntitySpaces.Interfaces;
+using System.Data;
 using System.Globalization;
+using System.Reflection;
 using System.Security.Cryptography;
 using Inter = EntitySpaces.Loader;
 
@@ -19,6 +21,29 @@ namespace Tarakan.BusinessObjects.Helper
 
     public static class Converter
     {
+        public static List<T> DataTableToList<T>(this DataTable table) where T : new()
+        {
+            var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var columnNames = table.Columns.Cast<DataColumn>().Select(c => c.ColumnName).ToList();
+
+            var list = new List<T>();
+
+            foreach (DataRow row in table.Rows)
+            {
+                var obj = new T();
+                foreach (var prop in properties)
+                {
+                    if (columnNames.Contains(prop.Name) && row[prop.Name] != DBNull.Value)
+                    {
+                        prop.SetValue(obj, Convert.ChangeType(row[prop.Name], prop.PropertyType));
+                    }
+                }
+                list.Add(obj);
+            }
+
+            return list;
+        }
+
         public static string EscapeQuery(string value)
         {
             return value.Replace("'", "''");

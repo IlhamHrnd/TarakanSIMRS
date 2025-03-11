@@ -2,6 +2,42 @@
     alert("Hello! I am an alert box!");
 }
 
+$(document).ready(function () {
+    $('#myTable').DataTable();
+});
+
+const ctx = document.getElementById('myChart');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        animations: {
+            tension: {
+                duration: 1000,
+                easing: 'linear',
+                from: 1,
+                to: 0,
+                loop: true
+            }
+        },
+        interaction: {
+            mode: 'index'
+        }
+    }
+});
+
 //Partial View
 $(document).ready(function () {
     $("#loadPartialFilter").click(function () {

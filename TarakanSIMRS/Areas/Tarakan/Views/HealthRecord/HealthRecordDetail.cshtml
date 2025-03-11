@@ -8,52 +8,67 @@
     <script src="~/js/HealthRecord/HealthRecordDetail.js"></script>
     <script>
         var regNo = "@Model.regNo";
+        var patId = "@Model.patId";
+        var riskStatus = "@Model.srRiskStatus";
+        var isModeText = "true";
+        var fromRegNo = "@Model.fromRegNo";
     </script>
 }
 
-<div class="d-flex" id="wrapper">
-    <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="sidebar-heading border-bottom bg-light"><i class="fa-solid fa-book-medical fa-beat"></i> Health Record</div>
-        <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!" id="patientInfo"></a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
-        </div>
+<div class="container">
+    <div class="d-flex flex-wrap gap-2">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="#" data-bs-toggle="offcanvas" data-bs-target="#patientDetail" aria-controls="patientDetail"><i class="fa-solid fa-circle-info"></i> Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="backToList()"><i class="fa-solid fa-bars"></i> Back To List</a>
+            </li>
+        </ul>
     </div>
-    <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <div class="container-fluid">
-                <button class="btn btn-primary" id="sidebarToggle">Patient Information</button>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                        <li class="nav-item active"><a href="#" class="nav-link" onclick="backToList()">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#!">Action</a>
-                                <a class="dropdown-item" href="#!">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#!">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container-fluid">
-            <h1 class="mt-4">Simple Sidebar</h1>
-            <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-            <p>
-                Make sure to keep all page content within the
-                <code>#page-content-wrapper</code>
-                . The top navbar is optional, and just for demonstration. Just create an element with the
-                <code>#sidebarToggle</code>
-                ID which will toggle the menu when clicked.
-            </p>
+    <div class="mt-3">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="#"><i class="fa-solid fa-notes-medical"></i> Integrated Notes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-prescription-bottle-medical"></i> Medication</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-clock-rotate-left"></i> Surgical History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Exam Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Health Record</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Care Plan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Scheduling</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="patientDetail" aria-labelledby="patientDetailLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="patientDetailLabel">@ViewData["Title"]</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="patientInfo"></li>
+                <li class="list-group-item" id="patientChronic"></li>
+                <li class="list-group-item" id="patientRiskStatus"></li>
+                <li class="list-group-item" id="patientPathway"></li>
+                <li class="list-group-item" id="patientBilling"></li>
+                <li class="list-group-item" id="patientAllergy"></li>
+                <li class="list-group-item" id="patientDiagnose"></li>
+                <li class="list-group-item" id="patientVitalSign"></li>
+            </ul>
         </div>
     </div>
 </div>
