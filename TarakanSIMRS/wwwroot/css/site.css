@@ -18,7 +18,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  padding-top: 10px;
+  padding-bottom: 40px;
 }
 
 @keyframes blinkingText {
@@ -41,6 +42,10 @@ body {
     100% {
         opacity: 1;
     }
+}
+
+.active {
+    background-color: #007bff;
 }
 
 .blinking {

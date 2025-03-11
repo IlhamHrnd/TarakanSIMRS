@@ -1,4 +1,5 @@
 ﻿using EntitySpaces.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Globalization;
 using System.Reflection;
@@ -327,6 +328,29 @@ namespace Tarakan.BusinessObjects.Helper
                 objKey[intCount] = Convert.ToByte(Convert.ToChar(strPassword.Substring(intCount, 1)));
             }
             return objKey;
+        }
+    }
+
+    public static class ControllerHelper
+    {
+        public static string MakeActiveClass(this IUrlHelper urlHelper, string controller, string action)
+        {
+            try
+            {
+                string controllerName = urlHelper.ActionContext.RouteData.Values["controller"].ToString();
+                string methodName = urlHelper.ActionContext.RouteData.Values["action"].ToString();
+                if (string.IsNullOrEmpty(controllerName) || string.IsNullOrEmpty(methodName))
+                    return string.Empty;
+
+                if (controllerName.Equals(controller) && methodName.Equals(action))
+                    return "active";
+
+                return string.Empty;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
         }
     }
 }

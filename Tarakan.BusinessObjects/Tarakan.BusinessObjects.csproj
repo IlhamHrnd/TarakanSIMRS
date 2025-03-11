@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="EntitySpaces.ORM.SqlServer" Version="2020.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
