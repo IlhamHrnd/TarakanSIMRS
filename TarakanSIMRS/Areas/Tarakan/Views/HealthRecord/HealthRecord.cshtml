@@ -1,9 +1,6 @@
 ﻿@using Tarakan.BusinessObjects.Custom
 @using TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
 @model HealthRecordViewModel
-@{
-    ViewData["Title"] = "Dashboard";
-}
 
 @section Scripts {
     <script src="~/js/HealthRecord/HealthRecord.js"></script>
@@ -29,7 +26,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="myTable" class="display table table-striped table-bordered table-hover" style="width:100%">
+                <table id="listTable" class="display table table-striped table-bordered table-hover" style="width:100%">
                     <thead>
                         <tr>
                             <th></th>

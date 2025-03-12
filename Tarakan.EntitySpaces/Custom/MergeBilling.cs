@@ -20,31 +20,33 @@ namespace Tarakan.EntitySpaces.Generated
             decimal costDifferenct = totalPlafond - tguarantor;
             if (usedInPercent == 0) return string.Empty;
 
-            if (isModeText)
-                return string.Format(@"<table style='font-weight:bold;'>
-                            <tr>
-                                <td style='width:70px;'>Plafond</td><td>&nbsp;:&nbsp;</td>
-                                <td style='width:70px;text-align:right;'>{0:n}</td>
-                            </tr>
-                            <tr>
-                                <td>Billing</td><td>&nbsp;:&nbsp;</td>
-                                <td style='width:70px;text-align:right;'>{1:n}</td>
-                            </tr>
-                            <tr>
-                                <td style='width:70px;'>Cost Different</td><td>&nbsp;:&nbsp;</td>
-                                <td style='width:70px;text-align:right;'>{2:n}</td>
-                            </tr>
-                        </table>", totalPlafond, tguarantor + tpatient, costDifferenct);
-            else
-                return string.Format(@"<div title='G: [{3:N2}] P: [{4:N2}] F: [{5:N2}]' style='background:black;width: 100%; padding: 1px'>
-                            <div style='background:{0};color:Black;width: {1}%'>{2}</div>
-                        </div>",
-                            usedInPercent > 100 ? "red" : usedInPercent > 75 ? "yellow" : "green",
-                            usedInPercent > 100 ? 100 : usedInPercent,
-                            usedInPercent > 300 ? ">300%" : string.Format("{0:n2}%", usedInPercent),
-                            tguarantor,
-                            tpatient,
-                            totalPlafond);
+            string result = isModeText
+                ? $@"<table style='font-weight:bold;'>
+                        <tr>
+                            <td style='width:100px;'>Plafond Progress</td><td>&nbsp;:&nbsp;</td>
+                            <td>
+                                <div title='G: [{tguarantor:N2}] P: [{(decimal)0:N2}] F: [{totalPlafond:N2}]' style='background:black;width: 100%; padding: 1px'>
+                                    <div style='background:{(usedInPercent > 100 ? "red" : usedInPercent > 75 ? "yellow" : "green")};color:Black;width: {(usedInPercent > 100 ? 100 : usedInPercent)}%'>{(usedInPercent > 300 ? ">300%" : $"{usedInPercent:n2}%")}</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style='width:100px;'>Plafond</td><td>&nbsp;:&nbsp;</td>
+                            <td style='width:70px;text-align:right;'>{totalPlafond:n}</td>
+                        </tr>
+                        <tr>
+                            <td style='width:100px;'>Billing</td><td>&nbsp;:&nbsp;</td>
+                            <td style='width:70px;text-align:right;'>{tguarantor + 0:n}</td>
+                        </tr>
+                        <tr>
+		                    <td style='width:100px;'>Cost Different</td><td>&nbsp;:&nbsp;</td>
+		                    <td style='width:70px;text-align:right;'>{costDifferenct:n}</td>
+	                    </tr>
+                    </table>"
+                : $@"<div title='G: [{tguarantor:N2}] P: [{(decimal)0:N2}] F: [{totalPlafond:N2}]' style='background:black;width: 100%; padding: 1px'>
+                        <div style='background:{(usedInPercent > 100 ? "red" : usedInPercent > 75 ? "yellow" : "green")};color:Black;width: {(usedInPercent > 100 ? 100 : usedInPercent)}%'>{(usedInPercent > 300 ? ">300%" : $"{usedInPercent:n2}%")}</div>
+                    </div>";
+            return result;
         }
 
         [Obsolete]

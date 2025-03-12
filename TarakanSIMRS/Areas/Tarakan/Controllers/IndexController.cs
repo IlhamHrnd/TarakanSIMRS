@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Tarakan.BusinessObjects.Interface;
 
 namespace TarakanSIMRS.Areas.Tarakan.Controllers
 {
@@ -9,7 +10,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     [Authorize]
     public class IndexController : BaseController
     {
-        public IndexController(IConfiguration config) : base(config)
+        public IndexController(IConfiguration config, IAppProgram appProgram, IRegistration registration) : base(config, appProgram, registration)
         {
 
         }

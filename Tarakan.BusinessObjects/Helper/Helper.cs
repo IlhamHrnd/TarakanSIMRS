@@ -34,9 +34,11 @@ namespace Tarakan.BusinessObjects.Helper
                 var obj = new T();
                 foreach (var prop in properties)
                 {
-                    if (columnNames.Contains(prop.Name) && row[prop.Name] != DBNull.Value)
+                    if (columnNames.Contains(prop.Name) && row[prop.Name] != DBNull.Value && row[prop.Name] != null)
                     {
-                        prop.SetValue(obj, Convert.ChangeType(row[prop.Name], prop.PropertyType));
+                        Type propertyType = prop.PropertyType;
+                        Type targetType = Nullable.GetUnderlyingType(propertyType) ?? propertyType;
+                        prop.SetValue(obj, Convert.ChangeType(row[prop.Name], targetType));
                     }
                 }
                 list.Add(obj);
@@ -328,29 +330,6 @@ namespace Tarakan.BusinessObjects.Helper
                 objKey[intCount] = Convert.ToByte(Convert.ToChar(strPassword.Substring(intCount, 1)));
             }
             return objKey;
-        }
-    }
-
-    public static class ControllerHelper
-    {
-        public static string MakeActiveClass(this IUrlHelper urlHelper, string controller, string action)
-        {
-            try
-            {
-                string controllerName = urlHelper.ActionContext.RouteData.Values["controller"].ToString();
-                string methodName = urlHelper.ActionContext.RouteData.Values["action"].ToString();
-                if (string.IsNullOrEmpty(controllerName) || string.IsNullOrEmpty(methodName))
-                    return string.Empty;
-
-                if (controllerName.Equals(controller) && methodName.Equals(action))
-                    return "active";
-
-                return string.Empty;
-            }
-            catch (Exception)
-            {
-                return string.Empty;
-            }
         }
     }
 }

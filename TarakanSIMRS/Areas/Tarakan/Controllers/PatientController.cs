@@ -16,7 +16,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         private readonly IEpisodeDiagnose _episodeDiagnose;
         private readonly IVitalSign _vitalSign;
         public PatientController(IConfiguration config, IRegistration registration, IPatient patient, IRegistrationPathway registrationPathway,
-            IMergeBilling mergeBilling, IEpisodeDiagnose episodeDiagnose, IVitalSign vitalSign) : base(config)
+            IMergeBilling mergeBilling, IEpisodeDiagnose episodeDiagnose, IVitalSign vitalSign, IAppProgram appProgram) : base(config, appProgram, registration)
         {
             _registration = registration;
             _patient = patient;

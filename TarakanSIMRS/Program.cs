@@ -47,6 +47,9 @@ builder.Services.AddScoped<IRegistrationPathway, RegistrationPathway>();
 builder.Services.AddScoped<IEpisodeDiagnose, EpisodeDiagnose>();
 builder.Services.AddScoped<IDiagnose, Diagnose>();
 builder.Services.AddScoped<IMorphology, Morphology>();
+builder.Services.AddScoped<IAppProgram, AppProgram>();
+builder.Services.AddScoped<IPatientRelated, PatientRelated>();
+builder.Services.AddScoped<IRegistrationInfoMedic, RegistrationInfoMedic>();
 
 var app = builder.Build();
 

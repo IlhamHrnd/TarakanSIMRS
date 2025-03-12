@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Newtonsoft.Json;
+using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
+using Tarakan.BusinessObjects.Interface;
 using TarakanSIMRS.Areas.Tarakan.Models;
 
 namespace TarakanSIMRS.Areas.Tarakan.Controllers
@@ -8,9 +11,13 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     public class BaseController : Controller
     {
         private readonly IConfiguration _config;
-        public BaseController(IConfiguration config)
+        private readonly IAppProgram _appProgram;
+        protected readonly IRegistration _registration;
+        public BaseController(IConfiguration config, IAppProgram appProgram, IRegistration registration)
         {
             _config = config;
+            _appProgram = appProgram;
+            _registration = registration;
         }
 
         //Variabel
@@ -26,31 +33,62 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         protected BaseModel baseModel { get; set; }
         protected bool IsLoadBillingProgress { get; set; }
         protected bool IsLoginDoctor { get; set; }
+        protected AppProgramDto baseAppProgram { get; set; }
+        protected bool IsUserVisible { get; set; }
+        protected List<string> MergeRegistration { get; set; }
+        protected void SetSessionData<T>(string key, T data)
+        {
+            HttpContext.Session.SetString(key, JsonConvert.SerializeObject(data));
+        }
+
+        protected T? GetSessionData<T>(string key)
+        {
+            var value = HttpContext.Session.GetString(key);
+            return value == null ? default : JsonConvert.DeserializeObject<T>(value);
+        }
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
-
+            
             //Query String
             Page = !string.IsNullOrEmpty(Request.Query["currentPage"]) ? Converter.StringToInt(Request.Query["currentPage"]) : 1;
-            RegType = Request.Query["regType"];
-            RegNo = Request.Query["regNo"];
-            ParId = Request.Query["parId"];
-            SuId = Request.Query["suId"];
-            RoomId = Request.Query["roomId"];
-            PatId = Request.Query["patId"];
+            PageSize = !string.IsNullOrEmpty(Request.Query["pageSize"]) ? Converter.StringToInt(Request.Query["pageSize"]) : 1;
             IsDoctorDuty = Request.Query["isDocDuty"] == "True" || Request.Query["isDocDuty"] == "Yes";
+            string? programId = Request.Query.ContainsKey("pgId") && !string.IsNullOrEmpty(Request.Query["pgId"]) ? Request.Query["pgId"].ToString() : ViewData["pgId"]?.ToString();
 
             //View Bag
             ViewData["currentPage"] = Page;
             ViewData["pageSize"] = PageSize;
-            ViewData["regType"] = RegType;
-            ViewData["regNo"] = RegNo;
-            ViewData["parId"] = ParId;
-            ViewData["suId"] = SuId;
-            ViewData["roomId"] = RoomId;
-            ViewData["patId"] = PatId;
-            ViewData["isDocDuty"] = IsDoctorDuty;
+            ViewData["isDoctorDuty"] = PageSize;
+            ViewData["pgId"] = programId;
+
+            //Save Session
+            if (!string.IsNullOrEmpty(Request.Query["RegNo"]))
+                SetSessionData<string>("RegNo", Request.Query["RegNo"]);
+
+            if (!string.IsNullOrEmpty(Request.Query["regType"]))
+                SetSessionData<string>("RegType", Request.Query["regType"]);
+
+            if (!string.IsNullOrEmpty(Request.Query["parId"]))
+                SetSessionData<string>("ParId", Request.Query["parId"]);
+
+            if (!string.IsNullOrEmpty(Request.Query["suId"]))
+                SetSessionData<string>("SuId", Request.Query["suId"]);
+
+            if (!string.IsNullOrEmpty(Request.Query["RoomId"]))
+                SetSessionData<string>("RoomId", Request.Query["RoomId"]);
+
+            if (!string.IsNullOrEmpty(Request.Query["patId"]))
+                SetSessionData<string>("PatId", Request.Query["patId"]);
+
+            //Retrieve Session
+            RegNo = GetSessionData<string>("RegNo");
+            RegType = GetSessionData<string>("RegType");
+            ParId = GetSessionData<string>("ParId");
+            SuId = GetSessionData<string>("SuId");
+            RoomId = GetSessionData<string>("RoomId");
+            PatId = GetSessionData<string>("PatId");
 
             //User
             if (User.Identity.IsAuthenticated)
@@ -69,6 +107,15 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             //Condition
             IsLoadBillingProgress = _config["Tarakan:IsLoadBillingProgress"].ToLower() == "true" || _config["Tarakan:IsLoadBillingProgress"].ToLower() == "yes";
             IsLoginDoctor = baseModel.Role == Const.Doctor && !string.IsNullOrEmpty(baseModel.ParamedicID);
+
+            //Load Program
+            baseAppProgram = _appProgram.LoadAppProgram(programId);
+            if (baseAppProgram != null && !string.IsNullOrEmpty(baseAppProgram.ProgramName))
+                ViewData["Title"] = baseAppProgram.ProgramName;
+
+            IsUserVisible = _appProgram.IsUserProgramAllow(baseModel.UserID, programId);
+            if (!string.IsNullOrEmpty(RegNo))
+                MergeRegistration = _registration.MergeRegistration(RegNo);
         }
     }
 }

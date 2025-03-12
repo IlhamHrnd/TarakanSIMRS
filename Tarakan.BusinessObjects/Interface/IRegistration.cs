@@ -10,5 +10,7 @@ namespace Tarakan.BusinessObjects.Interface
         string RegistrationTransferStatus(bool isAlreadyTransfer, string transferNo);
         string SoapEntryStatus(string regNo, string parId, string regType);
         RegistrationDto LoadByPrimaryKey(string regNo);
+        List<string> RegistrationNos(string patId, int lastCount, string startRegNo);
+        List<string> MergeRegistration(string regNo);
     }
 }

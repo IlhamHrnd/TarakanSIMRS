@@ -1,8 +1,5 @@
 ﻿@using TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
 @model HealtRecordDetailViewModel
-@{
-    ViewData["Title"] = "HealthRecordDetail";
-}
 
 @section Scripts {
     <script src="~/js/HealthRecord/HealthRecordDetail.js"></script>
@@ -30,6 +27,7 @@
         <ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="nav-link active" href="#"><i class="fa-solid fa-notes-medical"></i> Integrated Notes</a>
+                <div id="patientIntegratedNote"></div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa-solid fa-prescription-bottle-medical"></i> Medication</a>
@@ -68,6 +66,7 @@
                 <li class="list-group-item" id="patientAllergy"></li>
                 <li class="list-group-item" id="patientDiagnose"></li>
                 <li class="list-group-item" id="patientVitalSign"></li>
+                <li class="list-group-item" id="patientIntegratedNote"></li>
             </ul>
         </div>
     </div>

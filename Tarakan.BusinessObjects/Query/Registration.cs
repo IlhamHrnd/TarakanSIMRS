@@ -26,13 +26,15 @@ namespace Tarakan.BusinessObjects.Query
         private readonly IParamedic _paramedic;
         private readonly IServiceUnit _serviceUnit;
         private readonly IVitalSign _vitalSign;
+        private readonly IPatientRelated _patientRelated;
 
-        public Registration(IAppParameter appParameter, IParamedic paramedic, IServiceUnit serviceUnit, IVitalSign vitalSign)
+        public Registration(IAppParameter appParameter, IParamedic paramedic, IServiceUnit serviceUnit, IVitalSign vitalSign, IPatientRelated patientRelated)
         {
             _appParameter = appParameter;
             _paramedic = paramedic;
             _serviceUnit = serviceUnit;
             _vitalSign = vitalSign;
+            _patientRelated = patientRelated;
         }
 
         [Obsolete]
@@ -399,6 +401,59 @@ namespace Tarakan.BusinessObjects.Query
             };
 
             return rDto;
+        }
+
+        public List<string> RegistrationNos(string patId, int lastCount, string startRegNo)
+        {
+            var rQ = new EntitySpaces.Generated.RegistrationQuery("rQ");
+            rQ.Select(rQ.RegistrationNo)
+                .OrderBy(rQ.RegistrationDate.Descending, rQ.RegistrationTime.Descending)
+                .Top(lastCount);
+
+            var patRelated = _patientRelated.PatientRelateds(patId);
+            if (patRelated.Count == 1)
+                rQ.Where(rQ.PatientID == patId);
+            else
+                rQ.Where(rQ.PatientID.In(patRelated));
+
+            if (!string.IsNullOrEmpty(startRegNo))
+            {
+                var r = new EntitySpaces.Generated.Registration();
+                if (r.LoadByPrimaryKey(startRegNo))
+                    rQ.Where(rQ.RegistrationDate <= r.RegistrationDate);
+                else
+                    rQ.Where(rQ.RegistrationNo <= startRegNo);
+            }
+            rQ.Where(rQ.IsVoid == false, rQ.IsFromDispensary == false, rQ.IsDirectPrescriptionReturn == false, rQ.IsNonPatient == false);
+            var dtb = rQ.LoadDataTable();
+            var regs = new List<string>();
+            if (dtb != null && dtb.Rows.Count > 0)
+            {
+                regs.AddRange(from DataRow row in dtb.Rows
+                              select row[0].ToString());
+            }
+            return regs;
+        }
+
+        public List<string> MergeRegistration(string regNo)
+        {
+            var regs = new List<string>();
+
+            if (string.IsNullOrEmpty(regNo))
+                return regs;
+
+            var r = new EntitySpaces.Generated.Registration();
+            if (!r.LoadByPrimaryKey(regNo))
+                return regs;
+            else
+                regs.Add(regNo);
+
+            AddToRelatedRegistrations(regs, regNo);
+
+            if (!string.IsNullOrEmpty(r.FromRegistrationNo))
+                AddFromRelatedRegistration(regs, r.FromRegistrationNo);
+
+            return regs;
         }
 
         #region Registration Query
@@ -1259,6 +1314,38 @@ namespace Tarakan.BusinessObjects.Query
                 ptQ.Or(ptQ.IsValidated.IsNull(), ptQ.IsValidated == false), pthQ.DateOfExit.IsNull(), ptQ.ToBedID == bedID)
                 .Select(ptQ.TransferNo, ptQ.FromServiceUnitID);
             return ptQ.LoadDataTable();
+        }
+
+        private void AddToRelatedRegistrations(List<string> regs, string regNo)
+        {
+            var r = new EntitySpaces.Generated.Registration();
+            if (string.IsNullOrEmpty(regNo) || !r.LoadByPrimaryKey(regNo))
+                return;
+
+            var rQ = new EntitySpaces.Generated.RegistrationQuery("rQ");
+            rQ.Select(rQ.RegistrationNo)
+                .Where(rQ.FromRegistrationNo == regNo);
+            foreach (DataRow dr in rQ.LoadDataTable().Rows)
+            {
+                if (!regs.Contains((string)dr["RegistrationNo"]))
+                {
+                    regs.Add((string)dr["RegistrationNo"]);
+                    AddToRelatedRegistrations(regs, (string)dr["RegistrationNo"]);
+                }
+            }
+        }
+
+        private void AddFromRelatedRegistration(List<string> regs, string regNo)
+        {
+            var r = new EntitySpaces.Generated.Registration();
+            if (string.IsNullOrEmpty(regNo) || !r.LoadByPrimaryKey(regNo))
+                return;
+
+            regs.Add(regNo);
+            if (!string.IsNullOrEmpty(r.FromRegistrationNo))
+                AddFromRelatedRegistration(regs, r.FromRegistrationNo);
+
+            AddToRelatedRegistrations(regs, regNo);
         }
         #endregion
     }

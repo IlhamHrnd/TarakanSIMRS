@@ -106,4 +106,17 @@ $(document).ready(function () {
             console.error("Error loading PatientController:", error);
         }
     });
+
+    $.ajax({
+        url: "/Tarakan/Integrated/IntegratedNote",
+        type: "GET",
+        contentType: "application/json",
+        data: { },
+        success: function (data) {
+            $("#patientIntegratedNote").html(data);
+        },
+        error: function (xhr, status, error) {
+            console.error("Error loading PatientController:", error);
+        }
+    });
 });
