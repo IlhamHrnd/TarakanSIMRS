@@ -1,42 +1,7 @@
 ﻿@using TarakanSIMRS.Areas.Tarakan.Models.Integrated
 @model IntegratedNoteViewModel
-@section Scripts {
-    <script src="~/js/Integrated/IntegratedNote.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#integratedNoteTable').DataTable();
-        });
-    </script>
-}
 
 @if (Model.getIntegratedNote.Count > 0)
 {
-    <div class="table-responsive">
-        <table id="integratedNoteTable" class="display table table-striped table-bordered table-hover" style="width:100%">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Reg. Date</th>
-                    <th>Que</th>
-                    <th>MRN / Reg No</th>
-                    <th>Patient Name</th>
-                    <th>Gdr</th>
-                    <th>Room / Bed</th>
-                    <th>Refer</th>
-                    <th>TRG</th>
-                    <th>SOAP</th>
-                    <th>Menu</th>
-                    <th>Risk</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.getIntegratedNote)
-                {
-                    <tr>
-                        <td>@item.RegistrationNo @item.RegistrationInfoMedicId</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+    
 }

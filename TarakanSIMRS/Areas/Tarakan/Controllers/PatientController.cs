@@ -9,7 +9,6 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     [Authorize]
     public class PatientController : BaseController
     {
-        private readonly IRegistration _registration;
         private readonly IPatient _patient;
         private readonly IRegistrationPathway _registrationPathway;
         private readonly IMergeBilling _mergeBilling;
@@ -18,7 +17,6 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         public PatientController(IConfiguration config, IRegistration registration, IPatient patient, IRegistrationPathway registrationPathway,
             IMergeBilling mergeBilling, IEpisodeDiagnose episodeDiagnose, IVitalSign vitalSign, IAppProgram appProgram) : base(config, appProgram, registration)
         {
-            _registration = registration;
             _patient = patient;
             _registrationPathway = registrationPathway;
             _mergeBilling = mergeBilling;
@@ -27,94 +25,90 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         }
 
         [HttpGet]
-        public IActionResult PatientInfo(string regNo)
+        public IActionResult PatientInfo()
         {
-            if (string.IsNullOrEmpty(regNo))
-                return BadRequest("Invalid request");
-
             var model = new PatientInfoViewModel
             {
-                getRegistration = _registration.LoadByPrimaryKey(regNo)
+                getRegistration = _registration.LoadByPrimaryKey(RegNo)
             };
 
             return PartialView(model);
         }
 
         [HttpGet]
-        public IActionResult PatientChronic(string patId)
+        public IActionResult PatientChronic()
         {
-            if (string.IsNullOrEmpty(patId))
-                return BadRequest("Invalid request");
-
             var model = new PatientChronicViewModel
             {
-                getPatientChronic = _patient.PatientChronic(patId)
+                getPatientChronic = _patient.PatientChronic(PatId)
             };
 
             return PartialView(model);
         }
 
         [HttpGet]
-        public IActionResult PatientRiskStatus(string srRiskStatus)
+        public IActionResult PatientRiskStatus()
         {
+            var reg = _registration.LoadByPrimaryKey(RegNo);
             var model = new PatientRiskStatusViewModel
             {
-                getRiskStatus = _patient.PatientRisk(srRiskStatus)
+                getRiskStatus = _patient.PatientRisk(reg.SRPatientRiskStatus)
             };
 
             return PartialView(model);
         }
 
         [HttpGet]
-        public IActionResult PatientPathway(string regNo)
+        public IActionResult PatientPathway()
         {
             var model = new PatientPathwayViewModel
             {
-                getPatientPathway = _registrationPathway.GetRegistrationPathwayName(regNo)
+                getPatientPathway = _registrationPathway.GetRegistrationPathwayName(RegNo)
             };
 
             return PartialView(model);
         }
 
         [HttpGet]
-        public IActionResult PatientBilling(string regNo, bool isModeText)
+        public IActionResult PatientBilling(bool isModeText)
         {
             var model = new PatientBillingViewModel
             {
-                getPatientBilling = _mergeBilling.PlafondProgress(regNo, isModeText)
+                getPatientBilling = _mergeBilling.PlafondProgress(RegNo, isModeText)
             };
 
             return PartialView(model);
         }
 
         [HttpGet]
-        public IActionResult PatientAllergy(string patId)
+        public IActionResult PatientAllergy()
         {
             var model = new PatientAllergyViewModel
             {
-                getPatientAllergy = _patient.PatientAllergy(patId)
+                getPatientAllergy = _patient.PatientAllergy(PatId)
             };
 
             return PartialView(model);
         }
 
         [HttpGet]
-        public IActionResult PatientDiagnoseSummary(string regNo)
+        public IActionResult PatientDiagnoseSummary()
         {
             var model = new PatientDiagnoseSummary
             {
-                getPatientDiagnoses = _episodeDiagnose.DiagnoseSummary(regNo)
+                getPatientDiagnoses = _episodeDiagnose.DiagnoseSummary(RegNo)
             };
 
             return PartialView(model);
         }
 
         [HttpGet]
-        public IActionResult PatientVitalSign(string regNo, string fromRegNo)
+        public IActionResult PatientVitalSign()
         {
+            var reg = _registration.LoadByPrimaryKey(RegNo);
             var model = new PatientVitalSignViewModel
             {
-                getLastVitalSign = _vitalSign.VitalSignLastValue(regNo, fromRegNo, false, DateTime.Now)
+                getLastVitalSign = _vitalSign.VitalSignLastValue(reg.RegistrationNo, reg.FromRegistrationNo, false, DateTime.Now)
             };
 
             return PartialView(model);

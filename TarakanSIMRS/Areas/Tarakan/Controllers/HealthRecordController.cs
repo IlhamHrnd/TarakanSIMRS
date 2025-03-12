@@ -12,19 +12,15 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     [Authorize]
     public class HealthRecordController : BaseController
     {
-        private readonly IRegistration _registration;
         private readonly IParamedic _paramedic;
         private readonly IAppStandardReferenceItem _appStandardReferenceItem;
         private readonly IServiceUnit _serviceUnit;
-        private readonly IRegistrationInfoMedic _registrationInfoMedic;
         public HealthRecordController(IRegistration registration, IParamedic paramedic, IAppStandardReferenceItem appStandardReferenceItem, IServiceUnit serviceUnit,
-            IConfiguration config, IAppProgram appProgram, IRegistrationInfoMedic registrationInfoMedic) : base(config, appProgram, registration)
+            IConfiguration config, IAppProgram appProgram) : base(config, appProgram, registration)
         {
-            _registration = registration;
             _paramedic = paramedic;
             _appStandardReferenceItem = appStandardReferenceItem;
             _serviceUnit = serviceUnit;
-            _registrationInfoMedic = registrationInfoMedic;
         }
 
         public IActionResult HealthRecord()
@@ -40,13 +36,9 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
 
         public IActionResult HealthRecordDetail()
         {
-            var reg = _registration.LoadByPrimaryKey(RegNo);
             var model = new HealtRecordDetailViewModel
             {
-                regNo = RegNo,
-                patId = PatId,
-                srRiskStatus = reg.SRPatientRiskStatus,
-                fromRegNo = reg.FromRegistrationNo
+
             };
 
             return View(model);

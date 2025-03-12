@@ -93,18 +93,22 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             //User
             if (User.Identity.IsAuthenticated)
             {
-                baseModel = new BaseModel
-                {
-                    UserID = User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value,
-                    Username = User.Claims.FirstOrDefault(c => c.Type == "Username")?.Value,
-                    ParamedicID = User.Claims.FirstOrDefault(c => c.Type == "ParamedicID")?.Value,
-                    ServiceUnitID = User.Claims.FirstOrDefault(c => c.Type == "ServiceUnitID")?.Value,
-                    PersonID = User.Claims.FirstOrDefault(c => c.Type == "PersonID")?.Value,
-                    Role = User.Claims.FirstOrDefault(c => c.Type == "Role")?.Value
-                };
+                var model = GetSessionData<BaseModel>("BaseModel");
+                if (model == null)
+                    SetSessionData<BaseModel>("BaseModel", baseModel = new BaseModel
+                    {
+                        UserID = User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value,
+                        Username = User.Claims.FirstOrDefault(c => c.Type == "Username")?.Value,
+                        ParamedicID = User.Claims.FirstOrDefault(c => c.Type == "ParamedicID")?.Value,
+                        ServiceUnitID = User.Claims.FirstOrDefault(c => c.Type == "ServiceUnitID")?.Value,
+                        PersonID = User.Claims.FirstOrDefault(c => c.Type == "PersonID")?.Value,
+                        Role = User.Claims.FirstOrDefault(c => c.Type == "Role")?.Value
+                    });
+                else
+                    baseModel = model;
             }
 
-            //Condition
+                //Condition
             IsLoadBillingProgress = _config["Tarakan:IsLoadBillingProgress"].ToLower() == "true" || _config["Tarakan:IsLoadBillingProgress"].ToLower() == "yes";
             IsLoginDoctor = baseModel.Role == Const.Doctor && !string.IsNullOrEmpty(baseModel.ParamedicID);
 

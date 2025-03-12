@@ -6,99 +6,93 @@
     <script src="~/js/HealthRecord/HealthRecord.js"></script>
 }
 
-<div class="container">
-    <div class="card" style="margin: 5px auto;">
-        <div class="card-header">
-            <div style="margin: 5px 0px;">
-                <button class="btn btn-primary" type="button" id="loadPartialFilter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg> Search Filter
-                </button>
-                <div class="modal fade bd-example-modal-xl" id="filterModal" tabindex="-1" aria-hidden="true" role="dialog" aria-labelledby="titleFilter">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div id="filterContent"></div>
-                        </div>
+<div class="card">
+    <div class="card-header">
+        <div style="margin: 5px 0px;">
+            <button class="btn btn-primary" type="button" id="loadPartialFilter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg> Search Filter
+            </button>
+            <div class="modal fade bd-example-modal-xl" id="filterModal" tabindex="-1" aria-hidden="true" role="dialog" aria-labelledby="titleFilter">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div id="filterContent"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table id="listTable" class="display table table-striped table-bordered table-hover" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Reg. Date</th>
-                            <th>Que</th>
-                            <th>MRN / Reg No</th>
-                            <th>Patient Name</th>
-                            <th>Gdr</th>
-                            <th>Room / Bed</th>
-                            <th>Refer</th>
-                            <th>TRG</th>
-                            <th>SOAP</th>
-                            <th>Menu</th>
-                            <th>Risk</th>
-                            @if (Model.IsLoadBillingProgress)
-                            {
-                                <th>Plafond Progress</th>
-                            }
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (Model.getRegistration != null)
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="listTable" class="display table table-striped table-bordered table-hover" style="width:100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Reg. Date</th>
+                        <th>Que</th>
+                        <th>MRN / Reg No</th>
+                        <th>Patient Name</th>
+                        <th>Gdr</th>
+                        <th>Room / Bed</th>
+                        <th>Refer</th>
+                        <th>TRG</th>
+                        <th>SOAP</th>
+                        <th>Menu</th>
+                        <th>Risk</th>
+                        @if (Model.IsLoadBillingProgress)
                         {
-                            foreach (var item in Model.getRegistration)
-                            {
-                                <tr>
-                                    <td>@Html.Raw(HealthRecord.StateEMRList(item, "detail"))</td>
-                                    <td>@item.RegistrationDate @item.RegistrationTime</td>
-                                    <td>@item.RegistrationQue</td>
-                                    <td>@item.MedicalNo<br /><small>@item.RegistrationNo</small></td>
-                                    <td>
-                                        @if (item.IsAlreadyTransfer ?? false)
-                                        {
-                                            @Html.Raw(HealthRecord.StateEMRList(item, "name"))
-                                        }
-                                        else
-                                        {
-                                            @Html.Raw(HealthRecord.StateEMRList(item, "transfer"))
-                                            <br /> @Html.Raw(HealthRecord.StateEMRList(item, "name"))
-                                        }
-                                    </td>
-                                    <td>@item.Sex</td>
-                                    <td>R: @item.RoomName <br />B: @item.BedID</td>
-                                    <td>@item.ReferFrom <br />@item.ReferTo</td>
-                                    <td style="background-color: @Html.Raw(HealthRecord.GetColorOfTriase(item.SRTriage))">TRG</td>
-                                    <td>@Html.Raw(HealthRecord.StateEmrListObsolte(item, "soap"))</td>
-                                    <td>
-                                        @Html.Raw(HealthRecord.StateEMRList(item, "confirm"))
-                                        @Html.Raw(HealthRecord.StateEMRList(item, "finish"))
-                                        @Html.Raw(HealthRecord.StateEMRList(item, "note"))
-                                        @Html.Raw(HealthRecord.StateEMRList(item, "medication"))
-                                        @Html.Raw(HealthRecord.StateEMRList(item, "history"))
-                                        @Html.Raw(HealthRecord.StateEMRList(item, "print"))
-                                        @Html.Raw(HealthRecord.StateEMRList(item, "physician"))
-                                    </td>
-                                    <td>@Html.Raw(HealthRecord.StateEMRList(item, "risk"))</td>
-                                    @if (Model.IsLoadBillingProgress)
-                                    {
-                                        <td>@Html.Raw(HealthRecord.StateEmrListObsolte(item, "plafond"))</td>
-                                    }
-                                </tr>
-                            }
+                            <th>Plafond Progress</th>
                         }
-                    </tbody>
-                    <tfoot>
-                        
-                    </tfoot>
-                </table>
-            </div>
-
-        </div>
-        <div class="card-footer">
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.getRegistration != null)
+                    {
+                        foreach (var item in Model.getRegistration)
+                        {
+                            <tr>
+                                <td>@Html.Raw(HealthRecord.StateEMRList(item, "detail"))</td>
+                                <td>@item.RegistrationDate @item.RegistrationTime</td>
+                                <td>@item.RegistrationQue</td>
+                                <td>@item.MedicalNo<br /><small>@item.RegistrationNo</small></td>
+                                <td>
+                                    @if (item.IsAlreadyTransfer ?? false)
+                                    {
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "name"))
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(HealthRecord.StateEMRList(item, "transfer"))
+                                        <br /> @Html.Raw(HealthRecord.StateEMRList(item, "name"))
+                                    }
+                                </td>
+                                <td>@item.Sex</td>
+                                <td>R: @item.RoomName <br />B: @item.BedID</td>
+                                <td>@item.ReferFrom <br />@item.ReferTo</td>
+                                <td style="background-color: @Html.Raw(HealthRecord.GetColorOfTriase(item.SRTriage))">TRG</td>
+                                <td>@Html.Raw(HealthRecord.StateEmrListObsolte(item, "soap"))</td>
+                                <td>
+                                    @Html.Raw(HealthRecord.StateEMRList(item, "confirm"))
+                                    @Html.Raw(HealthRecord.StateEMRList(item, "finish"))
+                                    @Html.Raw(HealthRecord.StateEMRList(item, "note"))
+                                    @Html.Raw(HealthRecord.StateEMRList(item, "medication"))
+                                    @Html.Raw(HealthRecord.StateEMRList(item, "history"))
+                                    @Html.Raw(HealthRecord.StateEMRList(item, "print"))
+                                    @Html.Raw(HealthRecord.StateEMRList(item, "physician"))
+                                </td>
+                                <td>@Html.Raw(HealthRecord.StateEMRList(item, "risk"))</td>
+                                @if (Model.IsLoadBillingProgress)
+                                {
+                                    <td>@Html.Raw(HealthRecord.StateEmrListObsolte(item, "plafond"))</td>
+                                }
+                            </tr>
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
         </div>
     </div>
 </div>
