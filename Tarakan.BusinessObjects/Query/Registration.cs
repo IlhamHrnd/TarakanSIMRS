@@ -1311,7 +1311,7 @@ namespace Tarakan.BusinessObjects.Query
             var ptQ = new EntitySpaces.Generated.PatientTransferQuery("ptQ");
             var bQ = new EntitySpaces.Generated.BedQuery("bQ");
             var pthQ = new EntitySpaces.Generated.PatientTransferHistoryQuery("pthQ");
-            ptQ.InnerJoin(bQ).On(bQ.BedID == ptQ.ToBedID && bQ.IsNeedConfirmation == true)
+            ptQ.InnerJoin(bQ).On(bQ.BedID == ptQ.ToBedID && bQ.IsNeedConfirmation == true && bQ.SRBedStatus.In(Const.Pending, Const.Booked))
                 .InnerJoin(pthQ).On(pthQ.RegistrationNo == ptQ.RegistrationNo && pthQ.ServiceUnitID == ptQ.ToServiceUnitID && pthQ.BedID == ptQ.ToBedID)
                 .Where(ptQ.RegistrationNo == registrationNo, ptQ.ToServiceUnitID == serviceunitID, ptQ.IsApprove == true,
                 ptQ.Or(ptQ.IsValidated.IsNull(), ptQ.IsValidated == false), pthQ.DateOfExit.IsNull(), ptQ.ToBedID == bedID)

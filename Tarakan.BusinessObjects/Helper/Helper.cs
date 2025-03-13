@@ -272,6 +272,24 @@ namespace Tarakan.BusinessObjects.Helper
 
         public static string Self { get => self; set => self = value; }
         #endregion
+
+        #region Bed Status
+        private static string ready = "BedStatus-01";
+        private static string occupied = "BedStatus-02";
+        private static string booked = "BedStatus-03";
+        private static string pending = "BedStatus-04";
+        private static string cleaning = "BedStatus-05";
+        private static string reserved = "BedStatus-06";
+        private static string repair = "BedStatus-07";
+
+        public static string Ready { get => ready; set => ready = value; }
+        public static string Occupied { get => occupied; set => occupied = value; }
+        public static string Booked { get => booked; set => booked = value; }
+        public static string Pending { get => pending; set => pending = value; }
+        public static string Cleaning { get => cleaning; set => cleaning = value; }
+        public static string Reserved { get => reserved; set => reserved = value; }
+        public static string Repair { get => repair; set => repair = value; }
+        #endregion
     }
 
     public static class SecureTarakan

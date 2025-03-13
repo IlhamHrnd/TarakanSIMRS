@@ -29,6 +29,7 @@
                 <thead>
                     <tr>
                         <th></th>
+                        <th>Service Unit / Physician</th>
                         <th>Reg. Date</th>
                         <th>Que</th>
                         <th>MRN / Reg No</th>
@@ -53,6 +54,7 @@
                         {
                             <tr>
                                 <td>@Html.Raw(HealthRecord.StateEMRList(item, "detail"))</td>
+                                <td>@item.Group<br /><small>@item.ParamedicName</small></td>
                                 <td>@item.RegistrationDate @item.RegistrationTime</td>
                                 <td>@item.RegistrationQue</td>
                                 <td>@item.MedicalNo<br /><small>@item.RegistrationNo</small></td>
