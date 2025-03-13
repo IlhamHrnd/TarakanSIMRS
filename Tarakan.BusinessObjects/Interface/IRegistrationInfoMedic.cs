@@ -1,5 +1,4 @@
-﻿using System.Data;
-using Tarakan.BusinessObjects.Dto;
+﻿using Tarakan.BusinessObjects.Dto;
 
 namespace Tarakan.BusinessObjects.Interface
 {

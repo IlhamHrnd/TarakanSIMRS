@@ -10,14 +10,18 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
 {
     public class BaseController : Controller
     {
-        private readonly IConfiguration _config;
         private readonly IAppProgram _appProgram;
+        protected readonly IConfiguration _config;
         protected readonly IRegistration _registration;
-        public BaseController(IConfiguration config, IAppProgram appProgram, IRegistration registration)
+        protected readonly IAppParameter _appParameter;
+        protected readonly IAppStandardReferenceItem _appStandardReferenceItem;
+        public BaseController(IConfiguration config, IAppProgram appProgram, IRegistration registration, IAppParameter appParameter, IAppStandardReferenceItem appStandardReferenceItem)
         {
             _config = config;
             _appProgram = appProgram;
             _registration = registration;
+            _appParameter = appParameter;
+            _appStandardReferenceItem = appStandardReferenceItem;
         }
 
         //Variabel

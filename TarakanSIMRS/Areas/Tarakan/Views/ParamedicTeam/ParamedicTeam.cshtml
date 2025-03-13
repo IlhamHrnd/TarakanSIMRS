@@ -1,0 +1,19 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.ParamedicTeam
+@model ParamedicTeamViewModel
+
+@if (Model.getParamedicTeam.Count > 0)
+{
+    <div class="card">
+        <div class="card-header">Paramedic Team</div>
+        <div class="card-body">
+        @{var i = 1;}
+        @foreach (var item in Model.getParamedicTeam)
+        {
+            <div style="@(item.EndDate > DateTime.Now ? "text-decoration: line-through;" : string.Empty)">
+                @Html.Raw(Model.DpjpStatusId == item.SrparamedicTeamStatus ? $"<b>{i}. {item.ParamedicName}</b>" : $"{i}. {item.ParamedicName}"))
+            </div>
+            i++;
+        }
+        </div>
+    </div>
+}

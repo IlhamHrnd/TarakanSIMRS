@@ -10,7 +10,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     [Authorize]
     public class IndexController : BaseController
     {
-        public IndexController(IConfiguration config, IAppProgram appProgram, IRegistration registration) : base(config, appProgram, registration)
+        public IndexController(IConfiguration config, IAppProgram appProgram, IRegistration registration, IAppParameter appParameter, IAppStandardReferenceItem appStandardReferenceItem) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
         {
 
         }

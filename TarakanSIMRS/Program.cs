@@ -50,6 +50,7 @@ builder.Services.AddScoped<IMorphology, Morphology>();
 builder.Services.AddScoped<IAppProgram, AppProgram>();
 builder.Services.AddScoped<IPatientRelated, PatientRelated>();
 builder.Services.AddScoped<IRegistrationInfoMedic, RegistrationInfoMedic>();
+builder.Services.AddScoped<IParamedicTeam, ParamedicTeam>();
 
 var app = builder.Build();
 

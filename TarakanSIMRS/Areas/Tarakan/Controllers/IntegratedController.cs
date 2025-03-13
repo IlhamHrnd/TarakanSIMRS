@@ -10,7 +10,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     public class IntegratedController : BaseController
     {
         private readonly IRegistrationInfoMedic _registrationInfoMedic;
-        public IntegratedController(IConfiguration config, IRegistration registration, IAppProgram appProgram, IRegistrationInfoMedic registrationInfoMedic) : base(config, appProgram, registration)
+        public IntegratedController(IConfiguration config, IRegistration registration, IAppProgram appProgram, IAppParameter appParameter, IAppStandardReferenceItem appStandardReferenceItem, IRegistrationInfoMedic registrationInfoMedic) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
         {
             _registrationInfoMedic = registrationInfoMedic;
         }

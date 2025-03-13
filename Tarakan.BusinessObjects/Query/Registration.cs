@@ -397,7 +397,10 @@ namespace Tarakan.BusinessObjects.Query
                 ServiceUnitName = su.LoadByPrimaryKey(r.ServiceUnitID) ? su.ServiceUnitName : string.Empty,
                 ParamedicName = par.LoadByPrimaryKey(r.ParamedicID) ? par.ParamedicName : string.Empty,
                 PatientName = Converter.GetFullName(pat.FirstName, pat.MiddleName, pat.LastName),
-                SRPatientRiskStatus = r.SRPatientRiskStatus
+                SRPatientRiskStatus = r.SRPatientRiskStatus,
+                FromRegistrationNo = r.FromRegistrationNo,
+                ServiceUnitID = r.ServiceUnitID,
+                ParamedicID = r.ParamedicID
             };
 
             return rDto;
