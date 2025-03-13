@@ -11,15 +11,11 @@ namespace Tarakan.EntitySpaces.Generated
             mb.LoadByPrimaryKey(regNo);
 
             var mbColl = new MergeBillingCollection();
-            var mbQ = new MergeBillingQuery("mbQ");
             if (!string.IsNullOrEmpty(mb.FromRegistrationNo))
-                mbQ.Select(mbQ.RegistrationNo)
-                    .Where(mbQ.Or(mbQ.RegistrationNo == mb.RegistrationNo, mbQ.FromRegistrationNo == mb.RegistrationNo, mbQ.RegistrationNo == mb.FromRegistrationNo, mbQ.FromRegistrationNo == mb.FromRegistrationNo));
+                mbColl.Query.Where(mbColl.Query.Or(mbColl.Query.RegistrationNo == mb.RegistrationNo, mbColl.Query.FromRegistrationNo == mb.RegistrationNo, mbColl.Query.RegistrationNo == mb.FromRegistrationNo,mbColl.Query.FromRegistrationNo == mb.FromRegistrationNo));
             else
-                mbQ.Select(mbQ.RegistrationNo)
-                    .Where(mbQ.Or(mbQ.RegistrationNo == mb.RegistrationNo, mbQ.FromRegistrationNo == mb.RegistrationNo));
-            mbColl.Load(mbQ);
-
+                mbColl.Query.Where(mbColl.Query.Or(mbColl.Query.RegistrationNo == mb.RegistrationNo,mbColl.Query.FromRegistrationNo == mb.RegistrationNo));
+            mbColl.LoadAll();
             var r = new Registration();
             r.LoadByPrimaryKey(regNo);
 
@@ -27,13 +23,13 @@ namespace Tarakan.EntitySpaces.Generated
                 return [.. mbColl.Select(m => m.RegistrationNo)];
 
             var list = string.IsNullOrEmpty(mbColl.SingleOrDefault(m => m.RegistrationNo == regNo).FromRegistrationNo) ?
-                        [.. mbColl.Select(m => m.RegistrationNo)] :
-                        mbColl.Where(m => m.RegistrationNo == regNo).Select(m => m.RegistrationNo).ToArray();
+                mbColl.Select(m => m.RegistrationNo).ToArray() :
+                [.. mbColl.Where(m => m.RegistrationNo == regNo).Select(m => m.RegistrationNo)];
 
             if (list.Length == 0)
             {
                 var ap = new AppParameter();
-                int max = !ap.LoadByPrimaryKey("MaxResultRecord") ? 0 : Converter.StringToInt(ap.ParameterValue);
+                int max = !ap.LoadByPrimaryKey("MaxResultRecord") ? 500 : Converter.StringToInt(ap.ParameterValue);
                 list = new string[max];
 
                 var dColl = new DepartmentCollection();
