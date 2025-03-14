@@ -9,11 +9,6 @@ namespace Tarakan.BusinessObjects.Custom
 {
     public class HealthRecord
     {
-        public HealthRecord()
-        {
-
-        }
-
         #region Custom View
         public static string GetColorOfTriase(string SRTriage)
         {

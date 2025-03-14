@@ -54,6 +54,7 @@ builder.Services.AddScoped<IParamedicTeam, ParamedicTeam>();
 builder.Services.AddScoped<IPatientTransferHistory, PatientTransferHistory>();
 builder.Services.AddScoped<IParamedicConsultRefer, ParamedicConsultRefer>();
 builder.Services.AddScoped<IPatientHealthRecord, PatientHealthRecord>();
+builder.Services.AddScoped<IPatientAssessment, PatientAssessment>();
 
 var app = builder.Build();
 

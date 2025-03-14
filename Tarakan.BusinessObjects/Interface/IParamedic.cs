@@ -6,5 +6,6 @@ namespace Tarakan.BusinessObjects.Interface
     {
         string GetParamedicName(string paramedicID);
         Task<List<ParamedicDto>> GetParamedic(bool? isActive);
+        bool IsUserParamedicDpjp(string parId, string regNo, DateTime dateTime);
     }
 }

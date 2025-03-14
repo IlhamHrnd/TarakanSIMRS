@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Text;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Interface;
 using Tarakan.EntityFramework.Base;
@@ -9,9 +8,11 @@ namespace Tarakan.BusinessObjects.Query
     public class Paramedic : IParamedic
     {
         private readonly AppDbContext _context;
-        public Paramedic(AppDbContext context)
+        private IAppParameter _appParameter;
+        public Paramedic(AppDbContext context, IAppParameter appParameter)
         {
             _context = context;
+            _appParameter = appParameter;
         }
 
         public string GetParamedicName(string paramedicID)
@@ -36,6 +37,27 @@ namespace Tarakan.BusinessObjects.Query
                     ParamedicName = par.ParamedicName,
                     ParamedicID = par.ParamedicId
                 }).ToListAsync();
+        }
+
+        public bool IsUserParamedicDpjp(string parId, string regNo, DateTime dateTime)
+        {
+            if (string.IsNullOrEmpty(parId) || string.IsNullOrEmpty(regNo))
+                return false;
+
+            var parTeam = _context.ParamedicTeams.AsQueryable()
+                .Where(pt => pt.RegistrationNo == regNo && pt.ParamedicId == parId && pt.SrparamedicTeamStatus == _appParameter.ParameterString("ParamedicTeamStatusDpjpID")
+                && (pt.EndDate == null || pt.EndDate >= dateTime)).FirstOrDefault();
+
+            if (parTeam == null || string.IsNullOrEmpty(parTeam.ParamedicId))
+                return false;
+
+            var reg = _context.Registrations.AsQueryable()
+                .Where(r => r.RegistrationNo == regNo && r.ParamedicId == parId).FirstOrDefault();
+
+            if (reg == null || string.IsNullOrEmpty(reg.RegistrationNo))
+                return false;
+
+            return true;
         }
     }
 }

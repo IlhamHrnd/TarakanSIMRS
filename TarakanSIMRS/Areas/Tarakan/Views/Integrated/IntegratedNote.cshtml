@@ -1,4 +1,5 @@
-﻿@using TarakanSIMRS.Areas.Tarakan.Models.Integrated
+﻿@using Tarakan.BusinessObjects.Custom
+@using TarakanSIMRS.Areas.Tarakan.Models.Integrated
 @model IntegratedNoteViewModel
 
 @if (Model.getIntegratedNote.Count > 0)
@@ -7,9 +8,9 @@
         <table id="listIntegratedNote" class="display table table-striped table-bordered table-hover" style="width:100%">
             <thead class="text-center">
                 <tr>
+                    <th></th>
                     <th>Reg. No</th>
                     <th>Input</th>
-                    <th>Physician</th>
                     <th>Created Date</th>
                     <th>Created By</th>
                     <th>PPA</th>
@@ -19,14 +20,25 @@
                 @foreach (var item in Model.getIntegratedNote)
                 {
                     <tr>
+                        <td>
+                            @if (Integrated.IntegratedNoteDeleteAble(item, ViewData["UserId"].ToString()))
+                            {
+                                @Html.Raw(Integrated.IntegratedNoteDelete(item.RegistrationInfoMedicId, item.IsFromAskep))
+                            }
+                            <br />
+                            @if (Integrated.IntegratedNoteUnDeleteAble(item, ViewData["UserId"].ToString()))
+                            {
+                                @Html.Raw(Integrated.IntegratedNoteUnDelete(item.RegistrationInfoMedicId, item.IsFromAskep))
+                            }
+                            <br /> @Html.Raw(Integrated.IntegratedNotePrint(item.IsDeleted ?? false, item.SrmedicalNotesInputType, item.IsFromAskep, item.RegistrationInfoMedicId))
+                        </td>
                         <td>@item.RegistrationNo</td>
                         <td>
                             <div class="card">
-                                <div class="card-header text-center">@item.MedicalInputType</div>
-                                <div class="card-body" style="@(item.IsDeleted == true ? "text-decoration: line-through" : string.Empty)">@Html.Raw(item.Result)</div>
+                                <div class="card-header text-center" style="background-color: @Integrated.GetColorOfUserType(item.SruserType)">@item.MedicalInputType</div>
+                                <div class="card-body" style="@(item.IsDeleted == true ? "text-decoration: line-through" : string.Empty)">@Html.Raw(item.Result) <br /> @Html.Raw(item.AdditionalInfo)</div>
                             </div>
                         </td>
-                        <td>@item.ParamedicName</td>
                         <td>@item.DateTimeInfoStr</td>
                         <td>@item.CreatedByUserName</td>
                         <td>@item.SruserType</td>

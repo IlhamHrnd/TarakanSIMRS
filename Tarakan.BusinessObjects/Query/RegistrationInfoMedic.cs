@@ -1,6 +1,5 @@
 ﻿using EntitySpaces.DynamicQuery;
 using System.Data;
-using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Text.RegularExpressions;
 using Tarakan.BusinessObjects.Dto;
@@ -20,8 +19,9 @@ namespace Tarakan.BusinessObjects.Query
         private readonly IAppUser _appUser;
         private readonly IParamedicConsultRefer _paramedicConsultRefer;
         private readonly IPatientHealthRecord _patientHealthRecord;
+        private readonly IPatientAssessment _patientAssessment;
         public RegistrationInfoMedic(IRegistration registration, IAppParameter appParameter, IPatientTransferHistory patientTransferHistory, IParamedic paramedic, IServiceUnit serviceUnit,
-            IAppStandardReferenceItem appStandardReferenceItem, IAppUser appUser, IParamedicConsultRefer paramedicConsultRefer, IPatientHealthRecord patientHealthRecord)
+            IAppStandardReferenceItem appStandardReferenceItem, IAppUser appUser, IParamedicConsultRefer paramedicConsultRefer, IPatientHealthRecord patientHealthRecord, IPatientAssessment patientAssessment)
         {
             _registration = registration;
             _appParameter = appParameter;
@@ -32,6 +32,7 @@ namespace Tarakan.BusinessObjects.Query
             _appUser = appUser;
             _paramedicConsultRefer = paramedicConsultRefer;
             _patientHealthRecord = patientHealthRecord;
+            _patientAssessment = patientAssessment;
         }
 
         [Obsolete]
@@ -133,6 +134,7 @@ namespace Tarakan.BusinessObjects.Query
             dtb.Columns.Add(new DataColumn("Result", typeof(string)));
             dtb.Columns.Add(new DataColumn("CreatedByUserName", typeof(string)));
             dtb.Columns.Add(new DataColumn("DateTimeInfoStr", typeof(string)));
+            dtb.Columns.Add(new DataColumn("AdditionalInfo", typeof(string)));
             dtb.DefaultView.Sort = "DateTimeInfo DESC";
             dtb.DefaultView.ToTable();
 
@@ -332,6 +334,7 @@ namespace Tarakan.BusinessObjects.Query
                 dr["ServiceUnitName"] = _serviceUnit.GetServiceUnitName((string)dr["ServiceUnitID"]);
                 dr["CreatedByUserName"] = _appUser.GetUsername((string)dr["CreatedByUserID"]);
                 dr["DateTimeInfoStr"] = $"{Convert.ToDateTime(dr["DateTimeInfo"]).ToString(Const.Date)} {Convert.ToDateTime(dr["DateTimeInfo"]).ToString(Const.Hourmin)}";
+                dr["AdditionalInfo"] = _patientAssessment.AdditionalNoteScript((string)dr["AssessmentTypeName"], (string)dr["RegistrationInfoMedicID"]);
             }
             #endregion
 

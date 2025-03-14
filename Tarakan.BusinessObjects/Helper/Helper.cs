@@ -307,6 +307,16 @@ namespace Tarakan.BusinessObjects.Helper
         public static string Reserved { get => reserved; set => reserved = value; }
         public static string Repair { get => repair; set => repair = value; }
         #endregion
+
+        #region ETC
+        private static readonly List<string> _medicalNotes = ["SOAP", "SBAR", "ADIME", "Notes"];
+        private static readonly List<string> _medicalNotes2 = ["SOAP", "MDS"];
+        private static readonly List<string> _medicalNotes3 = ["SOAP", "SBAR", "ADIME", "Notes", "Handover Patient"];
+
+        public static IReadOnlyList<string> MedicalNotes => _medicalNotes;
+        public static IReadOnlyList<string> MedicalNotes2 => _medicalNotes2;
+        public static IReadOnlyList<string> MedicalNotes3 => _medicalNotes3;
+        #endregion
     }
 
     public static class SecureTarakan

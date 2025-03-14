@@ -79,5 +79,9 @@
         public string Result { get; set; }
         public string DateTimeInfoStr { get; set; }
         public string CreatedByUserName { get; set; }
+        public string AdditionalInfo { get; set; }
+        public string AssessmentTypeName { get; set; }
+        public string SRNursingDiagnosaLevel { get; set; }
+        public bool IsFromAskep { get; set; }
     }
 }

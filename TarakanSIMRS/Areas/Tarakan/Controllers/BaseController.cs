@@ -99,7 +99,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             {
                 var model = GetSessionData<BaseModel>("BaseModel");
                 if (model == null)
-                    SetSessionData<BaseModel>("BaseModel", baseModel = new BaseModel
+                    SetSessionData("BaseModel", baseModel = new BaseModel
                     {
                         UserID = User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value,
                         Username = User.Claims.FirstOrDefault(c => c.Type == "Username")?.Value,
@@ -109,10 +109,15 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                         Role = User.Claims.FirstOrDefault(c => c.Type == "Role")?.Value
                     });
                 else
+                {
                     baseModel = model;
+                    ViewData["UserId"] = model.UserID;
+                    ViewData["ParId"] = model.ParamedicID;
+                    ViewData["Role"] = model.Role;
+                }
             }
 
-                //Condition
+            //Condition
             IsLoadBillingProgress = _config["Tarakan:IsLoadBillingProgress"].ToLower() == "true" || _config["Tarakan:IsLoadBillingProgress"].ToLower() == "yes";
             IsLoginDoctor = baseModel.Role == Const.Doctor && !string.IsNullOrEmpty(baseModel.ParamedicID);
 
