@@ -46,18 +46,18 @@ namespace Tarakan.BusinessObjects.Query
 
             var parTeam = _context.ParamedicTeams.AsQueryable()
                 .Where(pt => pt.RegistrationNo == regNo && pt.ParamedicId == parId && pt.SrparamedicTeamStatus == _appParameter.ParameterString("ParamedicTeamStatusDpjpID")
-                && (pt.EndDate == null || pt.EndDate >= dateTime)).FirstOrDefault();
+                && (pt.EndDate == null || pt.EndDate >= dateTime)).ToList();
 
-            if (parTeam == null || string.IsNullOrEmpty(parTeam.ParamedicId))
-                return false;
+            if (parTeam.Count > 0)
+                return true;
 
             var reg = _context.Registrations.AsQueryable()
-                .Where(r => r.RegistrationNo == regNo && r.ParamedicId == parId).FirstOrDefault();
+                .Where(r => r.RegistrationNo == regNo && r.ParamedicId == parId).ToList();
 
-            if (reg == null || string.IsNullOrEmpty(reg.RegistrationNo))
-                return false;
+            if (reg.Count > 0)
+                return true;
 
-            return true;
+            return false;
         }
     }
 }

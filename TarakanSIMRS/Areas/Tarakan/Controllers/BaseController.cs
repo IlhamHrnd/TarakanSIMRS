@@ -112,8 +112,8 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                 {
                     baseModel = model;
                     ViewData["UserId"] = model.UserID;
-                    ViewData["ParId"] = model.ParamedicID;
-                    ViewData["Role"] = model.Role;
+                    ViewData["UserParId"] = model.ParamedicID;
+                    ViewData["UserRole"] = model.Role;
                 }
             }
 

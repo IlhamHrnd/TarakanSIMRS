@@ -135,7 +135,7 @@ namespace Tarakan.BusinessObjects.Query
             dtb.Columns.Add(new DataColumn("CreatedByUserName", typeof(string)));
             dtb.Columns.Add(new DataColumn("DateTimeInfoStr", typeof(string)));
             dtb.Columns.Add(new DataColumn("AdditionalInfo", typeof(string)));
-            dtb.DefaultView.Sort = "DateTimeInfo DESC";
+            dtb.DefaultView.Sort = "CreatedDateTime DESC";
             dtb.DefaultView.ToTable();
 
             foreach (DataRow dr in dtb.Rows)

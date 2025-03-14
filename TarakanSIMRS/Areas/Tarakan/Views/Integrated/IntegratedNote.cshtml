@@ -31,6 +31,7 @@
                                 @Html.Raw(Integrated.IntegratedNoteUnDelete(item.RegistrationInfoMedicId, item.IsFromAskep))
                             }
                             <br /> @Html.Raw(Integrated.IntegratedNotePrint(item.IsDeleted ?? false, item.SrmedicalNotesInputType, item.IsFromAskep, item.RegistrationInfoMedicId))
+                            <br /> @Html.Raw(Integrated.IntegratedNoteVerif(item, Model.isUserParamedicDpjp, (string)ViewData["UserParId"], (string)ViewData["UserRole"]))
                         </td>
                         <td>@item.RegistrationNo</td>
                         <td>

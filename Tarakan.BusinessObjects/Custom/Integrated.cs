@@ -66,6 +66,14 @@ namespace Tarakan.BusinessObjects.Custom
                 ? "<a href=\"#\" onclick=\"javascript:printPreviewIntegratedNotes('{0}'); return false;\" alt=\"Print Integrated Notes\" title=\"Print Integrated Notes\"><i class=\"fa-solid fa-print\"></i></a><br /><br />"
                 : string.Empty;
         }
+
+        public static string IntegratedNoteVerif(RegistrationInfoMedicDto rim, bool isUserParamedicDpjp, string parId, string srUserType)
+        {
+            if (IsAccessVerif(rim, parId, srUserType, isUserParamedicDpjp))
+                return $"<a style=\"cursor:pointer;\" onclick=\"javascript:openCpptVerification('{rim.RegistrationInfoMedicId}_{rim.IsFromAskep}','{rim.ParamedicId}','{isUserParamedicDpjp}')\" alt=\"Verification Integrated Notes\" title=\"Verification Integrated Notes\"><i class=\"fa-solid fa-circle-check\"></i></a><br /><br />";
+            else
+                return string.Empty;
+        }
         #endregion
     }
 }

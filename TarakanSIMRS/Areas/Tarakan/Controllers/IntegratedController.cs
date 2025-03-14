@@ -10,9 +10,11 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     public class IntegratedController : BaseController
     {
         private readonly IRegistrationInfoMedic _registrationInfoMedic;
-        public IntegratedController(IConfiguration config, IRegistration registration, IAppProgram appProgram, IAppParameter appParameter, IAppStandardReferenceItem appStandardReferenceItem, IRegistrationInfoMedic registrationInfoMedic) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
+        private readonly IParamedic _paramedic;
+        public IntegratedController(IConfiguration config, IRegistration registration, IAppProgram appProgram, IAppParameter appParameter, IAppStandardReferenceItem appStandardReferenceItem, IRegistrationInfoMedic registrationInfoMedic, IParamedic paramedic) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
         {
             _registrationInfoMedic = registrationInfoMedic;
+            _paramedic = paramedic;
         }
 
         [HttpGet]
@@ -20,7 +22,8 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         {
             var model = new IntegratedNoteViewModel
             {
-                getIntegratedNote = _registrationInfoMedic.IntegratedNotes(RegType, RegNo, MergeRegistration, PatId, string.Empty, baseModel.UserID)
+                getIntegratedNote = _registrationInfoMedic.IntegratedNotes(RegType, RegNo, MergeRegistration, PatId, string.Empty, baseModel.UserID),
+                isUserParamedicDpjp = _paramedic.IsUserParamedicDpjp(baseModel.ParamedicID, RegNo, DateTime.Now)
             };
 
             return PartialView(model);

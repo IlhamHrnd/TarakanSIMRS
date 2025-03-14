@@ -1110,15 +1110,8 @@ namespace Tarakan.BusinessObjects.Query
             if (au.SRUserType == Const.Doctor && !string.IsNullOrEmpty(au.ParamedicID))
             {
                 var ptQ = new EntitySpaces.Generated.ParamedicTeamQuery("ptQ");
-                if (!string.IsNullOrEmpty(filter.ParamedicTeam))
-                {
-                    switch (filter.ParamedicTeam.ToLower())
-                    {
-                        case "regtome":
-                            rQ.Where(rQ.ParamedicID == au.ParamedicID);
-                            break;
-                    }
-                }
+                if (!string.IsNullOrEmpty(filter.ParamedicTeam) && filter.ParamedicTeam.ToLower() == "regtome")
+                    rQ.Where(rQ.ParamedicID == au.ParamedicID);
                 else if (isInPatient)
                 {
                     rQ.InnerJoin(ptQ).On(ptQ.RegistrationNo == rQ.RegistrationNo)

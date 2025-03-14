@@ -15,27 +15,19 @@ namespace Tarakan.BusinessObjects.Query
 
         public MorphologyDto LoadByPrimarykey(string morphologyId)
         {
-            if (string.IsNullOrWhiteSpace(morphologyId))
+            if (string.IsNullOrEmpty(morphologyId))
                 return new MorphologyDto();
 
-            var query = from m in _context.Morphologies
-                        where m.MorphologyId == morphologyId
-                        select m;
-
-            if (!query.Any())
+            var m = new EntitySpaces.Generated.Morphology();
+            if (!m.LoadByPrimaryKey(morphologyId))
                 return new MorphologyDto();
 
-            var mor = new MorphologyDto();
-            foreach (var item in query)
+            return new MorphologyDto
             {
-                mor = new MorphologyDto
-                {
-                    MorphologyId = item.MorphologyId,
-                    DiagnoseId = item.DiagnoseId,
-                    MorphologyName = item.MorphologyName
-                };
-            }
-            return mor;
+                MorphologyId = m.MorphologyID,
+                DiagnoseId = m.MorphologyID,
+                MorphologyName = m.MorphologyName
+            };
         }
     }
 }
