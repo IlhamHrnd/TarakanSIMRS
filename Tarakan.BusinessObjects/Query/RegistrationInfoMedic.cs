@@ -1,9 +1,11 @@
 ﻿using EntitySpaces.DynamicQuery;
 using System.Data;
+using System.Runtime.Intrinsics.Arm;
+using System.Text;
+using System.Text.RegularExpressions;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
-using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
@@ -11,17 +13,29 @@ namespace Tarakan.BusinessObjects.Query
     {
         private readonly IRegistration _registration;
         private readonly IAppParameter _appParameter;
-        private readonly AppDbContext _context;
-
-        public RegistrationInfoMedic(IRegistration registration, IAppParameter appParameter, AppDbContext context)
+        private readonly IPatientTransferHistory _patientTransferHistory;
+        private readonly IParamedic _paramedic;
+        private readonly IServiceUnit _serviceUnit;
+        private readonly IAppStandardReferenceItem _appStandardReferenceItem;
+        private readonly IAppUser _appUser;
+        private readonly IParamedicConsultRefer _paramedicConsultRefer;
+        private readonly IPatientHealthRecord _patientHealthRecord;
+        public RegistrationInfoMedic(IRegistration registration, IAppParameter appParameter, IPatientTransferHistory patientTransferHistory, IParamedic paramedic, IServiceUnit serviceUnit,
+            IAppStandardReferenceItem appStandardReferenceItem, IAppUser appUser, IParamedicConsultRefer paramedicConsultRefer, IPatientHealthRecord patientHealthRecord)
         {
             _registration = registration;
             _appParameter = appParameter;
-            _context = context;
+            _patientTransferHistory = patientTransferHistory;
+            _paramedic = paramedic;
+            _serviceUnit = serviceUnit;
+            _appStandardReferenceItem = appStandardReferenceItem;
+            _appUser = appUser;
+            _paramedicConsultRefer = paramedicConsultRefer;
+            _patientHealthRecord = patientHealthRecord;
         }
 
         [Obsolete]
-        public List<RegistrationInfoMedicDto> IntegratedNotes(string regType, string regNo, List<string> regNoList, string patId, string filter)
+        public List<RegistrationInfoMedicDto> IntegratedNotes(string regType, string regNo, List<string> regNoList, string patId, string filter, string parId)
         {
             #region Variabel
             var dtb = new DataTable();
@@ -112,16 +126,215 @@ namespace Tarakan.BusinessObjects.Query
             #endregion
 
             #region Process
-            if (dtAskep.Rows.Count > 0)
-            {
-                foreach (DataRow dr in dtAskep.Rows)
-                {
+            dtb.Merge(dtAskep);
+            dtb.Columns.Add(new DataColumn("ServiceUnitName", typeof(string)));
+            dtb.Columns.Add(new DataColumn("ParamedicName", typeof(string)));
+            dtb.Columns.Add(new DataColumn("MedicalInputType", typeof(string)));
+            dtb.Columns.Add(new DataColumn("Result", typeof(string)));
+            dtb.Columns.Add(new DataColumn("CreatedByUserName", typeof(string)));
+            dtb.Columns.Add(new DataColumn("DateTimeInfoStr", typeof(string)));
+            dtb.DefaultView.Sort = "DateTimeInfo DESC";
+            dtb.DefaultView.ToTable();
 
+            foreach (DataRow dr in dtb.Rows)
+            {
+                string SRMedicalNotesInputType = (string)dr["SRMedicalNotesInputType"];
+                string medicalType = string.Empty;
+                if (!string.IsNullOrEmpty(SRMedicalNotesInputType))
+                    medicalType = _appStandardReferenceItem.GetItemName("MedicalNotesInputType", (string)dr["SRMedicalNotesInputType"]);
+
+                if (string.IsNullOrEmpty(medicalType))
+                {
+                    switch (SRMedicalNotesInputType)
+                    {
+                        case "CON":
+                            medicalType = "Consult";
+                            break;
+
+                        case "MDS":
+                            medicalType = "Medical Discharge Summary";
+                            break;
+
+                        case "Notes":
+                            medicalType = "Notes";
+                            break;
+                    }
                 }
+
+                if (!string.IsNullOrEmpty(medicalType))
+                    dr["MedicalInputType"] = medicalType;
+
+                var sbNote = new StringBuilder();
+                sbNote.AppendLine("<table style=\"width:100%\">");
+                switch (SRMedicalNotesInputType)
+                {
+                    case "SBAR":
+                    case "SOAP":
+                    case "ADIME":
+                    case "Handover Patient":
+                        if (SRMedicalNotesInputType == "Handover Patient")
+                            SRMedicalNotesInputType = "SOAP";
+
+                        var collWidth = dr["SubmitBy"] != DBNull.Value && dr["ReceiveBy"] != DBNull.Value ? 50 : 10;
+                        sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{SRMedicalNotesInputType.Substring(0, 1)}:</td><td valign='top'>{Converter.ReplaceWitBreakLineHTML((string)dr["Info1"])}</td></tr>");
+                        sbNote.AppendLine();
+
+                        sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{SRMedicalNotesInputType.Substring(1, 1)}:</td><td valign='top'>{Converter.ReplaceWitBreakLineHTML((string)dr["Info2"])}</td></tr>");
+                        sbNote.AppendLine();
+
+                        sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{SRMedicalNotesInputType.Substring(2, 1)}:</td><td valign='top'>{Converter.ReplaceWitBreakLineHTML((string)dr["Info3"])}</td></tr>");
+                        sbNote.AppendLine();
+
+                        string planning = Converter.FormatToHtml(dr["Info4"]);
+                        var isFromAssessment = dr["SRAssessmentType"] != DBNull.Value && !string.IsNullOrEmpty((string)dr["SRAssessmentType"]) && !"NurseNotes".Equals(dr["SRAssessmentType"]);
+                        if (SRMedicalNotesInputType == "SOAP" && isFromAssessment)
+                            planning = dr["PrescriptionCurrentDay"] != DBNull.Value || !string.IsNullOrEmpty((string)dr["PrescriptionCurrentDay"])
+                                ? $"{Converter.FormatToHtml(dr["Info4"])}<br/><br/>{Converter.FormatToHtml(dr["PrescriptionCurrentDay"])}"
+                                : Converter.FormatToHtml(dr["Info4"]);
+
+                        sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold; width:{collWidth}px;padding-left:2px'>{SRMedicalNotesInputType.Substring(3, 1)}:</td><td valign='top'>{planning}</td></tr>");
+
+                        if (SRMedicalNotesInputType == "SOAP" && !isFromAssessment)
+                        {
+                            var ppaInstruction = Converter.FormatToHtml(dr["PpaInstruction"]);
+                            if (!"NurseNotes".Equals(dr["SRAssessmentType"]) && !isFromAssessment && (dr["PrescriptionCurrentDay"] != DBNull.Value || !string.IsNullOrEmpty(dr["PrescriptionCurrentDay"].ToString())))
+                                ppaInstruction = $"{Converter.FormatToHtml(dr["PpaInstruction"])}<br/><br/>{Converter.FormatToHtml(dr["PrescriptionCurrentDay"])}";
+
+                            if (!string.IsNullOrEmpty(ppaInstruction))
+                                sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>I:</td><td valign='top'>{ppaInstruction}</td></tr>");
+
+                            if (dr["Info5"] != DBNull.Value)
+                            {
+                                var info = Converter.ReplaceWitBreakLineHTML((string)dr["Info5"]);
+                                if (!string.IsNullOrEmpty(info))
+                                {
+                                    sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px;padding-left:2px'>{"E"}:</td><td valign='top'>{info}</td></tr>");
+                                    sbNote.AppendLine();
+                                }
+                            }
+
+                            if (dr["SubmitBy"] != DBNull.Value)
+                            {
+                                string info = Converter.ReplaceWitBreakLineHTML((string)dr["SubmitBy"]);
+                                if (!string.IsNullOrEmpty(info))
+                                {
+                                    var au = _appUser.AppUserLoad(info);
+                                    var submitByValue = _appUser.AppUserString(au.UserName, info);
+                                    sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{"Submit By"}:</td><td valign='top'>{submitByValue}</td></tr>");
+                                    sbNote.AppendLine();
+                                }
+                            }
+
+                            if (dr["ReceiveBy"] != DBNull.Value)
+                            {
+                                string info = Converter.ReplaceWitBreakLineHTML((string)dr["ReceiveBy"]);
+                                if (!string.IsNullOrEmpty(info))
+                                {
+                                    var au = _appUser.AppUserLoad(info);
+                                    var receiveByString = _appUser.AppUserString(au.UserName, info);
+                                    sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{"Receive By"}:</td><td valign='top'>{receiveByString}</td></tr>");
+                                    sbNote.AppendLine();
+                                }
+                            }
+                        }
+                        else if (SRMedicalNotesInputType == "Handover Patient")
+                        {
+                            if (dr["PpaInstruction"] != DBNull.Value)
+                            {
+                                var info = Converter.ReplaceWitBreakLineHTML((string)dr["PpaInstruction"]);
+                                sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>I:</td><td valign='top'>{info}</td></tr>");
+                                sbNote.AppendLine();
+                            }
+
+                            if (dr["SubmitBy"] != DBNull.Value)
+                            {
+                                string info = Converter.ReplaceWitBreakLineHTML((string)dr["SubmitBy"]);
+                                sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{"Submit By"}:</td><td valign='top'>{info}</td></tr>");
+                                sbNote.AppendLine();
+                            }
+
+                            if (dr["ReceiveBy"] != DBNull.Value)
+                            {
+                                string info = Converter.ReplaceWitBreakLineHTML((string)dr["ReceiveBy"]);
+                                sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{"Receive By"}:</td><td valign='top'>{info}</td></tr>");
+                                sbNote.AppendLine();
+                            }
+                        }
+                        else if (SRMedicalNotesInputType == "ADIME")
+                        {
+                            if (dr["Info5"] != DBNull.Value)
+                            {
+                                var info = Converter.ReplaceWitBreakLineHTML((string)dr["Info5"]);
+                                sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px;padding-left:2px'>{"E"}:</td><td valign='top'>{info}</td></tr>");
+                                sbNote.AppendLine();
+                            }
+                        }
+                        break;
+
+                    case "REF":
+                    case "CON":
+                        sbNote.AppendFormat($"<tr><td colspan='2' style='font-weight: bold;padding-left:2px;'>{(SRMedicalNotesInputType == "REF" ? "Refer" : "Consult")} to : {dr["Info1"]}</td></tr>");
+                        sbNote.AppendFormat("<tr><td colspan='2' style='padding-left:2px;'>Notes :</td></tr>");
+                        sbNote.AppendFormat($"<tr><td width:10px;'>&nbsp;</td><td>{Converter.FormatToHtml(dr["Info2"])}</td></tr>");
+                        sbNote.AppendLine();
+
+                        sbNote.AppendFormat("<tr><td colspan='2' style='padding-left:2px;'>Action / Examination / Treatment :</td></tr>");
+                        sbNote.AppendFormat($"<tr><td  width:10px;'>&nbsp;</td><td>{Converter.FormatToHtml(dr["Info3"])}</td></tr>");
+                        sbNote.AppendLine();
+
+                        var answerMenu = string.Empty;
+                        var pcr = _paramedicConsultRefer.LoadByPrimaryKey((string)dr["ReferenceNo"]);
+                        if (!string.IsNullOrEmpty(pcr.ConsultReferNo) && pcr.ToParamedicId == parId)
+                            answerMenu = $"<a href=\"javascript:void(0);\" onclick=\"javascript:entryParamedicConsultAnswer('{dr["ReferenceNo"]}','{dr["RegistrationNo"]}')\"><i class=\"fa-solid fa-pen-to-square\"></i></a>";
+
+                        sbNote.AppendFormat($"<tr><td colspan='2' style='padding-left:2px;'>{answerMenu}Answer :</td></tr>");
+                        sbNote.AppendFormat($"<tr><td width:10px'>&nbsp;</td><td>{Converter.FormatToHtml(pcr.Answer)}</td></tr>");
+                        sbNote.AppendLine();
+                        break;
+
+                    default:
+                        sbNote.AppendFormat($"<tr><td colspan='2' style='padding-left:2px;'>{Regex.Replace(dr["Info1"] == DBNull.Value ? string.Empty : (string)dr["Info1"], @"\r\n?|\n", "<br />")}</td></tr>");
+                        if (dr["ReferenceToPhrNo"] != DBNull.Value && !string.IsNullOrEmpty((string)dr["ReferenceToPhrNo"]) && _patientHealthRecord.LoadByTransactionNoRegNoOfTemplateEntry((string)dr["ReferenceToPhrNo"], (string)dr["RegistrationNo"]))
+                            dr["Info2"] = dr["Info2"];
+
+                        var info2 = Converter.ReplaceWitBreakLineHTML((string)dr["Info2"]);
+                        if (!string.IsNullOrEmpty(info2))
+                        {
+                            sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold; width:10px;padding-left:2px'>Respond:</td><td valign='top'>{info2}{((string.IsNullOrEmpty((string)dr["TemplateID"]) || (string)dr["TemplateID"] == "0") ? "" : $" <a href=\"javascript:void(0);\" onclick=\"javascript:OpenTableRespond('{(string)dr["TemplateID"]}')\"><i class=\"fa-solid fa-eye\"></i></a>")}</td></tr>");
+                            sbNote.AppendLine();
+                        }
+                        break;
+                }
+
+                if (dr["AttendingNotes"] != DBNull.Value && !string.IsNullOrEmpty((string)dr["AttendingNotes"]))
+                    sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold; width:10px;padding-left:2px'>N:</td><td valign='top'>{dr["AttendingNotes"]}</td></tr>");
+
+
+                if (dr["DpjpNotes"] != DBNull.Value && !string.IsNullOrWhiteSpace((string)dr["DpjpNotes"]))
+                    sbNote.AppendFormat("<tr><td colspan='2' style='horiz-align: right;'>* DPJP Note: {0}</td></tr>", (string)dr["DpjpNotes"]);
+
+                if (dr["ApprovedDateTime"] != DBNull.Value)
+                {
+                    var label = dr["ParamedicID"] == DBNull.Value ? _appParameter.ParameterString("IntNotesVerifLabelReview") : _appParameter.ParameterString("IntNotesVerifLabel");
+                    var approvedDate = $"<i class=\"fa-solid fa-square-check\"></i>&nbsp;{label}: {Convert.ToDateTime(dr["ApprovedDateTime"]).ToString(Const.Datetimesecond)} By: {_paramedic.GetParamedicName((string)dr["ApprovedByUserID"])} ({dr["ApprovedByUserID"]})";
+                    sbNote.AppendFormat($"<tr><td colspan='2' style='horiz-align: right;'>{approvedDate}</td></tr>");
+                }
+
+                sbNote.AppendLine("</table>");
+                dr["Result"] = sbNote.ToString();
+
+                if (dr["ParamedicID"] != DBNull.Value)
+                    dr["ParamedicName"] = _paramedic.GetParamedicName((string)dr["ParamedicID"]);
+
+                if (dr["ServiceUnitID"] == DBNull.Value)
+                    dr["ServiceUnitID"] = _patientTransferHistory.GetServiceUnitId((string)dr["RegistrationNo"], (DateTime)dr["ExecuteDateTime"]);
+
+                dr["ServiceUnitName"] = _serviceUnit.GetServiceUnitName((string)dr["ServiceUnitID"]);
+                dr["CreatedByUserName"] = _appUser.GetUsername((string)dr["CreatedByUserID"]);
+                dr["DateTimeInfoStr"] = $"{Convert.ToDateTime(dr["DateTimeInfo"]).ToString(Const.Date)} {Convert.ToDateTime(dr["DateTimeInfo"]).ToString(Const.Hourmin)}";
             }
             #endregion
 
-            dtb.Merge(dtAskep);
             return Converter.DataTableToList<RegistrationInfoMedicDto>(dtb);
         }
     }

@@ -51,6 +51,9 @@ builder.Services.AddScoped<IAppProgram, AppProgram>();
 builder.Services.AddScoped<IPatientRelated, PatientRelated>();
 builder.Services.AddScoped<IRegistrationInfoMedic, RegistrationInfoMedic>();
 builder.Services.AddScoped<IParamedicTeam, ParamedicTeam>();
+builder.Services.AddScoped<IPatientTransferHistory, PatientTransferHistory>();
+builder.Services.AddScoped<IParamedicConsultRefer, ParamedicConsultRefer>();
+builder.Services.AddScoped<IPatientHealthRecord, PatientHealthRecord>();
 
 var app = builder.Build();
 

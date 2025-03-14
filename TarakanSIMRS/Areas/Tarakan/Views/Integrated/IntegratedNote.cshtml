@@ -1,4 +1,38 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.Integrated
+@model IntegratedNoteViewModel
+
+@if (Model.getIntegratedNote.Count > 0)
+{
+    <div class="table-responsive">
+        <table id="listIntegratedNote" class="display table table-striped table-bordered table-hover" style="width:100%">
+            <thead class="text-center">
+                <tr>
+                    <th>Reg. No</th>
+                    <th>Input</th>
+                    <th>Physician</th>
+                    <th>Created Date</th>
+                    <th>Created By</th>
+                    <th>PPA</th>
+                </tr>
+            </thead>
+            <tbody class="text-start">
+                @foreach (var item in Model.getIntegratedNote)
+                {
+                    <tr>
+                        <td>@item.RegistrationNo</td>
+                        <td>
+                            <div class="card">
+                                <div class="card-header text-center">@item.MedicalInputType</div>
+                                <div class="card-body" style="@(item.IsDeleted == true ? "text-decoration: line-through" : string.Empty)">@Html.Raw(item.Result)</div>
+                            </div>
+                        </td>
+                        <td>@item.ParamedicName</td>
+                        <td>@item.DateTimeInfoStr</td>
+                        <td>@item.CreatedByUserName</td>
+                        <td>@item.SruserType</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

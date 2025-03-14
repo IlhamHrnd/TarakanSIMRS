@@ -1,9 +1,9 @@
 ﻿using EntitySpaces.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Globalization;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using Inter = EntitySpaces.Loader;
 
 namespace Tarakan.BusinessObjects.Helper
@@ -22,28 +22,45 @@ namespace Tarakan.BusinessObjects.Helper
 
     public static class Converter
     {
+        public static string FormatToHtml(object value)
+        {
+            return value == null || value == DBNull.Value ? string.Empty : Regex.Replace(value.ToString(), @"\r\n?|\n", "<br />");
+        }
+
+        public static string ReplaceWitBreakLineHTML(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return string.Empty;
+
+            return Regex.Replace(text, @"\r\n?|\n", "<br />");
+        }
+
         public static List<T> DataTableToList<T>(this DataTable table) where T : new()
         {
             var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            var columnNames = table.Columns.Cast<DataColumn>().Select(c => c.ColumnName).ToList();
-
+            var columnNames = table.Columns.Cast<DataColumn>().Select(c => c.ColumnName.ToLower()).ToList();
             var list = new List<T>();
-
             foreach (DataRow row in table.Rows)
             {
                 var obj = new T();
                 foreach (var prop in properties)
                 {
-                    if (columnNames.Contains(prop.Name) && row[prop.Name] != DBNull.Value && row[prop.Name] != null)
+                    string propNameLower = prop.Name.ToLower();
+                    if (columnNames.Contains(propNameLower))
                     {
-                        Type propertyType = prop.PropertyType;
-                        Type targetType = Nullable.GetUnderlyingType(propertyType) ?? propertyType;
-                        prop.SetValue(obj, Convert.ChangeType(row[prop.Name], targetType));
+                        var columnValue = row[table.Columns.Cast<DataColumn>()
+                                            .First(c => c.ColumnName.Equals(prop.Name, StringComparison.OrdinalIgnoreCase))];
+
+                        if (columnValue != DBNull.Value && columnValue != null)
+                        {
+                            Type propertyType = prop.PropertyType;
+                            Type targetType = Nullable.GetUnderlyingType(propertyType) ?? propertyType;
+                            prop.SetValue(obj, Convert.ChangeType(columnValue, targetType));
+                        }
                     }
                 }
                 list.Add(obj);
             }
-
             return list;
         }
 

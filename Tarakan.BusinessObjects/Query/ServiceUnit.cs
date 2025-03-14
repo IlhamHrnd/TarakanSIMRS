@@ -13,7 +13,7 @@ namespace Tarakan.BusinessObjects.Query
                 return string.Empty;
 
             var su = new EntitySpaces.Generated.ServiceUnit();
-            return su.LoadByPrimaryKey(serviceUnitID) ? su.ServiceUnitID : string.Empty;
+            return su.LoadByPrimaryKey(serviceUnitID) ? su.ServiceUnitName : string.Empty;
         }
 
         [Obsolete]

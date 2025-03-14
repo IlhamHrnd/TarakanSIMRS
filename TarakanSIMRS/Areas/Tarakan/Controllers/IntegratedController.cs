@@ -20,7 +20,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         {
             var model = new IntegratedNoteViewModel
             {
-                getIntegratedNote = _registrationInfoMedic.IntegratedNotes(RegType, RegNo, MergeRegistration, PatId, string.Empty)
+                getIntegratedNote = _registrationInfoMedic.IntegratedNotes(RegType, RegNo, MergeRegistration, PatId, string.Empty, baseModel.UserID)
             };
 
             return PartialView(model);

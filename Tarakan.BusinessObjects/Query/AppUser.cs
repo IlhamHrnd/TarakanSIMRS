@@ -1,11 +1,19 @@
 ﻿using System.Data;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
     public class AppUser : IAppUser
     {
+        private readonly AppDbContext _context;
+
+        public AppUser(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public AppUserDto LoadByPrimaryKey(string userId, string password)
         {
             var result = new AppUserDto();
@@ -59,6 +67,46 @@ namespace Tarakan.BusinessObjects.Query
                 .InnerJoin(augpQ).On(augpQ.UserGroupID == auugQ.UserGroupID)
                 .Where(auQ.UserID == userId);
             return auQ.LoadDataTable();
+        }
+
+        public string GetUsername(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+                return string.Empty;
+
+            var query = _context.AppUsers
+                .Where(au => au.UserId == userId && au.IsLocked == false)
+                .Select(au => new AppUserDto
+                {
+                    UserId = au.UserId,
+                    UserName = au.UserName
+                }).ToList();
+
+            if (query.Count == 0)
+                return string.Empty;
+
+            return query[0].UserName;
+        }
+
+        public AppUserDto AppUserLoad(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+                return new AppUserDto();
+
+            var au = new EntitySpaces.Generated.AppUser();
+            if (!au.LoadByPrimaryKey(userId))
+                return new AppUserDto();
+
+            return new AppUserDto
+            {
+                UserId = au.UserID,
+                UserName = au.UserName
+            };
+        }
+
+        public string AppUserString(string appUserId, string defaultString)
+        {
+            return !string.IsNullOrEmpty(appUserId) ? appUserId: defaultString;
         }
     }
 }

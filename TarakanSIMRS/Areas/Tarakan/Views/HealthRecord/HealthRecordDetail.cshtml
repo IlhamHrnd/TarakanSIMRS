@@ -8,45 +8,64 @@
     </script>
 }
 
-<div class="d-flex flex-wrap gap-2">
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link active" href="#" data-bs-toggle="offcanvas" data-bs-target="#patientDetail" aria-controls="patientDetail"><i class="fa-solid fa-circle-info"></i> Information</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#" onclick="backToList()"><i class="fa-solid fa-bars"></i> Back To List</a>
-        </li>
-    </ul>
+<div class="d-flex flex-wrap gap-2 mb-2">
+    <a class="btn btn-primary flex-grow-1 text-start" data-bs-toggle="offcanvas" data-bs-target="#patientDetail" aria-controls="patientDetail">
+        <i class="fa-solid fa-circle-info"></i> Information
+    </a>
+    <a class="btn btn-outline-primary flex-grow-1 text-start" onclick="backToList()">
+        <i class="fa-solid fa-bars"></i> Back To List
+    </a>
 </div>
-<div class="mt-3">
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link active" href="#"><i class="fa-solid fa-notes-medical"></i> Integrated Notes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-prescription-bottle-medical"></i> Medication</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-clock-rotate-left"></i> Surgical History</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Exam Order</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Health Record</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Care Plan</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Scheduling</a>
-        </li>
-    </ul>
+<div class="d-flex flex-wrap gap-2 mb-2">
+    <a class="btn btn-primary flex-grow-1 text-start" href="#scrollspyIntegratedNote">
+        <i class="fas fa-notes-medical"></i> Integrated Notes
+    </a>
+    <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyMedication">
+        <i class="fas fa-pills"></i> Medication
+    </a>
+    <a class="btn btn-outline-primary flex-grow-1" href="#scrollspySurgicalHistory">
+        <i class="fas fa-history"></i> Surgical History
+    </a>
+    <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyExamOrder">
+        <i class="fa-solid fa-laptop-medical"></i> Exam Order
+    </a>
+    <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyHealthRecord">
+        <i class="fa-solid fa-laptop-medical"></i> Health Record
+    </a>
+    <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyCarePlan">
+        <i class="fa-solid fa-user-nurse"></i> Care Plan
+    </a>
+    <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyScheduling">
+        <i class="fa-solid fa-calendar-days"></i> Scheduling
+    </a>
 </div>
-<div class="mt-3">
-    <table id="listTable" class="display table table-striped table-bordered table-hover" style="width:100%">
-        
-    </table>
+<div class="card" id="scrollspyIntegratedNote">
+    <div class="card-header"><i class="fa-solid fa-notes-medical"></i> Integrated Note</div>
+    <div class="card-body"><div id="integratedNote"></div></div>
+</div>
+<div class="card" id="scrollspyMedication">
+    <div class="card-header"><i class="fa-solid fa-prescription-bottle-medical"></i> Medication</div>
+    <div class="card-body"><div id="medication"></div></div>
+</div>
+<div class="card" id="scrollspySurgicalHistory">
+    <div class="card-header"><i class="fa-solid fa-clock-rotate-left"></i> Surgical History</div>
+    <div class="card-body"><div id="surgicalHistory"></div></div>
+</div>
+<div class="card" id="scrollspyExamOrder">
+    <div class="card-header"><i class="fa-solid fa-prescription-bottle-medical"></i> Exam Order</div>
+    <div class="card-body"><div id="examOrder"></div></div>
+</div>
+<div class="card" id="scrollspyHealthRecord">
+    <div class="card-header"><i class="fa-solid fa-prescription-bottle-medical"></i> Health Record</div>
+    <div class="card-body"><div id="healthRecord"></div></div>
+</div>
+<div class="card" id="scrollspyCarePlan">
+    <div class="card-header"><i class="fa-solid fa-prescription-bottle-medical"></i> Care Plan</div>
+    <div class="card-body"><div id="carePlan"></div></div>
+</div>
+<div class="card" id="scrollspyScheduling">
+    <div class="card-header"><i class="fa-solid fa-prescription-bottle-medical"></i> Scheduling</div>
+    <div class="card-body"><div id="scheduling"></div></div>
 </div>
 <div class="offcanvas offcanvas-start" tabindex="-1" id="patientDetail" aria-labelledby="patientDetailLabel">
     <div class="offcanvas-header">
@@ -66,7 +85,6 @@
                 <li class="list-group-item" id="patientAllergy"></li>
                 <li class="list-group-item" id="patientDiagnose"></li>
                 <li class="list-group-item" id="patientVitalSign"></li>
-                <li class="list-group-item" id="patientIntegratedNote"></li>
             </ul>
         </div>
     </div>

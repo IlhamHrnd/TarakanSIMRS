@@ -73,5 +73,11 @@
         public string DpjpNotes { get; set; }
 
         public string ReceiveBy { get; set; }
+        public string ParamedicName { get; set; }
+        public string ServiceUnitName { get; set; }
+        public string MedicalInputType { get; set; }
+        public string Result { get; set; }
+        public string DateTimeInfoStr { get; set; }
+        public string CreatedByUserName { get; set; }
     }
 }

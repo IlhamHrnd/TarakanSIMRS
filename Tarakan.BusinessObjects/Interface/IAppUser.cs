@@ -7,5 +7,8 @@ namespace Tarakan.BusinessObjects.Interface
     {
         AppUserDto LoadByPrimaryKey(string userId, string password);
         DataTable AppUserGroupProgramDtos(string userId);
+        string GetUsername(string userId);
+        AppUserDto AppUserLoad(string userId);
+        string AppUserString(string appUserId, string defaultString);
     }
 }

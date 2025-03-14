@@ -128,6 +128,20 @@
             console.error("Error loading RegistrationController:", error);
         }
     });
+
+    $.ajax({
+        url: "/Tarakan/Integrated/IntegratedNote",
+        type: "GET",
+        contentType: "application/json",
+        data: {},
+        success: function (data) {
+            $("#integratedNote").html(data);
+            $.getScript("/js/Integrated/IntegratedNote.js");
+        },
+        error: function (xhr, status, error) {
+            console.error("Error loading IntegratedController:", error);
+        }
+    });
 });
 
 function backToList() {
