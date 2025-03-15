@@ -101,7 +101,9 @@ namespace Tarakan.BusinessObjects.Query
             {
                 UserId = au.UserID,
                 UserName = au.UserName,
-                ServiceUnitId = au.ServiceUnitID
+                ServiceUnitId = au.ServiceUnitID,
+                ParamedicId = au.ParamedicID,
+                SruserType = au.SRUserType
             };
         }
 

@@ -294,6 +294,7 @@ namespace Tarakan.BusinessObjects.Query
                 })
                 .Select(group => group.First())
                 .OrderByDescending(row => row.Field<DateTime>("RegistrationDate"))
+                .ThenBy(row => row.Field<string>("Group"))
                 .ThenBy(row => row.Field<int?>("RegistrationQue"))
                 .ThenBy(row => row.Field<string>("ExternalQueNo"))
                 .ThenBy(row => row.Field<string>("RegistrationTime"))

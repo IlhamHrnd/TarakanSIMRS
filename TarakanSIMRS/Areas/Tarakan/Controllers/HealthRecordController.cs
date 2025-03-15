@@ -31,7 +31,14 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                 getRegistration = _registration.RegistrationEmr(new RegistrationFilter
                 {
                     ParamedicID = !string.IsNullOrEmpty(baseModel.ParamedicID) ? baseModel.ParamedicID : string.Empty,
-                    ServiceUnitID = !string.IsNullOrEmpty(au.ParamedicId) && !string.IsNullOrEmpty(au.ServiceUnitId) && au.SruserType == Const.Doctor ? au.ServiceUnitId : string.Empty
+                    ServiceUnitID = !string.IsNullOrEmpty(au.ParamedicId) && !string.IsNullOrEmpty(au.ServiceUnitId) && au.SruserType == Const.Doctor ? au.ServiceUnitId : string.Empty,
+                    IsIncludeClosed = false,
+                    IsIncludeDischarge = false,
+                    IsIncludeIPRSOAPInputted = false,
+                    IsIncludeNonIPRSOAPInputted = false,
+                    RegistrationDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day),
+                    ExamOrderFromDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-1).Day),
+                    ExamOrderToDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day)
                 }, baseModel.UserID),
                 IsLoadBillingProgress = IsLoadBillingProgress
             };
