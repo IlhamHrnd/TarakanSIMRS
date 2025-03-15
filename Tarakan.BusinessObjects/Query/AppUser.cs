@@ -5,68 +5,47 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class AppUser : IAppUser
+    public class AppUser : BaseQuery, IAppUser
     {
-        private readonly AppDbContext _context;
-
-        public AppUser(AppDbContext context)
+        public AppUser(AppDbContext context) : base(context)
         {
-            _context = context;
+
         }
 
         public AppUserDto LoadByPrimaryKey(string userId, string password)
         {
-            var result = new AppUserDto();
-            var au = new EntitySpaces.Generated.AppUser();
-
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(password))
-                return result;
+                return new AppUserDto();
 
-            if (!au.LoadByPrimaryKey(userId, password))
-                return result;
+            var query = _context.AppUsers
+                .Where(au => au.UserId == userId && au.Password == password).FirstOrDefault();
 
-            result = new AppUserDto
+            if (query == null || string.IsNullOrEmpty(query.UserId))
+                return new AppUserDto();
+
+            return new AppUserDto
             {
-                UserId = au.UserID,
-                UserName = au.UserName,
-                Srlanguage = au.SRLanguage,
-                ActiveDate = au.ActiveDate ?? new DateTime(),
-                ExpireDate = au.ExpireDate ?? new DateTime(),
-                LastUpdateDateTime = au.LastUpdateDateTime,
-                LastUpdateByUserId = au.LastUpdateByUserID,
-                ParamedicId = au.ParamedicID,
-                ServiceUnitId = au.ServiceUnitID,
-                LicenseNo = au.LicenseNo,
-                PersonId = au.PersonID,
-                Email = au.Email,
-                IsLocked = au.IsLocked,
-                SruserType = au.SRUserType,
-                CashManagementNo = au.CashManagementNo,
-                SignatureImage = au.SignatureImage,
-                LastCounterName = au.LastCounterName,
-                PasswordMd5 = au.PasswordMd5,
-                LastLogin = au.LastLogin,
-                EsignNik = au.ESignNik
+                UserId = query.UserId,
+                UserName = query.UserName,
+                Srlanguage = query.Srlanguage,
+                ActiveDate = query.ActiveDate,
+                ExpireDate = query.ExpireDate,
+                LastUpdateDateTime = query.LastUpdateDateTime,
+                LastUpdateByUserId = query.LastUpdateByUserId ?? string.Empty,
+                ParamedicId = query.ParamedicId ?? string.Empty,
+                ServiceUnitId = query.ServiceUnitId ?? string.Empty,
+                LicenseNo = query.LicenseNo ?? string.Empty,
+                PersonId = query.PersonId,
+                Email = query.Email ?? string.Empty,
+                IsLocked = query.IsLocked,
+                SruserType = query.SruserType ?? string.Empty,
+                CashManagementNo = query.CashManagementNo ?? string.Empty,
+                SignatureImage = query.SignatureImage ?? [],
+                LastCounterName = query.LastCounterName ?? string.Empty,
+                PasswordMd5 = query.PasswordMd5 ?? string.Empty,
+                LastLogin = query.LastLogin,
+                EsignNik = query.EsignNik ?? string.Empty
             };
-
-            return result;
-        }
-
-        public DataTable AppUserGroupProgramDtos(string userId)
-        {
-            if (string.IsNullOrEmpty(userId))
-                return new DataTable();
-
-            var auQ = new EntitySpaces.Generated.AppUserQuery("auQ");
-            var augpQ = new EntitySpaces.Generated.AppUserGroupProgramQuery("augpQ");
-            var auugQ = new EntitySpaces.Generated.AppUserUserGroupQuery("auugQ");
-
-            auQ.Select(auQ.UserID, auugQ.UserGroupID, augpQ.ProgramID, augpQ.IsUserGroupAddAble, augpQ.IsUserGroupEditAble, augpQ.IsUserGroupDeleteAble, augpQ.IsUserGroupApprovalAble, augpQ.IsUserGroupUnApprovalAble,
-                augpQ.IsUserGroupUnVoidAble, augpQ.IsUserGroupVoidAble, augpQ.IsUserGroupExportAble, augpQ.IsUserGroupCrossUnitAble, augpQ.IsUserGroupPowerUserAble)
-                .InnerJoin(auugQ).On(auugQ.UserID == auQ.UserID)
-                .InnerJoin(augpQ).On(augpQ.UserGroupID == auugQ.UserGroupID)
-                .Where(auQ.UserID == userId);
-            return auQ.LoadDataTable();
         }
 
         public string GetUsername(string userId)
@@ -93,17 +72,27 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(userId))
                 return new AppUserDto();
 
-            var au = new EntitySpaces.Generated.AppUser();
-            if (!au.LoadByPrimaryKey(userId))
+            var query = _context.AppUsers
+                .Where(au => au.UserId == userId)
+                .Select(au => new AppUserDto
+                {
+                    UserId = au.UserId,
+                    UserName = au.UserName,
+                    ServiceUnitId = au.ServiceUnitId ?? string.Empty,
+                    ParamedicId = au.ParamedicId ?? string.Empty,
+                    SruserType = au.SruserType ?? string.Empty
+                }).FirstOrDefault();
+
+            if (query == null || string.IsNullOrEmpty(query.UserId))
                 return new AppUserDto();
 
             return new AppUserDto
             {
-                UserId = au.UserID,
-                UserName = au.UserName,
-                ServiceUnitId = au.ServiceUnitID,
-                ParamedicId = au.ParamedicID,
-                SruserType = au.SRUserType
+                UserId = query.UserId,
+                UserName = query.UserName,
+                ServiceUnitId = query.ServiceUnitId,
+                ParamedicId = query.ParamedicId,
+                SruserType = query.SruserType
             };
         }
 

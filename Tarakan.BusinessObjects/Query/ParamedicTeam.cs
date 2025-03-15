@@ -4,14 +4,12 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class ParamedicTeam : IParamedicTeam
+    public class ParamedicTeam : BaseQuery, IParamedicTeam
     {
-        private readonly AppDbContext _context;
         private readonly IParamedic _paramedic;
         private readonly IAppParameter _appParameter;
-        public ParamedicTeam(AppDbContext context, IParamedic paramedic, IAppParameter appParameter)
+        public ParamedicTeam(AppDbContext context, IParamedic paramedic, IAppParameter appParameter) : base(context)
         {
-            _context = context;
             _paramedic = paramedic;
             _appParameter = appParameter;
         }

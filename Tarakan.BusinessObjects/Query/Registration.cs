@@ -3,10 +3,11 @@ using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Filter;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class Registration : IRegistration
+    public class Registration : BaseQuery, IRegistration
     {
         #region Variabel
         string[] patientIdSearchs = [];
@@ -28,7 +29,7 @@ namespace Tarakan.BusinessObjects.Query
         private readonly IVitalSign _vitalSign;
         private readonly IPatientRelated _patientRelated;
 
-        public Registration(IAppParameter appParameter, IParamedic paramedic, IServiceUnit serviceUnit, IVitalSign vitalSign, IPatientRelated patientRelated)
+        public Registration(AppDbContext context, IAppParameter appParameter, IParamedic paramedic, IServiceUnit serviceUnit, IVitalSign vitalSign, IPatientRelated patientRelated) : base(context)
         {
             _appParameter = appParameter;
             _paramedic = paramedic;

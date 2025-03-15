@@ -37,6 +37,10 @@
         public string Group { get; set; }
         public int? RegistrationQue { get; set; }
         public string ExternalQueNo { get; set; }
+        public decimal? PatientAdm { get; set; }
+        public decimal? GuarantorAdm { get; set; }
+        public decimal? DiscAdmPatient { get; set; }
+        public decimal? DiscAdmGuarantor { get; set; }
 
         #region Custom Variabel
         public int Count { get; set; }

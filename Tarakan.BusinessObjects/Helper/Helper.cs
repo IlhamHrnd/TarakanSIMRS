@@ -22,10 +22,28 @@ namespace Tarakan.BusinessObjects.Helper
 
     public static class Converter
     {
+        #region Fungsi Regex
         public static string FormatToHtml(object value)
         {
-            return value == null || value == DBNull.Value ? string.Empty : Regex.Replace(value.ToString(), @"\r\n?|\n", "<br />");
+            if (value == null || value == DBNull.Value)
+                return string.Empty;
+
+            var format = Convert.ToString(value);
+            format = FormatProgrammingMark(format ?? string.Empty);
+            format = FormatNewLine(format);
+            return format;
         }
+
+        private static string FormatNewLine(string value)
+        {
+            return value == null || string.IsNullOrEmpty(value) ? string.Empty : Regex.Replace(value.ToString(), @"\r\n?|\n", "<br />");
+        }
+
+        private static string FormatProgrammingMark(string value)
+        {
+            return value == null || string.IsNullOrEmpty(value) ? string.Empty : Regex.Replace(value.ToString(), "{", string.Empty);
+        }
+        #endregion
 
         public static string ReplaceWitBreakLineHTML(string text)
         {

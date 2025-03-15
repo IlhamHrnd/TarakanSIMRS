@@ -4,13 +4,11 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class Morphology : IMorphology
+    public class Morphology : BaseQuery, IMorphology
     {
-        private readonly AppDbContext _context;
-
-        public Morphology(AppDbContext context)
+        public Morphology(AppDbContext context) : base(context)
         {
-            _context = context;
+
         }
 
         public MorphologyDto LoadByPrimarykey(string morphologyId)

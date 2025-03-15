@@ -2,6 +2,6 @@
 {
     public interface ICostCalculation
     {
-        void GetBillingTotalEMR(string[] regNos, string srBusinessMethod, decimal plafonAmount, out decimal patientAmount, out decimal guarantorAmount, EntitySpaces.Generated.Guarantor g, bool isGlobalPlafond);
+        void GetBillingTotalEMR(string[] regNos, string srBusinessMethod, decimal plafonAmount, bool isGlobalPlafond, string guarId, bool IsIncludeAdminValue, out decimal patientAmount, out decimal guarantorAmount);
     }
 }

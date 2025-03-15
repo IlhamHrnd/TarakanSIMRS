@@ -5,14 +5,12 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class EpisodeDiagnose : IEpisodeDiagnose
+    public class EpisodeDiagnose : BaseQuery, IEpisodeDiagnose
     {
-        private readonly AppDbContext _context;
         private readonly IDiagnose _diagnose;
         private readonly IMorphology _morphology;
-        public EpisodeDiagnose(AppDbContext context, IDiagnose diagnose, IMorphology morphology)
+        public EpisodeDiagnose(AppDbContext context, IDiagnose diagnose, IMorphology morphology) : base(context)
         {
-            _context = context;
             _diagnose = diagnose;
             _morphology = morphology;
         }

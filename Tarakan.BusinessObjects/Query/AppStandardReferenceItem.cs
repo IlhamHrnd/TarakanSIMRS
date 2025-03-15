@@ -5,12 +5,11 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class AppStandardReferenceItem : IAppStandardReferenceItem
+    public class AppStandardReferenceItem : BaseQuery, IAppStandardReferenceItem
     {
-        private readonly AppDbContext _context;
-        public AppStandardReferenceItem(AppDbContext context)
+        public AppStandardReferenceItem(AppDbContext context) : base(context)
         {
-            _context = context;
+
         }
 
         public Task<List<AppStandardReferenceItemDto>> GetReferenceItem(string referenceId, bool? isActive, bool? isUsedBySystem)
@@ -29,7 +28,7 @@ namespace Tarakan.BusinessObjects.Query
                 {
                     StandardReferenceID = asri.StandardReferenceId,
                     ItemID = asri.ItemId,
-                    ItemName = asri.ItemName
+                    ItemName = asri.ItemName ?? string.Empty
                 }).ToListAsync();
         }
 
@@ -43,7 +42,7 @@ namespace Tarakan.BusinessObjects.Query
                 .Select(asri => new AppStandardReferenceItemDto
                 {
                     ItemID = asri.StandardReferenceId,
-                    ItemName = asri.ItemName
+                    ItemName = asri.ItemName ?? string.Empty
                 }).ToList();
 
             if (query.Count == 0)

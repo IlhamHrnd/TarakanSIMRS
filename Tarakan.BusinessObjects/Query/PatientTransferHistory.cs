@@ -1,10 +1,16 @@
 ﻿using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 using Cast = EntitySpaces.DynamicQuery;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class PatientTransferHistory : IPatientTransferHistory
+    public class PatientTransferHistory : BaseQuery, IPatientTransferHistory
     {
+        public PatientTransferHistory(AppDbContext context) : base(context)
+        {
+            
+        }
+
         public string? GetServiceUnitId(string regNo, DateTime dateTime)
         {
             var pthQ = new EntitySpaces.Generated.PatientTransferHistoryQuery("pthQ");

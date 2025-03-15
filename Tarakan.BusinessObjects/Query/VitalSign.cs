@@ -2,11 +2,17 @@
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class VitalSign : IVitalSign
+    public class VitalSign : BaseQuery, IVitalSign
     {
+        public VitalSign(AppDbContext context) : base(context)
+        {
+            
+        }
+
         [Obsolete]
         public DateTime LastVitalSignDate(string registrationNo, string fromRegistrationNo)
         {

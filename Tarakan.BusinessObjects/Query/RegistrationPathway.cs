@@ -1,9 +1,15 @@
 ﻿using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class RegistrationPathway : IRegistrationPathway
+    public class RegistrationPathway : BaseQuery, IRegistrationPathway
     {
+        public RegistrationPathway(AppDbContext context) : base(context)
+        {
+            
+        }
+
         public string GetRegistrationPathwayName(string regNo)
         {
             var rpQ = new EntitySpaces.Generated.RegistrationPathwayQuery("rpQ");

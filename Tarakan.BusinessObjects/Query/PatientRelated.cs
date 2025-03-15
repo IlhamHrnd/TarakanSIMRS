@@ -1,9 +1,15 @@
 ﻿using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class PatientRelated : IPatientRelated
+    public class PatientRelated : BaseQuery, IPatientRelated
     {
+        public PatientRelated(AppDbContext context) : base(context)
+        {
+            
+        }
+
         public List<string> PatientRelateds(string patId)
         {
             var _patientRelateds = new List<string>();

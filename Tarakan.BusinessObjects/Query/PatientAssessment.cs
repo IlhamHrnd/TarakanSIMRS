@@ -4,13 +4,11 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class PatientAssessment : IPatientAssessment
+    public class PatientAssessment : BaseQuery, IPatientAssessment
     {
-        private readonly AppDbContext _context;
-
-        public PatientAssessment(AppDbContext context)
+        public PatientAssessment(AppDbContext context) : base(context)
         {
-            _context = context;
+
         }
 
         public string AdditionalNoteScript(string assessmentName, string regInfoMedicId)
@@ -22,7 +20,7 @@ namespace Tarakan.BusinessObjects.Query
                 .Where(pa => pa.RegistrationInfoMedicId == regInfoMedicId)
                 .Select(pa => new PatientAssessmentDto
                 {
-                    AdditionalNotes = pa.AdditionalNotes
+                    AdditionalNotes = pa.AdditionalNotes ?? string.Empty
                 }).ToList();
 
             if (query.Count == 0)

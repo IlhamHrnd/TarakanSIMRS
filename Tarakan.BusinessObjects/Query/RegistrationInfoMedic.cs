@@ -5,10 +5,11 @@ using System.Text.RegularExpressions;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class RegistrationInfoMedic : IRegistrationInfoMedic
+    public class RegistrationInfoMedic : BaseQuery, IRegistrationInfoMedic
     {
         private readonly IRegistration _registration;
         private readonly IAppParameter _appParameter;
@@ -20,8 +21,8 @@ namespace Tarakan.BusinessObjects.Query
         private readonly IParamedicConsultRefer _paramedicConsultRefer;
         private readonly IPatientHealthRecord _patientHealthRecord;
         private readonly IPatientAssessment _patientAssessment;
-        public RegistrationInfoMedic(IRegistration registration, IAppParameter appParameter, IPatientTransferHistory patientTransferHistory, IParamedic paramedic, IServiceUnit serviceUnit,
-            IAppStandardReferenceItem appStandardReferenceItem, IAppUser appUser, IParamedicConsultRefer paramedicConsultRefer, IPatientHealthRecord patientHealthRecord, IPatientAssessment patientAssessment)
+        public RegistrationInfoMedic(AppDbContext context, IRegistration registration, IAppParameter appParameter, IPatientTransferHistory patientTransferHistory, IParamedic paramedic, IServiceUnit serviceUnit,
+            IAppStandardReferenceItem appStandardReferenceItem, IAppUser appUser, IParamedicConsultRefer paramedicConsultRefer, IPatientHealthRecord patientHealthRecord, IPatientAssessment patientAssessment) : base(context)
         {
             _registration = registration;
             _appParameter = appParameter;
@@ -295,7 +296,7 @@ namespace Tarakan.BusinessObjects.Query
                         break;
 
                     default:
-                        sbNote.AppendFormat($"<tr><td colspan='2' style='padding-left:2px;'>{Regex.Replace(dr["Info1"] == DBNull.Value ? string.Empty : (string)dr["Info1"], @"\r\n?|\n", "<br />")}</td></tr>");
+                        sbNote.AppendFormat($"<tr><td colspan='2' style='padding-left:2px;'>{Converter.FormatToHtml(dr["Info1"])}</td></tr>");
                         if (dr["ReferenceToPhrNo"] != DBNull.Value && !string.IsNullOrEmpty((string)dr["ReferenceToPhrNo"]) && _patientHealthRecord.LoadByTransactionNoRegNoOfTemplateEntry((string)dr["ReferenceToPhrNo"], (string)dr["RegistrationNo"]))
                             dr["Info2"] = dr["Info2"];
 

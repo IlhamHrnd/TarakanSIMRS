@@ -1,9 +1,15 @@
 ﻿using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class PatientHealthRecord : IPatientHealthRecord
+    public class PatientHealthRecord : BaseQuery, IPatientHealthRecord
     {
+        public PatientHealthRecord(AppDbContext context) : base(context)
+        {
+            
+        }
+
         public bool LoadByTransactionNoRegNoOfTemplateEntry(string transNo, string regNo)
         {
             var phrlQ = new EntitySpaces.Generated.PatientHealthRecordLineQuery("phrlQ");

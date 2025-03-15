@@ -7,13 +7,11 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class Patient : IPatient
+    public class Patient : BaseQuery, IPatient
     {
-        private readonly AppDbContext _context;
-
-        public Patient(AppDbContext context)
+        public Patient(AppDbContext context) : base(context)
         {
-            _context = context;
+
         }
 
         public string GetPatientName(string patId)

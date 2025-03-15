@@ -5,23 +5,26 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class Paramedic : IParamedic
+    public class Paramedic : BaseQuery, IParamedic
     {
-        private readonly AppDbContext _context;
         private IAppParameter _appParameter;
-        public Paramedic(AppDbContext context, IAppParameter appParameter)
+        public Paramedic(AppDbContext context, IAppParameter appParameter) : base(context)
         {
-            _context = context;
             _appParameter = appParameter;
         }
 
-        public string GetParamedicName(string paramedicID)
+        public string GetParamedicName(string parId)
         {
-            if (string.IsNullOrWhiteSpace(paramedicID))
+            if (string.IsNullOrWhiteSpace(parId))
                 return string.Empty;
 
-            var pa = new EntitySpaces.Generated.Paramedic();
-            return pa.LoadByPrimaryKey(paramedicID) ? pa.ParamedicName : string.Empty;
+            var query = _context.Paramedics.AsQueryable()
+                .Where(par => par.ParamedicId == parId).FirstOrDefault();
+
+            if (query == null || string.IsNullOrEmpty(query.ParamedicId))
+                return string.Empty;
+
+            return query.ParamedicName;
         }
 
         public Task<List<ParamedicDto>> GetParamedic(bool? isActive)

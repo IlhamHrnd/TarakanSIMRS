@@ -1,10 +1,16 @@
 ﻿using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class ParamedicConsultRefer : IParamedicConsultRefer
+    public class ParamedicConsultRefer : BaseQuery, IParamedicConsultRefer
     {
+        public ParamedicConsultRefer(AppDbContext context) : base(context)
+        {
+            
+        }
+
         public ParamedicConsultReferDto LoadByPrimaryKey(string refNo)
         {
             if (string.IsNullOrEmpty(refNo))

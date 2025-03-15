@@ -2,11 +2,17 @@
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
+using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class ServiceUnit : IServiceUnit
+    public class ServiceUnit : BaseQuery, IServiceUnit
     {
+        public ServiceUnit(AppDbContext context) : base(context)
+        {
+            
+        }
+
         public string GetServiceUnitName(string serviceUnitID)
         {
             if (string.IsNullOrEmpty(serviceUnitID))

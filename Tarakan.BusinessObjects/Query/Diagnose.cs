@@ -4,13 +4,11 @@ using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query
 {
-    public class Diagnose : IDiagnose
+    public class Diagnose : BaseQuery, IDiagnose
     {
-        private readonly AppDbContext _context;
-
-        public Diagnose(AppDbContext context)
+        public Diagnose(AppDbContext context) : base(context)
         {
-            _context = context;
+
         }
 
         public DiagnoseDto LoadByPrimarykey(string diagId)
@@ -31,7 +29,7 @@ namespace Tarakan.BusinessObjects.Query
                 diag = new DiagnoseDto
                 {
                     DiagnoseId = item.DiagnoseId,
-                    DtdNo = item.DtdNo,
+                    DtdNo = item.DtdNo ?? string.Empty,
                     DiagnoseName = item.DiagnoseName,
                     IsChronicDisease = item.IsChronicDisease,
                     IsDisease = item.IsDisease,
