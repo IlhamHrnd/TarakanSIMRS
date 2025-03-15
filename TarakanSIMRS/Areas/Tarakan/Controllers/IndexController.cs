@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tarakan.BusinessObjects.Interface;
+using TarakanSIMRS.Areas.Tarakan.Models;
 
 namespace TarakanSIMRS.Areas.Tarakan.Controllers
 {
@@ -27,6 +28,10 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
 
         public async Task<IActionResult> Logout()
         {
+            //Remove Session
+            if (GetSessionData<BaseModel>("BaseModel") != null)
+                RemoveSessionData("BaseModel");
+
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home", new { area = "" });
         }

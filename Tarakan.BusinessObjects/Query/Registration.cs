@@ -293,6 +293,10 @@ namespace Tarakan.BusinessObjects.Query
                     ParamedicID = row.Field<string>("ParamedicID")
                 })
                 .Select(group => group.First())
+                .OrderByDescending(row => row.Field<DateTime>("RegistrationDate"))
+                .ThenBy(row => row.Field<int?>("RegistrationQue"))
+                .ThenBy(row => row.Field<string>("ExternalQueNo"))
+                .ThenBy(row => row.Field<string>("RegistrationTime"))
                 .CopyToDataTable();
             }
 
@@ -1044,7 +1048,7 @@ namespace Tarakan.BusinessObjects.Query
                 .InnerJoin(gQ).On(rQ.GuarantorID == gQ.GuarantorID)
                 .LeftJoin(salQ).On(salQ.StandardReferenceID == "Salutation" && patQ.SRSalutation == salQ.ItemID)
                 .InnerJoin(suQ).On(rQ.ServiceUnitID == suQ.ServiceUnitID)
-                .LeftJoin(bQ).On(rQ.RegistrationDate == bQ.RegistrationNo);
+                .LeftJoin(bQ).On(rQ.RegistrationNo == bQ.RegistrationNo);
 
             if (isTransfer)
                 rQ.Select("<'DRJT' AS RowSource>");

@@ -44,13 +44,15 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         {
             HttpContext.Session.SetString(key, JsonConvert.SerializeObject(data));
         }
-
         protected T? GetSessionData<T>(string key)
         {
             var value = HttpContext.Session.GetString(key);
             return value == null ? default : JsonConvert.DeserializeObject<T>(value);
         }
-
+        protected void RemoveSessionData(string key)
+        {
+            HttpContext.Session.Remove(key);
+        }
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
