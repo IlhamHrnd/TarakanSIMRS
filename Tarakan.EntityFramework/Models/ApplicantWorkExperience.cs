@@ -9,27 +9,27 @@ public partial class ApplicantWorkExperience
 
     public int ApplicantId { get; set; }
 
-    public string SrlineBisnis { get; set; }
+    public string SrlineBisnis { get; set; } = null!;
 
     public DateTime StartDate { get; set; }
 
     public DateTime EndDate { get; set; }
 
-    public string Company { get; set; }
+    public string? Company { get; set; }
 
-    public string Division { get; set; }
+    public string? Division { get; set; }
 
-    public string Location { get; set; }
+    public string? Location { get; set; }
 
-    public string JobDesc { get; set; }
+    public string? JobDesc { get; set; }
 
-    public string SupervisorName { get; set; }
+    public string? SupervisorName { get; set; }
 
     public decimal? LastSalary { get; set; }
 
-    public string ReasonOfLeaving { get; set; }
+    public string? ReasonOfLeaving { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

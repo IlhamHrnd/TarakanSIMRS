@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationEsoItem
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int EsoNo { get; set; }
 
@@ -17,9 +17,9 @@ public partial class RegistrationEsoItem
 
     public DateTime? EndConsumeDateTime { get; set; }
 
-    public string ConsumeIndication { get; set; }
+    public string? ConsumeIndication { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 }

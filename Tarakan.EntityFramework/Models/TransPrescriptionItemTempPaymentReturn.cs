@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TransPrescriptionItemTempPaymentReturn
 {
-    public string Prescription { get; set; }
+    public string Prescription { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string IntermBillNo { get; set; }
+    public string IntermBillNo { get; set; } = null!;
 
-    public string PaymentNo { get; set; }
+    public string PaymentNo { get; set; } = null!;
 
     public decimal? Price { get; set; }
 

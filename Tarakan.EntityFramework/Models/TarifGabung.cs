@@ -7,23 +7,23 @@ public partial class TarifGabung
 {
     public double? SeqNo { get; set; }
 
-    public string Smf { get; set; }
+    public string? Smf { get; set; }
 
-    public string ItemType { get; set; }
+    public string? ItemType { get; set; }
 
-    public string KodeGroup { get; set; }
+    public string? KodeGroup { get; set; }
 
-    public string NamaGroup { get; set; }
+    public string? NamaGroup { get; set; }
 
-    public string KodeItem { get; set; }
+    public string? KodeItem { get; set; }
 
-    public string NamaPelayanan { get; set; }
+    public string? NamaPelayanan { get; set; }
 
-    public string KodeIdi { get; set; }
+    public string? KodeIdi { get; set; }
 
-    public string SreklaimTariffGroup { get; set; }
+    public string? SreklaimTariffGroup { get; set; }
 
-    public string EklaimTarifGroup { get; set; }
+    public string? EklaimTarifGroup { get; set; }
 
     public double? PJasaDokter { get; set; }
 
@@ -83,19 +83,19 @@ public partial class TarifGabung
 
     public double? _31Total { get; set; }
 
-    public string F40 { get; set; }
+    public string? F40 { get; set; }
 
-    public string F41 { get; set; }
+    public string? F41 { get; set; }
 
-    public string F42 { get; set; }
+    public string? F42 { get; set; }
 
-    public string F43 { get; set; }
+    public string? F43 { get; set; }
 
-    public string F44 { get; set; }
+    public string? F44 { get; set; }
 
-    public string F45 { get; set; }
+    public string? F45 { get; set; }
 
-    public string F46 { get; set; }
+    public string? F46 { get; set; }
 
-    public string F47 { get; set; }
+    public string? F47 { get; set; }
 }

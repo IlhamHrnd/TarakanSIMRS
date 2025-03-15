@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Pathway
 {
-    public string PathwayId { get; set; }
+    public string PathwayId { get; set; } = null!;
 
-    public string PathwayName { get; set; }
+    public string PathwayName { get; set; } = null!;
 
     public DateTime StartingDate { get; set; }
 
@@ -19,11 +19,11 @@ public partial class Pathway
 
     public int Alos { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

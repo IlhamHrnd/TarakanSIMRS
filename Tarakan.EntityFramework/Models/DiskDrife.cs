@@ -9,7 +9,7 @@ public partial class DiskDrife
 
     public DateTime UtccollectionDateTime { get; set; }
 
-    public string DriveName { get; set; }
+    public string DriveName { get; set; } = null!;
 
     public decimal? UnusedSizeKb { get; set; }
 

@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Bank
 {
-    public string BankId { get; set; }
+    public string BankId { get; set; } = null!;
 
-    public string BankName { get; set; }
+    public string BankName { get; set; } = null!;
 
     public int? ChartOfAccountId { get; set; }
 
@@ -15,13 +15,13 @@ public partial class Bank
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string NoRek { get; set; }
+    public string? NoRek { get; set; }
 
-    public string JournalCode { get; set; }
+    public string? JournalCode { get; set; }
 
-    public string CurrencyCode { get; set; }
+    public string? CurrencyCode { get; set; }
 
     public bool? IsActive { get; set; }
 

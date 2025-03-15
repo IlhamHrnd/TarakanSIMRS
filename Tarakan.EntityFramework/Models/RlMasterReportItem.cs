@@ -9,19 +9,19 @@ public partial class RlMasterReportItem
 
     public int RlMasterReportId { get; set; }
 
-    public string RlMasterReportItemNo { get; set; }
+    public string RlMasterReportItemNo { get; set; } = null!;
 
-    public string RlMasterReportItemCode { get; set; }
+    public string RlMasterReportItemCode { get; set; } = null!;
 
-    public string RlMasterReportItemName { get; set; }
+    public string RlMasterReportItemName { get; set; } = null!;
 
-    public string SrparamedicRl1 { get; set; }
+    public string SrparamedicRl1 { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
-    public string ParameterValue { get; set; }
+    public string ParameterValue { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

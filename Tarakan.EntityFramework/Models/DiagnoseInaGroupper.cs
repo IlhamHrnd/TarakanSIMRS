@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class DiagnoseInaGroupper
 {
-    public string DiagnoseId { get; set; }
+    public string DiagnoseId { get; set; } = null!;
 
-    public string DtdNo { get; set; }
+    public string? DtdNo { get; set; }
 
-    public string DiagnoseName { get; set; }
+    public string DiagnoseName { get; set; } = null!;
 
     public bool IsChronicDisease { get; set; }
 
@@ -19,7 +19,7 @@ public partial class DiagnoseInaGroupper
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string Synonym { get; set; }
+    public string? Synonym { get; set; }
 }

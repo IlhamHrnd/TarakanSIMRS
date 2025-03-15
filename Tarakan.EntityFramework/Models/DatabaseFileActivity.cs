@@ -15,5 +15,5 @@ public partial class DatabaseFileActivity
 
     public double? TimeDeltaInSeconds { get; set; }
 
-    public virtual DatabaseFile File { get; set; }
+    public virtual DatabaseFile File { get; set; } = null!;
 }

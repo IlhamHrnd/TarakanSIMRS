@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class DhfPatientLaboratoryResult
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public short? Days { get; set; }
 
@@ -19,5 +19,5 @@ public partial class DhfPatientLaboratoryResult
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

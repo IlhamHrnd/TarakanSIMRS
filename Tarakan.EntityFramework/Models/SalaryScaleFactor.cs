@@ -15,5 +15,5 @@ public partial class SalaryScaleFactor
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

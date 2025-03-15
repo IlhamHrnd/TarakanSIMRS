@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Class
 {
-    public string ClassId { get; set; }
+    public string ClassId { get; set; } = null!;
 
-    public string ClassName { get; set; }
+    public string ClassName { get; set; } = null!;
 
-    public string ShortName { get; set; }
+    public string ShortName { get; set; } = null!;
 
-    public string SrclassRl { get; set; }
+    public string SrclassRl { get; set; } = null!;
 
     public decimal MarginPercentage { get; set; }
 
@@ -23,13 +23,15 @@ public partial class Class
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? Margin2Percentage { get; set; }
 
-    public string BpjsClassId { get; set; }
+    public string? BpjsClassId { get; set; }
 
     public bool? IsTariffClass { get; set; }
 
     public short? ClassSeq { get; set; }
+
+    public string? SirsClass { get; set; }
 }

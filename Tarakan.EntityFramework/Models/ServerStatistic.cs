@@ -105,7 +105,7 @@ public partial class ServerStatistic
 
     public int? ResponseTimeInMilliseconds { get; set; }
 
-    public string ServerVersion { get; set; }
+    public string? ServerVersion { get; set; }
 
     public long? SqlCompilations { get; set; }
 
@@ -183,23 +183,23 @@ public partial class ServerStatistic
 
     public int? ProcessorsUsed { get; set; }
 
-    public string ProcessorType { get; set; }
+    public string? ProcessorType { get; set; }
 
-    public string ServerHostName { get; set; }
+    public string? ServerHostName { get; set; }
 
-    public string RealServerName { get; set; }
+    public string? RealServerName { get; set; }
 
-    public string WindowsVersion { get; set; }
+    public string? WindowsVersion { get; set; }
 
-    public string SqlServerEdition { get; set; }
+    public string? SqlServerEdition { get; set; }
 
     public DateTime? RunningSince { get; set; }
 
     public bool? IsClustered { get; set; }
 
-    public string ClusterNodeName { get; set; }
+    public string? ClusterNodeName { get; set; }
 
-    public string OsStatisticAvailability { get; set; }
+    public string? OsStatisticAvailability { get; set; }
 
     public long? Transactions { get; set; }
 
@@ -235,5 +235,5 @@ public partial class ServerStatistic
 
     public double? DiskQueueDepth { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

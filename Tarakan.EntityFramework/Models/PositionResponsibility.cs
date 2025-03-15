@@ -9,11 +9,11 @@ public partial class PositionResponsibility
 
     public int PositionId { get; set; }
 
-    public string ResponsibilityName { get; set; }
+    public string ResponsibilityName { get; set; } = null!;
 
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

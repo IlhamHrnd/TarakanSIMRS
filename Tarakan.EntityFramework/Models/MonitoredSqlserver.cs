@@ -7,7 +7,7 @@ public partial class MonitoredSqlserver
 {
     public int SqlserverId { get; set; }
 
-    public string InstanceName { get; set; }
+    public string InstanceName { get; set; } = null!;
 
     public bool Active { get; set; }
 
@@ -19,9 +19,9 @@ public partial class MonitoredSqlserver
 
     public bool UseIntegratedSecurity { get; set; }
 
-    public string Username { get; set; }
+    public string? Username { get; set; }
 
-    public string Password { get; set; }
+    public string? Password { get; set; }
 
     public bool EncryptData { get; set; }
 
@@ -31,9 +31,9 @@ public partial class MonitoredSqlserver
 
     public DateTime? LastScheduledCollectionTime { get; set; }
 
-    public string ServerVersion { get; set; }
+    public string? ServerVersion { get; set; }
 
-    public string ServerEdition { get; set; }
+    public string? ServerEdition { get; set; }
 
     public bool MaintenanceModeEnabled { get; set; }
 
@@ -87,7 +87,7 @@ public partial class MonitoredSqlserver
 
     public byte? ReorgStatisticsDays { get; set; }
 
-    public string TableStatisticsExcludedDatabases { get; set; }
+    public string? TableStatisticsExcludedDatabases { get; set; }
 
     public int GroomAlerts { get; set; }
 
@@ -117,7 +117,7 @@ public partial class MonitoredSqlserver
 
     public DateTime? MaintenanceModeRecurringStart { get; set; }
 
-    public string QueryMonitorAdvancedConfiguration { get; set; }
+    public string? QueryMonitorAdvancedConfiguration { get; set; }
 
     public bool? DisableExtendedHistoryCollection { get; set; }
 
@@ -131,7 +131,7 @@ public partial class MonitoredSqlserver
 
     public bool? DisableOleAutomation { get; set; }
 
-    public string DiskCollectionSettings { get; set; }
+    public string? DiskCollectionSettings { get; set; }
 
     public DateTime? QueryMonitorStopTimeUtc { get; set; }
 
@@ -139,13 +139,13 @@ public partial class MonitoredSqlserver
 
     public bool InputBufferLimited { get; set; }
 
-    public string ActiveClusterNode { get; set; }
+    public string? ActiveClusterNode { get; set; }
 
-    public string PreferredClusterNode { get; set; }
+    public string? PreferredClusterNode { get; set; }
 
-    public string RealServerName { get; set; }
+    public string? RealServerName { get; set; }
 
-    public string FriendlyServerName { get; set; }
+    public string? FriendlyServerName { get; set; }
 
     public DateTime? ActiveWaitCollectorStartTimeRelative { get; set; }
 
@@ -157,7 +157,7 @@ public partial class MonitoredSqlserver
 
     public int? ActiveWaitLoopTimeMilliseconds { get; set; }
 
-    public string ActiveWaitAdvancedConfiguration { get; set; }
+    public string? ActiveWaitAdvancedConfiguration { get; set; }
 
     public bool ActiveWaitXeenable { get; set; }
 
@@ -181,7 +181,7 @@ public partial class MonitoredSqlserver
 
     public bool ActiveWaitXestartupState { get; set; }
 
-    public string ActiveWaitsXefileName { get; set; }
+    public string ActiveWaitsXefileName { get; set; } = null!;
 
     public short? ClusterCollectionSetting { get; set; }
 
@@ -189,11 +189,11 @@ public partial class MonitoredSqlserver
 
     public int? VhostId { get; set; }
 
-    public string VmUid { get; set; }
+    public string? VmUid { get; set; }
 
-    public string VmName { get; set; }
+    public string? VmName { get; set; }
 
-    public string VmDomainName { get; set; }
+    public string? VmDomainName { get; set; }
 
     public bool AlertRefreshInMinutes { get; set; }
 
@@ -203,9 +203,9 @@ public partial class MonitoredSqlserver
 
     public bool WmiConnectAsService { get; set; }
 
-    public string WmiUserName { get; set; }
+    public string? WmiUserName { get; set; }
 
-    public string WmiPassword { get; set; }
+    public string? WmiPassword { get; set; }
 
     public DateTime? LastDatabaseCollectionTime { get; set; }
 
@@ -253,7 +253,7 @@ public partial class MonitoredSqlserver
 
     public bool ActivityMonitorXestartupState { get; set; }
 
-    public string ActivityMonitorXefileName { get; set; }
+    public string ActivityMonitorXefileName { get; set; } = null!;
 
     public int QueryMonitorXefileSizeMb { get; set; }
 
@@ -277,11 +277,11 @@ public partial class MonitoredSqlserver
 
     public bool? MaintenanceModeOnDemand { get; set; }
 
-    public string AwsAccessKey { get; set; }
+    public string? AwsAccessKey { get; set; }
 
-    public string AwsSecretKey { get; set; }
+    public string? AwsSecretKey { get; set; }
 
-    public string AwsRegionEndpoint { get; set; }
+    public string? AwsRegionEndpoint { get; set; }
 
     public virtual ICollection<Alert> Alerts { get; set; } = new List<Alert>();
 
@@ -305,7 +305,7 @@ public partial class MonitoredSqlserver
 
     public virtual ICollection<MetricThreshold> MetricThresholds { get; set; } = new List<MetricThreshold>();
 
-    public virtual MonitoredServerSqlsafeInstance MonitoredServerSqlsafeInstance { get; set; }
+    public virtual MonitoredServerSqlsafeInstance? MonitoredServerSqlsafeInstance { get; set; }
 
     public virtual ICollection<Osstatistic> Osstatistics { get; set; } = new List<Osstatistic>();
 
@@ -328,6 +328,8 @@ public partial class MonitoredSqlserver
     public virtual ICollection<WaitStatistic> WaitStatistics { get; set; } = new List<WaitStatistic>();
 
     public virtual ICollection<MetricMetaDatum> Metrics { get; set; } = new List<MetricMetaDatum>();
+
+    public virtual ICollection<Permission> Permissions { get; set; } = new List<Permission>();
 
     public virtual ICollection<Tag> Tags { get; set; } = new List<Tag>();
 

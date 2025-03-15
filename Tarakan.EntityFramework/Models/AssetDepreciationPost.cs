@@ -7,13 +7,13 @@ public partial class AssetDepreciationPost
 {
     public int AssetDepreciationPostId { get; set; }
 
-    public string AssetId { get; set; }
+    public string AssetId { get; set; } = null!;
 
     public int PeriodNo { get; set; }
 
-    public string Year { get; set; }
+    public string Year { get; set; } = null!;
 
-    public string Month { get; set; }
+    public string Month { get; set; } = null!;
 
     public DateTime DepreciationDate { get; set; }
 
@@ -31,9 +31,9 @@ public partial class AssetDepreciationPost
 
     public int? JournalId { get; set; }
 
-    public string JournalNumber { get; set; }
+    public string? JournalNumber { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

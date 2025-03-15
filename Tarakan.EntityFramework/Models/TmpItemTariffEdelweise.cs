@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpItemTariffEdelweise
 {
-    public string ItemGroupId { get; set; }
+    public string? ItemGroupId { get; set; }
 
-    public string NamaGroup { get; set; }
+    public string? NamaGroup { get; set; }
 
-    public string KodeItem { get; set; }
+    public string? KodeItem { get; set; }
 
-    public string NamaItem { get; set; }
+    public string? NamaItem { get; set; }
 
-    public string KodeIdi { get; set; }
+    public string? KodeIdi { get; set; }
 
     public double? EklaimId { get; set; }
 
-    public string EKlaimTarifGroup { get; set; }
+    public string? EKlaimTarifGroup { get; set; }
 
     public double? JasaDokter01 { get; set; }
 
@@ -69,9 +69,9 @@ public partial class TmpItemTariffEdelweise
 
     public double? Total31 { get; set; }
 
-    public string F33 { get; set; }
+    public string? F33 { get; set; }
 
-    public string F34 { get; set; }
+    public string? F34 { get; set; }
 
-    public string F35 { get; set; }
+    public string? F35 { get; set; }
 }

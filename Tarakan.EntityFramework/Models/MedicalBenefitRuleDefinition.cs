@@ -9,9 +9,9 @@ public partial class MedicalBenefitRuleDefinition
 
     public int MedicalBenefitInfoId { get; set; }
 
-    public string SremploymentType { get; set; }
+    public string? SremploymentType { get; set; }
 
-    public string SremployeeStatus { get; set; }
+    public string? SremployeeStatus { get; set; }
 
     public int? PositionGradeId { get; set; }
 
@@ -33,5 +33,5 @@ public partial class MedicalBenefitRuleDefinition
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

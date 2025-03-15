@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class QuestionGroup
 {
-    public string QuestionGroupId { get; set; }
+    public string QuestionGroupId { get; set; } = null!;
 
-    public string QuestionGroupName { get; set; }
+    public string QuestionGroupName { get; set; } = null!;
 
-    public string QuestionGroupNameEn { get; set; }
+    public string? QuestionGroupNameEn { get; set; }
 
     public int? OrderNo { get; set; }
 
@@ -17,7 +17,7 @@ public partial class QuestionGroup
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string SoapType { get; set; }
+    public string? SoapType { get; set; }
 }

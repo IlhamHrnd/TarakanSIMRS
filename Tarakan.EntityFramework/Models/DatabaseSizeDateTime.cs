@@ -9,5 +9,5 @@ public partial class DatabaseSizeDateTime
 
     public DateTime UtccollectionDateTime { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName Database { get; set; } = null!;
 }

@@ -13,7 +13,7 @@ public partial class EmployeeRemunDetail
 
     public int? PositionId { get; set; }
 
-    public string SremployeeStatus { get; set; }
+    public string SremployeeStatus { get; set; } = null!;
 
     public int CoorporateGradeLevel { get; set; }
 
@@ -31,9 +31,9 @@ public partial class EmployeeRemunDetail
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

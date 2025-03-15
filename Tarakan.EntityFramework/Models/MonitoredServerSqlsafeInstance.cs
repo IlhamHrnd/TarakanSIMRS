@@ -15,7 +15,7 @@ public partial class MonitoredServerSqlsafeInstance
 
     public int LastDefragActionId { get; set; }
 
-    public virtual SqlsafeConnection Repository { get; set; }
+    public virtual SqlsafeConnection Repository { get; set; } = null!;
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

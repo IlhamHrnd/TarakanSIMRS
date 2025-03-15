@@ -7,7 +7,7 @@ public partial class BankInquiry
 {
     public int InquiryId { get; set; }
 
-    public string BankId { get; set; }
+    public string BankId { get; set; } = null!;
 
     public DateTime? TransactionDate { get; set; }
 
@@ -17,11 +17,11 @@ public partial class BankInquiry
 
     public DateTime CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string CreatedByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string FileName { get; set; }
+    public string FileName { get; set; } = null!;
 }

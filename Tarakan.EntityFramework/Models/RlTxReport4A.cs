@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RlTxReport4A
 {
-    public string RlTxReportNo { get; set; }
+    public string RlTxReportNo { get; set; } = null!;
 
     public int RlMasterReportItemId { get; set; }
 
@@ -55,5 +55,5 @@ public partial class RlTxReport4A
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

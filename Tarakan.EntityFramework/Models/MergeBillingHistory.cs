@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class MergeBillingHistory
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string FromRegistrationNoBefore { get; set; }
+    public string FromRegistrationNoBefore { get; set; } = null!;
 
-    public string FromRegistrationNoAfter { get; set; }
+    public string FromRegistrationNoAfter { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

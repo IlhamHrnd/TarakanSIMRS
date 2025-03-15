@@ -5,18 +5,18 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Edcmachine
 {
-    public string EdcmachineId { get; set; }
+    public string EdcmachineId { get; set; } = null!;
 
     /// <summary>
     /// Lippo, BCA, BNI
     /// </summary>
-    public string SrcardProvider { get; set; }
+    public string SrcardProvider { get; set; } = null!;
 
-    public string EdcmachineName { get; set; }
+    public string EdcmachineName { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 

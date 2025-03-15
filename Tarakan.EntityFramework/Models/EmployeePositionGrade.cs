@@ -9,7 +9,7 @@ public partial class EmployeePositionGrade
 
     public int? PersonId { get; set; }
 
-    public string SreducationLevel { get; set; }
+    public string? SreducationLevel { get; set; }
 
     public DateTime? ValidFrom { get; set; }
 
@@ -17,11 +17,11 @@ public partial class EmployeePositionGrade
 
     public int? GradeYear { get; set; }
 
-    public string SrdecreeType { get; set; }
+    public string? SrdecreeType { get; set; }
 
-    public string DecreeNo { get; set; }
+    public string? DecreeNo { get; set; }
 
-    public string PositionName { get; set; }
+    public string? PositionName { get; set; }
 
     public DateTime? NextProposalDate { get; set; }
 
@@ -29,17 +29,17 @@ public partial class EmployeePositionGrade
 
     public int? NextGradeYear { get; set; }
 
-    public string SrdecreeTypeNext { get; set; }
+    public string? SrdecreeTypeNext { get; set; }
 
-    public string NextPositionName { get; set; }
+    public string? NextPositionName { get; set; }
 
-    public string Srdp3 { get; set; }
+    public string? Srdp3 { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public int? SalaryScaleId { get; set; }
 

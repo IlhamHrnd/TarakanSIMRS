@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationInfoSumary
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int NoteCount { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string CreatedByUserId { get; set; } = null!;
 
     public DateTime CreatedDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 

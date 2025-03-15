@@ -11,9 +11,9 @@ public partial class SalaryComponentRuleMatrix
 
     public int SalaryRuleComponentId { get; set; }
 
-    public string SroperandType { get; set; }
+    public string SroperandType { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

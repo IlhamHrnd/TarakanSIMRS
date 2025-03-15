@@ -5,23 +5,23 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpAlke
 {
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
-    public string ItemIdexternal { get; set; }
+    public string? ItemIdexternal { get; set; }
 
-    public string ItemGroupId { get; set; }
+    public string? ItemGroupId { get; set; }
 
     public double? SritemType { get; set; }
 
-    public string ItemName { get; set; }
+    public string? ItemName { get; set; }
 
-    public string MarginId { get; set; }
+    public string? MarginId { get; set; }
 
-    public string BrandName { get; set; }
+    public string? BrandName { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string? SritemUnit { get; set; }
 
-    public string SrpurchaseUnit { get; set; }
+    public string? SrpurchaseUnit { get; set; }
 
     public double? ConversionFactor { get; set; }
 
@@ -61,7 +61,7 @@ public partial class TmpAlke
 
     public double? IsMorphine { get; set; }
 
-    public string Venclass { get; set; }
+    public string? Venclass { get; set; }
 
     public double? IsHam { get; set; }
 
@@ -87,7 +87,7 @@ public partial class TmpAlke
 
     public double? IsNonGeneric { get; set; }
 
-    public string IsAso { get; set; }
+    public string? IsAso { get; set; }
 
-    public string Srroute { get; set; }
+    public string? Srroute { get; set; }
 }

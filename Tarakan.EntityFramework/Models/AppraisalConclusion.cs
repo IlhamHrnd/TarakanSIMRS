@@ -7,7 +7,7 @@ public partial class AppraisalConclusion
 {
     public int ConclusionId { get; set; }
 
-    public string ConclusionName { get; set; }
+    public string? ConclusionName { get; set; }
 
     public decimal? MinValue { get; set; }
 
@@ -15,5 +15,5 @@ public partial class AppraisalConclusion
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

@@ -21,13 +21,13 @@ public partial class CashTransactionDetail
 
     public decimal Amount { get; set; }
 
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 
-    public string ListId { get; set; }
+    public string? ListId { get; set; }
 
     public bool? IsParentRefference { get; set; }
 
-    public string ReferenceNo { get; set; }
+    public string? ReferenceNo { get; set; }
 
-    public virtual CashTransaction Transaction { get; set; }
+    public virtual CashTransaction Transaction { get; set; } = null!;
 }

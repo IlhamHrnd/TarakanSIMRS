@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Diet
 {
-    public string DietId { get; set; }
+    public string DietId { get; set; } = null!;
 
-    public string DietName { get; set; }
+    public string DietName { get; set; } = null!;
 
-    public string SrdietType { get; set; }
+    public string SrdietType { get; set; } = null!;
 
     public decimal Calorie { get; set; }
 
@@ -67,5 +67,5 @@ public partial class Diet
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class UserSessionSetting
 {
-    public string UserId { get; set; }
+    public string UserId { get; set; } = null!;
 
-    public string Key { get; set; }
+    public string Key { get; set; } = null!;
 
-    public string Value { get; set; }
+    public string Value { get; set; } = null!;
 }

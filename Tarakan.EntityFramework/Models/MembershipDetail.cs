@@ -7,9 +7,9 @@ public partial class MembershipDetail
 {
     public long MembershipDetailId { get; set; }
 
-    public string MembershipNo { get; set; }
+    public string MembershipNo { get; set; } = null!;
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
     public DateTime StartDate { get; set; }
 
@@ -31,9 +31,9 @@ public partial class MembershipDetail
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicFeeTaxCalculationDt
 {
-    public string VerificationNo { get; set; }
+    public string VerificationNo { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
     public short Period { get; set; }
 

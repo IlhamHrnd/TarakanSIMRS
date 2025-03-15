@@ -5,31 +5,31 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Guarantor
 {
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
-    public string GuarantorName { get; set; }
+    public string GuarantorName { get; set; } = null!;
 
-    public string ShortName { get; set; }
+    public string ShortName { get; set; } = null!;
 
-    public string SrguarantorType { get; set; }
+    public string SrguarantorType { get; set; } = null!;
 
-    public string ContractNumber { get; set; }
+    public string? ContractNumber { get; set; }
 
     public DateTime? ContractStart { get; set; }
 
     public DateTime? ContractEnd { get; set; }
 
-    public string ContractSummary { get; set; }
+    public string ContractSummary { get; set; } = null!;
 
-    public string ContactPerson { get; set; }
+    public string ContactPerson { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
-    public string SrbusinessMethod { get; set; }
+    public string SrbusinessMethod { get; set; } = null!;
 
-    public string SrtariffType { get; set; }
+    public string SrtariffType { get; set; } = null!;
 
-    public string SrguarantorRuleType { get; set; }
+    public string? SrguarantorRuleType { get; set; }
 
     public bool IsValueInPercent { get; set; }
 
@@ -39,25 +39,25 @@ public partial class Guarantor
 
     public decimal AdminAmountLimit { get; set; }
 
-    public string StreetName { get; set; }
+    public string StreetName { get; set; } = null!;
 
-    public string District { get; set; }
+    public string? District { get; set; }
 
-    public string City { get; set; }
+    public string City { get; set; } = null!;
 
-    public string County { get; set; }
+    public string County { get; set; } = null!;
 
-    public string State { get; set; }
+    public string State { get; set; } = null!;
 
-    public string ZipCode { get; set; }
+    public string? ZipCode { get; set; }
 
-    public string PhoneNo { get; set; }
+    public string PhoneNo { get; set; } = null!;
 
-    public string FaxNo { get; set; }
+    public string FaxNo { get; set; } = null!;
 
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
-    public string MobilePhoneNo { get; set; }
+    public string MobilePhoneNo { get; set; } = null!;
 
     public int? ChartOfAccountId { get; set; }
 
@@ -65,7 +65,7 @@ public partial class Guarantor
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsIncludeItemMedical { get; set; }
 
@@ -85,13 +85,13 @@ public partial class Guarantor
 
     public decimal? ItemMedicMarginPercentage { get; set; }
 
-    public string ItemMedicMarginId { get; set; }
+    public string? ItemMedicMarginId { get; set; }
 
     public decimal? ItemNonMedicMarginPercentage { get; set; }
 
-    public string ItemNonMedicMarginId { get; set; }
+    public string? ItemNonMedicMarginId { get; set; }
 
-    public string GuarantorHeaderId { get; set; }
+    public string? GuarantorHeaderId { get; set; }
 
     public bool? IsIncludeAdminValue { get; set; }
 
@@ -117,9 +117,9 @@ public partial class Guarantor
 
     public decimal? EmergencyAmountValue { get; set; }
 
-    public string SrpaymentType { get; set; }
+    public string? SrpaymentType { get; set; }
 
-    public string SrphysicianFeeType { get; set; }
+    public string? SrphysicianFeeType { get; set; }
 
     public int? ChartOfAccountIdDeposit { get; set; }
 
@@ -131,7 +131,7 @@ public partial class Guarantor
 
     public int? SubledgerIdOverPayment { get; set; }
 
-    public string SrphysicianFeeCategory { get; set; }
+    public string? SrphysicianFeeCategory { get; set; }
 
     public int? ChartOfAccountIdCostParamedicFee { get; set; }
 
@@ -139,27 +139,27 @@ public partial class Guarantor
 
     public bool? IsExcessPlafonToDiscount { get; set; }
 
-    public string VirtualAccountNo { get; set; }
+    public string? VirtualAccountNo { get; set; }
 
-    public string ReportRlid { get; set; }
+    public string? ReportRlid { get; set; }
 
     public int? RlMasterReportItemId { get; set; }
 
     public bool? IsCoverAllAdminCosts { get; set; }
 
-    public string SrguarantorIncomeGroup { get; set; }
+    public string? SrguarantorIncomeGroup { get; set; }
 
-    public string PrescriptionServiceUnitIdIpr { get; set; }
+    public string? PrescriptionServiceUnitIdIpr { get; set; }
 
-    public string PrescriptionLocationIdIpr { get; set; }
+    public string? PrescriptionLocationIdIpr { get; set; }
 
-    public string PrescriptionServiceUnitIdOpr { get; set; }
+    public string? PrescriptionServiceUnitIdOpr { get; set; }
 
-    public string PrescriptionLocationIdOpr { get; set; }
+    public string? PrescriptionLocationIdOpr { get; set; }
 
-    public string PrescriptionServiceUnitIdEmr { get; set; }
+    public string? PrescriptionServiceUnitIdEmr { get; set; }
 
-    public string PrescriptionLocationIdEmr { get; set; }
+    public string? PrescriptionLocationIdEmr { get; set; }
 
     public bool? IsItemRestrictionsFornas { get; set; }
 
@@ -167,7 +167,7 @@ public partial class Guarantor
 
     public byte? TariffCalculationMethod { get; set; }
 
-    public string NoteCompanyList { get; set; }
+    public string? NoteCompanyList { get; set; }
 
     public bool? IsAdminCalcBeforeDiscount { get; set; }
 
@@ -181,9 +181,9 @@ public partial class Guarantor
 
     public decimal? CreditAmount { get; set; }
 
-    public string VirtualAccountBank { get; set; }
+    public string? VirtualAccountBank { get; set; }
 
-    public string VirtualAccountName { get; set; }
+    public string? VirtualAccountName { get; set; }
 
     public bool? IsFeeBrutoFromFeeAmount { get; set; }
 

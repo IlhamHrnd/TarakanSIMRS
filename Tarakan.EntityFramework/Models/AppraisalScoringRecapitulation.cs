@@ -11,11 +11,11 @@ public partial class AppraisalScoringRecapitulation
 
     public int QuestionerId { get; set; }
 
-    public string Capacity { get; set; }
+    public string? Capacity { get; set; }
 
-    public string NeedsToBeDeveloped { get; set; }
+    public string? NeedsToBeDeveloped { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

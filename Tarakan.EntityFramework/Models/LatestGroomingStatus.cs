@@ -13,9 +13,9 @@ public partial class LatestGroomingStatus
 
     public short? Status { get; set; }
 
-    public string LastStatusMessage { get; set; }
+    public string? LastStatusMessage { get; set; }
 
     public bool? IsPrimary { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver? Sqlserver { get; set; }
 }

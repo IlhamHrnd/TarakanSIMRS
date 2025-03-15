@@ -23,5 +23,5 @@ public partial class BaselineStatistic
 
     public long Count { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

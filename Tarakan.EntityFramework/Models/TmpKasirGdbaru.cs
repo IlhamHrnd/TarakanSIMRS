@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpKasirGdbaru
 {
-    public string UserId { get; set; }
+    public string? UserId { get; set; }
 
-    public string PaymentNo { get; set; }
+    public string? PaymentNo { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
-    public string ServiceUnitName { get; set; }
+    public string? ServiceUnitName { get; set; }
 
-    public string Pembayaran { get; set; }
+    public string? Pembayaran { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
-    public string PatientId { get; set; }
+    public string? PatientId { get; set; }
 
     public decimal? Sarana { get; set; }
 
@@ -39,19 +39,19 @@ public partial class TmpKasirGdbaru
 
     public decimal? Total { get; set; }
 
-    public string Shift { get; set; }
+    public string? Shift { get; set; }
 
-    public string ShiftName { get; set; }
+    public string? ShiftName { get; set; }
 
-    public string SrregistrationType { get; set; }
+    public string? SrregistrationType { get; set; }
 
     public decimal? Rounding { get; set; }
 
-    public string CashierName { get; set; }
+    public string? CashierName { get; set; }
 
-    public string NamaDokter { get; set; }
+    public string? NamaDokter { get; set; }
 
-    public string Penjamin { get; set; }
+    public string? Penjamin { get; set; }
 
     public DateTime? StampTime { get; set; }
 

@@ -9,15 +9,15 @@ public partial class AlwaysOnAvailabilityGroup
 
     public Guid GroupId { get; set; }
 
-    public string GroupName { get; set; }
+    public string GroupName { get; set; } = null!;
 
-    public string ServerSourceName { get; set; }
+    public string ServerSourceName { get; set; } = null!;
 
-    public string ListenerDnsName { get; set; }
+    public string ListenerDnsName { get; set; } = null!;
 
     public int ListenerPort { get; set; }
 
-    public string ListenerIpAddress { get; set; }
+    public string? ListenerIpAddress { get; set; }
 
     public bool Active { get; set; }
 

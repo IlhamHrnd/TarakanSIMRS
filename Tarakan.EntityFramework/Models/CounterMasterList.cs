@@ -7,9 +7,9 @@ public partial class CounterMasterList
 {
     public int Id { get; set; }
 
-    public string CounterName { get; set; }
+    public string CounterName { get; set; } = null!;
 
-    public string CounterFriendlyName { get; set; }
+    public string? CounterFriendlyName { get; set; }
 
     public int? CounterType { get; set; }
 

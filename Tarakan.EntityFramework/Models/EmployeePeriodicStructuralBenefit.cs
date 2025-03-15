@@ -17,7 +17,7 @@ public partial class EmployeePeriodicStructuralBenefit
 
     public int PositionId { get; set; }
 
-    public string SrstructuralBenefitsType { get; set; }
+    public string? SrstructuralBenefitsType { get; set; }
 
     public decimal? Amount { get; set; }
 
@@ -25,17 +25,17 @@ public partial class EmployeePeriodicStructuralBenefit
 
     public DateTime? ApprovedDateTime { get; set; }
 
-    public string ApprovedByUserId { get; set; }
+    public string? ApprovedByUserId { get; set; }
 
     public bool? IsVoid { get; set; }
 
     public DateTime? VoidDateTime { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? NumberOfDays { get; set; }
 }

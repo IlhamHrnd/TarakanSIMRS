@@ -11,7 +11,7 @@ public partial class SqlserverVersion
 
     public int BuildNumber { get; set; }
 
-    public string VersionName { get; set; }
+    public string? VersionName { get; set; }
 
-    public string ServicePackName { get; set; }
+    public string? ServicePackName { get; set; }
 }

@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class InitialGlitem
 {
-    public string YearNo { get; set; }
+    public string YearNo { get; set; } = null!;
 
-    public string MonthNo { get; set; }
+    public string MonthNo { get; set; } = null!;
 
-    public string AccountId { get; set; }
+    public string AccountId { get; set; } = null!;
 
-    public string SracctSubsidiary { get; set; }
+    public string SracctSubsidiary { get; set; } = null!;
 
-    public string SubsidiaryId { get; set; }
+    public string SubsidiaryId { get; set; } = null!;
 
-    public string Srcurrency { get; set; }
+    public string Srcurrency { get; set; } = null!;
 
     public decimal DebetAmount { get; set; }
 
@@ -31,5 +31,5 @@ public partial class InitialGlitem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

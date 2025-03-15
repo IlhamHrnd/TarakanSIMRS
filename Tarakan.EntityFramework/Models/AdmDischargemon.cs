@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AdmDischargemon
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public DateTime? PenrekdateLengkap { get; set; }
 
@@ -21,7 +21,7 @@ public partial class AdmDischargemon
 
     public float? Numcodgroup { get; set; }
 
-    public string Diagnosa { get; set; }
+    public string? Diagnosa { get; set; }
 
     public DateTime? Mpptopenrek { get; set; }
 

@@ -7,17 +7,17 @@ public partial class TmpHisapp
 {
     public int LogId { get; set; }
 
-    public string ModuleApp { get; set; }
+    public string ModuleApp { get; set; } = null!;
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
-    public string TransferNo { get; set; }
+    public string? TransferNo { get; set; }
 
-    public string BedId { get; set; }
+    public string? BedId { get; set; }
 
-    public string PatientId { get; set; }
+    public string? PatientId { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 

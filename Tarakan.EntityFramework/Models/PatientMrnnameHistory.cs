@@ -5,25 +5,25 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PatientMrnnameHistory
 {
-    public string PatientId { get; set; }
+    public string PatientId { get; set; } = null!;
 
     public DateTime UpdateDateTime { get; set; }
 
-    public string UpdateByUserId { get; set; }
+    public string UpdateByUserId { get; set; } = null!;
 
-    public string FromMedicalNo { get; set; }
+    public string FromMedicalNo { get; set; } = null!;
 
-    public string FromFirstName { get; set; }
+    public string FromFirstName { get; set; } = null!;
 
-    public string FromMiddleName { get; set; }
+    public string FromMiddleName { get; set; } = null!;
 
-    public string FromLastName { get; set; }
+    public string FromLastName { get; set; } = null!;
 
-    public string ToMedicalNo { get; set; }
+    public string ToMedicalNo { get; set; } = null!;
 
-    public string ToFirstName { get; set; }
+    public string ToFirstName { get; set; } = null!;
 
-    public string ToMiddleName { get; set; }
+    public string ToMiddleName { get; set; } = null!;
 
-    public string ToLastName { get; set; }
+    public string ToLastName { get; set; } = null!;
 }

@@ -31,17 +31,17 @@ public partial class DeadlockProcess
 
     public short? SessionId { get; set; }
 
-    public virtual ApplicationName ApplicationName { get; set; }
+    public virtual ApplicationName? ApplicationName { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName? Database { get; set; }
 
-    public virtual Deadlock Deadlock { get; set; }
+    public virtual Deadlock? Deadlock { get; set; }
 
-    public virtual HostName HostName { get; set; }
+    public virtual HostName? HostName { get; set; }
 
-    public virtual LoginName LoginName { get; set; }
+    public virtual LoginName? LoginName { get; set; }
 
-    public virtual Sqlsignature Sqlsignature { get; set; }
+    public virtual Sqlsignature? Sqlsignature { get; set; }
 
-    public virtual Sqlstatement Sqlstatement { get; set; }
+    public virtual Sqlstatement? Sqlstatement { get; set; }
 }

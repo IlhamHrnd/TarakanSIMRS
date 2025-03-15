@@ -9,7 +9,7 @@ public partial class MetricThresholdInstance
 
     public int InstanceType { get; set; }
 
-    public string ThresholdInstanceName { get; set; }
+    public string? ThresholdInstanceName { get; set; }
 
     public DateTime? CreationDateTime { get; set; }
 }

@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ServiceUnitItemServiceCompMapping
 {
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
     public int? ChartOfAccountIdIncome { get; set; }
 
@@ -25,9 +25,9 @@ public partial class ServiceUnitItemServiceCompMapping
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string SrregistrationType { get; set; }
+    public string SrregistrationType { get; set; } = null!;
 
-    public string SrguarantorIncomeGroup { get; set; }
+    public string SrguarantorIncomeGroup { get; set; } = null!;
 }

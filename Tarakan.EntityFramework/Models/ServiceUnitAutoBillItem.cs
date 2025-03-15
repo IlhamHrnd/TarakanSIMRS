@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ServiceUnitAutoBillItem
 {
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal Quantity { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
     public bool IsAutoPayment { get; set; }
 
@@ -25,13 +25,13 @@ public partial class ServiceUnitAutoBillItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsGenerateOnFirstRegistration { get; set; }
 
     public bool? IsGenerateOnSchedule { get; set; }
 
-    public string GenerateOnClassIds { get; set; }
+    public string? GenerateOnClassIds { get; set; }
 
     public int? GenerateOnDayStart { get; set; }
 

@@ -43,19 +43,19 @@ public partial class QueryMonitorStatistic
 
     public int? PlanId { get; set; }
 
-    public virtual ApplicationName ApplicationName { get; set; }
+    public virtual ApplicationName? ApplicationName { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName? Database { get; set; }
 
-    public virtual HostName HostName { get; set; }
+    public virtual HostName? HostName { get; set; }
 
-    public virtual LoginName LoginName { get; set; }
+    public virtual LoginName? LoginName { get; set; }
 
-    public virtual SqlqueryPlan Plan { get; set; }
+    public virtual SqlqueryPlan? Plan { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 
-    public virtual Sqlsignature Sqlsignature { get; set; }
+    public virtual Sqlsignature? Sqlsignature { get; set; }
 
-    public virtual Sqlstatement Sqlstatement { get; set; }
+    public virtual Sqlstatement? Sqlstatement { get; set; }
 }

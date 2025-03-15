@@ -9,29 +9,29 @@ public partial class EmployeeDisciplinary
 
     public int PersonId { get; set; }
 
-    public string SrwarningLevel { get; set; }
+    public string SrwarningLevel { get; set; } = null!;
 
     public DateTime IncidentDate { get; set; }
 
     public DateTime DateIssue { get; set; }
 
-    public string Violation { get; set; }
+    public string? Violation { get; set; }
 
-    public string EffectViolation { get; set; }
+    public string? EffectViolation { get; set; }
 
-    public string AdviceGiven { get; set; }
+    public string? AdviceGiven { get; set; }
 
-    public string SanctionGiven { get; set; }
+    public string? SanctionGiven { get; set; }
 
-    public string SrviolationDegree { get; set; }
+    public string? SrviolationDegree { get; set; }
 
-    public string SrviolationType { get; set; }
+    public string? SrviolationType { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime? EffectiveDate { get; set; }
 

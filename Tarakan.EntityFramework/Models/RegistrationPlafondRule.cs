@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationPlafondRule
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public decimal? PlafondAmount { get; set; }
 
@@ -15,5 +15,5 @@ public partial class RegistrationPlafondRule
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

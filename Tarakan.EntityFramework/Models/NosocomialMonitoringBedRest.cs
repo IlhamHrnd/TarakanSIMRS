@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class NosocomialMonitoringBedRest
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int MonitoringNo { get; set; }
 
@@ -17,23 +17,23 @@ public partial class NosocomialMonitoringBedRest
 
     public bool? IsInjuryCare { get; set; }
 
-    public string SkinCondition { get; set; }
+    public string? SkinCondition { get; set; }
 
-    public string InjuryCondition { get; set; }
+    public string? InjuryCondition { get; set; }
 
-    public string Fisiotherapi { get; set; }
+    public string? Fisiotherapi { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public bool? IsDeleted { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string MonitoringByUserId { get; set; }
+    public string? MonitoringByUserId { get; set; }
 
-    public string Mobilization { get; set; }
+    public string? Mobilization { get; set; }
 
     public bool? IsSkinComplete { get; set; }
 

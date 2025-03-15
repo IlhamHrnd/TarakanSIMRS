@@ -15,7 +15,7 @@ public partial class AppraisalParticipantItem
 
     public DateTime? ClosedDateTime { get; set; }
 
-    public string ClosedByUserId { get; set; }
+    public string? ClosedByUserId { get; set; }
 
     public int? PositionId { get; set; }
 
@@ -25,11 +25,11 @@ public partial class AppraisalParticipantItem
 
     public int? SubOrganizationUnitId { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public int? SubDivisonId { get; set; }
 }

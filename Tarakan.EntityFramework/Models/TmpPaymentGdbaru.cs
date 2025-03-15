@@ -5,21 +5,21 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpPaymentGdbaru
 {
-    public string PaymentNo { get; set; }
+    public string? PaymentNo { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
     public DateTime? PaymentDate { get; set; }
 
-    public string Createdby { get; set; }
+    public string? Createdby { get; set; }
 
-    public string GuarantorId { get; set; }
+    public string? GuarantorId { get; set; }
 
-    public string TransactionCode { get; set; }
+    public string? TransactionCode { get; set; }
 
-    public string PaymentReferenceNo { get; set; }
+    public string? PaymentReferenceNo { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 

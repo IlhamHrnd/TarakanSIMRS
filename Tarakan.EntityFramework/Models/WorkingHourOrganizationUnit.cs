@@ -11,5 +11,5 @@ public partial class WorkingHourOrganizationUnit
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateUserId { get; set; }
+    public string? LastUpdateUserId { get; set; }
 }

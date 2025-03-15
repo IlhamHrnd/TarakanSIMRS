@@ -11,9 +11,9 @@ public partial class BkuJournalMessage
 
     public int DetailJournalId { get; set; }
 
-    public string Message { get; set; }
+    public string? Message { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 }

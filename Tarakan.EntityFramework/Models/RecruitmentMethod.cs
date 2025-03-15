@@ -9,9 +9,9 @@ public partial class RecruitmentMethod
 
     public int PersonnelRequisitionId { get; set; }
 
-    public string SrrecruitmentMethod { get; set; }
+    public string SrrecruitmentMethod { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

@@ -11,11 +11,11 @@ public partial class NursingDiagnosaEvaluation
 
     public long? InterventionId { get; set; }
 
-    public string NursingInterventionId { get; set; }
+    public string? NursingInterventionId { get; set; }
 
-    public string SrnursingCarePlanning { get; set; }
+    public string? SrnursingCarePlanning { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 }

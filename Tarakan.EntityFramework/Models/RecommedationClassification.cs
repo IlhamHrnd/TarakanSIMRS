@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RecommedationClassification
 {
-    public string RecommendationId { get; set; }
+    public string? RecommendationId { get; set; }
 
     public bool? Aws { get; set; }
 

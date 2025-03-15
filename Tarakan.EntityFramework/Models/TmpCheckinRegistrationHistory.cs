@@ -5,23 +5,23 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpCheckinRegistrationHistory
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string SrregistrationType { get; set; }
+    public string? SrregistrationType { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string? ParamedicId { get; set; }
 
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
-    public string PatientId { get; set; }
+    public string PatientId { get; set; } = null!;
 
-    public string ClassId { get; set; }
+    public string? ClassId { get; set; }
 
     public DateTime RegistrationDate { get; set; }
 
-    public string RegistrationTime { get; set; }
+    public string RegistrationTime { get; set; } = null!;
 
-    public string AppointmentNo { get; set; }
+    public string? AppointmentNo { get; set; }
 
     public byte AgeInYear { get; set; }
 
@@ -29,61 +29,61 @@ public partial class TmpCheckinRegistrationHistory
 
     public byte AgeInDay { get; set; }
 
-    public string Srshift { get; set; }
+    public string? Srshift { get; set; }
 
-    public string SrpatientInType { get; set; }
+    public string? SrpatientInType { get; set; }
 
-    public string InsuranceId { get; set; }
+    public string? InsuranceId { get; set; }
 
-    public string SrpatientCategory { get; set; }
+    public string? SrpatientCategory { get; set; }
 
-    public string SrercaseType { get; set; }
+    public string? SrercaseType { get; set; }
 
-    public string SrvisitReason { get; set; }
+    public string? SrvisitReason { get; set; }
 
-    public string SrbussinesMethod { get; set; }
+    public string? SrbussinesMethod { get; set; }
 
     public decimal? PlavonAmount { get; set; }
 
-    public string DepartmentId { get; set; }
+    public string? DepartmentId { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
-    public string RoomId { get; set; }
+    public string? RoomId { get; set; }
 
-    public string BedId { get; set; }
+    public string? BedId { get; set; }
 
-    public string ChargeClassId { get; set; }
+    public string? ChargeClassId { get; set; }
 
-    public string CoverageClassId { get; set; }
+    public string? CoverageClassId { get; set; }
 
-    public string VisitTypeId { get; set; }
+    public string? VisitTypeId { get; set; }
 
-    public string ReferralId { get; set; }
+    public string? ReferralId { get; set; }
 
-    public string Anamnesis { get; set; }
+    public string? Anamnesis { get; set; }
 
-    public string Complaint { get; set; }
+    public string? Complaint { get; set; }
 
-    public string InitialDiagnose { get; set; }
+    public string? InitialDiagnose { get; set; }
 
-    public string MedicationPlanning { get; set; }
+    public string? MedicationPlanning { get; set; }
 
-    public string Srtriage { get; set; }
+    public string? Srtriage { get; set; }
 
     public bool IsPrintingPatientCard { get; set; }
 
     public DateTime? DischargeDate { get; set; }
 
-    public string DischargeTime { get; set; }
+    public string? DischargeTime { get; set; }
 
-    public string DischargeMedicalNotes { get; set; }
+    public string? DischargeMedicalNotes { get; set; }
 
-    public string DischargeNotes { get; set; }
+    public string? DischargeNotes { get; set; }
 
-    public string SrdischargeCondition { get; set; }
+    public string? SrdischargeCondition { get; set; }
 
-    public string SrdischargeMethod { get; set; }
+    public string? SrdischargeMethod { get; set; }
 
     public byte LosinYear { get; set; }
 
@@ -91,9 +91,9 @@ public partial class TmpCheckinRegistrationHistory
 
     public byte LosinDay { get; set; }
 
-    public string DischargeOperatorId { get; set; }
+    public string? DischargeOperatorId { get; set; }
 
-    public string AccountNo { get; set; }
+    public string AccountNo { get; set; } = null!;
 
     public decimal TransactionAmount { get; set; }
 
@@ -123,13 +123,13 @@ public partial class TmpCheckinRegistrationHistory
 
     public bool? IsVoid { get; set; }
 
-    public string SrvoidReason { get; set; }
+    public string? SrvoidReason { get; set; }
 
-    public string VoidNotes { get; set; }
+    public string? VoidNotes { get; set; }
 
     public DateTime? VoidDate { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public bool? IsClosed { get; set; }
 
@@ -143,31 +143,31 @@ public partial class TmpCheckinRegistrationHistory
 
     public bool? IsNewVisit { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
     public DateTime? LastCreateDateTime { get; set; }
 
-    public string LastCreateUserId { get; set; }
+    public string? LastCreateUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool IsDirectPrescriptionReturn { get; set; }
 
     public int? RegistrationQue { get; set; }
 
-    public string VisiteRegistrationNo { get; set; }
+    public string? VisiteRegistrationNo { get; set; }
 
     public bool IsGenerateHl7 { get; set; }
 
-    public string ReferralName { get; set; }
+    public string? ReferralName { get; set; }
 
     public bool? IsObservation { get; set; }
 
-    public string CauseOfAccident { get; set; }
+    public string? CauseOfAccident { get; set; }
 
-    public string ReferTo { get; set; }
+    public string? ReferTo { get; set; }
 
     public bool? IsOldCase { get; set; }
 
@@ -175,17 +175,17 @@ public partial class TmpCheckinRegistrationHistory
 
     public bool? IsEkg { get; set; }
 
-    public string EmrDiagnoseId { get; set; }
+    public string? EmrDiagnoseId { get; set; }
 
     public bool? IsGlobalPlafond { get; set; }
 
     public DateTime? FirstResponDate { get; set; }
 
-    public string FirstResponTime { get; set; }
+    public string? FirstResponTime { get; set; }
 
     public DateTime? PhysicianResponDate { get; set; }
 
-    public string PhysicianResponTime { get; set; }
+    public string? PhysicianResponTime { get; set; }
 
     public bool? IsRoomIn { get; set; }
 
@@ -193,97 +193,97 @@ public partial class TmpCheckinRegistrationHistory
 
     public DateTime? LockVerifiedBillingDateTime { get; set; }
 
-    public string LockVerifiedBillingByUserId { get; set; }
+    public string? LockVerifiedBillingByUserId { get; set; }
 
-    public string ProcedureChargeClassId { get; set; }
+    public string? ProcedureChargeClassId { get; set; }
 
     public int? PersonId { get; set; }
 
-    public string EmployeeNumber { get; set; }
+    public string? EmployeeNumber { get; set; }
 
-    public string SremployeeRelationship { get; set; }
+    public string? SremployeeRelationship { get; set; }
 
-    public string GuarantorCardNo { get; set; }
+    public string? GuarantorCardNo { get; set; }
 
     public DateTime? DischargePlanDate { get; set; }
 
-    public string UsertInsertDischargePlan { get; set; }
+    public string? UsertInsertDischargePlan { get; set; }
 
     public bool? IsNonPatient { get; set; }
 
-    public string ReasonsForTreatmentId { get; set; }
+    public string? ReasonsForTreatmentId { get; set; }
 
-    public string SmfId { get; set; }
+    public string? SmfId { get; set; }
 
     public decimal? PatientAdm { get; set; }
 
     public decimal? GuarantorAdm { get; set; }
 
-    public string ReasonsForTreatmentDescId { get; set; }
+    public string? ReasonsForTreatmentDescId { get; set; }
 
-    public string SrreferralGroup { get; set; }
+    public string? SrreferralGroup { get; set; }
 
-    public string SrdiscountReason { get; set; }
+    public string? SrdiscountReason { get; set; }
 
-    public string PhysicianSenders { get; set; }
+    public string? PhysicianSenders { get; set; }
 
     public decimal? DiscAdmPatient { get; set; }
 
     public decimal? DiscAdmGuarantor { get; set; }
 
-    public string SrpatientInCondition { get; set; }
+    public string? SrpatientInCondition { get; set; }
 
-    public string SrkiaCaseType { get; set; }
+    public string? SrkiaCaseType { get; set; }
 
-    public string SrobstetricType { get; set; }
+    public string? SrobstetricType { get; set; }
 
-    public string IsHoldTransactionEntryByUserId { get; set; }
+    public string? IsHoldTransactionEntryByUserId { get; set; }
 
-    public string FromRegistrationNo { get; set; }
+    public string? FromRegistrationNo { get; set; }
 
     public bool? IsConfirmedAttendance { get; set; }
 
-    public string ConfirmedAttendanceByUserId { get; set; }
+    public string? ConfirmedAttendanceByUserId { get; set; }
 
     public DateTime? ConfirmedAttendanceDateTime { get; set; }
 
-    public string BpjsSepNo { get; set; }
+    public string? BpjsSepNo { get; set; }
 
     public decimal? PlavonAmount2 { get; set; }
 
-    public string DeathCertificateNo { get; set; }
+    public string? DeathCertificateNo { get; set; }
 
     public decimal? BpjsCoverageFormula { get; set; }
 
-    public string BpjsPackageId { get; set; }
+    public string? BpjsPackageId { get; set; }
 
     public decimal? ApproximatePlafondAmount { get; set; }
 
     public DateTime? SentToBillingDateTime { get; set; }
 
-    public string SentToBillingByUserId { get; set; }
+    public string? SentToBillingByUserId { get; set; }
 
     public bool? IsAdjusted { get; set; }
 
-    public string AdjustLog { get; set; }
+    public string? AdjustLog { get; set; }
 
     public bool? IsAllowPatientCheckOut { get; set; }
 
     public DateTime? AllowPatientCheckOutDateTime { get; set; }
 
-    public string AllowPatientCheckOutByUserId { get; set; }
+    public string? AllowPatientCheckOutByUserId { get; set; }
 
-    public string ReferByParamedicId { get; set; }
+    public string? ReferByParamedicId { get; set; }
 
-    public string SrmaritalStatus { get; set; }
+    public string? SrmaritalStatus { get; set; }
 
-    public string Sroccupation { get; set; }
+    public string? Sroccupation { get; set; }
 
-    public string SrrelationshipQuality { get; set; }
+    public string? SrrelationshipQuality { get; set; }
 
-    public string SrresidentialHome { get; set; }
+    public string? SrresidentialHome { get; set; }
 
-    public string SrfatherOccupation { get; set; }
+    public string? SrfatherOccupation { get; set; }
 
     public bool? IsPregnant { get; set; }
 
@@ -301,25 +301,25 @@ public partial class TmpCheckinRegistrationHistory
 
     public short? CreatinineSerumValue { get; set; }
 
-    public string Hpi { get; set; }
+    public string? Hpi { get; set; }
 
     public long? MembershipDetailId { get; set; }
 
-    public string ExternalQueNo { get; set; }
+    public string? ExternalQueNo { get; set; }
 
-    public string ReferralIdTo { get; set; }
+    public string? ReferralIdTo { get; set; }
 
-    public string ReferralNameTo { get; set; }
+    public string? ReferralNameTo { get; set; }
 
     public bool? IsReconcile { get; set; }
 
     public bool? IsSkipAutoBill { get; set; }
 
-    public string SrcrashSite { get; set; }
+    public string? SrcrashSite { get; set; }
 
-    public string CrashSiteDetail { get; set; }
+    public string? CrashSiteDetail { get; set; }
 
-    public string MembershipNo { get; set; }
+    public string? MembershipNo { get; set; }
 
     /// <summary>
     /// Status bisa entry MR jika registrasi sudah diclose
@@ -328,9 +328,9 @@ public partial class TmpCheckinRegistrationHistory
 
     public byte? SrcovidStatus { get; set; }
 
-    public string VoucherNo { get; set; }
+    public string? VoucherNo { get; set; }
 
-    public string SrcovidComorbidStatus { get; set; }
+    public string? SrcovidComorbidStatus { get; set; }
 
     public bool? IsDisability { get; set; }
 
@@ -338,5 +338,5 @@ public partial class TmpCheckinRegistrationHistory
 
     public Guid CopyId { get; set; }
 
-    public string ItemConditionRuleId { get; set; }
+    public string? ItemConditionRuleId { get; set; }
 }

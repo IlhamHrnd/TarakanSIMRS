@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemTransactionItem
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ReferenceNo { get; set; }
+    public string ReferenceNo { get; set; } = null!;
 
-    public string ReferenceSequenceNo { get; set; }
+    public string ReferenceSequenceNo { get; set; } = null!;
 
     public decimal Quantity { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
     public decimal ConversionFactor { get; set; }
 
@@ -35,7 +35,7 @@ public partial class ItemTransactionItem
 
     public decimal Discount2Percentage { get; set; }
 
-    public string BatchNumber { get; set; }
+    public string BatchNumber { get; set; } = null!;
 
     public DateTime? ExpiredDate { get; set; }
 
@@ -45,11 +45,11 @@ public partial class ItemTransactionItem
 
     public bool IsClosed { get; set; }
 
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public decimal? RequestQty { get; set; }
 
@@ -75,7 +75,7 @@ public partial class ItemTransactionItem
 
     public DateTime? LastInvoiceUpdateDateTime { get; set; }
 
-    public string LastInvoiceUpdateByUserId { get; set; }
+    public string? LastInvoiceUpdateByUserId { get; set; }
 
     public decimal? HistoryPrice { get; set; }
 
@@ -89,7 +89,7 @@ public partial class ItemTransactionItem
 
     public decimal? HistoryDiscountInCurrency { get; set; }
 
-    public string Specification { get; set; }
+    public string? Specification { get; set; }
 
     public bool? IsAccEd { get; set; }
 
@@ -101,17 +101,17 @@ public partial class ItemTransactionItem
 
     public bool? IsTaxablePph { get; set; }
 
-    public string Srpph { get; set; }
+    public string? Srpph { get; set; }
 
     public decimal? PphPercentage { get; set; }
 
     public decimal? PphAmount { get; set; }
 
-    public string ApprovedByUserId { get; set; }
+    public string? ApprovedByUserId { get; set; }
 
     public DateTime? ApprovedDateTime { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
-    public virtual ItemTransaction TransactionNoNavigation { get; set; }
+    public virtual ItemTransaction TransactionNoNavigation { get; set; } = null!;
 }

@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemProductLog
 {
-    public string TariffRequestNo { get; set; }
+    public string TariffRequestNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal PriceInPurchaseUnitOld { get; set; }
 
@@ -27,7 +27,7 @@ public partial class ItemProductLog
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public decimal? SalesDiscountOld { get; set; }
 

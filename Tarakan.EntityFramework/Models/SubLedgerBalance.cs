@@ -11,9 +11,9 @@ public partial class SubLedgerBalance
 
     public int ChartOfAccountId { get; set; }
 
-    public string Month { get; set; }
+    public string Month { get; set; } = null!;
 
-    public string Year { get; set; }
+    public string Year { get; set; } = null!;
 
     public decimal InitialBalance { get; set; }
 
@@ -23,7 +23,7 @@ public partial class SubLedgerBalance
 
     public decimal FinalBalance { get; set; }
 
-    public virtual ChartOfAccount ChartOfAccount { get; set; }
+    public virtual ChartOfAccount ChartOfAccount { get; set; } = null!;
 
-    public virtual SubLedger SubLedger { get; set; }
+    public virtual SubLedger SubLedger { get; set; } = null!;
 }

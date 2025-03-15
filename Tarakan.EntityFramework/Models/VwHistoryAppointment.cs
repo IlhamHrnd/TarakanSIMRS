@@ -5,39 +5,39 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwHistoryAppointment
 {
-    public string AppointmentNo { get; set; }
+    public string AppointmentNo { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
-    public string PatientId { get; set; }
+    public string? PatientId { get; set; }
 
-    public string MedicalNo { get; set; }
+    public string MedicalNo { get; set; } = null!;
 
-    public string PatientName { get; set; }
+    public string? PatientName { get; set; }
 
-    public string MobilePhoneNo { get; set; }
+    public string MobilePhoneNo { get; set; } = null!;
 
-    public string ParamedicName { get; set; }
+    public string ParamedicName { get; set; } = null!;
 
-    public string ParamedicInitial { get; set; }
+    public string ParamedicInitial { get; set; } = null!;
 
     public DateTime AppointmentDate { get; set; }
 
-    public string AppointmentTime { get; set; }
+    public string? AppointmentTime { get; set; }
 
-    public string LastCreateByUserId { get; set; }
+    public string? LastCreateByUserId { get; set; }
 
-    public string SrappointmentStatus { get; set; }
+    public string SrappointmentStatus { get; set; } = null!;
 
-    public string GuarantorName { get; set; }
+    public string GuarantorName { get; set; } = null!;
 
-    public string ServiceUnitName { get; set; }
+    public string ServiceUnitName { get; set; } = null!;
 
-    public string AppointmentTimeConvert { get; set; }
+    public string? AppointmentTimeConvert { get; set; }
 
     public int? AppointmentQue { get; set; }
 
-    public string Weekdays { get; set; }
+    public string Weekdays { get; set; } = null!;
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 }

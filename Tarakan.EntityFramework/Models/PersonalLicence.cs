@@ -9,19 +9,21 @@ public partial class PersonalLicence
 
     public int PersonId { get; set; }
 
-    public string SrlicenceType { get; set; }
+    public string SrlicenceType { get; set; } = null!;
 
     public DateTime ValidFrom { get; set; }
 
     public DateTime ValidTo { get; set; }
 
-    public string Note { get; set; }
+    public string Note { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime? VerificationDate { get; set; }
 
-    public string VerificationLetterNo { get; set; }
+    public string? VerificationLetterNo { get; set; }
+
+    public bool? IsLifetime { get; set; }
 }

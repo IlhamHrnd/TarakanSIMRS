@@ -13,11 +13,11 @@ public partial class AlwaysOnDatabase
 
     public Guid GroupDatabaseId { get; set; }
 
-    public string ServerSourceName { get; set; }
+    public string ServerSourceName { get; set; } = null!;
 
     public int? DatabaseId { get; set; }
 
-    public string DatabaseName { get; set; }
+    public string DatabaseName { get; set; } = null!;
 
     public bool Delete { get; set; }
 }

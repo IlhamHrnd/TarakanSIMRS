@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ServiceFee
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public decimal FeeDirektur { get; set; }
 
@@ -23,11 +23,11 @@ public partial class ServiceFee
 
     public decimal FeePemerataan { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 

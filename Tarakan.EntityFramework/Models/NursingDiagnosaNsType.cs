@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class NursingDiagnosaNsType
 {
-    public string NursingDiagnosaId { get; set; }
+    public string NursingDiagnosaId { get; set; } = null!;
 
-    public string SrnsType { get; set; }
+    public string SrnsType { get; set; } = null!;
 }

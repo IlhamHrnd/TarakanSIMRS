@@ -5,5 +5,5 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class OldMedical
 {
-    public string OldMedicalNo { get; set; }
+    public string OldMedicalNo { get; set; } = null!;
 }

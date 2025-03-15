@@ -7,7 +7,7 @@ public partial class SqlsignaturesOverflow
 {
     public int SqlsignatureId { get; set; }
 
-    public string SqlsignatureOverflow { get; set; }
+    public string? SqlsignatureOverflow { get; set; }
 
-    public virtual Sqlsignature Sqlsignature { get; set; }
+    public virtual Sqlsignature Sqlsignature { get; set; } = null!;
 }

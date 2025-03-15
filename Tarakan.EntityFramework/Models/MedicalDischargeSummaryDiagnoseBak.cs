@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class MedicalDischargeSummaryDiagnoseBak
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string DiagnoseId { get; set; }
+    public string DiagnoseId { get; set; } = null!;
 
-    public string SrdiagnoseType { get; set; }
+    public string SrdiagnoseType { get; set; } = null!;
 
-    public string DiagnosisText { get; set; }
+    public string DiagnosisText { get; set; } = null!;
 
-    public string ExternalCauseId { get; set; }
+    public string? ExternalCauseId { get; set; }
 
     public bool IsOldCase { get; set; }
 
@@ -23,9 +23,9 @@ public partial class MedicalDischargeSummaryDiagnoseBak
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 
     public DateTime? CreatedDateTime { get; set; }
 }

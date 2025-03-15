@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AnalysisDocumentItem
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int DocumentFilesId { get; set; }
 
@@ -19,5 +19,5 @@ public partial class AnalysisDocumentItem
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

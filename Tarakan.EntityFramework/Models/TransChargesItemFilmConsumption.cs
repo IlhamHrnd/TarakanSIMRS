@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TransChargesItemFilmConsumption
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string SrfilmId { get; set; }
+    public string SrfilmId { get; set; } = null!;
 
     public decimal Qty { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? Kv { get; set; }
 
@@ -39,5 +39,5 @@ public partial class TransChargesItemFilmConsumption
 
     public decimal? CineTime { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 }

@@ -19,13 +19,13 @@ public partial class EmployeeLoan
 
     public bool? FlatRate { get; set; }
 
-    public string SrpurposeOfLoan { get; set; }
+    public string SrpurposeOfLoan { get; set; } = null!;
 
     public int? NumberOfInstallment { get; set; }
 
     public decimal? AmountOfInstallment { get; set; }
 
-    public string SrhrpaymentMethod { get; set; }
+    public string SrhrpaymentMethod { get; set; } = null!;
 
     public int StartPaymentPeriode { get; set; }
 
@@ -33,7 +33,7 @@ public partial class EmployeeLoan
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public int? LoanNo { get; set; }
 
@@ -41,13 +41,13 @@ public partial class EmployeeLoan
 
     public int? CompanyLaborProfileId { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public bool? IsApproved { get; set; }
 
     public DateTime? ApprovedDateTime { get; set; }
 
-    public string ApprovedByUserId { get; set; }
+    public string? ApprovedByUserId { get; set; }
 
     public bool? InstallmentMethod { get; set; }
 }

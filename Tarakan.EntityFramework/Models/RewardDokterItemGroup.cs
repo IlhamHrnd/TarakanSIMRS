@@ -5,5 +5,5 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RewardDokterItemGroup
 {
-    public string ItemGroupId { get; set; }
+    public string ItemGroupId { get; set; } = null!;
 }

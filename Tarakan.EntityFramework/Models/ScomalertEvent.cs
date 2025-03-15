@@ -11,7 +11,7 @@ public partial class ScomalertEvent
 
     public Guid RuleId { get; set; }
 
-    public virtual MetricMetaDatum Metric { get; set; }
+    public virtual MetricMetaDatum Metric { get; set; } = null!;
 
-    public virtual NotificationRule Rule { get; set; }
+    public virtual NotificationRule Rule { get; set; } = null!;
 }

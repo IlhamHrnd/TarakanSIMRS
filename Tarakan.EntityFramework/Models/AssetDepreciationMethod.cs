@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AssetDepreciationMethod
 {
-    public string DepreciationMethodId { get; set; }
+    public string DepreciationMethodId { get; set; } = null!;
 
-    public string DepreciationMethodName { get; set; }
+    public string DepreciationMethodName { get; set; } = null!;
 
     public decimal Factor { get; set; }
 
@@ -15,7 +15,7 @@ public partial class AssetDepreciationMethod
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public virtual ICollection<AssetBook> AssetBooks { get; set; } = new List<AssetBook>();
 }

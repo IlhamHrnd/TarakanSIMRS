@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ApprovalRange
 {
-    public string ApprovalRangeId { get; set; }
+    public string ApprovalRangeId { get; set; } = null!;
 
-    public string SritemType { get; set; }
+    public string SritemType { get; set; } = null!;
 
     public decimal AmountFrom { get; set; }
 
@@ -15,9 +15,9 @@ public partial class ApprovalRange
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string ItemGroupId { get; set; }
+    public string? ItemGroupId { get; set; }
 
-    public string TransactionCode { get; set; }
+    public string? TransactionCode { get; set; }
 }

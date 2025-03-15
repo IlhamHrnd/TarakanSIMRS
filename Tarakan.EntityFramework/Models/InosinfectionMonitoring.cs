@@ -7,9 +7,9 @@ public partial class InosinfectionMonitoring
 {
     public long MonitoringId { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string BedId { get; set; }
+    public string BedId { get; set; } = null!;
 
     public DateTime MonitoringDate { get; set; }
 
@@ -47,13 +47,13 @@ public partial class InosinfectionMonitoring
 
     public DateTime? VoidDateTime { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

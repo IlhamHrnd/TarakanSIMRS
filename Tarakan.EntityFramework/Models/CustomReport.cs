@@ -7,11 +7,11 @@ public partial class CustomReport
 {
     public int Id { get; set; }
 
-    public string ReportName { get; set; }
+    public string ReportName { get; set; } = null!;
 
-    public string ReportText { get; set; }
+    public string? ReportText { get; set; }
 
-    public string ReportShortDescription { get; set; }
+    public string? ReportShortDescription { get; set; }
 
     public bool? ShowTopServers { get; set; }
 

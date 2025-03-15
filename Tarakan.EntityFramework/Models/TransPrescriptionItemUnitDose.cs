@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TransPrescriptionItemUnitDose
 {
-    public string PrescriptionNo { get; set; }
+    public string PrescriptionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ReferenceNo { get; set; }
+    public string ReferenceNo { get; set; } = null!;
 
-    public string ReferenceSequenceNo { get; set; }
+    public string ReferenceSequenceNo { get; set; } = null!;
 
     public DateTime ReleaseDate { get; set; }
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal ResultQty { get; set; }
 
@@ -37,5 +37,5 @@ public partial class TransPrescriptionItemUnitDose
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

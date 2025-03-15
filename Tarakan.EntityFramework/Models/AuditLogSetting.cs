@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AuditLogSetting
 {
-    public string TableName { get; set; }
+    public string TableName { get; set; } = null!;
 
-    public string TableDescription { get; set; }
+    public string TableDescription { get; set; } = null!;
 
     public bool IsAuditLog { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsConsolidationBranchToHo { get; set; }
 

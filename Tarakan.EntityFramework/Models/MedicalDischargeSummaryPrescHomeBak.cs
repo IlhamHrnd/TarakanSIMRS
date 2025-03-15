@@ -7,27 +7,27 @@ public partial class MedicalDischargeSummaryPrescHomeBak
 {
     public long MedicationReceiveNo { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public DateTime? ReceiveDateTime { get; set; }
 
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
-    public string ItemDescription { get; set; }
+    public string? ItemDescription { get; set; }
 
-    public string RefTransactionNo { get; set; }
+    public string? RefTransactionNo { get; set; }
 
-    public string RefSequenceNo { get; set; }
+    public string? RefSequenceNo { get; set; }
 
     public decimal? RefQty { get; set; }
 
     public decimal ReceiveQty { get; set; }
 
-    public string SrconsumeUnit { get; set; }
+    public string? SrconsumeUnit { get; set; }
 
     public decimal? ConsumeQty { get; set; }
 
-    public string SrconsumeMethod { get; set; }
+    public string? SrconsumeMethod { get; set; }
 
     public decimal BalanceQty { get; set; }
 
@@ -39,11 +39,11 @@ public partial class MedicalDischargeSummaryPrescHomeBak
 
     public bool? IsContinue { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public bool? IsAdmissionAppropriate { get; set; }
 
@@ -61,13 +61,13 @@ public partial class MedicalDischargeSummaryPrescHomeBak
 
     public DateTime? DischargeAppropriateDateTime { get; set; }
 
-    public string SrmedicationConsume { get; set; }
+    public string? SrmedicationConsume { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
-    public string RoomId { get; set; }
+    public string? RoomId { get; set; }
 
-    public string BedId { get; set; }
+    public string? BedId { get; set; }
 
     public bool? IsAdmissionPresc { get; set; }
 
@@ -75,7 +75,7 @@ public partial class MedicalDischargeSummaryPrescHomeBak
 
     public bool? IsDischargePresc { get; set; }
 
-    public string ConsumeQtyInString { get; set; }
+    public string? ConsumeQtyInString { get; set; }
 
-    public string SrmedicationRoute { get; set; }
+    public string? SrmedicationRoute { get; set; }
 }

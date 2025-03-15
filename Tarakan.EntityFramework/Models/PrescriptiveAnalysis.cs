@@ -21,7 +21,7 @@ public partial class PrescriptiveAnalysis
 
     public DateTime? RecordUpdateDateTimestamp { get; set; }
 
-    public virtual PrescriptiveAnalysisType AnalysisType { get; set; }
+    public virtual PrescriptiveAnalysisType AnalysisType { get; set; } = null!;
 
     public virtual ICollection<PrescriptiveAnalysisDetail> PrescriptiveAnalysisDetails { get; set; } = new List<PrescriptiveAnalysisDetail>();
 }

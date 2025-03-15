@@ -15,7 +15,7 @@ public partial class ParamedicFeeProgressiveTax
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? PercentageNonNpwp { get; set; }
 }

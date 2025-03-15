@@ -9,13 +9,13 @@ public partial class CustomReportsCounter
 
     public int GraphNumber { get; set; }
 
-    public string CounterShortDescription { get; set; }
+    public string? CounterShortDescription { get; set; }
 
-    public string CounterName { get; set; }
+    public string? CounterName { get; set; }
 
     public int? Aggregation { get; set; }
 
     public int? Source { get; set; }
 
-    public virtual CustomReport IdNavigation { get; set; }
+    public virtual CustomReport IdNavigation { get; set; } = null!;
 }

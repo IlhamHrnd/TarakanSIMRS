@@ -9,13 +9,13 @@ public partial class ConsolidationUpdateLog
 
     public DateTime UpdateDateTime { get; set; }
 
-    public string HealthcareId { get; set; }
+    public string? HealthcareId { get; set; }
 
     public bool IsManualLog { get; set; }
 
-    public string UpdateSummary { get; set; }
+    public string UpdateSummary { get; set; } = null!;
 
-    public string UpdateData { get; set; }
+    public string UpdateData { get; set; } = null!;
 
     public long? StartConsolidationLogId { get; set; }
 
@@ -25,9 +25,9 @@ public partial class ConsolidationUpdateLog
 
     public bool? IsError { get; set; }
 
-    public string ErrorMessage { get; set; }
+    public string? ErrorMessage { get; set; }
 
     public long? ReferenceId { get; set; }
 
-    public string ReferenceNote { get; set; }
+    public string? ReferenceNote { get; set; }
 }

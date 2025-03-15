@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PpiProcedureSurveillance
 {
-    public string BookingNo { get; set; }
+    public string BookingNo { get; set; } = null!;
 
     public bool? IsRiskFactorAge { get; set; }
 
@@ -23,21 +23,21 @@ public partial class PpiProcedureSurveillance
 
     public bool? IsHcv { get; set; }
 
-    public string SrprocedureClassification { get; set; }
+    public string? SrprocedureClassification { get; set; }
 
-    public string SrtypesOfSurgery { get; set; }
+    public string? SrtypesOfSurgery { get; set; }
 
-    public string SrriskCategory { get; set; }
+    public string? SrriskCategory { get; set; }
 
-    public string SrwoundClassification { get; set; }
+    public string? SrwoundClassification { get; set; }
 
-    public string SrasaScore { get; set; }
+    public string? SrasaScore { get; set; }
 
-    public string Srttime { get; set; }
+    public string? Srttime { get; set; }
 
-    public string Culturs { get; set; }
+    public string? Culturs { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

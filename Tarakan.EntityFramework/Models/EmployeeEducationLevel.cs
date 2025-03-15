@@ -9,7 +9,7 @@ public partial class EmployeeEducationLevel
 
     public int PersonId { get; set; }
 
-    public string SreducationLevel { get; set; }
+    public string SreducationLevel { get; set; } = null!;
 
     public DateTime? ValidFrom { get; set; }
 
@@ -17,5 +17,5 @@ public partial class EmployeeEducationLevel
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

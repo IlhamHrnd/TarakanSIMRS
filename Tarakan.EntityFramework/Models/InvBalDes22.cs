@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class InvBalDes22
 {
-    public string LocationId { get; set; }
+    public string? LocationId { get; set; }
 
-    public string LocationName { get; set; }
+    public string? LocationName { get; set; }
 
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
-    public string ItemName { get; set; }
+    public string? ItemName { get; set; }
 
     public double? SaJml { get; set; }
 

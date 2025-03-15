@@ -9,13 +9,13 @@ public partial class AppraisalQuestionItem
 
     public int QuestionerId { get; set; }
 
-    public string QuestionCode { get; set; }
+    public string? QuestionCode { get; set; }
 
-    public string QuestionName { get; set; }
+    public string? QuestionName { get; set; }
 
-    public string QuestionGroupName { get; set; }
+    public string? QuestionGroupName { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public decimal? Rating { get; set; }
 
@@ -27,9 +27,9 @@ public partial class AppraisalQuestionItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string Target { get; set; }
+    public string? Target { get; set; }
 
-    public string Achievements { get; set; }
+    public string? Achievements { get; set; }
 }

@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AppProgram
 {
-    public string ProgramId { get; set; }
+    public string ProgramId { get; set; } = null!;
 
-    public string ParentProgramId { get; set; }
+    public string? ParentProgramId { get; set; }
 
-    public string ProgramName { get; set; }
+    public string ProgramName { get; set; } = null!;
 
-    public string TopLevelProgramId { get; set; }
+    public string? TopLevelProgramId { get; set; }
 
     public byte RootLevel { get; set; }
 
     public short RowIndex { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public bool? IsParentProgram { get; set; }
 
@@ -25,7 +25,7 @@ public partial class AppProgram
 
     public bool? IsBeginGroup { get; set; }
 
-    public string ProgramType { get; set; }
+    public string? ProgramType { get; set; }
 
     public bool? IsProgramAddAble { get; set; }
 
@@ -55,17 +55,17 @@ public partial class AppProgram
 
     public bool IsDiscontinue { get; set; }
 
-    public string NavigateUrl { get; set; }
+    public string? NavigateUrl { get; set; }
 
-    public string HelpLinkId { get; set; }
+    public string? HelpLinkId { get; set; }
 
-    public string AssemblyName { get; set; }
+    public string? AssemblyName { get; set; }
 
-    public string AssemblyClassName { get; set; }
+    public string? AssemblyClassName { get; set; }
 
-    public string StoreProcedureName { get; set; }
+    public string? StoreProcedureName { get; set; }
 
-    public string AccessKey { get; set; }
+    public string? AccessKey { get; set; }
 
     public bool? IsUsingReportHeader { get; set; }
 
@@ -77,9 +77,9 @@ public partial class AppProgram
 
     public bool? IsProgramRedirected { get; set; }
 
-    public string ApplicationId { get; set; }
+    public string? ApplicationId { get; set; }
 
-    public string ZplCommandTemplate { get; set; }
+    public string? ZplCommandTemplate { get; set; }
 
     public bool? IsProgramExportAble { get; set; }
 
@@ -87,5 +87,5 @@ public partial class AppProgram
 
     public bool? IsProgramPowerUserAble { get; set; }
 
-    public string SrprogramCategory { get; set; }
+    public string? SrprogramCategory { get; set; }
 }

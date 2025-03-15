@@ -15,9 +15,9 @@ public partial class EmployeeThrMatrix
 
     public decimal NominalAmount { get; set; }
 
-    public string SrcurrencyCode { get; set; }
+    public string SrcurrencyCode { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

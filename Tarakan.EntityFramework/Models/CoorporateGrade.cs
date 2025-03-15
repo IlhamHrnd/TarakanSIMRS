@@ -17,11 +17,11 @@ public partial class CoorporateGrade
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? CoorporateGradeCoefficient { get; set; }
 }

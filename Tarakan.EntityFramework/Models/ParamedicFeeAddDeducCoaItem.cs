@@ -7,7 +7,7 @@ public partial class ParamedicFeeAddDeducCoaItem
 {
     public int ListItemId { get; set; }
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
     public int ChartOfAccountId { get; set; }
 
@@ -17,5 +17,5 @@ public partial class ParamedicFeeAddDeducCoaItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

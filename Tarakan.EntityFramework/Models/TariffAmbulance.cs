@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TariffAmbulance
 {
-    public string ItemGroupId { get; set; }
+    public string? ItemGroupId { get; set; }
 
-    public string ItemGroupName { get; set; }
+    public string? ItemGroupName { get; set; }
 
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
-    public string ItemName { get; set; }
+    public string? ItemName { get; set; }
 
-    public string KodeIdi { get; set; }
+    public string? KodeIdi { get; set; }
 
-    public string EKlaimTarifGroup { get; set; }
+    public string? EKlaimTarifGroup { get; set; }
 
     public double? Sarana01 { get; set; }
 

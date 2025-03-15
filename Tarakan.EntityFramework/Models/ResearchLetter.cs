@@ -7,43 +7,43 @@ public partial class ResearchLetter
 {
     public long LetterId { get; set; }
 
-    public string ResearcherName { get; set; }
+    public string ResearcherName { get; set; } = null!;
 
-    public string LetterNo { get; set; }
+    public string LetterNo { get; set; } = null!;
 
     public DateTime LetterDate { get; set; }
 
-    public string Subject { get; set; }
+    public string Subject { get; set; } = null!;
 
-    public string SrresearchDecision { get; set; }
+    public string SrresearchDecision { get; set; } = null!;
 
-    public string Attachment { get; set; }
+    public string Attachment { get; set; } = null!;
 
-    public string SrresearchInstitution { get; set; }
+    public string SrresearchInstitution { get; set; } = null!;
 
-    public string SrresearchFaculty { get; set; }
+    public string SrresearchFaculty { get; set; } = null!;
 
-    public string SrresearchMajors { get; set; }
+    public string SrresearchMajors { get; set; } = null!;
 
-    public string SreducationDegree { get; set; }
+    public string SreducationDegree { get; set; } = null!;
 
     public bool IsUpload { get; set; }
 
     public short ReviewTime { get; set; }
 
-    public string SrresearchReviewerName { get; set; }
+    public string SrresearchReviewerName { get; set; } = null!;
 
     public bool? IsVoid { get; set; }
 
     public DateTime? VoidDateTime { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

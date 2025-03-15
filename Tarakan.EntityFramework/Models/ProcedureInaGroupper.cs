@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ProcedureInaGroupper
 {
-    public string ProcedureId { get; set; }
+    public string ProcedureId { get; set; } = null!;
 
-    public string ProcedureName { get; set; }
+    public string ProcedureName { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

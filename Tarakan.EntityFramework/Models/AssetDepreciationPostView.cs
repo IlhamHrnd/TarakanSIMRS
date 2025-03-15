@@ -7,21 +7,21 @@ public partial class AssetDepreciationPostView
 {
     public int AssetDepreciationPostId { get; set; }
 
-    public string AssetGroupId { get; set; }
+    public string AssetGroupId { get; set; } = null!;
 
-    public string GroupName { get; set; }
+    public string GroupName { get; set; } = null!;
 
-    public string AssetId { get; set; }
+    public string AssetId { get; set; } = null!;
 
-    public string AssetName { get; set; }
+    public string AssetName { get; set; } = null!;
 
-    public string SerialNumber { get; set; }
+    public string SerialNumber { get; set; } = null!;
 
     public int PeriodNo { get; set; }
 
-    public string Year { get; set; }
+    public string Year { get; set; } = null!;
 
-    public string Month { get; set; }
+    public string Month { get; set; } = null!;
 
     public decimal DepreciationAmount { get; set; }
 

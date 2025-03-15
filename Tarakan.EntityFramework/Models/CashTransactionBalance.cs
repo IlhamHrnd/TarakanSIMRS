@@ -11,7 +11,7 @@ public partial class CashTransactionBalance
 
     public int ChartOfAccountId { get; set; }
 
-    public string NormalBalance { get; set; }
+    public string NormalBalance { get; set; } = null!;
 
     public decimal Amount { get; set; }
 
@@ -25,5 +25,5 @@ public partial class CashTransactionBalance
 
     public int? ReconcileId { get; set; }
 
-    public virtual CashTransaction Transaction { get; set; }
+    public virtual CashTransaction Transaction { get; set; } = null!;
 }

@@ -11,9 +11,9 @@ public partial class GroomingLog
 
     public DateTime UtcactionEndDateTime { get; set; }
 
-    public string Action { get; set; }
+    public string Action { get; set; } = null!;
 
     public int? AffectedRecords { get; set; }
 
-    public string InstanceName { get; set; }
+    public string? InstanceName { get; set; }
 }

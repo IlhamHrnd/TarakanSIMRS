@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AskesCovered
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public decimal? RoomAmount { get; set; }
 
@@ -29,5 +29,5 @@ public partial class AskesCovered
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

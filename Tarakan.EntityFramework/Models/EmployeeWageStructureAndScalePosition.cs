@@ -11,11 +11,11 @@ public partial class EmployeeWageStructureAndScalePosition
 
     public DateTime ValidFrom { get; set; }
 
-    public string SremployeeWorkGroup { get; set; }
+    public string SremployeeWorkGroup { get; set; } = null!;
 
-    public string SremployeeWorkSubGroup { get; set; }
+    public string SremployeeWorkSubGroup { get; set; } = null!;
 
-    public string SremployeeJobPosition { get; set; }
+    public string SremployeeJobPosition { get; set; } = null!;
 
     public decimal BasePoint { get; set; }
 
@@ -27,15 +27,15 @@ public partial class EmployeeWageStructureAndScalePosition
 
     public DateTime? ApprovedDateTime { get; set; }
 
-    public string ApprovedByUserId { get; set; }
+    public string? ApprovedByUserId { get; set; }
 
     public bool? IsVoid { get; set; }
 
     public DateTime? VoidDateTime { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicScheduleDateItem
 {
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
     public DateTime ScheduleDate { get; set; }
 
-    public string OperationalTimeId { get; set; }
+    public string OperationalTimeId { get; set; } = null!;
 
     public bool IsIpr { get; set; }
 
@@ -21,5 +21,5 @@ public partial class ParamedicScheduleDateItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

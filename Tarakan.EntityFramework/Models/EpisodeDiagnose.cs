@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class EpisodeDiagnose
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string DiagnoseId { get; set; }
+    public string DiagnoseId { get; set; } = null!;
 
-    public string SrdiagnoseType { get; set; }
+    public string SrdiagnoseType { get; set; } = null!;
 
-    public string DiagnosisText { get; set; }
+    public string DiagnosisText { get; set; } = null!;
 
-    public string MorphologyId { get; set; }
+    public string? MorphologyId { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
     public bool IsAcuteDisease { get; set; }
 
@@ -29,17 +29,17 @@ public partial class EpisodeDiagnose
 
     public bool IsVoid { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string ExternalCauseId { get; set; }
+    public string? ExternalCauseId { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 
-    public virtual Registration RegistrationNoNavigation { get; set; }
+    public virtual Registration RegistrationNoNavigation { get; set; } = null!;
 }

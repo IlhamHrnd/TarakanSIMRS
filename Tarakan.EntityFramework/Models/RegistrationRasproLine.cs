@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationRasproLine
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int SeqNo { get; set; }
 
-    public string RasproLineId { get; set; }
+    public string RasproLineId { get; set; } = null!;
 
-    public string Condition { get; set; }
+    public string? Condition { get; set; }
 
     public int? ActionNo { get; set; }
 
@@ -19,5 +19,5 @@ public partial class RegistrationRasproLine
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

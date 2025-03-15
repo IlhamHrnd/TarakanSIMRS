@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemProductDeductionDetail
 {
-    public string DeductionId { get; set; }
+    public string DeductionId { get; set; } = null!;
 
     public decimal MinAmount { get; set; }
 
@@ -15,5 +15,5 @@ public partial class ItemProductDeductionDetail
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

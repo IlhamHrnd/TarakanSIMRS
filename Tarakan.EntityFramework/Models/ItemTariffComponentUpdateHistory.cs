@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemTariffComponentUpdateHistory
 {
-    public string RequestNo { get; set; }
+    public string RequestNo { get; set; } = null!;
 
-    public string SrtariffType { get; set; }
+    public string SrtariffType { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ClassId { get; set; }
+    public string ClassId { get; set; } = null!;
 
     public DateTime StartingDate { get; set; }
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
     public decimal? Price { get; set; }
 
@@ -31,5 +31,5 @@ public partial class ItemTariffComponentUpdateHistory
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

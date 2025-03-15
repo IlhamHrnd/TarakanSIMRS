@@ -9,13 +9,13 @@ public partial class VmconfigDatum
 
     public DateTime UtccollectionDateTime { get; set; }
 
-    public string Uuid { get; set; }
+    public string? Uuid { get; set; }
 
-    public string Vmname { get; set; }
+    public string? Vmname { get; set; }
 
     public int? VmheartBeat { get; set; }
 
-    public string DomainName { get; set; }
+    public string? DomainName { get; set; }
 
     public DateTime? BootTime { get; set; }
 
@@ -31,5 +31,5 @@ public partial class VmconfigDatum
 
     public long? MemReserve { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

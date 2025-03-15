@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class DietPatientItem
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string DietId { get; set; }
+    public string DietId { get; set; } = null!;
 
     public decimal? Calorie { get; set; }
 
@@ -23,11 +23,11 @@ public partial class DietPatientItem
 
     public short? ExtraQty { get; set; }
 
-    public string LiquidTime { get; set; }
+    public string? LiquidTime { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

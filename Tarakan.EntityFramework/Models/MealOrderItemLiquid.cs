@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class MealOrderItemLiquid
 {
-    public string OrderNo { get; set; }
+    public string OrderNo { get; set; } = null!;
 
-    public string MealTime { get; set; }
+    public string MealTime { get; set; } = null!;
 
-    public string FoodId { get; set; }
+    public string FoodId { get; set; } = null!;
 
-    public string DietLiquidTransNo { get; set; }
+    public string? DietLiquidTransNo { get; set; }
 
     public bool? IsDistributed { get; set; }
 
@@ -19,5 +19,5 @@ public partial class MealOrderItemLiquid
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

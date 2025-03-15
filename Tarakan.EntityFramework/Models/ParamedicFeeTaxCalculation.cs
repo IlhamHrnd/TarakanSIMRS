@@ -7,15 +7,15 @@ public partial class ParamedicFeeTaxCalculation
 {
     public long Id { get; set; }
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
-    public string SrpphType { get; set; }
+    public string SrpphType { get; set; } = null!;
 
     public short Period { get; set; }
 
@@ -31,13 +31,13 @@ public partial class ParamedicFeeTaxCalculation
 
     public decimal TaxAmountAccumulated { get; set; }
 
-    public string VerificationNo { get; set; }
+    public string? VerificationNo { get; set; }
 
-    public string InsertByUserId { get; set; }
+    public string InsertByUserId { get; set; } = null!;
 
     public DateTime InsertDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
@@ -47,5 +47,5 @@ public partial class ParamedicFeeTaxCalculation
 
     public bool? IsPaymentApproved { get; set; }
 
-    public string PaymentGroupNo { get; set; }
+    public string? PaymentGroupNo { get; set; }
 }

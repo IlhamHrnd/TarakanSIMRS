@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ChargeBedAutoBillMatrix
 {
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
     public decimal MinHour { get; set; }
 

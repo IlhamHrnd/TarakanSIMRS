@@ -7,11 +7,11 @@ public partial class EmployeeTraining
 {
     public int EmployeeTrainingId { get; set; }
 
-    public string EmployeeTrainingName { get; set; }
+    public string EmployeeTrainingName { get; set; } = null!;
 
-    public string TrainingLocation { get; set; }
+    public string TrainingLocation { get; set; } = null!;
 
-    public string TrainingOrganizer { get; set; }
+    public string TrainingOrganizer { get; set; } = null!;
 
     public DateTime StartDate { get; set; }
 
@@ -35,19 +35,19 @@ public partial class EmployeeTraining
 
     public int TargetAttendance { get; set; }
 
-    public string Note { get; set; }
+    public string Note { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public int? ReferenceId { get; set; }
 
     public bool? IsProposal { get; set; }
 
-    public string SractivityType { get; set; }
+    public string? SractivityType { get; set; }
 
     public DateTime? CertificateValidityPeriod { get; set; }
 
@@ -59,7 +59,7 @@ public partial class EmployeeTraining
 
     public DateTime? EndServiceDate { get; set; }
 
-    public string SrtrainingFinancingSources { get; set; }
+    public string? SrtrainingFinancingSources { get; set; }
 
     public DateTime? EvaluationDate { get; set; }
 
@@ -67,11 +67,11 @@ public partial class EmployeeTraining
 
     public decimal? DurationMinutes { get; set; }
 
-    public string SremployeeTrainingPointType { get; set; }
+    public string? SremployeeTrainingPointType { get; set; }
 
-    public string SremployeeTrainingDateSeparator { get; set; }
+    public string? SremployeeTrainingDateSeparator { get; set; }
 
-    public string SractivitySubType { get; set; }
+    public string? SractivitySubType { get; set; }
 
     public decimal? PlanningCosts { get; set; }
 }

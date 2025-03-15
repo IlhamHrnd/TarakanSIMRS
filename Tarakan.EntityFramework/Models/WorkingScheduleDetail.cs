@@ -75,5 +75,5 @@ public partial class WorkingScheduleDetail
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateUserId { get; set; }
+    public string? LastUpdateUserId { get; set; }
 }

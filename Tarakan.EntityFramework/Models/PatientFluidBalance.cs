@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PatientFluidBalance
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int SequenceNo { get; set; }
 
     public DateOnly InOutDate { get; set; }
 
-    public string SchemaInfus { get; set; }
+    public string? SchemaInfus { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? LastTemp { get; set; }
 

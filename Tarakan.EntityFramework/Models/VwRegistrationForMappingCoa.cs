@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwRegistrationForMappingCoa
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string SrregistrationType { get; set; }
+    public string? SrregistrationType { get; set; }
 
-    public string SrguarantorIncomeGroup { get; set; }
+    public string? SrguarantorIncomeGroup { get; set; }
 }

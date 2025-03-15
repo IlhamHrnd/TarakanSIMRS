@@ -7,17 +7,17 @@ public partial class WilayahRefDinke
 {
     public int ProvinceId { get; set; }
 
-    public string ProvinceName { get; set; }
+    public string ProvinceName { get; set; } = null!;
 
     public int RegencyId { get; set; }
 
-    public string RegencyName { get; set; }
+    public string RegencyName { get; set; } = null!;
 
     public int DistrictId { get; set; }
 
-    public string DistrictName { get; set; }
+    public string DistrictName { get; set; } = null!;
 
     public long VillageId { get; set; }
 
-    public string VillageName { get; set; }
+    public string VillageName { get; set; } = null!;
 }

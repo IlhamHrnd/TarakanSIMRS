@@ -9,7 +9,7 @@ public partial class RunQueryScript
 
     public short Type { get; set; }
 
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
 
-    public string ScriptText { get; set; }
+    public string ScriptText { get; set; } = null!;
 }

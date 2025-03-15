@@ -39,5 +39,5 @@ public partial class MirroringStatistic
 
     public DateTime? LocalTime { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName Database { get; set; } = null!;
 }

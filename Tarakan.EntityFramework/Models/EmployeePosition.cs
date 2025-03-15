@@ -19,15 +19,17 @@ public partial class EmployeePosition
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string AssignmentNo { get; set; }
+    public string? AssignmentNo { get; set; }
 
-    public string ResignmentNo { get; set; }
+    public string? ResignmentNo { get; set; }
 
-    public string SrpositionLevel { get; set; }
+    public string? SrpositionLevel { get; set; }
 
     public int? CoorporateGradeId { get; set; }
 
     public decimal? CoorporateGradeValue { get; set; }
+
+    public string? PositionDescription { get; set; }
 }

@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AssetPreventiveMaintenanceSchedule
 {
-    public string AssetId { get; set; }
+    public string AssetId { get; set; } = null!;
 
     public DateTime ScheduleDate { get; set; }
 
-    public string PeriodYear { get; set; }
+    public string? PeriodYear { get; set; }
 
     public DateTime PeriodDate { get; set; }
 
@@ -19,9 +19,9 @@ public partial class AssetPreventiveMaintenanceSchedule
 
     public DateTime? VoidDateTime { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

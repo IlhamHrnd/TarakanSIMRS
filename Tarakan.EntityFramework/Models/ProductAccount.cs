@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ProductAccount
 {
-    public string ProductAccountId { get; set; }
+    public string ProductAccountId { get; set; } = null!;
 
-    public string ProductAccountName { get; set; }
+    public string ProductAccountName { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
@@ -45,7 +45,7 @@ public partial class ProductAccount
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public int? ChartOfAccountIdIncomeIp { get; set; }
 
@@ -111,7 +111,7 @@ public partial class ProductAccount
 
     public int? SubledgerIdCostIgd { get; set; }
 
-    public string SritemType { get; set; }
+    public string? SritemType { get; set; }
 
     public int? ChartOfAccountIdCogsoptemp { get; set; }
 

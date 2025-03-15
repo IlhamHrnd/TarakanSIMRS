@@ -13,13 +13,13 @@ public partial class EmployeePeriodicSalary
 
     public int SalaryComponentId { get; set; }
 
-    public string SrprocessType { get; set; }
+    public string SrprocessType { get; set; } = null!;
 
     public decimal Amount { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public decimal? FromBasicSalaryAmount { get; set; }
 

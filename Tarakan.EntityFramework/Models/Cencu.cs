@@ -9,19 +9,19 @@ public partial class Cencu
 
     public DateTime? CencusDate { get; set; }
 
-    public string CencusTime { get; set; }
+    public string? CencusTime { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
-    public string RoomId { get; set; }
+    public string? RoomId { get; set; }
 
-    public string ClassId { get; set; }
+    public string? ClassId { get; set; }
 
-    public string BedId { get; set; }
+    public string? BedId { get; set; }
 
-    public string CencusStatus { get; set; }
+    public string? CencusStatus { get; set; }
 
     public int? PatientBalance { get; set; }
 
@@ -37,13 +37,13 @@ public partial class Cencu
 
     public int? PatientDeadInMore48 { get; set; }
 
-    public string TypeTransfer { get; set; }
+    public string? TypeTransfer { get; set; }
 
-    public string ServiceUnitIdinfo { get; set; }
+    public string? ServiceUnitIdinfo { get; set; }
 
-    public string RoomIdInfo { get; set; }
+    public string? RoomIdInfo { get; set; }
 
-    public string ClassIdInfo { get; set; }
+    public string? ClassIdInfo { get; set; }
 
-    public string BedIdinfo { get; set; }
+    public string? BedIdinfo { get; set; }
 }

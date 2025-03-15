@@ -13,7 +13,7 @@ public partial class PredictiveModel
 
     public int Timeframe { get; set; }
 
-    public byte[] Model { get; set; }
+    public byte[] Model { get; set; } = null!;
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

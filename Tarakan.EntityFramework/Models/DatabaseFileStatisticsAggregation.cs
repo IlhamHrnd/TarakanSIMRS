@@ -43,5 +43,5 @@ public partial class DatabaseFileStatisticsAggregation
 
     public decimal? TotalFreeDiskSpace { get; set; }
 
-    public string DriveName { get; set; }
+    public string? DriveName { get; set; }
 }

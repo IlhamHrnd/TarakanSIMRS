@@ -7,7 +7,7 @@ public partial class ParamedicFeeRemunByIdi
 {
     public int RemunId { get; set; }
 
-    public string RemunNo { get; set; }
+    public string RemunNo { get; set; } = null!;
 
     public decimal? FundAllocProcedure { get; set; }
 
@@ -21,27 +21,27 @@ public partial class ParamedicFeeRemunByIdi
 
     public decimal? AdjustmentFactor { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public bool IsApproved { get; set; }
 
     public DateTime? ApprovedDateTime { get; set; }
 
-    public string ApprovedByUserId { get; set; }
+    public string? ApprovedByUserId { get; set; }
 
     public bool IsVoid { get; set; }
 
     public DateTime? VoidDateTime { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? DateStart { get; set; }
 

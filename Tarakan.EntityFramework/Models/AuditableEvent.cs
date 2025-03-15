@@ -11,15 +11,15 @@ public partial class AuditableEvent
 
     public DateTime DateTime { get; set; }
 
-    public string Workstation { get; set; }
+    public string Workstation { get; set; } = null!;
 
-    public string WorkstationUser { get; set; }
+    public string WorkstationUser { get; set; } = null!;
 
-    public string Sqluser { get; set; }
+    public string Sqluser { get; set; } = null!;
 
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
 
-    public string MetaData { get; set; }
+    public string? MetaData { get; set; }
 
-    public string Header { get; set; }
+    public string? Header { get; set; }
 }

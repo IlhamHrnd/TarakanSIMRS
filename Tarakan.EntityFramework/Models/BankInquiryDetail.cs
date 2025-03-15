@@ -11,13 +11,13 @@ public partial class BankInquiryDetail
 
     public int? ReconcileId { get; set; }
 
-    public string RelatedTransactionNo { get; set; }
+    public string RelatedTransactionNo { get; set; } = null!;
 
     public DateTime TransactionDateTime { get; set; }
 
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 
-    public string ReferenceNo { get; set; }
+    public string ReferenceNo { get; set; } = null!;
 
     public decimal Debit { get; set; }
 
@@ -25,13 +25,13 @@ public partial class BankInquiryDetail
 
     public decimal Balance { get; set; }
 
-    public string SrcashTransactionCode { get; set; }
+    public string SrcashTransactionCode { get; set; } = null!;
 
     public DateTime CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string CreatedByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

@@ -9,11 +9,11 @@ public partial class GuarantorDepositMovement
 
     public DateTime MovementDate { get; set; }
 
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
-    public string TransactionCode { get; set; }
+    public string TransactionCode { get; set; } = null!;
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
     public decimal? InitialBalance { get; set; }
 
@@ -23,5 +23,5 @@ public partial class GuarantorDepositMovement
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

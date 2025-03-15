@@ -33,15 +33,15 @@ public partial class MetricMetaDatum
 
     public int ValueComparison { get; set; }
 
-    public string ValueType { get; set; }
+    public string ValueType { get; set; } = null!;
 
     public int? Rank { get; set; }
 
     public long DefaultInfoValue { get; set; }
 
-    public string TableName { get; set; }
+    public string? TableName { get; set; }
 
-    public string ColumnName { get; set; }
+    public string? ColumnName { get; set; }
 
     public bool IsValidForSqlExpress { get; set; }
 

@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class SnackOrderItem
 {
-    public string SnackOrderNo { get; set; }
+    public string SnackOrderNo { get; set; } = null!;
 
-    public string SnackId { get; set; }
+    public string SnackId { get; set; } = null!;
 
     public decimal QtyShift1 { get; set; }
 
@@ -15,9 +15,9 @@ public partial class SnackOrderItem
 
     public decimal QtyShift3 { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

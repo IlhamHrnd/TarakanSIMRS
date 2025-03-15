@@ -7,11 +7,11 @@ public partial class Position
 {
     public int PositionId { get; set; }
 
-    public string PositionCode { get; set; }
+    public string PositionCode { get; set; } = null!;
 
-    public string PositionName { get; set; }
+    public string PositionName { get; set; } = null!;
 
-    public string Summary { get; set; }
+    public string? Summary { get; set; }
 
     public int? PositionGradeId { get; set; }
 
@@ -23,7 +23,7 @@ public partial class Position
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string GeneralQualification { get; set; }
+    public string? GeneralQualification { get; set; }
 }

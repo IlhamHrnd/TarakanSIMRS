@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class XemapKey
 {
-    public string WaitType { get; set; }
+    public string WaitType { get; set; } = null!;
 
     public int Sqlversion { get; set; }
 

@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpTempDataKyw
 {
-    public string PatientId { get; set; }
+    public string? PatientId { get; set; }
 
     public DateTime? RegistrationDate { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
     public DateTime? DischargeDate { get; set; }
 
@@ -19,7 +19,7 @@ public partial class TmpTempDataKyw
 
     public decimal? Bayar { get; set; }
 
-    public string UserId { get; set; }
+    public string? UserId { get; set; }
 
     public DateTime? TimeStamp { get; set; }
 }

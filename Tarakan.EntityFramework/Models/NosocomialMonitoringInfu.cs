@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class NosocomialMonitoringInfu
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int MonitoringNo { get; set; }
 
@@ -13,13 +13,13 @@ public partial class NosocomialMonitoringInfu
 
     public DateTime? MonitoringDateTime { get; set; }
 
-    public string Srivcatheter { get; set; }
+    public string? Srivcatheter { get; set; }
 
-    public string SrinfusSet { get; set; }
+    public string? SrinfusSet { get; set; }
 
     public bool? IsSetBlood { get; set; }
 
-    public string SrinfusLocation { get; set; }
+    public string? SrinfusLocation { get; set; }
 
     public bool? IsTempAbove38 { get; set; }
 
@@ -35,27 +35,27 @@ public partial class NosocomialMonitoringInfu
 
     public bool? IsKanulaCulture { get; set; }
 
-    public string MedicineAndLiquid { get; set; }
+    public string? MedicineAndLiquid { get; set; }
 
-    public string MedicationMethod { get; set; }
+    public string? MedicationMethod { get; set; }
 
     public bool? IsDeleted { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string InfusLocation { get; set; }
+    public string? InfusLocation { get; set; }
 
     public DateTime? ReleaseDateTime { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
-    public string LiquidType { get; set; }
+    public string? LiquidType { get; set; }
 
     public bool? IsDirty { get; set; }
 
-    public string MonitoringByUserId { get; set; }
+    public string? MonitoringByUserId { get; set; }
 
     public bool? IsApneu { get; set; }
 

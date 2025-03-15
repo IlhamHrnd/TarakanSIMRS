@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwPatientsPaidOff
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public bool? IsPaidOff { get; set; }
 }

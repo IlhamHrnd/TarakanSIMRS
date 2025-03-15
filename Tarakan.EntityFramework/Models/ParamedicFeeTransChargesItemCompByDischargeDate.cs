@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicFeeTransChargesItemCompByDischargeDate
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
     public DateTime? DischargeDate { get; set; }
 
     public bool IsOrderRealization { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal Qty { get; set; }
 
@@ -37,13 +37,13 @@ public partial class ParamedicFeeTransChargesItemCompByDischargeDate
 
     public DateTime? LastCalculatedDateTime { get; set; }
 
-    public string LastCalculatedByUserId { get; set; }
+    public string? LastCalculatedByUserId { get; set; }
 
-    public string VerificationNo { get; set; }
+    public string? VerificationNo { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsCalcDeductionInPercent { get; set; }
 
@@ -53,7 +53,7 @@ public partial class ParamedicFeeTransChargesItemCompByDischargeDate
 
     public int? JournalId { get; set; }
 
-    public string OldParamedicId { get; set; }
+    public string OldParamedicId { get; set; } = null!;
 
     public bool IsModified { get; set; }
 
@@ -61,31 +61,31 @@ public partial class ParamedicFeeTransChargesItemCompByDischargeDate
 
     public decimal DiscountItem { get; set; }
 
-    public string TransactionNoRef { get; set; }
+    public string? TransactionNoRef { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
-    public string RegistrationNoMergeTo { get; set; }
+    public string? RegistrationNoMergeTo { get; set; }
 
     public DateTime? DischargeDateMergeTo { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
-    public string PaymentMethodName { get; set; }
+    public string? PaymentMethodName { get; set; }
 
-    public string SrphysicianFeeCategory { get; set; }
+    public string? SrphysicianFeeCategory { get; set; }
 
-    public string SrparamedicFeeCaseType { get; set; }
+    public string? SrparamedicFeeCaseType { get; set; }
 
-    public string SrparamedicFeeTeamStatus { get; set; }
+    public string? SrparamedicFeeTeamStatus { get; set; }
 
-    public string SrparamedicFeeIsTeam { get; set; }
+    public string? SrparamedicFeeIsTeam { get; set; }
 
     public decimal? SumDeductionAmount { get; set; }
 
     public int? ParamedicFeeByServiceSettingId { get; set; }
 
-    public string SmfId { get; set; }
+    public string? SmfId { get; set; }
 
     public bool? IsGuarantorVerified { get; set; }
 
@@ -103,29 +103,29 @@ public partial class ParamedicFeeTransChargesItemCompByDischargeDate
 
     public decimal? DiscountExtra { get; set; }
 
-    public string PaymentNoCash { get; set; }
+    public string? PaymentNoCash { get; set; }
 
-    public string PaymentNoAr { get; set; }
+    public string? PaymentNoAr { get; set; }
 
-    public string InvoicePaymentNo { get; set; }
+    public string? InvoicePaymentNo { get; set; }
 
     public bool? IsWriteOff { get; set; }
 
-    public string InvoiceWriteOffNo { get; set; }
+    public string? InvoiceWriteOffNo { get; set; }
 
     public decimal? PercentagePayment { get; set; }
 
     public DateTime? LastPaymentDate { get; set; }
 
-    public string PaymentNoGuarAr { get; set; }
+    public string? PaymentNoGuarAr { get; set; }
 
-    public string InvoicePaymentNoGuar { get; set; }
+    public string? InvoicePaymentNoGuar { get; set; }
 
     public decimal? PercentagePaymentAr { get; set; }
 
     public decimal? PercentagePaymentGuarAr { get; set; }
 
-    public string ChangeNote { get; set; }
+    public string? ChangeNote { get; set; }
 
     public decimal? SumDeductionAmountAfterTax { get; set; }
 
@@ -135,21 +135,21 @@ public partial class ParamedicFeeTransChargesItemCompByDischargeDate
 
     public DateTime? FeeAmountUpdateDateTime { get; set; }
 
-    public string FeeAmountToBePaidChangeNote { get; set; }
+    public string? FeeAmountToBePaidChangeNote { get; set; }
 
-    public string PaymentGroupNo { get; set; }
+    public string? PaymentGroupNo { get; set; }
 
     public bool? IsCustom { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
-    public string Srprocedure1 { get; set; }
+    public string? Srprocedure1 { get; set; }
 
-    public string ExecutedFormula { get; set; }
+    public string? ExecutedFormula { get; set; }
 
-    public string ExecutedMessage { get; set; }
+    public string? ExecutedMessage { get; set; }
 
     public bool? IsForTakeOneHighest { get; set; }
 

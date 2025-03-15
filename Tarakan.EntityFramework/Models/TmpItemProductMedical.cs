@@ -5,25 +5,25 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpItemProductMedical
 {
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
     public double? HargaSatuan { get; set; }
 
-    public string ItemName { get; set; }
+    public string? ItemName { get; set; }
 
-    public string ItemGroup { get; set; }
+    public string? ItemGroup { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string? SritemUnit { get; set; }
 
-    public string SrpurchaseUnit { get; set; }
+    public string? SrpurchaseUnit { get; set; }
 
     public double? ConversionFactor { get; set; }
 
     public double? Dosage { get; set; }
 
-    public string SrdosageUnit { get; set; }
+    public string? SrdosageUnit { get; set; }
 
-    public string BrandName { get; set; }
+    public string? BrandName { get; set; }
 
     public double? PriceInPurchaseUnit { get; set; }
 

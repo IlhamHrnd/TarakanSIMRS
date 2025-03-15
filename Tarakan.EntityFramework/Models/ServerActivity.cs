@@ -9,17 +9,17 @@ public partial class ServerActivity
 
     public DateTime UtccollectionDateTime { get; set; }
 
-    public string StateOverview { get; set; }
+    public string? StateOverview { get; set; }
 
-    public byte[] SystemProcesses { get; set; }
+    public byte[]? SystemProcesses { get; set; }
 
-    public byte[] SessionList { get; set; }
+    public byte[]? SessionList { get; set; }
 
-    public byte[] LockStatistics { get; set; }
+    public byte[]? LockStatistics { get; set; }
 
-    public byte[] LockList { get; set; }
+    public byte[]? LockList { get; set; }
 
     public int? RefreshType { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

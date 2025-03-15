@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationDrugObsPto
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int DrugObsNo { get; set; }
 
-    public string Srpto { get; set; }
+    public string Srpto { get; set; } = null!;
 
     public bool? IsYes { get; set; }
 
-    public string YesNotes { get; set; }
+    public string? YesNotes { get; set; }
 
     public bool? IsDrugDuplicate { get; set; }
 
@@ -23,7 +23,7 @@ public partial class RegistrationDrugObsPto
 
     public bool? IsSindromGeriatry { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 }

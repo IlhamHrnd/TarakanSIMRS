@@ -17,13 +17,13 @@ public partial class AdvertisedPersonnelRequisition
 
     public decimal MaximumEstimatedSalary { get; set; }
 
-    public string JobDescription { get; set; }
+    public string? JobDescription { get; set; }
 
-    public string JobSpecification { get; set; }
+    public string? JobSpecification { get; set; }
 
-    public string ContactPerson { get; set; }
+    public string ContactPerson { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

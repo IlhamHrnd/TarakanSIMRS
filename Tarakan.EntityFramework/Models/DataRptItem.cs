@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class DataRptItem
 {
-    public string SrdataRpt { get; set; }
+    public string SrdataRpt { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public DateTime TransactionDate { get; set; }
 
@@ -15,5 +15,5 @@ public partial class DataRptItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

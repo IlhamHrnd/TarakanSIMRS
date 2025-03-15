@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class IntermBill
 {
-    public string IntermBillNo { get; set; }
+    public string IntermBillNo { get; set; } = null!;
 
     public DateTime IntermBillDate { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public DateTime StartDate { get; set; }
 
@@ -25,11 +25,11 @@ public partial class IntermBill
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string AskesCoveredSeqNo { get; set; }
+    public string? AskesCoveredSeqNo { get; set; }
 
-    public string JournalIncomePaymentNo { get; set; }
+    public string JournalIncomePaymentNo { get; set; } = null!;
 
     public decimal? AdministrationAmount { get; set; }
 
@@ -41,5 +41,5 @@ public partial class IntermBill
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 }

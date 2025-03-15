@@ -15,15 +15,15 @@ public partial class BkuTransaction
 
     public decimal? Credit { get; set; }
 
-    public string Uraian { get; set; }
+    public string? Uraian { get; set; }
 
-    public string PaymentReferenceNo { get; set; }
+    public string? PaymentReferenceNo { get; set; }
 
-    public string InvoiceReferenceNo { get; set; }
+    public string? InvoiceReferenceNo { get; set; }
 
-    public string TransactionReferenceNo { get; set; }
+    public string? TransactionReferenceNo { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

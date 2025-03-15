@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class IbNyeriFeb22
 {
-    public string KodeItem { get; set; }
+    public string? KodeItem { get; set; }
 
-    public string NamaItem { get; set; }
+    public string? NamaItem { get; set; }
 
     public decimal? QtyAwal { get; set; }
 

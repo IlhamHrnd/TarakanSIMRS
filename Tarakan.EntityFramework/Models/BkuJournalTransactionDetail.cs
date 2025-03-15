@@ -17,15 +17,15 @@ public partial class BkuJournalTransactionDetail
 
     public decimal Credit { get; set; }
 
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 
     public int SubLedgerId { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

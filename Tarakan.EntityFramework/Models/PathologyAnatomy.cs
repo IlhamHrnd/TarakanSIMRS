@@ -5,53 +5,53 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PathologyAnatomy
 {
-    public string ResultNo { get; set; }
+    public string ResultNo { get; set; } = null!;
 
     public DateTime ResultDate { get; set; }
 
-    public string ResultTime { get; set; }
+    public string? ResultTime { get; set; }
 
-    public string ResultType { get; set; }
+    public string ResultType { get; set; } = null!;
 
     public DateTime OrderDate { get; set; }
 
     public DateTime DateOfCompletion { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string PhysicianSenders { get; set; }
+    public string? PhysicianSenders { get; set; }
 
-    public string PhoneNo { get; set; }
+    public string? PhoneNo { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string? ParamedicId { get; set; }
 
-    public string DiagnosisId { get; set; }
+    public string? DiagnosisId { get; set; }
 
-    public string LocationId { get; set; }
+    public string? LocationId { get; set; }
 
-    public string MorphologyId { get; set; }
+    public string? MorphologyId { get; set; }
 
-    public string SourceOfTissueId { get; set; }
+    public string? SourceOfTissueId { get; set; }
 
-    public string TissueId { get; set; }
+    public string? TissueId { get; set; }
 
     public bool? IsMarried { get; set; }
 
     public short? NumberOfChildren { get; set; }
 
-    public string Macroscopic { get; set; }
+    public string? Macroscopic { get; set; }
 
-    public string Microscopic { get; set; }
+    public string? Microscopic { get; set; }
 
-    public string Impression { get; set; }
+    public string? Impression { get; set; }
 
-    public string ImpressionGroupId { get; set; }
+    public string? ImpressionGroupId { get; set; }
 
-    public string ImpressionGroupItemId { get; set; }
+    public string? ImpressionGroupItemId { get; set; }
 
-    public string AdditionalNotes { get; set; }
+    public string? AdditionalNotes { get; set; }
 
     public bool? IsEligibleAdequacyOfTheSpecimen { get; set; }
 
@@ -69,7 +69,7 @@ public partial class PathologyAnatomy
 
     public bool? IsOtherInfections { get; set; }
 
-    public string OtherInfectionsDescription { get; set; }
+    public string? OtherInfectionsDescription { get; set; }
 
     public bool? IsInflammatoryReaction { get; set; }
 
@@ -79,7 +79,7 @@ public partial class PathologyAnatomy
 
     public bool? IsAtrophy { get; set; }
 
-    public string AtrophyDescription { get; set; }
+    public string? AtrophyDescription { get; set; }
 
     public bool? IsFollicularCervicitis { get; set; }
 
@@ -133,7 +133,7 @@ public partial class PathologyAnatomy
 
     public bool? IsEndometrialCells { get; set; }
 
-    public string NonEpithelialMalignancies { get; set; }
+    public string? NonEpithelialMalignancies { get; set; }
 
     public bool? IsHormonalPatternsAccordingToAgeAndHistory { get; set; }
 
@@ -141,31 +141,31 @@ public partial class PathologyAnatomy
 
     public bool? IsHormonalEvaluationIsNotPossible { get; set; }
 
-    public string InterpretationOfResults { get; set; }
+    public string? InterpretationOfResults { get; set; }
 
-    public string Suggestion { get; set; }
+    public string? Suggestion { get; set; }
 
     public bool? IsMammae { get; set; }
 
-    public string PathologyAnatomyDiagnoses { get; set; }
+    public string? PathologyAnatomyDiagnoses { get; set; }
 
-    public string Result { get; set; }
+    public string? Result { get; set; }
 
-    public string Er { get; set; }
+    public string? Er { get; set; }
 
-    public string Pr { get; set; }
+    public string? Pr { get; set; }
 
-    public string Her2Neu { get; set; }
+    public string? Her2Neu { get; set; }
 
-    public string Ki67 { get; set; }
+    public string? Ki67 { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public bool? IsReexamination { get; set; }
 
-    public string SrpaReexaminationType { get; set; }
+    public string? SrpaReexaminationType { get; set; }
 
-    public string ReferenceNo { get; set; }
+    public string? ReferenceNo { get; set; }
 
     public bool? IsApproved { get; set; }
 
@@ -173,25 +173,27 @@ public partial class PathologyAnatomy
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string DiagnosisName { get; set; }
+    public string? DiagnosisName { get; set; }
 
-    public string ClinicalData { get; set; }
+    public string? ClinicalData { get; set; }
 
-    public string ExaminationMaterial { get; set; }
+    public string? ExaminationMaterial { get; set; }
 
-    public string LocationName { get; set; }
+    public string? LocationName { get; set; }
 
-    public string PathologyNo { get; set; }
+    public string? PathologyNo { get; set; }
 
-    public string ReferralDescription { get; set; }
+    public string? ReferralDescription { get; set; }
 
-    public string ReferralAddress { get; set; }
+    public string? ReferralAddress { get; set; }
 
-    public string ServiceUnitDescription { get; set; }
+    public string? ServiceUnitDescription { get; set; }
+
+    public string? Tophology { get; set; }
 }

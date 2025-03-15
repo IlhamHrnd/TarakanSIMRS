@@ -9,23 +9,23 @@ public partial class CashTransaction
 
     public int PostingId { get; set; }
 
-    public string BankId { get; set; }
+    public string BankId { get; set; } = null!;
 
     public int ChartOfAccountId { get; set; }
 
     public DateTime TransactionDate { get; set; }
 
-    public string TransactionType { get; set; }
+    public string TransactionType { get; set; } = null!;
 
-    public string PaymentType { get; set; }
+    public string PaymentType { get; set; } = null!;
 
-    public string PaymentMethod { get; set; }
+    public string PaymentMethod { get; set; } = null!;
 
-    public string NormalBalance { get; set; }
+    public string NormalBalance { get; set; } = null!;
 
-    public string Module { get; set; }
+    public string Module { get; set; } = null!;
 
-    public string CurrencyCode { get; set; }
+    public string CurrencyCode { get; set; } = null!;
 
     public decimal CurrencyRate { get; set; }
 
@@ -35,11 +35,11 @@ public partial class CashTransaction
 
     public bool IsVoid { get; set; }
 
-    public string ChequeNumber { get; set; }
+    public string ChequeNumber { get; set; } = null!;
 
-    public string DocumentNumber { get; set; }
+    public string DocumentNumber { get; set; } = null!;
 
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 
     public int JournalId { get; set; }
 
@@ -49,29 +49,29 @@ public partial class CashTransaction
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string CreatedBy { get; set; }
+    public string CreatedBy { get; set; } = null!;
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string JournalNumber { get; set; }
+    public string? JournalNumber { get; set; }
 
     public DateTime? ClearedDateTime { get; set; }
 
-    public string ClearedBy { get; set; }
+    public string? ClearedBy { get; set; }
 
     public int? DetailIdRef { get; set; }
 
     public DateTime? DueDate { get; set; }
 
-    public string BudgetingCode { get; set; }
+    public string? BudgetingCode { get; set; }
 
-    public string ReceivedFromOrPaidTo { get; set; }
+    public string? ReceivedFromOrPaidTo { get; set; }
 
     public bool? IsAutoCashEntry { get; set; }
 
     public int? BkuAccountId { get; set; }
 
-    public virtual Bank Bank { get; set; }
+    public virtual Bank Bank { get; set; } = null!;
 
     public virtual ICollection<CashTransactionBalance> CashTransactionBalances { get; set; } = new List<CashTransactionBalance>();
 

@@ -13,29 +13,29 @@ public partial class MedicationReceiveUsed
 
     public DateTime? SetupDateTime { get; set; }
 
-    public string SetupByUserId { get; set; }
+    public string? SetupByUserId { get; set; }
 
     public DateTime? VerificationDateTime { get; set; }
 
-    public string VerificationByUserId { get; set; }
+    public string? VerificationByUserId { get; set; }
 
     public DateTime? RealizedDateTime { get; set; }
 
-    public string RealizedByUserId { get; set; }
+    public string? RealizedByUserId { get; set; }
 
     public decimal Qty { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string? ParamedicId { get; set; }
 
-    public string SrmedicationReason { get; set; }
+    public string? SrmedicationReason { get; set; }
 
     public bool? IsNotConsume { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public bool? IsReSchedule { get; set; }
 

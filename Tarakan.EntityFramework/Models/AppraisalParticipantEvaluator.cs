@@ -11,7 +11,7 @@ public partial class AppraisalParticipantEvaluator
 
     public int EvaluatorId { get; set; }
 
-    public string SrevaluatorType { get; set; }
+    public string SrevaluatorType { get; set; } = null!;
 
     public int? PositionId { get; set; }
 
@@ -21,11 +21,11 @@ public partial class AppraisalParticipantEvaluator
 
     public int? SubOrganizationUnitId { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public int? SubDivisonId { get; set; }
 }

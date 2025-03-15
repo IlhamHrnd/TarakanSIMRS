@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemIdi
 {
-    public string IdiCode { get; set; }
+    public string IdiCode { get; set; } = null!;
 
-    public string IdiName { get; set; }
+    public string IdiName { get; set; } = null!;
 
-    public string Icd9Cm { get; set; }
+    public string? Icd9Cm { get; set; }
 
     public decimal? F1 { get; set; }
 
@@ -27,9 +27,9 @@ public partial class ItemIdi
 
     public decimal? Price { get; set; }
 
-    public string Specialist { get; set; }
+    public string? Specialist { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

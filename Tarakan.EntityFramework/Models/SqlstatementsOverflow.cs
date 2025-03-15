@@ -7,7 +7,7 @@ public partial class SqlstatementsOverflow
 {
     public int SqlstatementId { get; set; }
 
-    public string SqlstatementOverflow { get; set; }
+    public string? SqlstatementOverflow { get; set; }
 
-    public virtual Sqlstatement Sqlstatement { get; set; }
+    public virtual Sqlstatement Sqlstatement { get; set; } = null!;
 }

@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicAutoBillItem
 {
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal Quantity { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
@@ -23,5 +23,5 @@ public partial class ParamedicAutoBillItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

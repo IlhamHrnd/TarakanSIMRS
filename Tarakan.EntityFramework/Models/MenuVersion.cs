@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class MenuVersion
 {
-    public string VersionId { get; set; }
+    public string VersionId { get; set; } = null!;
 
-    public string VersionName { get; set; }
+    public string VersionName { get; set; } = null!;
 
     public short Cycle { get; set; }
 
@@ -17,5 +17,5 @@ public partial class MenuVersion
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

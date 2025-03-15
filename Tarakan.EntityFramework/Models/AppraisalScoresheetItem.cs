@@ -11,9 +11,9 @@ public partial class AppraisalScoresheetItem
 
     public int QuestionerItemId { get; set; }
 
-    public string MarkValue { get; set; }
+    public string? MarkValue { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public decimal? Score { get; set; }
 
@@ -25,5 +25,5 @@ public partial class AppraisalScoresheetItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class LoincAvilabIh
 {
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ITemName { get; set; }
+    public string? ITemName { get; set; }
 
-    public string LoincId { get; set; }
+    public string LoincId { get; set; } = null!;
 }

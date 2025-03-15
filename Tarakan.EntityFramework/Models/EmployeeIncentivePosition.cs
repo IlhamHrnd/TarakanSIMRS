@@ -9,11 +9,11 @@ public partial class EmployeeIncentivePosition
 
     public int PersonId { get; set; }
 
-    public string SrincentiveServiceUnitGroup { get; set; }
+    public string SrincentiveServiceUnitGroup { get; set; } = null!;
 
-    public string SrincentivePositionGroup { get; set; }
+    public string SrincentivePositionGroup { get; set; } = null!;
 
-    public string SrincentivePosition { get; set; }
+    public string SrincentivePosition { get; set; } = null!;
 
     public decimal IncentivePositionPoints { get; set; }
 
@@ -21,5 +21,5 @@ public partial class EmployeeIncentivePosition
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

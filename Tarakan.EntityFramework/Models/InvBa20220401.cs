@@ -7,9 +7,9 @@ public partial class InvBa20220401
 {
     public double? No { get; set; }
 
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
-    public string ItemName { get; set; }
+    public string? ItemName { get; set; }
 
     public decimal? SaJml { get; set; }
 
@@ -29,5 +29,5 @@ public partial class InvBa20220401
 
     public decimal? Hpr { get; set; }
 
-    public string Depo { get; set; }
+    public string? Depo { get; set; }
 }

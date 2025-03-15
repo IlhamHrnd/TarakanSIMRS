@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PaymentMethod
 {
-    public string SrpaymentTypeId { get; set; }
+    public string SrpaymentTypeId { get; set; } = null!;
 
-    public string SrpaymentMethodId { get; set; }
+    public string SrpaymentMethodId { get; set; } = null!;
 
-    public string PaymentMethodName { get; set; }
+    public string PaymentMethodName { get; set; } = null!;
 
     public int? ChartOfAccountId { get; set; }
 
@@ -17,5 +17,5 @@ public partial class PaymentMethod
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

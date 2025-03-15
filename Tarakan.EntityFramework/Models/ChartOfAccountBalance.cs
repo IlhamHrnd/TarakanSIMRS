@@ -9,9 +9,9 @@ public partial class ChartOfAccountBalance
 
     public int ChartOfAccountId { get; set; }
 
-    public string Month { get; set; }
+    public string Month { get; set; } = null!;
 
-    public string Year { get; set; }
+    public string Year { get; set; } = null!;
 
     public decimal InitialBalance { get; set; }
 
@@ -21,5 +21,5 @@ public partial class ChartOfAccountBalance
 
     public decimal FinalBalance { get; set; }
 
-    public virtual ChartOfAccount ChartOfAccount { get; set; }
+    public virtual ChartOfAccount ChartOfAccount { get; set; } = null!;
 }

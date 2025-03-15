@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwTransPrescriptionFromSoap
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public DateTime PrescriptionDate { get; set; }
 }

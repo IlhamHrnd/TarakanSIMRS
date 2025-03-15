@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicFeeVerification
 {
-    public string VerificationNo { get; set; }
+    public string VerificationNo { get; set; } = null!;
 
     public DateOnly VerificationDate { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
     public DateOnly StartDate { get; set; }
 
@@ -27,17 +27,17 @@ public partial class ParamedicFeeVerification
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
-    public string PaymentNo { get; set; }
+    public string? PaymentNo { get; set; }
 
     public decimal? VerificationTaxAmount { get; set; }
 
     public DateTime? ApprovedDate { get; set; }
 
-    public string ApprovedByUserId { get; set; }
+    public string? ApprovedByUserId { get; set; }
 
     public decimal? SumDeductionAmountAfterTax { get; set; }
 

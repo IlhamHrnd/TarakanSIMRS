@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwItemAncillary
 {
-    public string ItemGroupId { get; set; }
+    public string ItemGroupId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ItemName { get; set; }
+    public string ItemName { get; set; } = null!;
 }

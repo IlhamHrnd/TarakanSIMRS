@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationPatientRiskStatusHistory
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string FromSrpatientRiskStatus { get; set; }
+    public string FromSrpatientRiskStatus { get; set; } = null!;
 
-    public string ToSrpatientRiskStatus { get; set; }
+    public string ToSrpatientRiskStatus { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

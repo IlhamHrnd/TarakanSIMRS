@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VitalSignews
 {
-    public string VitalSignId { get; set; }
+    public string VitalSignId { get; set; } = null!;
 
     public int StartAgeInDay { get; set; }
 
@@ -17,7 +17,7 @@ public partial class VitalSignews
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsExcludeFromScoreEws { get; set; }
 }

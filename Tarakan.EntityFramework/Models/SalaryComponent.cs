@@ -7,25 +7,25 @@ public partial class SalaryComponent
 {
     public int SalaryComponentId { get; set; }
 
-    public string SalaryComponentCode { get; set; }
+    public string SalaryComponentCode { get; set; } = null!;
 
-    public string SalaryComponentName { get; set; }
+    public string SalaryComponentName { get; set; } = null!;
 
-    public string SrsalaryType { get; set; }
+    public string SrsalaryType { get; set; } = null!;
 
-    public string SrsalaryCategory { get; set; }
+    public string? SrsalaryCategory { get; set; }
 
-    public string SrincomeTaxMethod { get; set; }
+    public string? SrincomeTaxMethod { get; set; }
 
-    public string SrdeductionType { get; set; }
+    public string? SrdeductionType { get; set; }
 
-    public string SrjamsostekType { get; set; }
+    public string? SrjamsostekType { get; set; }
 
     public decimal? Amount { get; set; }
 
     public double FaktorRule { get; set; }
 
-    public string FaktorRuleDisplay { get; set; }
+    public string? FaktorRuleDisplay { get; set; }
 
     public int? SalaryComponentRoundingId { get; set; }
 
@@ -71,7 +71,7 @@ public partial class SalaryComponent
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public bool? IsKwi { get; set; }
 
@@ -89,7 +89,7 @@ public partial class SalaryComponent
 
     public bool? IsThr { get; set; }
 
-    public string NormalBalance { get; set; }
+    public string? NormalBalance { get; set; }
 
     public bool? IsDisplayInThrSlip { get; set; }
 
@@ -99,19 +99,19 @@ public partial class SalaryComponent
 
     public int? SubLedgerIdThr { get; set; }
 
-    public string NormalBalanceThr { get; set; }
+    public string? NormalBalanceThr { get; set; }
 
-    public string SrsalaryComponentGroup { get; set; }
+    public string? SrsalaryComponentGroup { get; set; }
 
     public int? ChartOfAccountIdIndirect { get; set; }
 
-    public string NormalBalanceIndirect { get; set; }
+    public string? NormalBalanceIndirect { get; set; }
 
     public int? SubLedgerIdIndirect { get; set; }
 
     public int? ChartOfAccountIdThrIndirect { get; set; }
 
-    public string NormalBalanceThrIndirect { get; set; }
+    public string? NormalBalanceThrIndirect { get; set; }
 
     public int? SubLedgerIdThrIndirect { get; set; }
 }

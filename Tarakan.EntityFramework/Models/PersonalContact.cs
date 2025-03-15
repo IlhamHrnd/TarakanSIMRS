@@ -9,11 +9,11 @@ public partial class PersonalContact
 
     public int PersonId { get; set; }
 
-    public string SrcontactType { get; set; }
+    public string SrcontactType { get; set; } = null!;
 
-    public string ContactValue { get; set; }
+    public string ContactValue { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

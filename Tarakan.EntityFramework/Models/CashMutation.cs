@@ -11,31 +11,31 @@ public partial class CashMutation
 
     public int? JournalId { get; set; }
 
-    public string JournalNumber { get; set; }
+    public string? JournalNumber { get; set; }
 
-    public string BankId { get; set; }
+    public string BankId { get; set; } = null!;
 
     public int BankChartOfAccountId { get; set; }
 
     public DateTime TransactionDate { get; set; }
 
-    public string TransactionType { get; set; }
+    public string TransactionType { get; set; } = null!;
 
-    public string PaymentType { get; set; }
+    public string PaymentType { get; set; } = null!;
 
-    public string PaymentMethod { get; set; }
+    public string PaymentMethod { get; set; } = null!;
 
-    public string NormalBalance { get; set; }
+    public string NormalBalance { get; set; } = null!;
 
-    public string Module { get; set; }
+    public string Module { get; set; } = null!;
 
-    public string CurrencyCode { get; set; }
+    public string CurrencyCode { get; set; } = null!;
 
     public decimal CurrencyRate { get; set; }
 
-    public string ChequeNumber { get; set; }
+    public string ChequeNumber { get; set; } = null!;
 
-    public string DocumentNumber { get; set; }
+    public string DocumentNumber { get; set; } = null!;
 
     public int DetailId { get; set; }
 
@@ -51,13 +51,13 @@ public partial class CashMutation
 
     public decimal Credit { get; set; }
 
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 
-    public string DescriptionDetail { get; set; }
+    public string? DescriptionDetail { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public int CashMutationType { get; set; }
 }

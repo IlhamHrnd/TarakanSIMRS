@@ -7,7 +7,7 @@ public partial class PrescriptiveAnalysisRecommendation
 {
     public int Id { get; set; }
 
-    public string RecommendationId { get; set; }
+    public string RecommendationId { get; set; } = null!;
 
     public double? ComputedRankFactor { get; set; }
 
@@ -17,13 +17,13 @@ public partial class PrescriptiveAnalysisRecommendation
 
     public int OptimizationStatusId { get; set; }
 
-    public string OptimizationErrorMessage { get; set; }
+    public string? OptimizationErrorMessage { get; set; }
 
-    public virtual PrescriptiveOptimiztionExecutionStatus OptimizationStatus { get; set; }
+    public virtual PrescriptiveOptimiztionExecutionStatus OptimizationStatus { get; set; } = null!;
 
-    public virtual PrescriptiveAnalysisDetail PrescriptiveAnalysisDetails { get; set; }
+    public virtual PrescriptiveAnalysisDetail? PrescriptiveAnalysisDetails { get; set; }
 
     public virtual ICollection<PrescriptiveAnalysisRecommendationProperty> PrescriptiveAnalysisRecommendationProperties { get; set; } = new List<PrescriptiveAnalysisRecommendationProperty>();
 
-    public virtual PrescriptiveRecommendation Recommendation { get; set; }
+    public virtual PrescriptiveRecommendation Recommendation { get; set; } = null!;
 }

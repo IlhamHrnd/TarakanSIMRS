@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TariffItemVct
 {
-    public string KodeGroup { get; set; }
+    public string? KodeGroup { get; set; }
 
-    public string NamaGroup { get; set; }
+    public string? NamaGroup { get; set; }
 
-    public string KodeItem { get; set; }
+    public string? KodeItem { get; set; }
 
-    public string NamaItem { get; set; }
+    public string? NamaItem { get; set; }
 
-    public string KodeIdi { get; set; }
+    public string? KodeIdi { get; set; }
 
-    public string EKlaimTarifGroup { get; set; }
+    public string? EKlaimTarifGroup { get; set; }
 
     public double? JasaDokter11 { get; set; }
 

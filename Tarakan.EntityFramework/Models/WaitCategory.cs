@@ -7,7 +7,7 @@ public partial class WaitCategory
 {
     public int CategoryId { get; set; }
 
-    public string Category { get; set; }
+    public string Category { get; set; } = null!;
 
     public bool? ExcludeFromCollection { get; set; }
 

@@ -15,9 +15,9 @@ public partial class EmployeeLeaveCashable
 
     public int TotalDay { get; set; }
 
-    public string LetterNumber { get; set; }
+    public string? LetterNumber { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

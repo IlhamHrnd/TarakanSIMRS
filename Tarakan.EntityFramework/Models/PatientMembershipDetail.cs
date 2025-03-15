@@ -7,7 +7,7 @@ public partial class PatientMembershipDetail
 {
     public long MembershipDetailId { get; set; }
 
-    public string MembershipNo { get; set; }
+    public string MembershipNo { get; set; } = null!;
 
     public DateTime StartDate { get; set; }
 
@@ -19,9 +19,9 @@ public partial class PatientMembershipDetail
 
     public DateTime? LastCreateDateTime { get; set; }
 
-    public string LastCreateByUserId { get; set; }
+    public string? LastCreateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

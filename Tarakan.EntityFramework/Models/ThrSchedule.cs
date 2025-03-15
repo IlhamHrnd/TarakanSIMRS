@@ -9,7 +9,7 @@ public partial class ThrSchedule
 
     public int PayrollPeriodId { get; set; }
 
-    public string PayrollPeriodName { get; set; }
+    public string? PayrollPeriodName { get; set; }
 
     public DateTime? PayDate { get; set; }
 
@@ -17,5 +17,5 @@ public partial class ThrSchedule
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

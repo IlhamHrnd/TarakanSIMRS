@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ProductAccountGuarantorGroup
 {
-    public string ProductAccountId { get; set; }
+    public string ProductAccountId { get; set; } = null!;
 
-    public string SrguarantorIncomeGroup { get; set; }
+    public string SrguarantorIncomeGroup { get; set; } = null!;
 
     public int? ChartOfAccountIdIncome { get; set; }
 
@@ -69,7 +69,7 @@ public partial class ProductAccountGuarantorGroup
 
     public int? SubledgerIdDiscountIgd { get; set; }
 
-    public string SritemType { get; set; }
+    public string? SritemType { get; set; }
 
     public int? ChartOfAccountIdCogsoptemp { get; set; }
 
@@ -85,5 +85,5 @@ public partial class ProductAccountGuarantorGroup
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PaymentType
 {
-    public string SrpaymentTypeId { get; set; }
+    public string SrpaymentTypeId { get; set; } = null!;
 
-    public string PaymentTypeName { get; set; }
+    public string PaymentTypeName { get; set; } = null!;
 
     public int? ChartOfAccountId { get; set; }
 
     public int? SubledgerId { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 

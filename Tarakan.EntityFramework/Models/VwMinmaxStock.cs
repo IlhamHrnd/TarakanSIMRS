@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwMinmaxStock
 {
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string LocationName { get; set; }
+    public string LocationName { get; set; } = null!;
 
-    public string ItemGroupId { get; set; }
+    public string ItemGroupId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ItemName { get; set; }
+    public string ItemName { get; set; } = null!;
 
-    public string SritemType { get; set; }
+    public string SritemType { get; set; } = null!;
 
     public decimal Minimum { get; set; }
 

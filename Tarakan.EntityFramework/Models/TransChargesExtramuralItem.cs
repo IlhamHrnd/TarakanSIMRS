@@ -7,9 +7,9 @@ public partial class TransChargesExtramuralItem
 {
     public long Id { get; set; }
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SrextramuralItem { get; set; }
+    public string SrextramuralItem { get; set; } = null!;
 
     public decimal Qty { get; set; }
 
@@ -21,11 +21,11 @@ public partial class TransChargesExtramuralItem
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? GuarantyAmount { get; set; }
 }

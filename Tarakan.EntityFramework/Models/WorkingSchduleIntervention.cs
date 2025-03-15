@@ -9,7 +9,7 @@ public partial class WorkingSchduleIntervention
 
     public int? WorkingScheduleId { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public bool? IsApproved { get; set; }
 
@@ -17,5 +17,5 @@ public partial class WorkingSchduleIntervention
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateUserId { get; set; }
+    public string? LastUpdateUserId { get; set; }
 }

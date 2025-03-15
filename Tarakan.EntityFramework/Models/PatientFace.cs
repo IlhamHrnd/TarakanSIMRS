@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PatientFace
 {
-    public string PatientId { get; set; }
+    public string PatientId { get; set; } = null!;
 
     public int FacePositionXc { get; set; }
 
@@ -23,17 +23,17 @@ public partial class PatientFace
 
     public int Eye2Y { get; set; }
 
-    public byte[] Template { get; set; }
+    public byte[] Template { get; set; } = null!;
 
-    public byte[] Image { get; set; }
+    public byte[] Image { get; set; } = null!;
 
-    public byte[] FaceImage { get; set; }
+    public byte[] FaceImage { get; set; } = null!;
 
     public DateTime? LastCreatedDateTime { get; set; }
 
-    public string LastCreatedUserId { get; set; }
+    public string? LastCreatedUserId { get; set; }
 
     public DateTime? LastUpdatedDateTime { get; set; }
 
-    public string LastUpdatedUserId { get; set; }
+    public string? LastUpdatedUserId { get; set; }
 }

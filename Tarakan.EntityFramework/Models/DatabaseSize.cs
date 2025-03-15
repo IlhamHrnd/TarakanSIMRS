@@ -37,5 +37,5 @@ public partial class DatabaseSize
 
     public DateTime? DatabaseStatisticsTime { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName Database { get; set; } = null!;
 }

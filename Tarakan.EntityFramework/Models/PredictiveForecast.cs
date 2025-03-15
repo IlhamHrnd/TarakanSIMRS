@@ -19,5 +19,5 @@ public partial class PredictiveForecast
 
     public DateTime Expiration { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

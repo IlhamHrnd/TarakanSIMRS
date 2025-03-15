@@ -7,11 +7,11 @@ public partial class EmployeeTrainingEvaluation
 {
     public int EmployeeTrainingHistoryId { get; set; }
 
-    public string AssessmentAspectId { get; set; }
+    public string AssessmentAspectId { get; set; } = null!;
 
     public decimal RatingResult { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

@@ -7,7 +7,7 @@ public partial class BedBpj
 {
     public int? ClassId { get; set; }
 
-    public string ClassName { get; set; }
+    public string? ClassName { get; set; }
 
     public int? BedAvailableM { get; set; }
 
@@ -17,5 +17,5 @@ public partial class BedBpj
 
     public int? BedOccupiedF { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 }

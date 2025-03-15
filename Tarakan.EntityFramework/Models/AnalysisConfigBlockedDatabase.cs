@@ -9,7 +9,7 @@ public partial class AnalysisConfigBlockedDatabase
 
     public int DatabaseId { get; set; }
 
-    public virtual AnalysisConfiguration AnalysisConfiguration { get; set; }
+    public virtual AnalysisConfiguration AnalysisConfiguration { get; set; } = null!;
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName Database { get; set; } = null!;
 }

@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationDiscountRule
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public decimal RoomPercentage { get; set; }
 
@@ -25,7 +25,7 @@ public partial class RegistrationDiscountRule
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? ItemMedicalPercentage { get; set; }
 

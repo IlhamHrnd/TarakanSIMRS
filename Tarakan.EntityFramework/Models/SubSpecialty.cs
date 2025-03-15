@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class SubSpecialty
 {
-    public string SubSpecialtyId { get; set; }
+    public string SubSpecialtyId { get; set; } = null!;
 
-    public string Srspecialty { get; set; }
+    public string Srspecialty { get; set; } = null!;
 
-    public string SubSpecialtyName { get; set; }
+    public string SubSpecialtyName { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

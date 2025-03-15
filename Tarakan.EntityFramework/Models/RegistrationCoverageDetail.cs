@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationCoverageDetail
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string ClassId { get; set; }
+    public string ClassId { get; set; } = null!;
 
     public decimal CoverageAmount { get; set; }
 
@@ -15,5 +15,5 @@ public partial class RegistrationCoverageDetail
 
     public DateTime? LastCreateDateTime { get; set; }
 
-    public string LastCreateUserId { get; set; }
+    public string? LastCreateUserId { get; set; }
 }

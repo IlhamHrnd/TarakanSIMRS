@@ -7,5 +7,5 @@ public partial class ReportPeriod
 {
     public int? Value { get; set; }
 
-    public string Label { get; set; }
+    public string? Label { get; set; }
 }

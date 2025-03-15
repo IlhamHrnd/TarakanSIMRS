@@ -17,9 +17,9 @@ public partial class OvertimeDetail
 
     public decimal? Formula { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

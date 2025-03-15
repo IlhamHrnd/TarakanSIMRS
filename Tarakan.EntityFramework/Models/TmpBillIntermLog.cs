@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpBillIntermLog
 {
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
     public DateTime? ExecDate { get; set; }
 
-    public string Region { get; set; }
+    public string? Region { get; set; }
 
     public DateTime? Tic { get; set; }
 

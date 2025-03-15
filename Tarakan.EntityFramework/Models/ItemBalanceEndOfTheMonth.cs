@@ -7,13 +7,13 @@ public partial class ItemBalanceEndOfTheMonth
 {
     public DateOnly TransactionDate { get; set; }
 
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal Balance { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string? SritemUnit { get; set; }
 
     public decimal? CostPrice { get; set; }
 
@@ -27,7 +27,7 @@ public partial class ItemBalanceEndOfTheMonth
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? PurchaseDiscount1 { get; set; }
 

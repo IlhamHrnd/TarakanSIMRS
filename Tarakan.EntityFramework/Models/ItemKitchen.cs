@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemKitchen
 {
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string Abcclass { get; set; }
+    public string Abcclass { get; set; } = null!;
 
-    public string BrandName { get; set; }
+    public string BrandName { get; set; } = null!;
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
-    public string SrpurchaseUnit { get; set; }
+    public string SrpurchaseUnit { get; set; } = null!;
 
     public decimal ConversionFactor { get; set; }
 
@@ -47,11 +47,11 @@ public partial class ItemKitchen
 
     public decimal TolerancePercentage { get; set; }
 
-    public string Barcode { get; set; }
+    public string Barcode { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsSalesAvailable { get; set; }
 
@@ -59,7 +59,7 @@ public partial class ItemKitchen
 
     public decimal? MarginPercentage { get; set; }
 
-    public string MarginId { get; set; }
+    public string? MarginId { get; set; }
 
-    public virtual Item Item { get; set; }
+    public virtual Item Item { get; set; } = null!;
 }

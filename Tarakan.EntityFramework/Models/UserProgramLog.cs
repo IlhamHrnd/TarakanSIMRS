@@ -9,9 +9,9 @@ public partial class UserProgramLog
 
     public long UserLogId { get; set; }
 
-    public string ProgramId { get; set; }
+    public string ProgramId { get; set; } = null!;
 
     public DateTime AccessDateTime { get; set; }
 
-    public string Parameter { get; set; }
+    public string? Parameter { get; set; }
 }

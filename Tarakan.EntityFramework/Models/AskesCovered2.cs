@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AskesCovered2
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string SeqNo { get; set; }
+    public string SeqNo { get; set; } = null!;
 
     public DateTime StartDate { get; set; }
 
@@ -37,15 +37,15 @@ public partial class AskesCovered2
 
     public bool IsPaid { get; set; }
 
-    public string PaymentNo { get; set; }
+    public string? PaymentNo { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsVoid { get; set; }
 
     public DateTime? VoidDateTime { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 }

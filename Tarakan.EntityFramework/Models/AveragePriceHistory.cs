@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AveragePriceHistory
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ItemUnit { get; set; }
+    public string ItemUnit { get; set; } = null!;
 
     public DateTime ChangedDate { get; set; }
 
-    public string TransactionCode { get; set; }
+    public string TransactionCode { get; set; } = null!;
 
     public decimal OldAveragePrice { get; set; }
 
@@ -21,7 +21,7 @@ public partial class AveragePriceHistory
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? OldPriceInBaseUnit { get; set; }
 

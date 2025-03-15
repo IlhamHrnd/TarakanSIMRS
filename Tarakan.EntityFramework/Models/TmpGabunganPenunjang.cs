@@ -5,23 +5,23 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpGabunganPenunjang
 {
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
-    public string ServiceUnitName { get; set; }
+    public string? ServiceUnitName { get; set; }
 
-    public string ItemGroupId { get; set; }
+    public string? ItemGroupId { get; set; }
 
-    public string NamaGroup { get; set; }
+    public string? NamaGroup { get; set; }
 
-    public string KodeItem { get; set; }
+    public string? KodeItem { get; set; }
 
-    public string NamaItem { get; set; }
+    public string? NamaItem { get; set; }
 
-    public string KodeIdi { get; set; }
+    public string? KodeIdi { get; set; }
 
-    public string EklaimId { get; set; }
+    public string? EklaimId { get; set; }
 
-    public string EKlaimTarifGroup { get; set; }
+    public string? EKlaimTarifGroup { get; set; }
 
     public double? JasaDokter01 { get; set; }
 

@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PatientDischargeHistory
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string BedId { get; set; }
+    public string BedId { get; set; } = null!;
 
     public DateTime DischargeDate { get; set; }
 
-    public string DischargeTime { get; set; }
+    public string DischargeTime { get; set; } = null!;
 
-    public string DischargeOperatorId { get; set; }
+    public string DischargeOperatorId { get; set; } = null!;
 
     public bool IsCancel { get; set; }
 

@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class SnackOrder
 {
-    public string SnackOrderNo { get; set; }
+    public string SnackOrderNo { get; set; } = null!;
 
     public DateTime SnackOrderDate { get; set; }
 
     public DateTime SnackOrderForDate { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public bool? IsApproved { get; set; }
 
@@ -21,5 +21,5 @@ public partial class SnackOrder
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

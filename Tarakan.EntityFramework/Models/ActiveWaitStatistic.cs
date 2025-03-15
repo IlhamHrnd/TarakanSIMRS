@@ -35,17 +35,17 @@ public partial class ActiveWaitStatistic
 
     public int? SqlsignatureId { get; set; }
 
-    public virtual ApplicationName ApplicationName { get; set; }
+    public virtual ApplicationName? ApplicationName { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName? Database { get; set; }
 
-    public virtual HostName HostName { get; set; }
+    public virtual HostName? HostName { get; set; }
 
-    public virtual LoginName LoginName { get; set; }
+    public virtual LoginName? LoginName { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 
-    public virtual Sqlstatement Sqlstatement { get; set; }
+    public virtual Sqlstatement? Sqlstatement { get; set; }
 
-    public virtual WaitType WaitType { get; set; }
+    public virtual WaitType? WaitType { get; set; }
 }

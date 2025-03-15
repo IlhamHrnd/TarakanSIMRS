@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AppProgramEsign
 {
-    public string ProgramId { get; set; }
+    public string ProgramId { get; set; } = null!;
 
     public bool? IsVisible { get; set; }
 
-    public string TagCoordinate { get; set; }
+    public string? TagCoordinate { get; set; }
 
-    public string Page { get; set; }
+    public string? Page { get; set; }
 
     public int? Xaxis { get; set; }
 
@@ -21,5 +21,5 @@ public partial class AppProgramEsign
 
     public int? Height { get; set; }
 
-    public string UrlRootHist { get; set; }
+    public string? UrlRootHist { get; set; }
 }

@@ -11,15 +11,15 @@ public partial class MedicationReceiveStatus
 
     public bool? IsMedicationStop { get; set; }
 
-    public string SrmedicationStopReason { get; set; }
+    public string? SrmedicationStopReason { get; set; }
 
-    public string MedicationReason { get; set; }
+    public string? MedicationReason { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string SrmedicationStatusReason { get; set; }
+    public string? SrmedicationStatusReason { get; set; }
 
-    public string SrmedicationStatusType { get; set; }
+    public string? SrmedicationStatusType { get; set; }
 }

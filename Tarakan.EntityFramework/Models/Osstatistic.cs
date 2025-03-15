@@ -33,5 +33,5 @@ public partial class Osstatistic
 
     public long? TotalByteVm { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

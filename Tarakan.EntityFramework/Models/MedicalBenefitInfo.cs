@@ -7,7 +7,7 @@ public partial class MedicalBenefitInfo
 {
     public int MedicalBenefitInfoId { get; set; }
 
-    public string MedicalBenefitName { get; set; }
+    public string MedicalBenefitName { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
@@ -15,11 +15,11 @@ public partial class MedicalBenefitInfo
 
     public DateTime ValidTo { get; set; }
 
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
     public int MedicalPercentPaid { get; set; }
 
-    public string SrmedicalPaidRules { get; set; }
+    public string SrmedicalPaidRules { get; set; } = null!;
 
     public decimal? MedicalPaidMoney { get; set; }
 
@@ -47,17 +47,17 @@ public partial class MedicalBenefitInfo
 
     public int? FrequencyValue { get; set; }
 
-    public string SrunusedBalance { get; set; }
+    public string SrunusedBalance { get; set; } = null!;
 
     public decimal? MaxCarryOver { get; set; }
 
     public int? NoOfDependent { get; set; }
 
-    public string DependentGuarantorId { get; set; }
+    public string DependentGuarantorId { get; set; } = null!;
 
     public int DependentPercentPaid { get; set; }
 
-    public string SrdependentPaidRules { get; set; }
+    public string? SrdependentPaidRules { get; set; }
 
     public int? DependentFromEmployeeBenefit { get; set; }
 
@@ -71,5 +71,5 @@ public partial class MedicalBenefitInfo
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

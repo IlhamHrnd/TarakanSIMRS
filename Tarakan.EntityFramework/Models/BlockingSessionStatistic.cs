@@ -33,17 +33,17 @@ public partial class BlockingSessionStatistic
 
     public short? SessionId { get; set; }
 
-    public virtual ApplicationName ApplicationName { get; set; }
+    public virtual ApplicationName? ApplicationName { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName? Database { get; set; }
 
-    public virtual HostName HostName { get; set; }
+    public virtual HostName? HostName { get; set; }
 
-    public virtual LoginName LoginName { get; set; }
+    public virtual LoginName? LoginName { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 
-    public virtual Sqlsignature Sqlsignature { get; set; }
+    public virtual Sqlsignature? Sqlsignature { get; set; }
 
-    public virtual Sqlstatement Sqlstatement { get; set; }
+    public virtual Sqlstatement? Sqlstatement { get; set; }
 }

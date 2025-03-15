@@ -7,11 +7,11 @@ public partial class SqlsafeConnection
 {
     public int RepositoryId { get; set; }
 
-    public string FriendlyName { get; set; }
+    public string? FriendlyName { get; set; }
 
-    public string InstanceName { get; set; }
+    public string InstanceName { get; set; } = null!;
 
-    public string DatabaseName { get; set; }
+    public string DatabaseName { get; set; } = null!;
 
     public bool Active { get; set; }
 
@@ -19,9 +19,9 @@ public partial class SqlsafeConnection
 
     public bool SecurityMode { get; set; }
 
-    public string UserName { get; set; }
+    public string? UserName { get; set; }
 
-    public string EncryptedPassword { get; set; }
+    public string? EncryptedPassword { get; set; }
 
     public DateTime? RegisteredDate { get; set; }
 

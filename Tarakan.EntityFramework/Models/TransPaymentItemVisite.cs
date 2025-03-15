@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TransPaymentItemVisite
 {
-    public string PaymentNo { get; set; }
+    public string PaymentNo { get; set; } = null!;
 
-    public string PatientId { get; set; }
+    public string PatientId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public int VisiteQty { get; set; }
 
@@ -23,9 +23,9 @@ public partial class TransPaymentItemVisite
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
     public DateTime? ExpiredDate { get; set; }
 }

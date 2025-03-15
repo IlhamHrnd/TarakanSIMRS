@@ -11,9 +11,9 @@ public partial class PrescriptiveAnalysisRecommendationProperty
 
     public int PropertyId { get; set; }
 
-    public string Value { get; set; }
+    public string? Value { get; set; }
 
-    public virtual PrescriptiveAnalysisRecommendation AnalysisRecommendation { get; set; }
+    public virtual PrescriptiveAnalysisRecommendation AnalysisRecommendation { get; set; } = null!;
 
-    public virtual PrescriptiveRecommendationProperty Property { get; set; }
+    public virtual PrescriptiveRecommendationProperty Property { get; set; } = null!;
 }

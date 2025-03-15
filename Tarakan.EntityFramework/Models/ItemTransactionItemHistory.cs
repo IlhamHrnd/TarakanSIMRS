@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemTransactionItemHistory
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ReferenceNo { get; set; }
+    public string ReferenceNo { get; set; } = null!;
 
     public DateTime BalanceDate { get; set; }
 
@@ -21,7 +21,7 @@ public partial class ItemTransactionItemHistory
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public decimal? CostPrice { get; set; }
 

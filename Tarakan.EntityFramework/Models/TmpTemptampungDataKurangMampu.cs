@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpTemptampungDataKurangMampu
 {
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
-    public string PatientId { get; set; }
+    public string? PatientId { get; set; }
 
-    public string GuarantorId { get; set; }
+    public string? GuarantorId { get; set; }
 
     public decimal? Kartu { get; set; }
 
@@ -47,7 +47,7 @@ public partial class TmpTemptampungDataKurangMampu
 
     public decimal? JmlBayar { get; set; }
 
-    public string UserId { get; set; }
+    public string? UserId { get; set; }
 
     public DateTime? TimeStamp { get; set; }
 }

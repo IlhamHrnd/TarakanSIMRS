@@ -13,19 +13,19 @@ public partial class MonthlyAttendanceDetail
 
     public DateTime ScheduleInDate { get; set; }
 
-    public string ScheduleInTime { get; set; }
+    public string ScheduleInTime { get; set; } = null!;
 
     public DateTime? ScheduleOutDate { get; set; }
 
-    public string ScheduleOutTime { get; set; }
+    public string ScheduleOutTime { get; set; } = null!;
 
     public DateTime? CheckInDate { get; set; }
 
-    public string CheckInTime { get; set; }
+    public string? CheckInTime { get; set; }
 
     public DateTime? CheckOutDate { get; set; }
 
-    public string CheckOutTime { get; set; }
+    public string? CheckOutTime { get; set; }
 
     public bool? IsOvertime { get; set; }
 
@@ -43,11 +43,11 @@ public partial class MonthlyAttendanceDetail
 
     public bool? IsHasPermission { get; set; }
 
-    public string SrattendanceFileFormat { get; set; }
+    public string? SrattendanceFileFormat { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsOff { get; set; }
 

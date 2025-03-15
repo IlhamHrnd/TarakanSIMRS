@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PathologyAnatomyTissue
 {
-    public string TissueId { get; set; }
+    public string TissueId { get; set; } = null!;
 
-    public string TissueName { get; set; }
+    public string? TissueName { get; set; }
 
-    public string SourceOfTissueId { get; set; }
+    public string? SourceOfTissueId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

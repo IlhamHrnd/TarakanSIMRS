@@ -7,7 +7,7 @@ public partial class ApplicationName
 {
     public int ApplicationNameId { get; set; }
 
-    public string ApplicationName1 { get; set; }
+    public string? ApplicationName1 { get; set; }
 
     public virtual ICollection<DeadlockProcess> DeadlockProcesses { get; set; } = new List<DeadlockProcess>();
 

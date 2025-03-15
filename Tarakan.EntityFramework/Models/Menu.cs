@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Menu
 {
-    public string MenuId { get; set; }
+    public string MenuId { get; set; } = null!;
 
-    public string MenuName { get; set; }
+    public string MenuName { get; set; } = null!;
 
     public bool IsActive { get; set; }
 
@@ -15,5 +15,5 @@ public partial class Menu
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

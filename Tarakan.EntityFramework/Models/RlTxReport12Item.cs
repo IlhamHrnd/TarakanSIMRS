@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RlTxReport12Item
 {
-    public string PeriodMonth { get; set; }
+    public string PeriodMonth { get; set; } = null!;
 
-    public string PeriodYear { get; set; }
+    public string PeriodYear { get; set; } = null!;
 
     public int? HariPerawatan { get; set; }
 
@@ -27,7 +27,7 @@ public partial class RlTxReport12Item
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public int? Jtt { get; set; }
 }

@@ -13,7 +13,7 @@ public partial class WaitStatistic
 
     public double? TimeDeltaInSeconds { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 
     public virtual ICollection<WaitStatisticsDetail> WaitStatisticsDetails { get; set; } = new List<WaitStatisticsDetail>();
 }

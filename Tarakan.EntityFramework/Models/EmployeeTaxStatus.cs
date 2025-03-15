@@ -9,13 +9,13 @@ public partial class EmployeeTaxStatus
 
     public int Sptyear { get; set; }
 
-    public string SrtaxStatus { get; set; }
+    public string SrtaxStatus { get; set; } = null!;
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

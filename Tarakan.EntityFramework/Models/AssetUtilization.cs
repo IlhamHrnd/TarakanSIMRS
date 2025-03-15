@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AssetUtilization
 {
-    public string AssetId { get; set; }
+    public string AssetId { get; set; } = null!;
 
-    public string PeriodNo { get; set; }
+    public string PeriodNo { get; set; } = null!;
 
     public short UsageCounter { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

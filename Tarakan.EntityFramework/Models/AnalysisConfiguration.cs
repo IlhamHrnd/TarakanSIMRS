@@ -23,7 +23,7 @@ public partial class AnalysisConfiguration
 
     public bool IsActive { get; set; }
 
-    public string FilterApplication { get; set; }
+    public string? FilterApplication { get; set; }
 
     public bool SchedulingStatus { get; set; }
 }

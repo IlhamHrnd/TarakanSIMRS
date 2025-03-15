@@ -7,7 +7,7 @@ public partial class SalaryComponentRounding
 {
     public int SalaryComponentRoundingId { get; set; }
 
-    public string SalaryComponentRoundingName { get; set; }
+    public string SalaryComponentRoundingName { get; set; } = null!;
 
     public decimal NominalValue { get; set; }
 
@@ -15,7 +15,7 @@ public partial class SalaryComponentRounding
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public int? Formula { get; set; }
 

@@ -7,15 +7,15 @@ public partial class ParamedicFeeDeductionSetting
 {
     public int DeductionId { get; set; }
 
-    public string SrparamedicFeeDeduction { get; set; }
+    public string? SrparamedicFeeDeduction { get; set; }
 
-    public string SrregistrationType { get; set; }
+    public string? SrregistrationType { get; set; }
 
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string SrparamedicFeeDeductionMethod { get; set; }
+    public string SrparamedicFeeDeductionMethod { get; set; } = null!;
 
     public bool IsDeductionValueInPercent { get; set; }
 
@@ -23,19 +23,19 @@ public partial class ParamedicFeeDeductionSetting
 
     public bool? IsActive { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string CreatedByUserId { get; set; } = null!;
 
     public DateTime CreatedDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string SrguarantorType { get; set; }
+    public string? SrguarantorType { get; set; }
 
     public bool? IsMainPhysicianOnly { get; set; }
 
-    public string TariffComponentId { get; set; }
+    public string? TariffComponentId { get; set; }
 
     public bool? IsAfterTax { get; set; }
 

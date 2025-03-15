@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AssetPreventiveMaintenance
 {
-    public string Pmno { get; set; }
+    public string Pmno { get; set; } = null!;
 
     public DateTime Pmdate { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string AssetId { get; set; }
+    public string AssetId { get; set; } = null!;
 
-    public string SrworkTrade { get; set; }
+    public string SrworkTrade { get; set; } = null!;
 
     public DateTime TargetDate { get; set; }
 
@@ -23,5 +23,5 @@ public partial class AssetPreventiveMaintenance
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

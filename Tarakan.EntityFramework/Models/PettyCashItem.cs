@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PettyCashItem
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 
     public decimal Debit { get; set; }
 

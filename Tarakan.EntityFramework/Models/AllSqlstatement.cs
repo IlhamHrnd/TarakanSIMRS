@@ -7,7 +7,7 @@ public partial class AllSqlstatement
 {
     public int SqlstatementId { get; set; }
 
-    public string SqlstatementHash { get; set; }
+    public string? SqlstatementHash { get; set; }
 
-    public string Sqlstatement { get; set; }
+    public string? Sqlstatement { get; set; }
 }

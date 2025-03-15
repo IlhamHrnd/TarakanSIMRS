@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwMergeBillingInpatient
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string PatientCategory { get; set; }
+    public string PatientCategory { get; set; } = null!;
 }

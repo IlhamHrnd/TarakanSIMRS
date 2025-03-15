@@ -7,9 +7,9 @@ public partial class HumanBasePeriod
 {
     public int HumanBasePeriodId { get; set; }
 
-    public string YearPeriod { get; set; }
+    public string YearPeriod { get; set; } = null!;
 
-    public string PeriodeName { get; set; }
+    public string PeriodeName { get; set; } = null!;
 
     public DateTime? StartDate { get; set; }
 
@@ -27,5 +27,5 @@ public partial class HumanBasePeriod
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

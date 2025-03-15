@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class NosocomialMonitoringSurgery
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int MonitoringNo { get; set; }
 
@@ -13,7 +13,7 @@ public partial class NosocomialMonitoringSurgery
 
     public DateTime? MonitoringDateTime { get; set; }
 
-    public string SrexudateCharacter { get; set; }
+    public string? SrexudateCharacter { get; set; }
 
     public bool? IsAfDrain { get; set; }
 
@@ -31,19 +31,19 @@ public partial class NosocomialMonitoringSurgery
 
     public bool? IsPus { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public bool? IsDeleted { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsCulture { get; set; }
 
-    public string InjuryCondition { get; set; }
+    public string? InjuryCondition { get; set; }
 
-    public string MonitoringByUserId { get; set; }
+    public string? MonitoringByUserId { get; set; }
 
     public bool? IsIdoDiagnose { get; set; }
 }

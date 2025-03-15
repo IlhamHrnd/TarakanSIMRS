@@ -7,5 +7,5 @@ public partial class NursingDiagnosaTemplateServiceUnit
 {
     public int TemplateId { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 }

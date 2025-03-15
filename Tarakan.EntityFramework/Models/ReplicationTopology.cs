@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ReplicationTopology
 {
-    public string PublisherInstance { get; set; }
+    public string PublisherInstance { get; set; } = null!;
 
-    public string PublisherDb { get; set; }
+    public string PublisherDb { get; set; } = null!;
 
-    public string Publication { get; set; }
+    public string? Publication { get; set; }
 
     public DateTime? LastPublisherSnapshotDateTime { get; set; }
 
@@ -17,13 +17,13 @@ public partial class ReplicationTopology
 
     public DateTime? LastSubscriberSnapshotDateTime { get; set; }
 
-    public string DistributorInstance { get; set; }
+    public string? DistributorInstance { get; set; }
 
-    public string DistributorDb { get; set; }
+    public string? DistributorDb { get; set; }
 
-    public string SubscriberInstance { get; set; }
+    public string? SubscriberInstance { get; set; }
 
-    public string SubscriberDb { get; set; }
+    public string? SubscriberDb { get; set; }
 
     public int? PublisherDbid { get; set; }
 
@@ -49,13 +49,13 @@ public partial class ReplicationTopology
 
     public byte? LastSyncStatus { get; set; }
 
-    public string LastSyncSummary { get; set; }
+    public string? LastSyncSummary { get; set; }
 
     public DateTime? LastSyncTime { get; set; }
 
     public byte? SubscriptionStatus { get; set; }
 
-    public string PublicationDescription { get; set; }
+    public string? PublicationDescription { get; set; }
 
     public int? ArticleCount { get; set; }
 }

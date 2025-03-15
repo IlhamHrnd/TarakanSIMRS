@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PpiProcedureSurveillanceUseOfAntibiotic
 {
-    public string BookingNo { get; set; }
+    public string BookingNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public DateTime StartDate { get; set; }
 
@@ -15,5 +15,5 @@ public partial class PpiProcedureSurveillanceUseOfAntibiotic
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

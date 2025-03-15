@@ -13,13 +13,13 @@ public partial class EmployeeAchievement
 
     public DateTime AwardDate { get; set; }
 
-    public string Achievement { get; set; }
+    public string? Achievement { get; set; }
 
     public decimal? FinancialValue { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

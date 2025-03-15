@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AppUserGroupProgram
 {
-    public string UserGroupId { get; set; }
+    public string UserGroupId { get; set; } = null!;
 
-    public string ProgramId { get; set; }
+    public string ProgramId { get; set; } = null!;
 
     public bool? IsUserGroupAddAble { get; set; }
 
@@ -31,5 +31,5 @@ public partial class AppUserGroupProgram
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

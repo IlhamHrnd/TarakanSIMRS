@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class SupplierContractItem
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string SrpurchaseUnit { get; set; }
+    public string SrpurchaseUnit { get; set; } = null!;
 
     public decimal PriceInPurchaseUnit { get; set; }
 
@@ -21,7 +21,7 @@ public partial class SupplierContractItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public virtual SupplierContract TransactionNoNavigation { get; set; }
+    public virtual SupplierContract TransactionNoNavigation { get; set; } = null!;
 }

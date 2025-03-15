@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class SpectaclePrescriptionItem
 {
-    public string PrescriptionNo { get; set; }
+    public string PrescriptionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
     public decimal Qty { get; set; }
 
@@ -23,53 +23,53 @@ public partial class SpectaclePrescriptionItem
 
     public decimal DiscountAmount { get; set; }
 
-    public string SrdiscountReason { get; set; }
+    public string SrdiscountReason { get; set; } = null!;
 
-    public string OdSphere { get; set; }
+    public string OdSphere { get; set; } = null!;
 
-    public string OdCyl { get; set; }
+    public string OdCyl { get; set; } = null!;
 
-    public string OdAxis { get; set; }
+    public string OdAxis { get; set; } = null!;
 
-    public string OdPrism { get; set; }
+    public string OdPrism { get; set; } = null!;
 
-    public string OdBase { get; set; }
+    public string? OdBase { get; set; }
 
-    public string OdMpd { get; set; }
+    public string OdMpd { get; set; } = null!;
 
-    public string OdPv { get; set; }
+    public string? OdPv { get; set; }
 
-    public string OdSh { get; set; }
+    public string? OdSh { get; set; }
 
-    public string OdAdd { get; set; }
+    public string? OdAdd { get; set; }
 
-    public string OsSphere { get; set; }
+    public string OsSphere { get; set; } = null!;
 
-    public string OsCyl { get; set; }
+    public string OsCyl { get; set; } = null!;
 
-    public string OsAxis { get; set; }
+    public string OsAxis { get; set; } = null!;
 
-    public string OsPrism { get; set; }
+    public string OsPrism { get; set; } = null!;
 
-    public string OsBase { get; set; }
+    public string? OsBase { get; set; }
 
-    public string OsMpd { get; set; }
+    public string OsMpd { get; set; } = null!;
 
-    public string OsPv { get; set; }
+    public string? OsPv { get; set; }
 
-    public string OsSh { get; set; }
+    public string? OsSh { get; set; }
 
-    public string OsAdd { get; set; }
+    public string? OsAdd { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
-    public string FrameA { get; set; }
+    public string? FrameA { get; set; }
 
-    public string FrameB { get; set; }
+    public string? FrameB { get; set; }
 
-    public string Bridge { get; set; }
+    public string? Bridge { get; set; }
 
-    public string FrameDia { get; set; }
+    public string? FrameDia { get; set; }
 
     public bool IsVoid { get; set; }
 
@@ -77,7 +77,7 @@ public partial class SpectaclePrescriptionItem
 
     public bool IsApprove { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 

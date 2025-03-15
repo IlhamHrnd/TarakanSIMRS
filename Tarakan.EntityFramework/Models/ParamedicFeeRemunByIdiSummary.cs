@@ -7,7 +7,7 @@ public partial class ParamedicFeeRemunByIdiSummary
 {
     public int RemunId { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
     public int CoorporateGradeLevel { get; set; }
 
@@ -23,9 +23,9 @@ public partial class ParamedicFeeRemunByIdiSummary
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

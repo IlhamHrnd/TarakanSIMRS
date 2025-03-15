@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpItemTariffUrologi
 {
-    public string Group { get; set; }
+    public string? Group { get; set; }
 
-    public string GroupName { get; set; }
+    public string? GroupName { get; set; }
 
-    public string NamaTindakanIdi { get; set; }
+    public string? NamaTindakanIdi { get; set; }
 
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
-    public string NamaPelayanan { get; set; }
+    public string? NamaPelayanan { get; set; }
 
-    public string KodeIdi { get; set; }
+    public string? KodeIdi { get; set; }
 
-    public string EklaimTarifGroup { get; set; }
+    public string? EklaimTarifGroup { get; set; }
 
     public double? JasaDokter01 { get; set; }
 

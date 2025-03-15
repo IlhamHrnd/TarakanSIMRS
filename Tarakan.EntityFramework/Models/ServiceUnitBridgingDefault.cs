@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ServiceUnitBridgingDefault
 {
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string SrbridgingType { get; set; }
+    public string SrbridgingType { get; set; } = null!;
 
-    public string BridgingPoliId { get; set; }
+    public string BridgingPoliId { get; set; } = null!;
 
-    public string BridgingName { get; set; }
+    public string? BridgingName { get; set; }
 
     public bool? IsActive { get; set; }
 
-    public string BridgingSubSpesialisId { get; set; }
+    public string BridgingSubSpesialisId { get; set; } = null!;
 
     public bool? IsDefault { get; set; }
 
-    public string BridgingSubSpesialisName { get; set; }
+    public string? BridgingSubSpesialisName { get; set; }
 }

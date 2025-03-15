@@ -7,13 +7,13 @@ public partial class CustomDashboard
 {
     public long CustomDashboardId { get; set; }
 
-    public string CustomDashboardName { get; set; }
+    public string CustomDashboardName { get; set; } = null!;
 
     public bool? IsDefaultOnUi { get; set; }
 
-    public string UserSid { get; set; }
+    public string? UserSid { get; set; }
 
-    public string Tags { get; set; }
+    public string? Tags { get; set; }
 
     public DateTime? RecordCreatedTimestamp { get; set; }
 

@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VRegkendalabyarot
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string PatientId { get; set; }
+    public string PatientId { get; set; } = null!;
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string? ParamedicId { get; set; }
 
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
     public DateTime? DischargeDate { get; set; }
 
@@ -23,9 +23,9 @@ public partial class VRegkendalabyarot
 
     public decimal? DiscAdmGuarantor { get; set; }
 
-    public string SrguarantorType { get; set; }
+    public string SrguarantorType { get; set; } = null!;
 
     public DateTime RegistrationDate { get; set; }
 
-    public string Information { get; set; }
+    public string? Information { get; set; }
 }

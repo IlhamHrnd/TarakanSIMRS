@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class NosocomialMonitoringCatheter
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int MonitoringNo { get; set; }
 
@@ -13,9 +13,9 @@ public partial class NosocomialMonitoringCatheter
 
     public DateTime? MonitoringDateTime { get; set; }
 
-    public string SrgeneralChateterNo { get; set; }
+    public string? SrgeneralChateterNo { get; set; }
 
-    public string SrsiliconChateterNo { get; set; }
+    public string? SrsiliconChateterNo { get; set; }
 
     public bool? IsTempAbove38 { get; set; }
 
@@ -29,19 +29,19 @@ public partial class NosocomialMonitoringCatheter
 
     public bool? IsUrineCulture { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public bool? IsDeleted { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsUrineBagChange { get; set; }
 
-    public string FixationFluid { get; set; }
+    public string? FixationFluid { get; set; }
 
-    public string MonitoringByUserId { get; set; }
+    public string? MonitoringByUserId { get; set; }
 
     public bool? IsRelease { get; set; }
 

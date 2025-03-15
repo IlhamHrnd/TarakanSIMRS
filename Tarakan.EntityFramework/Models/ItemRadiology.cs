@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemRadiology
 {
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ReportRlid { get; set; }
+    public string ReportRlid { get; set; } = null!;
 
     public bool IsAdminCalculation { get; set; }
 
@@ -23,11 +23,13 @@ public partial class ItemRadiology
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public int? RlMasterReportItemId { get; set; }
 
     public bool? IsCitoFromStandardReference { get; set; }
 
-    public virtual Item Item { get; set; }
+    public int? ExpiredResultsInDays { get; set; }
+
+    public virtual Item Item { get; set; } = null!;
 }

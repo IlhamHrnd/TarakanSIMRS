@@ -9,7 +9,7 @@ public partial class EmployeeWageStructureAndScalePositionItem
 
     public int WageStructureAndScalePositionId { get; set; }
 
-    public string SrwageStructureAndScaleType { get; set; }
+    public string SrwageStructureAndScaleType { get; set; } = null!;
 
     public int WageStructureAndScaleId { get; set; }
 
@@ -23,5 +23,5 @@ public partial class EmployeeWageStructureAndScalePositionItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

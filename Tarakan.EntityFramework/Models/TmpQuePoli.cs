@@ -9,13 +9,13 @@ public partial class TmpQuePoli
 
     public int? LocationId { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
-    public string QueueName { get; set; }
+    public string? QueueName { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string? ParamedicId { get; set; }
 
-    public string ParamedicName { get; set; }
+    public string? ParamedicName { get; set; }
 
     public int? TotalNumber { get; set; }
 
@@ -27,11 +27,11 @@ public partial class TmpQuePoli
 
     public int? CallRoom { get; set; }
 
-    public string CallRegNo { get; set; }
+    public string? CallRegNo { get; set; }
 
     public int? RecallNumber { get; set; }
 
     public int? RecallRoom { get; set; }
 
-    public string RecallRegNo { get; set; }
+    public string? RecallRegNo { get; set; }
 }

@@ -7,9 +7,9 @@ public partial class Sqlstatement
 {
     public int SqlstatementId { get; set; }
 
-    public string SqlstatementHash { get; set; }
+    public string? SqlstatementHash { get; set; }
 
-    public string Sqlstatement1 { get; set; }
+    public string? Sqlstatement1 { get; set; }
 
     public bool? Overflow { get; set; }
 
@@ -19,5 +19,5 @@ public partial class Sqlstatement
 
     public virtual ICollection<Sqlsignature> Sqlsignatures { get; set; } = new List<Sqlsignature>();
 
-    public virtual SqlstatementsOverflow SqlstatementsOverflow { get; set; }
+    public virtual SqlstatementsOverflow? SqlstatementsOverflow { get; set; }
 }

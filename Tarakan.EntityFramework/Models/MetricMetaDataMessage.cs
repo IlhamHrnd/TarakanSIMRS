@@ -11,19 +11,19 @@ public partial class MetricMetaDataMessage
 
     public long? EventId { get; set; }
 
-    public string HeaderTemplate { get; set; }
+    public string HeaderTemplate { get; set; } = null!;
 
-    public string BodyTemplate { get; set; }
+    public string BodyTemplate { get; set; } = null!;
 
-    public string TodoTemplate { get; set; }
+    public string TodoTemplate { get; set; } = null!;
 
-    public string PulseTemplate { get; set; }
+    public string PulseTemplate { get; set; } = null!;
 
-    public string HeaderTemplateBaseline { get; set; }
+    public string? HeaderTemplateBaseline { get; set; }
 
-    public string BodyTemplateBaseline { get; set; }
+    public string? BodyTemplateBaseline { get; set; }
 
-    public string TodoTemplateBaseline { get; set; }
+    public string? TodoTemplateBaseline { get; set; }
 
-    public string PulseTemplateBaseline { get; set; }
+    public string? PulseTemplateBaseline { get; set; }
 }

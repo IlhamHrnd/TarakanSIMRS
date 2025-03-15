@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemProductSalesDiscount
 {
-    public string SalesDiscId { get; set; }
+    public string SalesDiscId { get; set; } = null!;
 
-    public string SritemType { get; set; }
+    public string SritemType { get; set; } = null!;
 
     public decimal SupplierDiscPercentageFrom { get; set; }
 
@@ -17,5 +17,5 @@ public partial class ItemProductSalesDiscount
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

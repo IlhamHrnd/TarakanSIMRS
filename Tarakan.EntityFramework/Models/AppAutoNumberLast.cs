@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AppAutoNumberLast
 {
-    public string SrautoNumber { get; set; }
+    public string SrautoNumber { get; set; } = null!;
 
     public DateTime EffectiveDate { get; set; }
 
-    public string DepartmentInitial { get; set; }
+    public string DepartmentInitial { get; set; } = null!;
 
     public int YearNo { get; set; }
 
@@ -19,9 +19,9 @@ public partial class AppAutoNumberLast
 
     public int? LastNumber { get; set; }
 
-    public string LastCompleteNumber { get; set; }
+    public string? LastCompleteNumber { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

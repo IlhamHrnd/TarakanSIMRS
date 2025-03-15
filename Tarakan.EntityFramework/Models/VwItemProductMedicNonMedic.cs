@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwItemProductMedicNonMedic
 {
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
-    public string SrpurchaseUnit { get; set; }
+    public string SrpurchaseUnit { get; set; } = null!;
 
     public decimal ConversionFactor { get; set; }
 
@@ -29,17 +29,17 @@ public partial class VwItemProductMedicNonMedic
 
     public bool? IsSalesAvailable { get; set; }
 
-    public string BrandName { get; set; }
+    public string? BrandName { get; set; }
 
     public decimal Dosage { get; set; }
 
-    public string SrdosageUnit { get; set; }
+    public string SrdosageUnit { get; set; } = null!;
 
     public int? IsUsingCigna { get; set; }
 
-    public string SrdrugLabelType { get; set; }
+    public string SrdrugLabelType { get; set; } = null!;
 
-    public string GenericFlag { get; set; }
+    public string GenericFlag { get; set; } = null!;
 
     public bool IsControlExpired { get; set; }
 
@@ -47,7 +47,7 @@ public partial class VwItemProductMedicNonMedic
 
     public int IsFormularium { get; set; }
 
-    public string Barcode { get; set; }
+    public string Barcode { get; set; } = null!;
 
     public int? IsAntibiotic { get; set; }
 

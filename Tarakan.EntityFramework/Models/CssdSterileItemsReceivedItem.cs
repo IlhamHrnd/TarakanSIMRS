@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class CssdSterileItemsReceivedItem
 {
-    public string ReceivedNo { get; set; }
+    public string ReceivedNo { get; set; } = null!;
 
-    public string ReceivedSeqNo { get; set; }
+    public string ReceivedSeqNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string SrcssdItemUnit { get; set; }
+    public string SrcssdItemUnit { get; set; } = null!;
 
     public decimal Qty { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
-    public string CssdItemNo { get; set; }
+    public string? CssdItemNo { get; set; }
 
     public DateTime? ExpiredDate { get; set; }
 
@@ -29,5 +29,5 @@ public partial class CssdSterileItemsReceivedItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

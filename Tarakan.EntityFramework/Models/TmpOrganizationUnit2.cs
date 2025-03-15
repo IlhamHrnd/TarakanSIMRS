@@ -7,9 +7,9 @@ public partial class TmpOrganizationUnit2
 {
     public double? OrganizationUnitId { get; set; }
 
-    public string OrganizationUnitCode { get; set; }
+    public string? OrganizationUnitCode { get; set; }
 
-    public string OrganizationName { get; set; }
+    public string? OrganizationName { get; set; }
 
     public double? OrganizationLevel { get; set; }
 

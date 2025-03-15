@@ -9,7 +9,7 @@ public partial class SqlserverDatabaseName
 
     public int SqlserverId { get; set; }
 
-    public string DatabaseName { get; set; }
+    public string DatabaseName { get; set; } = null!;
 
     public bool SystemDatabase { get; set; }
 
@@ -27,13 +27,13 @@ public partial class SqlserverDatabaseName
 
     public virtual ICollection<DeadlockProcess> DeadlockProcesses { get; set; } = new List<DeadlockProcess>();
 
-    public virtual MirroringParticipant MirroringParticipant { get; set; }
+    public virtual MirroringParticipant? MirroringParticipant { get; set; }
 
     public virtual ICollection<MirroringStatistic> MirroringStatistics { get; set; } = new List<MirroringStatistic>();
 
     public virtual ICollection<QuerySignatureAggregation> QuerySignatureAggregations { get; set; } = new List<QuerySignatureAggregation>();
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 
     public virtual ICollection<SqlserverTableName> SqlserverTableNames { get; set; } = new List<SqlserverTableName>();
 }

@@ -7,9 +7,9 @@ public partial class Sqlsignature
 {
     public int SqlsignatureId { get; set; }
 
-    public string SqlsignatureHash { get; set; }
+    public string SqlsignatureHash { get; set; } = null!;
 
-    public string Sqlsignature1 { get; set; }
+    public string? Sqlsignature1 { get; set; }
 
     public bool? Overflow { get; set; }
 
@@ -21,7 +21,7 @@ public partial class Sqlsignature
 
     public virtual ICollection<QuerySignatureAggregation> QuerySignatureAggregations { get; set; } = new List<QuerySignatureAggregation>();
 
-    public virtual SqlsignaturesOverflow SqlsignaturesOverflow { get; set; }
+    public virtual SqlsignaturesOverflow? SqlsignaturesOverflow { get; set; }
 
-    public virtual Sqlstatement SqlstatementExample { get; set; }
+    public virtual Sqlstatement? SqlstatementExample { get; set; }
 }

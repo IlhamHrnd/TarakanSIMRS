@@ -11,9 +11,9 @@ public partial class AzureProfile
 
     public int SqlserverId { get; set; }
 
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
-    public virtual AzureApplicationProfile AzureApplicationProfile { get; set; }
+    public virtual AzureApplicationProfile AzureApplicationProfile { get; set; } = null!;
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

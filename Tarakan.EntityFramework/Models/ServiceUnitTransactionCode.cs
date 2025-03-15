@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ServiceUnitTransactionCode
 {
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string SrtransactionCode { get; set; }
+    public string SrtransactionCode { get; set; } = null!;
 
     public bool? IsItemProductMedic { get; set; }
 
@@ -17,5 +17,5 @@ public partial class ServiceUnitTransactionCode
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

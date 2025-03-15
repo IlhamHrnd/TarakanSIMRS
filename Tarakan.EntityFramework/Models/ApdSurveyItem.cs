@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ApdSurveyItem
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SrapdType { get; set; }
+    public string SrapdType { get; set; } = null!;
 
     public bool IsCorrectIndication { get; set; }
 
@@ -19,5 +19,5 @@ public partial class ApdSurveyItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

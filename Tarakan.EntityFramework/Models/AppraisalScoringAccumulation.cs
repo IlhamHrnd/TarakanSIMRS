@@ -31,5 +31,5 @@ public partial class AppraisalScoringAccumulation
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

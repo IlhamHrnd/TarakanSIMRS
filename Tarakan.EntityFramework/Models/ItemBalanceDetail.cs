@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemBalanceDetail
 {
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ReferenceNo { get; set; }
+    public string ReferenceNo { get; set; } = null!;
 
-    public string TransactionCode { get; set; }
+    public string? TransactionCode { get; set; }
 
     public DateTime BalanceDate { get; set; }
 
@@ -23,7 +23,7 @@ public partial class ItemBalanceDetail
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string PurchaseReceiveNo { get; set; }
+    public string? PurchaseReceiveNo { get; set; }
 }

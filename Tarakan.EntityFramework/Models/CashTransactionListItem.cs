@@ -7,7 +7,7 @@ public partial class CashTransactionListItem
 {
     public int ListItemId { get; set; }
 
-    public string ListId { get; set; }
+    public string ListId { get; set; } = null!;
 
     public int ChartOfAccountId { get; set; }
 
@@ -17,5 +17,5 @@ public partial class CashTransactionListItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

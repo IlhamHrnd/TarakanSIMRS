@@ -7,7 +7,7 @@ public partial class Thr
 {
     public int PersonId { get; set; }
 
-    public string EmployeeName { get; set; }
+    public string EmployeeName { get; set; } = null!;
 
     public decimal TaxAllowance { get; set; }
 

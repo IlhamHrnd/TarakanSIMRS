@@ -5,33 +5,33 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Asset
 {
-    public string AssetId { get; set; }
+    public string AssetId { get; set; } = null!;
 
-    public string AssetGroupId { get; set; }
+    public string AssetGroupId { get; set; } = null!;
 
-    public string AssetLocationId { get; set; }
+    public string AssetLocationId { get; set; } = null!;
 
-    public string DepartmentId { get; set; }
+    public string DepartmentId { get; set; } = null!;
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string AssetName { get; set; }
+    public string? AssetName { get; set; }
 
-    public string AssetBookId { get; set; }
+    public string? AssetBookId { get; set; }
 
-    public string SrassetType { get; set; }
+    public string SrassetType { get; set; } = null!;
 
-    public string Srmanufacturer { get; set; }
+    public string Srmanufacturer { get; set; } = null!;
 
-    public string BrandName { get; set; }
+    public string BrandName { get; set; } = null!;
 
-    public string SerialNumber { get; set; }
+    public string SerialNumber { get; set; } = null!;
 
-    public string DepreciationMethodId { get; set; }
+    public string DepreciationMethodId { get; set; } = null!;
 
-    public string ItemUnit { get; set; }
+    public string ItemUnit { get; set; } = null!;
 
-    public string PurchaseOrderNumber { get; set; }
+    public string PurchaseOrderNumber { get; set; } = null!;
 
     public DateTime PurchasedDate { get; set; }
 
@@ -55,9 +55,9 @@ public partial class Asset
 
     public decimal ResidualValue { get; set; }
 
-    public string InsuranceId { get; set; }
+    public string InsuranceId { get; set; } = null!;
 
-    public string InsurancePolicyNo { get; set; }
+    public string InsurancePolicyNo { get; set; } = null!;
 
     public decimal InsuranceAmount { get; set; }
 
@@ -65,7 +65,7 @@ public partial class Asset
 
     public DateTime LastInventoriedDate { get; set; }
 
-    public string LastInventoriedBy { get; set; }
+    public string LastInventoriedBy { get; set; } = null!;
 
     public DateTime? LastMaintenanceDate { get; set; }
 
@@ -73,19 +73,19 @@ public partial class Asset
 
     public byte MaintenanceInterval { get; set; }
 
-    public string MaintenanceIntervalIn { get; set; }
+    public string? MaintenanceIntervalIn { get; set; }
 
-    public string MaintenanceServiceUnitId { get; set; }
+    public string? MaintenanceServiceUnitId { get; set; }
 
     public DateTime IssuedDate { get; set; }
 
-    public string IssuedBy { get; set; }
+    public string IssuedBy { get; set; } = null!;
 
-    public string SrissuedReason { get; set; }
+    public string SrissuedReason { get; set; } = null!;
 
-    public string IntervalUnit { get; set; }
+    public string IntervalUnit { get; set; } = null!;
 
-    public string ReferenceNo { get; set; }
+    public string ReferenceNo { get; set; } = null!;
 
     public bool IsAudiometer { get; set; }
 
@@ -93,37 +93,37 @@ public partial class Asset
 
     public bool IsActive { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
-    public string SrassetsStatus { get; set; }
+    public string? SrassetsStatus { get; set; }
 
-    public string SrassetsCondition { get; set; }
+    public string? SrassetsCondition { get; set; }
 
-    public string SrassetsCriticality { get; set; }
+    public string? SrassetsCriticality { get; set; }
 
-    public string NotesToTechnician { get; set; }
+    public string? NotesToTechnician { get; set; }
 
-    public string SupplierId { get; set; }
+    public string? SupplierId { get; set; }
 
-    public string SrassetsWarrantyContract { get; set; }
+    public string? SrassetsWarrantyContract { get; set; }
 
-    public string WarrantyContractNotes { get; set; }
+    public string? WarrantyContractNotes { get; set; }
 
     public DateTime? DateDisposed { get; set; }
 
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
     public bool? IsContinuousMaintenanceSchedule { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string AssetSubGroupId { get; set; }
+    public string? AssetSubGroupId { get; set; }
 
     public bool? IsFixedAsset { get; set; }
 
     public decimal? ValueDisposed { get; set; }
 
-    public string SrassetUsageTimeEstimation { get; set; }
+    public string? SrassetUsageTimeEstimation { get; set; }
 }

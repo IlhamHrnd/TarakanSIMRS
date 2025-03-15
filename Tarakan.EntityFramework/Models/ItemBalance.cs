@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemBalance
 {
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ReorderType { get; set; }
+    public string ReorderType { get; set; } = null!;
 
     public decimal Minimum { get; set; }
 
@@ -21,9 +21,9 @@ public partial class ItemBalance
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string SritemBin { get; set; }
+    public string? SritemBin { get; set; }
 
-    public string ItemSubBin { get; set; }
+    public string? ItemSubBin { get; set; }
 }

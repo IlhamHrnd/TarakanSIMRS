@@ -21,9 +21,9 @@ public partial class PrescriptiveAnalysisSnapshotValuesPreviou
 
     public long MaxServerMemory { get; set; }
 
-    public string WindowsVersion { get; set; }
+    public string? WindowsVersion { get; set; }
 
-    public string ProductVersion { get; set; }
+    public string? ProductVersion { get; set; }
 
-    public string SqlversionString { get; set; }
+    public string? SqlversionString { get; set; }
 }

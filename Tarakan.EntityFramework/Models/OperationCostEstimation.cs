@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class OperationCostEstimation
 {
-    public string DiagnoseId { get; set; }
+    public string DiagnoseId { get; set; } = null!;
 
-    public string ProcedureId { get; set; }
+    public string ProcedureId { get; set; } = null!;
 
-    public string SrprocedureCategory { get; set; }
+    public string SrprocedureCategory { get; set; } = null!;
 
-    public string ClassId { get; set; }
+    public string ClassId { get; set; } = null!;
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public decimal? CostAmount { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

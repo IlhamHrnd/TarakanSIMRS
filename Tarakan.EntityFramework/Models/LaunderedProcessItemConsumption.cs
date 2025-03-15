@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class LaunderedProcessItemConsumption
 {
-    public string ProcessNo { get; set; }
+    public string ProcessNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal Qty { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
     public decimal? CostPrice { get; set; }
 
@@ -19,5 +19,5 @@ public partial class LaunderedProcessItemConsumption
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

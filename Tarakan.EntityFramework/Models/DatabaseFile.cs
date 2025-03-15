@@ -9,17 +9,17 @@ public partial class DatabaseFile
 
     public int DatabaseId { get; set; }
 
-    public string FileName { get; set; }
+    public string? FileName { get; set; }
 
     public int? FileType { get; set; }
 
-    public string FilePath { get; set; }
+    public string? FilePath { get; set; }
 
-    public string DriveName { get; set; }
+    public string? DriveName { get; set; }
 
-    public string FileGroupName { get; set; }
+    public string? FileGroupName { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName Database { get; set; } = null!;
 
     public virtual ICollection<DatabaseFileActivity> DatabaseFileActivities { get; set; } = new List<DatabaseFileActivity>();
 

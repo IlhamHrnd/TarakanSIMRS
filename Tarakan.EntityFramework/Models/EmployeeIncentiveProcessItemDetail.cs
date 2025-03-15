@@ -7,7 +7,7 @@ public partial class EmployeeIncentiveProcessItemDetail
 {
     public int EmployeeIncentiveProcessId { get; set; }
 
-    public string SrincentiveServiceUnitGroup { get; set; }
+    public string SrincentiveServiceUnitGroup { get; set; } = null!;
 
     public int PersonId { get; set; }
 
@@ -15,5 +15,5 @@ public partial class EmployeeIncentiveProcessItemDetail
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

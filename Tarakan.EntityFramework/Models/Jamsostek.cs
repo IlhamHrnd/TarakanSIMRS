@@ -7,5 +7,5 @@ public partial class Jamsostek
 {
     public int? PersonId { get; set; }
 
-    public string JamsostekNo { get; set; }
+    public string? JamsostekNo { get; set; }
 }

@@ -21,11 +21,11 @@ public partial class EmployeeOrganization
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
     public int? SubDivisonId { get; set; }
 
-    public string SrorganizationLevelType { get; set; }
+    public string? SrorganizationLevelType { get; set; }
 }

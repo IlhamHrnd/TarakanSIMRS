@@ -11,9 +11,9 @@ public partial class NutritionCareDiagnoseEvaluation
 
     public long? InterventionId { get; set; }
 
-    public string NutritionCareInterventionId { get; set; }
+    public string? NutritionCareInterventionId { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 }

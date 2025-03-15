@@ -7,21 +7,21 @@ public partial class ParamedicFeeByServiceSetting
 {
     public int Id { get; set; }
 
-    public string SrregistrationType { get; set; }
+    public string SrregistrationType { get; set; } = null!;
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ClassId { get; set; }
+    public string ClassId { get; set; } = null!;
 
-    public string SrparamedicFeeCaseType { get; set; }
+    public string SrparamedicFeeCaseType { get; set; } = null!;
 
-    public string SrparamedicFeeIsTeam { get; set; }
+    public string SrparamedicFeeIsTeam { get; set; } = null!;
 
-    public string SrparamedicFeeTeamStatus { get; set; }
+    public string SrparamedicFeeTeamStatus { get; set; } = null!;
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
     public bool IsFeeValueInPercent { get; set; }
 
@@ -33,11 +33,11 @@ public partial class ParamedicFeeByServiceSetting
 
     public bool? IsReplacement { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string CreatedByUserId { get; set; } = null!;
 
     public DateTime CreatedDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 

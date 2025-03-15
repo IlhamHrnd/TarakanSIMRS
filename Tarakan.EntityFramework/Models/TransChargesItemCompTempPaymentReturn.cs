@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TransChargesItemCompTempPaymentReturn
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
-    public string IntermBillNo { get; set; }
+    public string IntermBillNo { get; set; } = null!;
 
-    public string PaymentNo { get; set; }
+    public string PaymentNo { get; set; } = null!;
 
     public decimal? Price { get; set; }
 

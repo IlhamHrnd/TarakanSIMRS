@@ -13,9 +13,9 @@ public partial class AlwaysOnReplica
 
     public int SqlserverId { get; set; }
 
-    public string ServerSourceName { get; set; }
+    public string ServerSourceName { get; set; } = null!;
 
-    public string ReplicaName { get; set; }
+    public string ReplicaName { get; set; } = null!;
 
     public int ReplicaRole { get; set; }
 
@@ -31,5 +31,5 @@ public partial class AlwaysOnReplica
 
     public bool Delete { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class BloodBankTransactionItem
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string BagNo { get; set; }
+    public string BagNo { get; set; } = null!;
 
     public DateTime? ReceivedDate { get; set; }
 
-    public string ReceivedTime { get; set; }
+    public string? ReceivedTime { get; set; }
 
-    public string SrbloodGroupReceived { get; set; }
+    public string? SrbloodGroupReceived { get; set; }
 
-    public string SrbloodBagStatus { get; set; }
+    public string? SrbloodBagStatus { get; set; }
 
     public bool? IsScreeningLabelPassedPmi { get; set; }
 
@@ -35,35 +35,35 @@ public partial class BloodBankTransactionItem
 
     public bool? IsScreeningLabelPassedBd { get; set; }
 
-    public string ExaminerByUserId { get; set; }
+    public string? ExaminerByUserId { get; set; }
 
-    public string UnitOfficer { get; set; }
+    public string? UnitOfficer { get; set; }
 
     public DateTime? TransfusionStartDateTime { get; set; }
 
     public DateTime? TransfusionEndDateTime { get; set; }
 
-    public string TransfusedOfficerStartBy { get; set; }
+    public string? TransfusedOfficerStartBy { get; set; }
 
-    public string TransfusedOfficerEndBy { get; set; }
+    public string? TransfusedOfficerEndBy { get; set; }
 
     public short? QtyTransfusion { get; set; }
 
-    public string SrbloodSource { get; set; }
+    public string? SrbloodSource { get; set; }
 
-    public string SrbloodSourceFrom { get; set; }
+    public string? SrbloodSourceFrom { get; set; }
 
-    public string CrossmatchCompatibleMajor { get; set; }
+    public string? CrossmatchCompatibleMajor { get; set; }
 
-    public string CrossmatchCompatibleMinor { get; set; }
+    public string? CrossmatchCompatibleMinor { get; set; }
 
     public short? CrossmatchCompatibleMinorLevel { get; set; }
 
-    public string CrossmatchCompatibleAutoControl { get; set; }
+    public string? CrossmatchCompatibleAutoControl { get; set; }
 
     public short? CrossmatchCompatibleAutoControlLevel { get; set; }
 
-    public string CrossmatchCompatibleDctControl { get; set; }
+    public string? CrossmatchCompatibleDctControl { get; set; }
 
     public short? CrossmatchCompatibleDctControlLevel { get; set; }
 
@@ -73,33 +73,33 @@ public partial class BloodBankTransactionItem
 
     public bool? IsCrossmatchingPassed { get; set; }
 
-    public string CrossMatchingByUserId { get; set; }
+    public string? CrossMatchingByUserId { get; set; }
 
     public decimal? BloodBagTemperature { get; set; }
 
-    public string BloodBagNotes { get; set; }
+    public string? BloodBagNotes { get; set; }
 
     public bool? IsProceedToTransfusion { get; set; }
 
-    public string BpPre { get; set; }
+    public string? BpPre { get; set; }
 
-    public string Bp10 { get; set; }
+    public string? Bp10 { get; set; }
 
-    public string Bp30 { get; set; }
+    public string? Bp30 { get; set; }
 
-    public string Bp60 { get; set; }
+    public string? Bp60 { get; set; }
 
-    public string Bp120 { get; set; }
+    public string? Bp120 { get; set; }
 
-    public string Bp180 { get; set; }
+    public string? Bp180 { get; set; }
 
-    public string Bp240 { get; set; }
+    public string? Bp240 { get; set; }
 
-    public string BpPost { get; set; }
+    public string? BpPost { get; set; }
 
-    public string BpPost2 { get; set; }
+    public string? BpPost2 { get; set; }
 
-    public string BpPost3 { get; set; }
+    public string? BpPost3 { get; set; }
 
     public decimal? PulsePre { get; set; }
 
@@ -541,25 +541,25 @@ public partial class BloodBankTransactionItem
 
     public bool? IsMuscleStiffnessPost3 { get; set; }
 
-    public string OtherReactionPre { get; set; }
+    public string? OtherReactionPre { get; set; }
 
-    public string OtherReaction10 { get; set; }
+    public string? OtherReaction10 { get; set; }
 
-    public string OtherReaction30 { get; set; }
+    public string? OtherReaction30 { get; set; }
 
-    public string OtherReaction60 { get; set; }
+    public string? OtherReaction60 { get; set; }
 
-    public string OtherReaction120 { get; set; }
+    public string? OtherReaction120 { get; set; }
 
-    public string OtherReaction180 { get; set; }
+    public string? OtherReaction180 { get; set; }
 
-    public string OtherReaction240 { get; set; }
+    public string? OtherReaction240 { get; set; }
 
-    public string OtherReactionPost { get; set; }
+    public string? OtherReactionPost { get; set; }
 
-    public string OtherReactionPost2 { get; set; }
+    public string? OtherReactionPost2 { get; set; }
 
-    public string OtherReactionPost3 { get; set; }
+    public string? OtherReactionPost3 { get; set; }
 
     public decimal? HemoglobinPre { get; set; }
 
@@ -621,25 +621,25 @@ public partial class BloodBankTransactionItem
 
     public decimal? PlateletPost3 { get; set; }
 
-    public string ActionPre { get; set; }
+    public string? ActionPre { get; set; }
 
-    public string Action10 { get; set; }
+    public string? Action10 { get; set; }
 
-    public string Action30 { get; set; }
+    public string? Action30 { get; set; }
 
-    public string Action60 { get; set; }
+    public string? Action60 { get; set; }
 
-    public string Action120 { get; set; }
+    public string? Action120 { get; set; }
 
-    public string Action180 { get; set; }
+    public string? Action180 { get; set; }
 
-    public string Action240 { get; set; }
+    public string? Action240 { get; set; }
 
-    public string ActionPost { get; set; }
+    public string? ActionPost { get; set; }
 
-    public string ActionPost2 { get; set; }
+    public string? ActionPost2 { get; set; }
 
-    public string ActionPost3 { get; set; }
+    public string? ActionPost3 { get; set; }
 
     public bool? IsHiv { get; set; }
 
@@ -665,11 +665,11 @@ public partial class BloodBankTransactionItem
 
     public bool? IsReCheckBloodTypeCompatibility { get; set; }
 
-    public string ReCheckOfficer { get; set; }
+    public string? ReCheckOfficer { get; set; }
 
-    public string ReCheckOfficer2 { get; set; }
+    public string? ReCheckOfficer2 { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public bool? IsCrossmatchBillProceed { get; set; }
 
@@ -679,11 +679,11 @@ public partial class BloodBankTransactionItem
 
     public DateTime? VoidDateTime { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsScreening1 { get; set; }
 
@@ -691,5 +691,5 @@ public partial class BloodBankTransactionItem
 
     public bool? IsScreening3 { get; set; }
 
-    public string UnitOfficerByUserId { get; set; }
+    public string? UnitOfficerByUserId { get; set; }
 }

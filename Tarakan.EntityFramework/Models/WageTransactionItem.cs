@@ -15,7 +15,7 @@ public partial class WageTransactionItem
 
     public decimal NominalAmount { get; set; }
 
-    public string SrcurrencyCode { get; set; }
+    public string SrcurrencyCode { get; set; } = null!;
 
     public decimal CurrencyRate { get; set; }
 
@@ -23,7 +23,7 @@ public partial class WageTransactionItem
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public bool? IsModified { get; set; }
 }

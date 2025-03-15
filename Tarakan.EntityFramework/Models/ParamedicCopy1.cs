@@ -5,47 +5,47 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicCopy1
 {
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
-    public string ParamedicName { get; set; }
+    public string ParamedicName { get; set; } = null!;
 
-    public string ParamedicInitial { get; set; }
+    public string ParamedicInitial { get; set; } = null!;
 
     public DateTime DateOfBirth { get; set; }
 
-    public string SrparamedicType { get; set; }
+    public string SrparamedicType { get; set; } = null!;
 
-    public string SrparamedicStatus { get; set; }
+    public string SrparamedicStatus { get; set; } = null!;
 
-    public string Srreligion { get; set; }
+    public string Srreligion { get; set; } = null!;
 
-    public string Srnationality { get; set; }
+    public string Srnationality { get; set; } = null!;
 
-    public string Srspecialty { get; set; }
+    public string Srspecialty { get; set; } = null!;
 
-    public string StreetName { get; set; }
+    public string StreetName { get; set; } = null!;
 
-    public string District { get; set; }
+    public string District { get; set; } = null!;
 
-    public string City { get; set; }
+    public string City { get; set; } = null!;
 
-    public string County { get; set; }
+    public string County { get; set; } = null!;
 
-    public string State { get; set; }
+    public string State { get; set; } = null!;
 
-    public string ZipCode { get; set; }
+    public string? ZipCode { get; set; }
 
-    public string PhoneNo { get; set; }
+    public string PhoneNo { get; set; } = null!;
 
-    public string FaxNo { get; set; }
+    public string FaxNo { get; set; } = null!;
 
-    public string Email { get; set; }
+    public string Email { get; set; } = null!;
 
-    public string MobilePhoneNo { get; set; }
+    public string MobilePhoneNo { get; set; } = null!;
 
-    public string LicenseNo { get; set; }
+    public string LicenseNo { get; set; } = null!;
 
-    public string TaxRegistrationNo { get; set; }
+    public string TaxRegistrationNo { get; set; } = null!;
 
     public bool IsPkp { get; set; }
 
@@ -59,13 +59,13 @@ public partial class ParamedicCopy1
 
     public bool IsActive { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public DateTime? LicensePeriodeStart { get; set; }
 
@@ -75,15 +75,15 @@ public partial class ParamedicCopy1
 
     public decimal? ParamedicFeeAmount { get; set; }
 
-    public string Bank { get; set; }
+    public string? Bank { get; set; }
 
-    public string BankAccount { get; set; }
+    public string? BankAccount { get; set; }
 
     public decimal? ParamedicFeeAmountReferral { get; set; }
 
     public bool? IsUsingQue { get; set; }
 
-    public string SrparamedicRl1 { get; set; }
+    public string? SrparamedicRl1 { get; set; }
 
     public bool? IsDeductionFeeUsePercentage { get; set; }
 
@@ -99,11 +99,11 @@ public partial class ParamedicCopy1
 
     public bool? IsPrintInSlip { get; set; }
 
-    public string Bank2 { get; set; }
+    public string? Bank2 { get; set; }
 
-    public string BankAccount2 { get; set; }
+    public string? BankAccount2 { get; set; }
 
-    public byte[] Foto { get; set; }
+    public byte[]? Foto { get; set; }
 
     public decimal? GuaranteeFee { get; set; }
 

@@ -13,7 +13,7 @@ public partial class MirroringPreferredConfig
 
     public bool NormalConfiguration { get; set; }
 
-    public string DatabaseName { get; set; }
+    public string? DatabaseName { get; set; }
 
-    public string WitnessAddress { get; set; }
+    public string? WitnessAddress { get; set; }
 }

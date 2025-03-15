@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AntrianOnlineBpj
 {
-    public string TanggalAntrian { get; set; }
+    public string TanggalAntrian { get; set; } = null!;
 
     public int? AntrianSelesai { get; set; }
 

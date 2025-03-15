@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemBalanceExpire
 {
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public DateTime ExpiredDate { get; set; }
 
@@ -19,5 +19,5 @@ public partial class ItemBalanceExpire
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

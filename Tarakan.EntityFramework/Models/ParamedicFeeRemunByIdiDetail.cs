@@ -9,13 +9,13 @@ public partial class ParamedicFeeRemunByIdiDetail
 
     public int RemunId { get; set; }
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string IdiCode { get; set; }
+    public string? IdiCode { get; set; }
 
     public decimal Qty { get; set; }
 
@@ -29,15 +29,15 @@ public partial class ParamedicFeeRemunByIdiDetail
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string SmfId { get; set; }
+    public string? SmfId { get; set; }
 
-    public string ItemGroupId { get; set; }
+    public string? ItemGroupId { get; set; }
 
     public int? SettingId { get; set; }
 

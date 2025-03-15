@@ -5,41 +5,41 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Referral
 {
-    public string ReferralId { get; set; }
+    public string ReferralId { get; set; } = null!;
 
-    public string ReferralName { get; set; }
+    public string ReferralName { get; set; } = null!;
 
-    public string ShortName { get; set; }
+    public string ShortName { get; set; } = null!;
 
-    public string DepartmentName { get; set; }
+    public string DepartmentName { get; set; } = null!;
 
-    public string SrreferralGroup { get; set; }
+    public string SrreferralGroup { get; set; } = null!;
 
-    public string TaxRegistrationNo { get; set; }
+    public string TaxRegistrationNo { get; set; } = null!;
 
     public bool IsPkp { get; set; }
 
-    public string TermId { get; set; }
+    public string? TermId { get; set; }
 
-    public string StreetName { get; set; }
+    public string StreetName { get; set; } = null!;
 
-    public string District { get; set; }
+    public string District { get; set; } = null!;
 
-    public string City { get; set; }
+    public string City { get; set; } = null!;
 
-    public string County { get; set; }
+    public string County { get; set; } = null!;
 
-    public string State { get; set; }
+    public string State { get; set; } = null!;
 
-    public string ZipCode { get; set; }
+    public string? ZipCode { get; set; }
 
-    public string PhoneNo { get; set; }
+    public string PhoneNo { get; set; } = null!;
 
-    public string FaxNo { get; set; }
+    public string FaxNo { get; set; } = null!;
 
-    public string Email { get; set; }
+    public string Email { get; set; } = null!;
 
-    public string MobilePhoneNo { get; set; }
+    public string MobilePhoneNo { get; set; } = null!;
 
     public bool IsRefferalFrom { get; set; }
 
@@ -49,7 +49,7 @@ public partial class Referral
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string? ParamedicId { get; set; }
 }

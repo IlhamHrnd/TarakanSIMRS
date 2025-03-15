@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwRegistrationKaryawan
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string FromRegistrationNo { get; set; }
+    public string FromRegistrationNo { get; set; } = null!;
 
-    public string PatientId { get; set; }
+    public string PatientId { get; set; } = null!;
 
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string? ParamedicId { get; set; }
 }

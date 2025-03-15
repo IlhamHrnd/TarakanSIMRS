@@ -5,21 +5,21 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class MappingRjBpj
 {
-    public string ServiceunitId { get; set; }
+    public string? ServiceunitId { get; set; }
 
     public double? SubLedgerId { get; set; }
 
-    public string GroupId { get; set; }
+    public string? GroupId { get; set; }
 
-    public string NamaGroup { get; set; }
+    public string? NamaGroup { get; set; }
 
-    public string KodeItem { get; set; }
+    public string? KodeItem { get; set; }
 
-    public string NamaItem { get; set; }
+    public string? NamaItem { get; set; }
 
-    public string KodeIdi { get; set; }
+    public string? KodeIdi { get; set; }
 
     public double? CoaRevenueOpr { get; set; }
 
-    public string CoaRevenueIpr { get; set; }
+    public string? CoaRevenueIpr { get; set; }
 }

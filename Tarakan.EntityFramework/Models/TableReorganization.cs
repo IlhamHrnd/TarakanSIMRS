@@ -15,5 +15,5 @@ public partial class TableReorganization
 
     public double? TimeDeltaInSeconds { get; set; }
 
-    public virtual SqlserverTableName Table { get; set; }
+    public virtual SqlserverTableName Table { get; set; } = null!;
 }

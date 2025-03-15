@@ -5,19 +5,19 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class MedicalDischargeSummaryProcedure
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ProcedureId { get; set; }
+    public string ProcedureId { get; set; } = null!;
 
-    public string ProcedureName { get; set; }
+    public string ProcedureName { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
     public bool IsVoid { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

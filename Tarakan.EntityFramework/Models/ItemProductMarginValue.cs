@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemProductMarginValue
 {
-    public string MarginId { get; set; }
+    public string MarginId { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
     public decimal StartingValue { get; set; }
 
@@ -19,7 +19,7 @@ public partial class ItemProductMarginValue
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? OtcmarginPercentage { get; set; }
 
@@ -39,5 +39,5 @@ public partial class ItemProductMarginValue
 
     public bool? IsEmWithoutVat { get; set; }
 
-    public virtual ItemProductMargin Margin { get; set; }
+    public virtual ItemProductMargin Margin { get; set; } = null!;
 }

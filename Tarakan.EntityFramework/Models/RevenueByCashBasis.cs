@@ -9,31 +9,31 @@ public partial class RevenueByCashBasis
 
     public DateTime EndDate { get; set; }
 
-    public string UserId { get; set; }
+    public string UserId { get; set; } = null!;
 
-    public string PaymentNo { get; set; }
+    public string PaymentNo { get; set; } = null!;
 
-    public string PaymentReferenceNo { get; set; }
+    public string PaymentReferenceNo { get; set; } = null!;
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
-    public string SrregistrationType { get; set; }
+    public string? SrregistrationType { get; set; }
 
-    public string PatientId { get; set; }
+    public string? PatientId { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 
-    public string ClassId { get; set; }
+    public string? ClassId { get; set; }
 
     public DateTime? TransactionDate { get; set; }
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string TariffComponentName { get; set; }
+    public string TariffComponentName { get; set; } = null!;
 
-    public string ItemName { get; set; }
+    public string? ItemName { get; set; }
 
     public decimal? Qty { get; set; }
 
@@ -51,7 +51,7 @@ public partial class RevenueByCashBasis
 
     public decimal? TotalIncome { get; set; }
 
-    public string ParamedicName { get; set; }
+    public string? ParamedicName { get; set; }
 
-    public string TxType { get; set; }
+    public string TxType { get; set; } = null!;
 }

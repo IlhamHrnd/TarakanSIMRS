@@ -5,27 +5,27 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Supplier
 {
-    public string SupplierId { get; set; }
+    public string SupplierId { get; set; } = null!;
 
-    public string SupplierName { get; set; }
+    public string SupplierName { get; set; } = null!;
 
-    public string ShortName { get; set; }
+    public string? ShortName { get; set; }
 
-    public string SrsupplierType { get; set; }
+    public string SrsupplierType { get; set; } = null!;
 
-    public string ContractNumber { get; set; }
+    public string ContractNumber { get; set; } = null!;
 
     public DateTime? ContractStart { get; set; }
 
     public DateTime? ContractEnd { get; set; }
 
-    public string ContractSummary { get; set; }
+    public string ContractSummary { get; set; } = null!;
 
-    public string ContactPerson { get; set; }
+    public string ContactPerson { get; set; } = null!;
 
     public bool IsPkp { get; set; }
 
-    public string TaxRegistrationNo { get; set; }
+    public string? TaxRegistrationNo { get; set; }
 
     public decimal? TermOfPayment { get; set; }
 
@@ -35,29 +35,29 @@ public partial class Supplier
 
     public bool IsActive { get; set; }
 
-    public string StreetName { get; set; }
+    public string StreetName { get; set; } = null!;
 
-    public string District { get; set; }
+    public string? District { get; set; }
 
-    public string City { get; set; }
+    public string City { get; set; } = null!;
 
-    public string County { get; set; }
+    public string County { get; set; } = null!;
 
-    public string State { get; set; }
+    public string State { get; set; } = null!;
 
-    public string ZipCode { get; set; }
+    public string? ZipCode { get; set; }
 
-    public string PhoneNo { get; set; }
+    public string PhoneNo { get; set; } = null!;
 
-    public string FaxNo { get; set; }
+    public string FaxNo { get; set; } = null!;
 
-    public string Email { get; set; }
+    public string Email { get; set; } = null!;
 
-    public string MobilePhoneNo { get; set; }
+    public string MobilePhoneNo { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public int? ChartOfAccountIdAp { get; set; }
 
@@ -77,19 +77,19 @@ public partial class Supplier
 
     public int? SubledgerIdApcost { get; set; }
 
-    public string PbflicenseNo { get; set; }
+    public string? PbflicenseNo { get; set; }
 
     public DateTime? PbflicenseValidDate { get; set; }
 
-    public string BankAccountNo { get; set; }
+    public string? BankAccountNo { get; set; }
 
-    public string BankName { get; set; }
+    public string? BankName { get; set; }
 
     public int? ChartOfAccountIdPoreturn { get; set; }
 
     public int? SubledgerIdPoreturn { get; set; }
 
-    public string SrapAgingDateType { get; set; }
+    public string? SrapAgingDateType { get; set; }
 
     public int? ChartOfAccountIdApnonMedic { get; set; }
 
@@ -103,7 +103,7 @@ public partial class Supplier
 
     public int? SubledgerIdPoreturnNonMedic { get; set; }
 
-    public string Branch { get; set; }
+    public string? Branch { get; set; }
 
     public int? ChartOfAccountIdGrantReceive { get; set; }
 

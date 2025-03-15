@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpBank
 {
-    public string BankId { get; set; }
+    public string? BankId { get; set; }
 
-    public string BankName { get; set; }
+    public string? BankName { get; set; }
 
     public double? ChartOfAccountId { get; set; }
 
     public double? SubledgerId { get; set; }
 
-    public string JournalCode { get; set; }
+    public string? JournalCode { get; set; }
 
-    public string CurrencyCode { get; set; }
+    public string? CurrencyCode { get; set; }
 
     public double? IsActive { get; set; }
 

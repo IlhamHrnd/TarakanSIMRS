@@ -9,11 +9,11 @@ public partial class WageStructureAndScaleItem
 
     public int WageStructureAndScaleId { get; set; }
 
-    public string SrwageStructureAndScaleItem { get; set; }
+    public string SrwageStructureAndScaleItem { get; set; } = null!;
 
     public decimal Points { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

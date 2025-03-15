@@ -7,11 +7,11 @@ public partial class BankAccountBalance
 {
     public int BalanceId { get; set; }
 
-    public string BankId { get; set; }
+    public string BankId { get; set; } = null!;
 
-    public string Month { get; set; }
+    public string Month { get; set; } = null!;
 
-    public string Year { get; set; }
+    public string Year { get; set; } = null!;
 
     public decimal InitialBalance { get; set; }
 
@@ -21,5 +21,5 @@ public partial class BankAccountBalance
 
     public decimal FinalBalance { get; set; }
 
-    public virtual Bank Bank { get; set; }
+    public virtual Bank Bank { get; set; } = null!;
 }

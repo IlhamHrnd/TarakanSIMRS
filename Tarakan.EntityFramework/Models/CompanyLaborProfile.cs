@@ -7,11 +7,11 @@ public partial class CompanyLaborProfile
 {
     public int CompanyLaborProfileId { get; set; }
 
-    public string CompanyLaborProfileCode { get; set; }
+    public string CompanyLaborProfileCode { get; set; } = null!;
 
-    public string CompanyLaborProfileName { get; set; }
+    public string CompanyLaborProfileName { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

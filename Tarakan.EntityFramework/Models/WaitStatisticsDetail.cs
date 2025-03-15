@@ -17,7 +17,7 @@ public partial class WaitStatisticsDetail
 
     public long? ResourceWaitTimeInMilliseconds { get; set; }
 
-    public virtual WaitStatistic WaitStatistics { get; set; }
+    public virtual WaitStatistic WaitStatistics { get; set; } = null!;
 
-    public virtual WaitType WaitType { get; set; }
+    public virtual WaitType WaitType { get; set; } = null!;
 }

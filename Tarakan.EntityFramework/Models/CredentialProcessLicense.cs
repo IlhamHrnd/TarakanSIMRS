@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class CredentialProcessLicense
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SrlicenseType { get; set; }
+    public string SrlicenseType { get; set; } = null!;
 
-    public string LicenseNo { get; set; }
+    public string LicenseNo { get; set; } = null!;
 
     public DateTime? DateOfIssue { get; set; }
 
@@ -17,5 +17,5 @@ public partial class CredentialProcessLicense
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

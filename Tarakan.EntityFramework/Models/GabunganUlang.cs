@@ -7,21 +7,21 @@ public partial class GabunganUlang
 {
     public double? SeqNo { get; set; }
 
-    public string ItemType { get; set; }
+    public string? ItemType { get; set; }
 
-    public string GroupId { get; set; }
+    public string? GroupId { get; set; }
 
-    public string NamaGroup { get; set; }
+    public string? NamaGroup { get; set; }
 
-    public string KodeItem { get; set; }
+    public string? KodeItem { get; set; }
 
-    public string NamaItem { get; set; }
+    public string? NamaItem { get; set; }
 
-    public string KodeIdi { get; set; }
+    public string? KodeIdi { get; set; }
 
-    public string KodeEklaim { get; set; }
+    public string? KodeEklaim { get; set; }
 
-    public string EklaimTariff { get; set; }
+    public string? EklaimTariff { get; set; }
 
     public double? VvipJasaDokter { get; set; }
 

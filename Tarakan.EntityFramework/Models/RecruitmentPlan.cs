@@ -7,7 +7,7 @@ public partial class RecruitmentPlan
 {
     public int RecruitmentPlanId { get; set; }
 
-    public string RecruitmentPlanName { get; set; }
+    public string? RecruitmentPlanName { get; set; }
 
     public int PositionId { get; set; }
 
@@ -19,9 +19,9 @@ public partial class RecruitmentPlan
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public int? OrganizationUnitId { get; set; }
 

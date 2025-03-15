@@ -5,27 +5,27 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpSupplier
 {
-    public string SupplierId { get; set; }
+    public string? SupplierId { get; set; }
 
-    public string SupplierName { get; set; }
+    public string? SupplierName { get; set; }
 
-    public string ShortName { get; set; }
+    public string? ShortName { get; set; }
 
-    public string SrsupplierType { get; set; }
+    public string? SrsupplierType { get; set; }
 
-    public string ContractNumber { get; set; }
+    public string? ContractNumber { get; set; }
 
     public DateTime? ContractStart { get; set; }
 
     public DateTime? ContractEnd { get; set; }
 
-    public string ContractSummary { get; set; }
+    public string? ContractSummary { get; set; }
 
-    public string ContactPerson { get; set; }
+    public string? ContactPerson { get; set; }
 
     public double? IsPkp { get; set; }
 
-    public string TaxRegistrationNo { get; set; }
+    public string? TaxRegistrationNo { get; set; }
 
     public double? TermOfPayment { get; set; }
 
@@ -35,29 +35,29 @@ public partial class TmpSupplier
 
     public double? IsActive { get; set; }
 
-    public string StreetName { get; set; }
+    public string? StreetName { get; set; }
 
-    public string District { get; set; }
+    public string? District { get; set; }
 
-    public string City { get; set; }
+    public string? City { get; set; }
 
-    public string County { get; set; }
+    public string? County { get; set; }
 
-    public string State { get; set; }
+    public string? State { get; set; }
 
-    public string ZipCode { get; set; }
+    public string? ZipCode { get; set; }
 
-    public string PhoneNo { get; set; }
+    public string? PhoneNo { get; set; }
 
-    public string FaxNo { get; set; }
+    public string? FaxNo { get; set; }
 
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
-    public string MobilePhoneNo { get; set; }
+    public string? MobilePhoneNo { get; set; }
 
-    public string F26 { get; set; }
+    public string? F26 { get; set; }
 
-    public string F27 { get; set; }
+    public string? F27 { get; set; }
 
     public double? ChartOfAccountIdAp { get; set; }
 
@@ -77,13 +77,13 @@ public partial class TmpSupplier
 
     public double? SubledgerIdApcost { get; set; }
 
-    public string PbflicenseNo { get; set; }
+    public string? PbflicenseNo { get; set; }
 
-    public string PbflicenseValidDate { get; set; }
+    public string? PbflicenseValidDate { get; set; }
 
-    public string BankAccountNo { get; set; }
+    public string? BankAccountNo { get; set; }
 
-    public string BankName { get; set; }
+    public string? BankName { get; set; }
 
     public double? ChartOfAccountIdPoreturn { get; set; }
 
@@ -105,11 +105,11 @@ public partial class TmpSupplier
 
     public double? Branch { get; set; }
 
-    public string ChartOfAccountIdGrantReceive { get; set; }
+    public string? ChartOfAccountIdGrantReceive { get; set; }
 
-    public string SubledgerIdGrantReceive { get; set; }
+    public string? SubledgerIdGrantReceive { get; set; }
 
-    public string ChartOfAccountIdGrantReceiveNmed { get; set; }
+    public string? ChartOfAccountIdGrantReceiveNmed { get; set; }
 
     public double? SubledgerIdGrantReceiveNmed { get; set; }
 }

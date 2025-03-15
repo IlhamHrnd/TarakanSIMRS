@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AlertsAdvanceFilter
 {
-    public string FilterName { get; set; }
+    public string FilterName { get; set; } = null!;
 
-    public string Config { get; set; }
+    public string Config { get; set; } = null!;
 }

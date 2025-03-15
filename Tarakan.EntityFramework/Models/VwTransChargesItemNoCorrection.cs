@@ -5,21 +5,21 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwTransChargesItemNoCorrection
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ReferenceNo { get; set; }
+    public string ReferenceNo { get; set; } = null!;
 
-    public string ReferenceSequenceNo { get; set; }
+    public string ReferenceSequenceNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ChargeClassId { get; set; }
+    public string ChargeClassId { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string? ParamedicId { get; set; }
 
-    public string SecondParamedicId { get; set; }
+    public string? SecondParamedicId { get; set; }
 
     public bool IsAdminCalculation { get; set; }
 
@@ -31,7 +31,7 @@ public partial class VwTransChargesItemNoCorrection
 
     public decimal StockQuantity { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
     public decimal CostPrice { get; set; }
 
@@ -43,11 +43,11 @@ public partial class VwTransChargesItemNoCorrection
 
     public decimal RoundingAmount { get; set; }
 
-    public string SrdiscountReason { get; set; }
+    public string SrdiscountReason { get; set; } = null!;
 
     public bool? IsAssetUtilization { get; set; }
 
-    public string AssetId { get; set; }
+    public string? AssetId { get; set; }
 
     public bool IsBillProceed { get; set; }
 
@@ -59,17 +59,17 @@ public partial class VwTransChargesItemNoCorrection
 
     public bool IsVoid { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
-    public string FilmNo { get; set; }
+    public string FilmNo { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string ParentNo { get; set; }
+    public string? ParentNo { get; set; }
 
-    public string SrcenterId { get; set; }
+    public string? SrcenterId { get; set; }
 
     public decimal AutoProcessCalculation { get; set; }
 }

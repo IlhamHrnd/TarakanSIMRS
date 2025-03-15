@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpTariffSusulan
 {
-    public string ItemGroupId { get; set; }
+    public string? ItemGroupId { get; set; }
 
-    public string NamaGroup { get; set; }
+    public string? NamaGroup { get; set; }
 
-    public string KodeItem { get; set; }
+    public string? KodeItem { get; set; }
 
-    public string NamaItem { get; set; }
+    public string? NamaItem { get; set; }
 
-    public string EKlaimTarifGroup { get; set; }
+    public string? EKlaimTarifGroup { get; set; }
 
     public double? JasaDokterVvip { get; set; }
 

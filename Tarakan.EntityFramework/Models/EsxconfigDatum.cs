@@ -9,11 +9,11 @@ public partial class EsxconfigDatum
 
     public DateTime UtccollectionDateTime { get; set; }
 
-    public string Uuid { get; set; }
+    public string? Uuid { get; set; }
 
-    public string HostName { get; set; }
+    public string? HostName { get; set; }
 
-    public string DomainName { get; set; }
+    public string? DomainName { get; set; }
 
     public int? Status { get; set; }
 
@@ -31,5 +31,5 @@ public partial class EsxconfigDatum
 
     public long? MemorySize { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

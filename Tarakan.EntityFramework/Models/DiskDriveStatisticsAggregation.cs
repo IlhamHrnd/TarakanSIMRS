@@ -13,7 +13,7 @@ public partial class DiskDriveStatisticsAggregation
 
     public DateTime MaxUtccollectionDateTime { get; set; }
 
-    public string DriveName { get; set; }
+    public string DriveName { get; set; } = null!;
 
     public decimal? MinUnusedSizeKb { get; set; }
 

@@ -9,7 +9,7 @@ public partial class CasemixCoveredDetail
 
     public int CasemixCoveredId { get; set; }
 
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
     public decimal? Qty { get; set; }
 
@@ -21,5 +21,5 @@ public partial class CasemixCoveredDetail
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

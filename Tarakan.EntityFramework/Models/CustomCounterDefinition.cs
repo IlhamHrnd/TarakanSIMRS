@@ -17,15 +17,15 @@ public partial class CustomCounterDefinition
 
     public double Scale { get; set; }
 
-    public string Object { get; set; }
+    public string? Object { get; set; }
 
-    public string Counter { get; set; }
+    public string? Counter { get; set; }
 
-    public string Instance { get; set; }
+    public string? Instance { get; set; }
 
-    public string Batch { get; set; }
+    public string? Batch { get; set; }
 
-    public string ServerType { get; set; }
+    public string? ServerType { get; set; }
 
     public long? AzureProfileId { get; set; }
 

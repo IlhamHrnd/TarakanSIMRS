@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ServiceUnitProductAccountMapping
 {
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string ProductAccountId { get; set; }
+    public string ProductAccountId { get; set; } = null!;
 
-    public string SrregistrationType { get; set; }
+    public string SrregistrationType { get; set; } = null!;
 
     public int? ChartOfAccountIdIncome { get; set; }
 
@@ -39,5 +39,5 @@ public partial class ServiceUnitProductAccountMapping
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

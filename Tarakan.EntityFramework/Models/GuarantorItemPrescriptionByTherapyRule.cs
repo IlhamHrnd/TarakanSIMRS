@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class GuarantorItemPrescriptionByTherapyRule
 {
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
-    public string SrtherapyGroup { get; set; }
+    public string SrtherapyGroup { get; set; } = null!;
 
-    public string SrguarantorRuleType { get; set; }
+    public string? SrguarantorRuleType { get; set; }
 
     public decimal AmountValue { get; set; }
 
@@ -25,5 +25,5 @@ public partial class GuarantorItemPrescriptionByTherapyRule
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

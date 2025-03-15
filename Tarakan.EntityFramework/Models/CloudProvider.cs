@@ -7,5 +7,5 @@ public partial class CloudProvider
 {
     public int CloudProviderId { get; set; }
 
-    public string CloudProviderName { get; set; }
+    public string CloudProviderName { get; set; } = null!;
 }

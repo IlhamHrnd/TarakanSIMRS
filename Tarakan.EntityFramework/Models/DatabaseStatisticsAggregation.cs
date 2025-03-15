@@ -147,5 +147,5 @@ public partial class DatabaseStatisticsAggregation
 
     public decimal? MinAzureCloudStorageLimit { get; set; }
 
-    public string ElasticPool { get; set; }
+    public string? ElasticPool { get; set; }
 }

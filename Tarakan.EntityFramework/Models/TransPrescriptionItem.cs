@@ -5,41 +5,41 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TransPrescriptionItem
 {
-    public string PrescriptionNo { get; set; }
+    public string PrescriptionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ParentNo { get; set; }
+    public string ParentNo { get; set; } = null!;
 
     public bool IsRflag { get; set; }
 
     public bool IsCompound { get; set; }
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ItemInterventionId { get; set; }
+    public string ItemInterventionId { get; set; } = null!;
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
-    public string ItemQtyInString { get; set; }
+    public string? ItemQtyInString { get; set; }
 
     public bool? IsUsingDosageUnit { get; set; }
 
-    public string SrdosageUnit { get; set; }
+    public string SrdosageUnit { get; set; } = null!;
 
     public byte? FrequencyOfDosing { get; set; }
 
-    public string DosingPeriod { get; set; }
+    public string? DosingPeriod { get; set; }
 
     public decimal? NumberOfDosage { get; set; }
 
     public byte? DurationOfDosing { get; set; }
 
-    public string Acpcdc { get; set; }
+    public string? Acpcdc { get; set; }
 
-    public string SrmedicationRoute { get; set; }
+    public string? SrmedicationRoute { get; set; }
 
-    public string ConsumeMethod { get; set; }
+    public string? ConsumeMethod { get; set; }
 
     public decimal PrescriptionQty { get; set; }
 
@@ -55,7 +55,7 @@ public partial class TransPrescriptionItem
 
     public decimal DiscountAmount { get; set; }
 
-    public string EmbalaceId { get; set; }
+    public string EmbalaceId { get; set; } = null!;
 
     public decimal EmbalaceAmount { get; set; }
 
@@ -65,13 +65,13 @@ public partial class TransPrescriptionItem
 
     public decimal LineAmount { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string SrdiscountReason { get; set; }
+    public string SrdiscountReason { get; set; } = null!;
 
     public bool IsApprove { get; set; }
 
@@ -89,53 +89,53 @@ public partial class TransPrescriptionItem
 
     public bool IsUsingAdminReturn { get; set; }
 
-    public string VerifiedByUserId { get; set; }
+    public string? VerifiedByUserId { get; set; }
 
     public DateTime? VerifiedDateTime { get; set; }
 
-    public string LastUpdateByUserHostName { get; set; }
+    public string? LastUpdateByUserHostName { get; set; }
 
-    public string VerifiedByUserHostName { get; set; }
+    public string? VerifiedByUserHostName { get; set; }
 
-    public string SrconsumeMethod { get; set; }
+    public string? SrconsumeMethod { get; set; }
 
-    public string DosageQty { get; set; }
+    public string? DosageQty { get; set; }
 
-    public string EmbalaceQty { get; set; }
+    public string? EmbalaceQty { get; set; }
 
-    public string IterText { get; set; }
+    public string? IterText { get; set; }
 
-    public string OrderText { get; set; }
+    public string? OrderText { get; set; }
 
-    public string ConsumeQty { get; set; }
+    public string? ConsumeQty { get; set; }
 
-    public string SrconsumeUnit { get; set; }
+    public string? SrconsumeUnit { get; set; }
 
-    public string ReferenceNo { get; set; }
+    public string? ReferenceNo { get; set; }
 
-    public string ReferenceSequenceNo { get; set; }
+    public string? ReferenceSequenceNo { get; set; }
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 
     public decimal? OriPrescriptionQty { get; set; }
 
-    public string OriConsumeQty { get; set; }
+    public string? OriConsumeQty { get; set; }
 
-    public string OriSrconsumeUnit { get; set; }
+    public string? OriSrconsumeUnit { get; set; }
 
     public decimal? OriResultQty { get; set; }
 
-    public string OriItemQtyInString { get; set; }
+    public string? OriItemQtyInString { get; set; }
 
-    public string OriSritemUnit { get; set; }
+    public string? OriSritemUnit { get; set; }
 
-    public string OriDosageQty { get; set; }
+    public string? OriDosageQty { get; set; }
 
-    public string OriSrdosageUnit { get; set; }
+    public string? OriSrdosageUnit { get; set; }
 
-    public string OriSrconsumeMethod { get; set; }
+    public string? OriSrconsumeMethod { get; set; }
 
     public bool? IsReturned { get; set; }
 
@@ -149,13 +149,23 @@ public partial class TransPrescriptionItem
 
     public DateTime? CasemixApprovedDateTime { get; set; }
 
-    public string CasemixApprovedByUserId { get; set; }
+    public string? CasemixApprovedByUserId { get; set; }
 
     public DateTime? StartDateTime { get; set; }
 
-    public string SrinterventionReason { get; set; }
+    public string? SrinterventionReason { get; set; }
 
     public decimal? Qty23Days { get; set; }
 
-    public virtual TransPrescription PrescriptionNoNavigation { get; set; }
+    public bool? IsConsTime { get; set; }
+
+    public bool? IsPagi { get; set; }
+
+    public bool? IsSiang { get; set; }
+
+    public bool? IsSore { get; set; }
+
+    public bool? IsMalam { get; set; }
+
+    public virtual TransPrescription PrescriptionNoNavigation { get; set; } = null!;
 }

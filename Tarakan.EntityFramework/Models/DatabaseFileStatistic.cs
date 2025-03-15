@@ -21,7 +21,7 @@ public partial class DatabaseFileStatistic
 
     public decimal? FreeDiskSpace { get; set; }
 
-    public string DriveName { get; set; }
+    public string? DriveName { get; set; }
 
-    public virtual DatabaseFile File { get; set; }
+    public virtual DatabaseFile File { get; set; } = null!;
 }

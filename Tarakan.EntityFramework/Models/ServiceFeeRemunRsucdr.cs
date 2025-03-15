@@ -7,7 +7,7 @@ public partial class ServiceFeeRemunRsucdr
 {
     public int RemunId { get; set; }
 
-    public string RemunNo { get; set; }
+    public string RemunNo { get; set; } = null!;
 
     public int PeriodYear { get; set; }
 
@@ -15,7 +15,7 @@ public partial class ServiceFeeRemunRsucdr
 
     public bool IsBpjs { get; set; }
 
-    public string Notes { get; set; }
+    public string Notes { get; set; } = null!;
 
     public DateTime? DischargeDateFrom { get; set; }
 
@@ -43,23 +43,23 @@ public partial class ServiceFeeRemunRsucdr
 
     public decimal TotalFeePemerataan { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string CreateByUserId { get; set; } = null!;
 
     public DateTime CreateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 
     public bool IsApproved { get; set; }
 
-    public string ApprovedByUserId { get; set; }
+    public string? ApprovedByUserId { get; set; }
 
     public DateTime? ApprovedDateTime { get; set; }
 
     public bool IsVoid { get; set; }
 
-    public string VoidByUserId { get; set; }
+    public string? VoidByUserId { get; set; }
 
     public DateTime? VoidDateTime { get; set; }
 }

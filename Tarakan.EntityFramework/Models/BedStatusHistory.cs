@@ -7,17 +7,17 @@ public partial class BedStatusHistory
 {
     public long TransactionId { get; set; }
 
-    public string BedId { get; set; }
+    public string BedId { get; set; } = null!;
 
-    public string SrbedStatusFrom { get; set; }
+    public string SrbedStatusFrom { get; set; } = null!;
 
-    public string SrbedStatusTo { get; set; }
+    public string SrbedStatusTo { get; set; } = null!;
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string TransferNo { get; set; }
+    public string? TransferNo { get; set; }
 }

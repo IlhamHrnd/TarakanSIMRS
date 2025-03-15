@@ -7,13 +7,13 @@ public partial class StandartSelectionProse
 {
     public int StandartSelectionProsesId { get; set; }
 
-    public string ProsesName { get; set; }
+    public string ProsesName { get; set; } = null!;
 
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 
     public bool IsMandatory { get; set; }
 
-    public string SrresultType { get; set; }
+    public string SrresultType { get; set; } = null!;
 
     public bool IsInternalCandidate { get; set; }
 
@@ -21,5 +21,5 @@ public partial class StandartSelectionProse
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

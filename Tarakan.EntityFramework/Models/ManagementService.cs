@@ -7,11 +7,11 @@ public partial class ManagementService
 {
     public Guid ManagementServiceId { get; set; }
 
-    public string InstanceName { get; set; }
+    public string InstanceName { get; set; } = null!;
 
-    public string MachineName { get; set; }
+    public string MachineName { get; set; } = null!;
 
-    public string Address { get; set; }
+    public string Address { get; set; } = null!;
 
     public int Port { get; set; }
 

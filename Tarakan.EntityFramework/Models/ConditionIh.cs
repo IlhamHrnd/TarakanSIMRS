@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ConditionIh
 {
-    public string ConditionId { get; set; }
+    public string? ConditionId { get; set; }
 
-    public string EncounterId { get; set; }
+    public string? EncounterId { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string? RegistrationNo { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 

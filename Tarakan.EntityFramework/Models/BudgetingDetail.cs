@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class BudgetingDetail
 {
-    public string BudgetingNo { get; set; }
+    public string BudgetingNo { get; set; } = null!;
 
     public int Revision { get; set; }
 
@@ -35,11 +35,11 @@ public partial class BudgetingDetail
 
     public decimal Limit12 { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string CreatedByUserId { get; set; } = null!;
 
     public DateTime CreatedDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime LastUpdateDateTime { get; set; }
 }

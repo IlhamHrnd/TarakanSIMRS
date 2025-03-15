@@ -15,9 +15,9 @@ public partial class EmployeeMedicalBenefit
 
     public bool? IsUnlimited { get; set; }
 
-    public string SrmedicalPaidRules { get; set; }
+    public string? SrmedicalPaidRules { get; set; }
 
-    public string GuarantorId { get; set; }
+    public string? GuarantorId { get; set; }
 
     public decimal? EmployeeBenefit { get; set; }
 
@@ -29,7 +29,7 @@ public partial class EmployeeMedicalBenefit
 
     public int? NoOfDependent { get; set; }
 
-    public string DependentGuarantorId { get; set; }
+    public string? DependentGuarantorId { get; set; }
 
     public decimal? DependentBenefit { get; set; }
 
@@ -49,5 +49,5 @@ public partial class EmployeeMedicalBenefit
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PatientIncidentSafetyGoal
 {
-    public string PatientIncidentNo { get; set; }
+    public string PatientIncidentNo { get; set; } = null!;
 
-    public string SrsafetyGoals { get; set; }
+    public string SrsafetyGoals { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

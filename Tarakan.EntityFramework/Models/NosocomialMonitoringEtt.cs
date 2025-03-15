@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class NosocomialMonitoringEtt
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int MonitoringNo { get; set; }
 
@@ -13,7 +13,7 @@ public partial class NosocomialMonitoringEtt
 
     public DateTime? MonitoringDateTime { get; set; }
 
-    public string SrettType { get; set; }
+    public string? SrettType { get; set; }
 
     public bool? IsTempAbove38 { get; set; }
 
@@ -35,13 +35,13 @@ public partial class NosocomialMonitoringEtt
 
     public bool? IsRadiology { get; set; }
 
-    public string Note { get; set; }
+    public string? Note { get; set; }
 
     public bool? IsDeleted { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsElbowConnectorRepl { get; set; }
 
@@ -55,13 +55,13 @@ public partial class NosocomialMonitoringEtt
 
     public bool? IsModeVentChange { get; set; }
 
-    public string SputumColor { get; set; }
+    public string? SputumColor { get; set; }
 
-    public string Leukosit { get; set; }
+    public string? Leukosit { get; set; }
 
-    public string Thorax { get; set; }
+    public string? Thorax { get; set; }
 
-    public string MonitoringByUserId { get; set; }
+    public string? MonitoringByUserId { get; set; }
 
     public bool? IsRelease { get; set; }
 

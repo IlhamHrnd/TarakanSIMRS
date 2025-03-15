@@ -9,9 +9,9 @@ public partial class ThrScheduleItem
 
     public int CounterId { get; set; }
 
-    public string Srreligion { get; set; }
+    public string Srreligion { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

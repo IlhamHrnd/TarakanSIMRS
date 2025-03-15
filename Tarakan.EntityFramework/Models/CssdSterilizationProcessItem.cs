@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class CssdSterilizationProcessItem
 {
-    public string ProcessNo { get; set; }
+    public string ProcessNo { get; set; } = null!;
 
-    public string ProcessSeqNo { get; set; }
+    public string ProcessSeqNo { get; set; } = null!;
 
-    public string ReceivedNo { get; set; }
+    public string ReceivedNo { get; set; } = null!;
 
-    public string ReceivedSeqNo { get; set; }
+    public string ReceivedSeqNo { get; set; } = null!;
 
     public decimal? Qty { get; set; }
 
@@ -19,5 +19,5 @@ public partial class CssdSterilizationProcessItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

@@ -5,25 +5,25 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemOptic
 {
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string MarginId { get; set; }
+    public string? MarginId { get; set; }
 
-    public string SrproductType { get; set; }
+    public string SrproductType { get; set; } = null!;
 
-    public string Abcclass { get; set; }
+    public string Abcclass { get; set; } = null!;
 
-    public string BrandName { get; set; }
+    public string BrandName { get; set; } = null!;
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
-    public string SrpurchaseUnit { get; set; }
+    public string SrpurchaseUnit { get; set; } = null!;
 
     public decimal ConversionFactor { get; set; }
 
     public bool IsInventoryItem { get; set; }
 
-    public string FabricId { get; set; }
+    public string? FabricId { get; set; }
 
     public decimal SalesFixedPrice { get; set; }
 
@@ -43,15 +43,15 @@ public partial class ItemOptic
 
     public decimal TolerancePercentage { get; set; }
 
-    public string Barcode { get; set; }
+    public string Barcode { get; set; } = null!;
 
-    public string SritemBin { get; set; }
+    public string SritemBin { get; set; } = null!;
 
     public bool? IsConsignment { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public virtual Item Item { get; set; }
+    public virtual Item Item { get; set; } = null!;
 }

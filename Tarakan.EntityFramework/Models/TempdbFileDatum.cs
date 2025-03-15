@@ -23,5 +23,5 @@ public partial class TempdbFileDatum
 
     public double? TimeDeltaInSeconds { get; set; }
 
-    public virtual DatabaseFile File { get; set; }
+    public virtual DatabaseFile File { get; set; } = null!;
 }

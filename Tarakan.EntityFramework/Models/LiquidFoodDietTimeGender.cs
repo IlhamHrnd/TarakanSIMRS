@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class LiquidFoodDietTimeGender
 {
-    public string DietId { get; set; }
+    public string DietId { get; set; } = null!;
 
-    public string Time { get; set; }
+    public string Time { get; set; } = null!;
 
-    public string Gender { get; set; }
+    public string Gender { get; set; } = null!;
 
-    public string FoodId { get; set; }
+    public string FoodId { get; set; } = null!;
 
-    public string ChildrenFoodId { get; set; }
+    public string ChildrenFoodId { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

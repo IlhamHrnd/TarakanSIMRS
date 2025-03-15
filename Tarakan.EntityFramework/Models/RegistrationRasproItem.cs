@@ -5,35 +5,35 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationRasproItem
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
     public int RasproSeqNo { get; set; }
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ZatActiveId { get; set; }
+    public string ZatActiveId { get; set; } = null!;
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
-    public string SrdosageUnit { get; set; }
+    public string SrdosageUnit { get; set; } = null!;
 
-    public string AcPcDc { get; set; }
+    public string? AcPcDc { get; set; }
 
-    public string SrmedicationRoute { get; set; }
+    public string? SrmedicationRoute { get; set; }
 
-    public string SrconsumeMethod { get; set; }
+    public string? SrconsumeMethod { get; set; }
 
-    public string DosageQty { get; set; }
+    public string? DosageQty { get; set; }
 
-    public string EmbalaceQty { get; set; }
+    public string? EmbalaceQty { get; set; }
 
-    public string ConsumeQty { get; set; }
+    public string? ConsumeQty { get; set; }
 
-    public string SrconsumeUnit { get; set; }
+    public string? SrconsumeUnit { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public DateTime? StartDateTime { get; set; }
 
@@ -41,5 +41,5 @@ public partial class RegistrationRasproItem
 
     public int? PrevRasproSeqNo { get; set; }
 
-    public string PrevRasproItemId { get; set; }
+    public string? PrevRasproItemId { get; set; }
 }

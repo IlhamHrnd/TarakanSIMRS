@@ -13,13 +13,13 @@ public partial class EmployeeRl4
 
     public int CompanyFieldOfWorkProfileId { get; set; }
 
-    public string Srrl4status { get; set; }
+    public string Srrl4status { get; set; } = null!;
 
-    public string Srrl4type { get; set; }
+    public string Srrl4type { get; set; } = null!;
 
-    public string SrmedisType { get; set; }
+    public string SrmedisType { get; set; } = null!;
 
-    public string SreducationLevel { get; set; }
+    public string SreducationLevel { get; set; } = null!;
 
     public int Rl4educationId { get; set; }
 
@@ -31,11 +31,11 @@ public partial class EmployeeRl4
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
-    public string Srrl4professionType { get; set; }
+    public string? Srrl4professionType { get; set; }
 
-    public string Srrl4educationLevel { get; set; }
+    public string? Srrl4educationLevel { get; set; }
 
-    public string Srrl4educationMajor { get; set; }
+    public string? Srrl4educationMajor { get; set; }
 }

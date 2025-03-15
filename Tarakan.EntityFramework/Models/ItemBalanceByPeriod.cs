@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemBalanceByPeriod
 {
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
     public int PeriodYear { get; set; }
 
     public int PeriodMonth { get; set; }
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal BeginningBalance { get; set; }
 
@@ -25,5 +25,5 @@ public partial class ItemBalanceByPeriod
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

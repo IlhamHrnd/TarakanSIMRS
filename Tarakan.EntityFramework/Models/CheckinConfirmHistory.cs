@@ -7,13 +7,13 @@ public partial class CheckinConfirmHistory
 {
     public Guid CheckinConfirmId { get; set; }
 
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string TransferNo { get; set; }
+    public string TransferNo { get; set; } = null!;
 
-    public string BedId { get; set; }
+    public string BedId { get; set; } = null!;
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

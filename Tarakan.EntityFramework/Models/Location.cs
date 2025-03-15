@@ -5,17 +5,17 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Location
 {
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string LocationName { get; set; }
+    public string LocationName { get; set; } = null!;
 
-    public string ShortName { get; set; }
+    public string ShortName { get; set; } = null!;
 
-    public string ParentId { get; set; }
+    public string? ParentId { get; set; }
 
-    public string ItemGroupId { get; set; }
+    public string ItemGroupId { get; set; } = null!;
 
-    public string PermitId { get; set; }
+    public string? PermitId { get; set; }
 
     public bool IsHeader { get; set; }
 
@@ -45,7 +45,7 @@ public partial class Location
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public int? ChartOfAccountIdAcrual { get; set; }
 
@@ -59,7 +59,7 @@ public partial class Location
 
     public int? SubledgerIdCost { get; set; }
 
-    public string SrtypeOfInventory { get; set; }
+    public string? SrtypeOfInventory { get; set; }
 
     public bool? IsAllowedToStockGoods { get; set; }
 
@@ -73,9 +73,9 @@ public partial class Location
 
     public DateTime? LastHoldForTransactionDateTime { get; set; }
 
-    public string LastHoldForTransactionByUserId { get; set; }
+    public string? LastHoldForTransactionByUserId { get; set; }
 
-    public string SrstockGroup { get; set; }
+    public string? SrstockGroup { get; set; }
 
     public bool? IsAutoUpdateStockMinMax { get; set; }
 

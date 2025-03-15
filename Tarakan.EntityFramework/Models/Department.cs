@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class Department
 {
-    public string DepartmentId { get; set; }
+    public string DepartmentId { get; set; } = null!;
 
-    public string DepartmentName { get; set; }
+    public string DepartmentName { get; set; } = null!;
 
-    public string ShortName { get; set; }
+    public string ShortName { get; set; } = null!;
 
-    public string Initial { get; set; }
+    public string Initial { get; set; } = null!;
 
-    public string DepartmentManager { get; set; }
+    public string DepartmentManager { get; set; } = null!;
 
     public bool IsHasRegistration { get; set; }
 
@@ -23,7 +23,7 @@ public partial class Department
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public virtual ICollection<ServiceUnit> ServiceUnits { get; set; } = new List<ServiceUnit>();
 }

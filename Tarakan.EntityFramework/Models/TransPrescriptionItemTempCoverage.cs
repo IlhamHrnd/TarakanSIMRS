@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TransPrescriptionItemTempCoverage
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string PrescriptionNo { get; set; }
+    public string PrescriptionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ChargeClassId { get; set; }
+    public string ChargeClassId { get; set; } = null!;
 
     public decimal ResultQty { get; set; }
 
@@ -23,5 +23,5 @@ public partial class TransPrescriptionItemTempCoverage
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

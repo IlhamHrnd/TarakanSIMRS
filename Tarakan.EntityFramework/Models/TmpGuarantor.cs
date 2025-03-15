@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpGuarantor
 {
-    public string GuarantorId { get; set; }
+    public string? GuarantorId { get; set; }
 
-    public string GuarantorName { get; set; }
+    public string? GuarantorName { get; set; }
 }

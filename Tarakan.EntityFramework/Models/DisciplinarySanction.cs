@@ -7,7 +7,7 @@ public partial class DisciplinarySanction
 {
     public int DisciplinarySanctionsId { get; set; }
 
-    public string SremploymentType { get; set; }
+    public string? SremploymentType { get; set; }
 
     public short? StartValue { get; set; }
 
@@ -19,5 +19,5 @@ public partial class DisciplinarySanction
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

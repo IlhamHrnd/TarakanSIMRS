@@ -5,71 +5,71 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwRegistrasi
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string MedicalNo { get; set; }
+    public string? MedicalNo { get; set; }
 
     public DateTime RegistrationDate { get; set; }
 
     public DateTime? DischargeDate { get; set; }
 
-    public string DiagAwal { get; set; }
+    public string DiagAwal { get; set; } = null!;
 
-    public string Identitas { get; set; }
+    public string Identitas { get; set; } = null!;
 
-    public string NoIdentitas { get; set; }
+    public string NoIdentitas { get; set; } = null!;
 
-    public string KlasifikasiPasien { get; set; }
+    public string KlasifikasiPasien { get; set; } = null!;
 
-    public string NmKelPasien { get; set; }
+    public string NmKelPasien { get; set; } = null!;
 
-    public string CaraMasuk { get; set; }
+    public string CaraMasuk { get; set; } = null!;
 
-    public string PerujukDari { get; set; }
+    public string PerujukDari { get; set; } = null!;
 
-    public string KetPerujuk { get; set; }
+    public string KetPerujuk { get; set; } = null!;
 
-    public string CaraKeluar { get; set; }
+    public string CaraKeluar { get; set; } = null!;
 
-    public string DirujukKe { get; set; }
+    public string DirujukKe { get; set; } = null!;
 
-    public string KetDirujuk { get; set; }
+    public string KetDirujuk { get; set; } = null!;
 
-    public string UserId { get; set; }
+    public string UserId { get; set; } = null!;
 
-    public string LastCreateUserId { get; set; }
+    public string? LastCreateUserId { get; set; }
 
-    public string NmPj { get; set; }
+    public string NmPj { get; set; } = null!;
 
-    public string AlamatPj { get; set; }
+    public string AlamatPj { get; set; } = null!;
 
-    public string KdKecamatanPj { get; set; }
+    public string KdKecamatanPj { get; set; } = null!;
 
-    public string NoTelpPj { get; set; }
+    public string NoTelpPj { get; set; } = null!;
 
-    public string IdentitasPj { get; set; }
+    public string IdentitasPj { get; set; } = null!;
 
-    public string NoIdentitasPj { get; set; }
+    public string NoIdentitasPj { get; set; } = null!;
 
-    public string HubPj { get; set; }
+    public string HubPj { get; set; } = null!;
 
-    public string KdLayanan { get; set; }
+    public string KdLayanan { get; set; } = null!;
 
-    public string KdDokter { get; set; }
+    public string KdDokter { get; set; } = null!;
 
-    public string Tpp { get; set; }
+    public string Tpp { get; set; } = null!;
 
-    public string BadanUsaha { get; set; }
+    public string BadanUsaha { get; set; } = null!;
 
-    public string HubKlasifikasi { get; set; }
+    public string HubKlasifikasi { get; set; } = null!;
 
-    public string KelasTanggungan { get; set; }
+    public string KelasTanggungan { get; set; } = null!;
 
-    public string KdKelasReg { get; set; }
+    public string KdKelasReg { get; set; } = null!;
 
-    public string Penanggung { get; set; }
+    public string Penanggung { get; set; } = null!;
 
-    public string HubPenanggung { get; set; }
+    public string HubPenanggung { get; set; } = null!;
 
     public int? MatiUgd { get; set; }
 

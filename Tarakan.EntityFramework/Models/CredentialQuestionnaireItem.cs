@@ -9,19 +9,19 @@ public partial class CredentialQuestionnaireItem
 
     public int QuestionnaireId { get; set; }
 
-    public string QuestionCode { get; set; }
+    public string QuestionCode { get; set; } = null!;
 
-    public string QuestionNo { get; set; }
+    public string QuestionNo { get; set; } = null!;
 
-    public string QuestionName { get; set; }
+    public string QuestionName { get; set; } = null!;
 
-    public string SrcredentialQuestionLevel { get; set; }
+    public string SrcredentialQuestionLevel { get; set; } = null!;
 
-    public string SrcredentialActionType { get; set; }
+    public string SrcredentialActionType { get; set; } = null!;
 
     public bool IsDetail { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

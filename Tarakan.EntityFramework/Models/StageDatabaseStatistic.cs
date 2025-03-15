@@ -9,7 +9,7 @@ public partial class StageDatabaseStatistic
 
     public int ServerId { get; set; }
 
-    public string DatabaseName { get; set; }
+    public string DatabaseName { get; set; } = null!;
 
     public bool SystemDatabase { get; set; }
 
@@ -71,5 +71,5 @@ public partial class StageDatabaseStatistic
 
     public decimal? AzureCloudStorageLimit { get; set; }
 
-    public string ElasticPool { get; set; }
+    public string? ElasticPool { get; set; }
 }

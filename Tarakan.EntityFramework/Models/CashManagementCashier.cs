@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class CashManagementCashier
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string CashierUserId { get; set; }
+    public string CashierUserId { get; set; } = null!;
 
     public bool? IsCashierCheckin { get; set; }
 
@@ -15,5 +15,5 @@ public partial class CashManagementCashier
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

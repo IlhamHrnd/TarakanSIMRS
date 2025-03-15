@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationTariffComponentDiscountRule
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
     public bool? IsDiscountInPercentage { get; set; }
 
@@ -15,5 +15,5 @@ public partial class RegistrationTariffComponentDiscountRule
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

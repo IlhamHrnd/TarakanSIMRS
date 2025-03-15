@@ -49,5 +49,5 @@ public partial class Vmstatistic
 
     public long? AvailableByteVm { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

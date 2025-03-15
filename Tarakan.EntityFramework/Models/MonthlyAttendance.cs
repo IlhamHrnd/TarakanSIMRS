@@ -17,7 +17,7 @@ public partial class MonthlyAttendance
 
     public int? AbsenceCount { get; set; }
 
-    public string SrattedanceInsentif { get; set; }
+    public string? SrattedanceInsentif { get; set; }
 
     public int? WorkingDays { get; set; }
 
@@ -55,9 +55,9 @@ public partial class MonthlyAttendance
 
     public int? Shift4Compensation { get; set; }
 
-    public string SrattendanceFileFormat { get; set; }
+    public string? SrattendanceFileFormat { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

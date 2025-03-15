@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicScheduleForWebsite
 {
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
     public bool? IsMonday { get; set; }
 
@@ -23,7 +23,7 @@ public partial class ParamedicScheduleForWebsite
 
     public DateTime? LastUpdateDate { get; set; }
 
-    public string Image { get; set; }
+    public string? Image { get; set; }
 
     public bool? IsMondayCendana { get; set; }
 
@@ -41,7 +41,7 @@ public partial class ParamedicScheduleForWebsite
 
     public int? QuotaOnlineCendana { get; set; }
 
-    public string ServiceUnitIdcendana { get; set; }
+    public string? ServiceUnitIdcendana { get; set; }
 
     public int? QuotaOnsiteBpjs { get; set; }
 

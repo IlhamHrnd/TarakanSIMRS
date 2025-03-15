@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationPathwayItemExecution
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string PathwayId { get; set; }
+    public string PathwayId { get; set; } = null!;
 
     public int PathwayItemSeqNo { get; set; }
 
@@ -17,5 +17,5 @@ public partial class RegistrationPathwayItemExecution
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

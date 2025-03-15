@@ -9,7 +9,7 @@ public partial class MedicalEmployeeInitial
 
     public int PersonId { get; set; }
 
-    public string Year { get; set; }
+    public string Year { get; set; } = null!;
 
     public decimal EmployeeUsedAmount { get; set; }
 
@@ -17,5 +17,5 @@ public partial class MedicalEmployeeInitial
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

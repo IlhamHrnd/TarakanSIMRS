@@ -9,11 +9,11 @@ public partial class BaselineTemplate
 
     public int SqlserverId { get; set; }
 
-    public string Template { get; set; }
+    public string Template { get; set; } = null!;
 
-    public string BaselineName { get; set; }
+    public string BaselineName { get; set; } = null!;
 
     public bool Active { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

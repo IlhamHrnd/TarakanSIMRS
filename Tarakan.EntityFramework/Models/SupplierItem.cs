@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class SupplierItem
 {
-    public string SupplierId { get; set; }
+    public string SupplierId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal PurchaseDiscount1 { get; set; }
 
     public decimal PurchaseDiscount2 { get; set; }
 
-    public string SrpurchaseUnit { get; set; }
+    public string SrpurchaseUnit { get; set; } = null!;
 
     public decimal PriceInPurchaseUnit { get; set; }
 
@@ -21,9 +21,9 @@ public partial class SupplierItem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string DrugDistributionLicenseNo { get; set; }
+    public string? DrugDistributionLicenseNo { get; set; }
 
     public decimal? ConversionFactor { get; set; }
 }

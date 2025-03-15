@@ -13,7 +13,7 @@ public partial class Block
 
     public DateTime UtccollectionDateTime { get; set; }
 
-    public string Xdldata { get; set; }
+    public string? Xdldata { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

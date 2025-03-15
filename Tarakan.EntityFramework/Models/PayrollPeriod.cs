@@ -7,11 +7,11 @@ public partial class PayrollPeriod
 {
     public int PayrollPeriodId { get; set; }
 
-    public string PayrollPeriodCode { get; set; }
+    public string PayrollPeriodCode { get; set; } = null!;
 
-    public string PayrollPeriodName { get; set; }
+    public string PayrollPeriodName { get; set; } = null!;
 
-    public string SrpaySequent { get; set; }
+    public string SrpaySequent { get; set; } = null!;
 
     public DateTime StartDate { get; set; }
 
@@ -25,7 +25,7 @@ public partial class PayrollPeriod
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public int? WageProcessTypeId { get; set; }
 

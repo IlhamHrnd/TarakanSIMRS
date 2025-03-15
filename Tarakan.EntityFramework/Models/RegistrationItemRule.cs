@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class RegistrationItemRule
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string SrguarantorRuleType { get; set; }
+    public string? SrguarantorRuleType { get; set; }
 
     public decimal AmountValue { get; set; }
 
@@ -19,7 +19,7 @@ public partial class RegistrationItemRule
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsToGuarantor { get; set; }
 
@@ -27,5 +27,5 @@ public partial class RegistrationItemRule
 
     public decimal? EmergencyAmountValue { get; set; }
 
-    public virtual Registration RegistrationNoNavigation { get; set; }
+    public virtual Registration RegistrationNoNavigation { get; set; } = null!;
 }

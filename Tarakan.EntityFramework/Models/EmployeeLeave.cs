@@ -9,7 +9,7 @@ public partial class EmployeeLeave
 
     public int PersonId { get; set; }
 
-    public string SremployeeLeaveType { get; set; }
+    public string SremployeeLeaveType { get; set; } = null!;
 
     public DateTime StartDate { get; set; }
 
@@ -17,11 +17,11 @@ public partial class EmployeeLeave
 
     public int LeaveEntitlementsQty { get; set; }
 
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public bool? IsPayCut { get; set; }
 }

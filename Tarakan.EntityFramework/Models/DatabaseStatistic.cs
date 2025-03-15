@@ -69,7 +69,7 @@ public partial class DatabaseStatistic
 
     public decimal? AzureCloudStorageLimit { get; set; }
 
-    public string ElasticPool { get; set; }
+    public string? ElasticPool { get; set; }
 
-    public virtual SqlserverDatabaseName Database { get; set; }
+    public virtual SqlserverDatabaseName Database { get; set; } = null!;
 }

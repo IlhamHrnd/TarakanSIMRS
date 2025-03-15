@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemTariffRequest2Item
 {
-    public string TariffRequestNo { get; set; }
+    public string TariffRequestNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ClassId { get; set; }
+    public string ClassId { get; set; } = null!;
 
     public decimal Price { get; set; }
 
@@ -29,7 +29,7 @@ public partial class ItemTariffRequest2Item
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? DiscPercentage { get; set; }
 

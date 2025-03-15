@@ -17,9 +17,9 @@ public partial class CustomCounterStatistic
 
     public decimal? DeltaValue { get; set; }
 
-    public string ErrorMessage { get; set; }
+    public string? ErrorMessage { get; set; }
 
     public double? RunTimeInMilliseconds { get; set; }
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

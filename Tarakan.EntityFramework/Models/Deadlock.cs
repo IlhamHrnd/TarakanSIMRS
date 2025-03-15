@@ -11,9 +11,9 @@ public partial class Deadlock
 
     public DateTime UtccollectionDateTime { get; set; }
 
-    public string Xdldata { get; set; }
+    public string? Xdldata { get; set; }
 
     public virtual ICollection<DeadlockProcess> DeadlockProcesses { get; set; } = new List<DeadlockProcess>();
 
-    public virtual MonitoredSqlserver Sqlserver { get; set; }
+    public virtual MonitoredSqlserver Sqlserver { get; set; } = null!;
 }

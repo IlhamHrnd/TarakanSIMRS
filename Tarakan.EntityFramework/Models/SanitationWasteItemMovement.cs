@@ -9,11 +9,11 @@ public partial class SanitationWasteItemMovement
 
     public DateTime MovementDate { get; set; }
 
-    public string TransactionCode { get; set; }
+    public string TransactionCode { get; set; } = null!;
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SrwasteType { get; set; }
+    public string SrwasteType { get; set; } = null!;
 
     public decimal? InitialQty { get; set; }
 
@@ -25,5 +25,5 @@ public partial class SanitationWasteItemMovement
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

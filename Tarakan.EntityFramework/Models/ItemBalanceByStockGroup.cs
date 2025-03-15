@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemBalanceByStockGroup
 {
-    public string SrstockGroup { get; set; }
+    public string SrstockGroup { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal? Minimum { get; set; }
 
@@ -17,5 +17,5 @@ public partial class ItemBalanceByStockGroup
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

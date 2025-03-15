@@ -11,11 +11,11 @@ public partial class IncentiveDetail
 
     public bool? IsByEmployeeType { get; set; }
 
-    public string SremployeeTypeId { get; set; }
+    public string? SremployeeTypeId { get; set; }
 
     public bool? IsByPositionLevel { get; set; }
 
-    public string SrpositionLevelId { get; set; }
+    public string? SrpositionLevelId { get; set; }
 
     public bool? IsByServiceYear { get; set; }
 
@@ -27,5 +27,5 @@ public partial class IncentiveDetail
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

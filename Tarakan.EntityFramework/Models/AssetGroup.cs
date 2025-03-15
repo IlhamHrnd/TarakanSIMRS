@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class AssetGroup
 {
-    public string AssetGroupId { get; set; }
+    public string AssetGroupId { get; set; } = null!;
 
-    public string GroupName { get; set; }
+    public string GroupName { get; set; } = null!;
 
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 
-    public string Initial { get; set; }
+    public string? Initial { get; set; }
 
     public bool IsActive { get; set; }
 
@@ -29,7 +29,7 @@ public partial class AssetGroup
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public int? AssetCostDestructionAccountId { get; set; }
 

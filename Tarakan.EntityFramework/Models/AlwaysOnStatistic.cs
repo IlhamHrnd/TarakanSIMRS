@@ -49,7 +49,7 @@ public partial class AlwaysOnStatistic
 
     public int? LastConnectErrorNumber { get; set; }
 
-    public string LastConnectErrorDescription { get; set; }
+    public string? LastConnectErrorDescription { get; set; }
 
     public DateTime? LastConnectErrorTimestamp { get; set; }
 

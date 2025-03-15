@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class TmpItemMinmax
 {
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
     public DateOnly GenerateDate { get; set; }
 
@@ -19,7 +19,7 @@ public partial class TmpItemMinmax
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string GeneratePeriod { get; set; }
+    public string GeneratePeriod { get; set; } = null!;
 }

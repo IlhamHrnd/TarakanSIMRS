@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicFeeGuarantorCategory
 {
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
-    public string SrphysicianFeeType { get; set; }
+    public string SrphysicianFeeType { get; set; } = null!;
 
     public bool IsParamedicFeeUsePercentage { get; set; }
 
@@ -23,5 +23,5 @@ public partial class ParamedicFeeGuarantorCategory
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

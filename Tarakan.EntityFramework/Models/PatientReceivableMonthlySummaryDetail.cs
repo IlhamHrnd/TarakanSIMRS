@@ -9,17 +9,17 @@ public partial class PatientReceivableMonthlySummaryDetail
 
     public int? Id { get; set; }
 
-    public string SrbillingGroup { get; set; }
+    public string? SrbillingGroup { get; set; }
 
     public int? ChartOfAccountId { get; set; }
 
     public decimal? Amount { get; set; }
 
-    public string CreateByUserId { get; set; }
+    public string? CreateByUserId { get; set; }
 
     public DateTime? CreateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 

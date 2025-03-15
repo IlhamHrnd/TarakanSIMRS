@@ -5,15 +5,15 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class CostCalculationBuffer
 {
-    public string RegistrationNo { get; set; }
+    public string RegistrationNo { get; set; } = null!;
 
-    public string GuarantorId { get; set; }
+    public string GuarantorId { get; set; } = null!;
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal PatientAmount { get; set; }
 
@@ -25,7 +25,7 @@ public partial class CostCalculationBuffer
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
-    public string PaymentNo { get; set; }
+    public string? PaymentNo { get; set; }
 }

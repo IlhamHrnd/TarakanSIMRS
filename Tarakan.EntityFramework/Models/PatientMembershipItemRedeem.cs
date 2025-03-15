@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class PatientMembershipItemRedeem
 {
-    public string ItemReedemId { get; set; }
+    public string ItemReedemId { get; set; } = null!;
 
-    public string ItemReedemName { get; set; }
+    public string ItemReedemName { get; set; } = null!;
 
-    public string SritemReedemGroup { get; set; }
+    public string SritemReedemGroup { get; set; } = null!;
 
     public decimal? PointsUsed { get; set; }
 
@@ -17,5 +17,5 @@ public partial class PatientMembershipItemRedeem
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

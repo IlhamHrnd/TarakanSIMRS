@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwPatient
 {
-    public string MedicalNo { get; set; }
+    public string? MedicalNo { get; set; }
 
-    public string NamaPasien { get; set; }
+    public string? NamaPasien { get; set; }
 }

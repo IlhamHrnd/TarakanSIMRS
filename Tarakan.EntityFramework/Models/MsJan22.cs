@@ -5,13 +5,13 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class MsJan22
 {
-    public string LocationId { get; set; }
+    public string? LocationId { get; set; }
 
-    public string LocationName { get; set; }
+    public string? LocationName { get; set; }
 
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 
-    public string ItemName { get; set; }
+    public string? ItemName { get; set; }
 
     public double? AwJml { get; set; }
 

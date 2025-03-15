@@ -9,17 +9,17 @@ public partial class ItemMovement
 
     public DateTime MovementDate { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string ServiceUnitId { get; set; } = null!;
 
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string TransactionCode { get; set; }
+    public string TransactionCode { get; set; } = null!;
 
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
-    public string SequenceNo { get; set; }
+    public string SequenceNo { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public DateTime? ExpiredDate { get; set; }
 
@@ -29,7 +29,7 @@ public partial class ItemMovement
 
     public decimal QuantityOut { get; set; }
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
     public decimal CostPrice { get; set; }
 
@@ -39,7 +39,7 @@ public partial class ItemMovement
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? LastPriceInBaseUnit { get; set; }
 }

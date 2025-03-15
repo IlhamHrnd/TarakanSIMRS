@@ -5,11 +5,11 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemService
 {
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
-    public string ReportRlid { get; set; }
+    public string ReportRlid { get; set; } = null!;
 
-    public string SritemUnit { get; set; }
+    public string SritemUnit { get; set; } = null!;
 
     public bool? IsPrimaryService { get; set; }
 
@@ -27,7 +27,7 @@ public partial class ItemService
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public decimal? PremiAmount { get; set; }
 
@@ -39,7 +39,7 @@ public partial class ItemService
 
     public decimal? ProductionServicesPercentage2 { get; set; }
 
-    public string ItemRelatedId { get; set; }
+    public string? ItemRelatedId { get; set; }
 
     public decimal? QtyDivider { get; set; }
 
@@ -47,5 +47,5 @@ public partial class ItemService
 
     public bool? IsCitoFromStandardReference { get; set; }
 
-    public virtual Item Item { get; set; }
+    public virtual Item Item { get; set; } = null!;
 }

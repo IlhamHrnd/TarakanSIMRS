@@ -15,21 +15,21 @@ public partial class SalaryComponentRuleDefinition
 
     public int? OrganizationUnitId { get; set; }
 
-    public string SremployeeStatus { get; set; }
+    public string? SremployeeStatus { get; set; }
 
     public int? PositionId { get; set; }
 
-    public string Srreligion { get; set; }
+    public string? Srreligion { get; set; }
 
     public int? PersonId { get; set; }
 
-    public string SremploymentType { get; set; }
+    public string? SremploymentType { get; set; }
 
     public int? PositionGradeId { get; set; }
 
-    public string SrmaritalStatus { get; set; }
+    public string? SrmaritalStatus { get; set; }
 
-    public string ServiceYear { get; set; }
+    public string? ServiceYear { get; set; }
 
     public int? SalaryTableNumber { get; set; }
 
@@ -45,13 +45,13 @@ public partial class SalaryComponentRuleDefinition
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 
     public int? PercentageComponentId { get; set; }
 
-    public string SreducationLevelId { get; set; }
+    public string? SreducationLevelId { get; set; }
 
-    public string SremployeeType { get; set; }
+    public string? SremployeeType { get; set; }
 
-    public string ServiceUnitId { get; set; }
+    public string? ServiceUnitId { get; set; }
 }

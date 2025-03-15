@@ -9,11 +9,11 @@ public partial class CompanyFieldOfWorkProfile
 
     public int CompanyLaborProfileId { get; set; }
 
-    public string CompanyFieldOfWorkProfileCode { get; set; }
+    public string CompanyFieldOfWorkProfileCode { get; set; } = null!;
 
-    public string CompanyFieldOfWorkProfileName { get; set; }
+    public string? CompanyFieldOfWorkProfileName { get; set; }
 
     public DateTime LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string LastUpdateByUserId { get; set; } = null!;
 }

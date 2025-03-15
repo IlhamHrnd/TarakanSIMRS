@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemStockOpnameApproval
 {
-    public string TransactionNo { get; set; }
+    public string TransactionNo { get; set; } = null!;
 
     public int PageNo { get; set; }
 
@@ -13,9 +13,9 @@ public partial class ItemStockOpnameApproval
 
     public DateTime? ApprovedDate { get; set; }
 
-    public string ApprovedByUserId { get; set; }
+    public string? ApprovedByUserId { get; set; }
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 }

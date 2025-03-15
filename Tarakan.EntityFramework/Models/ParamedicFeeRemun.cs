@@ -5,7 +5,7 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ParamedicFeeRemun
 {
-    public string ParamedicId { get; set; }
+    public string ParamedicId { get; set; } = null!;
 
     public int Year { get; set; }
 
@@ -29,19 +29,19 @@ public partial class ParamedicFeeRemun
 
     public decimal? Performance { get; set; }
 
-    public string VerificationNo { get; set; }
+    public string? VerificationNo { get; set; }
 
-    public string CreatedByUserId { get; set; }
+    public string? CreatedByUserId { get; set; }
 
     public DateTime? CreatedDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastCalculatedByUserId { get; set; }
+    public string? LastCalculatedByUserId { get; set; }
 
     public DateTime? LastCalculatedDateTime { get; set; }
 
-    public string PaymentGroupNo { get; set; }
+    public string? PaymentGroupNo { get; set; }
 }

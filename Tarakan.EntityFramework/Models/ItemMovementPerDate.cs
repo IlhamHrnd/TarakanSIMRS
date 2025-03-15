@@ -7,9 +7,9 @@ public partial class ItemMovementPerDate
 {
     public DateTime MovementDate { get; set; }
 
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal QuantityIn { get; set; }
 
@@ -17,5 +17,5 @@ public partial class ItemMovementPerDate
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

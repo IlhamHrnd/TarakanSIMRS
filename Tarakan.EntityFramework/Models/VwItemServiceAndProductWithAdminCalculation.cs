@@ -5,5 +5,5 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class VwItemServiceAndProductWithAdminCalculation
 {
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 }

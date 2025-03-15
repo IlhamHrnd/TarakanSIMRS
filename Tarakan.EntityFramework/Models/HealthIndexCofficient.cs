@@ -7,7 +7,7 @@ public partial class HealthIndexCofficient
 {
     public int Id { get; set; }
 
-    public string HealthIndexCoefficientName { get; set; }
+    public string HealthIndexCoefficientName { get; set; } = null!;
 
     public double HealthIndexCoefficientValue { get; set; }
 

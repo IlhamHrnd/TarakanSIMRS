@@ -9,9 +9,9 @@ public partial class SettingRopHistory
 
     public DateTime RopHistoryDateTime { get; set; }
 
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = null!;
 
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = null!;
 
     public decimal FromMinimum { get; set; }
 
@@ -21,7 +21,7 @@ public partial class SettingRopHistory
 
     public decimal ToMaximum { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 
     public DateTime? LastUpdateDateTime { get; set; }
 }

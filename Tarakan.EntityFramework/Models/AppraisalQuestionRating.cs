@@ -9,9 +9,9 @@ public partial class AppraisalQuestionRating
 
     public int QuestionerId { get; set; }
 
-    public string RatingCode { get; set; }
+    public string RatingCode { get; set; } = null!;
 
-    public string RatingName { get; set; }
+    public string RatingName { get; set; } = null!;
 
     public decimal RatingValue { get; set; }
 
@@ -21,5 +21,5 @@ public partial class AppraisalQuestionRating
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }

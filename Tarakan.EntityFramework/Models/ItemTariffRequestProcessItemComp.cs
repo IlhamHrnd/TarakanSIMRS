@@ -5,9 +5,9 @@ namespace Tarakan.EntityFramework.Models;
 
 public partial class ItemTariffRequestProcessItemComp
 {
-    public string TariffRequestNo { get; set; }
+    public string TariffRequestNo { get; set; } = null!;
 
-    public string TariffComponentId { get; set; }
+    public string TariffComponentId { get; set; } = null!;
 
     public decimal AmountValue { get; set; }
 
@@ -15,5 +15,5 @@ public partial class ItemTariffRequestProcessItemComp
 
     public DateTime? LastUpdateDateTime { get; set; }
 
-    public string LastUpdateByUserId { get; set; }
+    public string? LastUpdateByUserId { get; set; }
 }
