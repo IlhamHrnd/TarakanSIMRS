@@ -100,7 +100,8 @@ namespace Tarakan.BusinessObjects.Query
             return new AppUserDto
             {
                 UserId = au.UserID,
-                UserName = au.UserName
+                UserName = au.UserName,
+                ServiceUnitId = au.ServiceUnitID
             };
         }
 

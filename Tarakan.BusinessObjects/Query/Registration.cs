@@ -1229,15 +1229,15 @@ namespace Tarakan.BusinessObjects.Query
         [Obsolete]
         private void RegistrationCheckIn(EntitySpaces.Generated.RegistrationQuery rQ, RegistrationFilter filter, bool isInpatient)
         {
-            var ptQ = new EntitySpaces.Generated.PatientTransferQuery("ptQ");
+            var ptransQ = new EntitySpaces.Generated.PatientTransferQuery("ptransQ");
             var bQ = new EntitySpaces.Generated.BedQuery("bQ");
             var pthQ = new EntitySpaces.Generated.PatientTransferHistoryQuery("pthQ");
-            rQ.InnerJoin(ptQ).On(ptQ.RegistrationNo == rQ.RegistrationNo && ptQ.IsApprove == true && ptQ.FromServiceUnitID == filter.ServiceUnitID) 
-                .InnerJoin(pthQ).On(pthQ.RegistrationNo == ptQ.RegistrationNo && pthQ.ServiceUnitID == ptQ.ToServiceUnitID && pthQ.BedID == ptQ.ToBedID)
-                .Where(rQ.Or(ptQ.IsValidated.IsNull(), ptQ.IsValidated == false), pthQ.DateOfExit.IsNull());
+            rQ.InnerJoin(ptransQ).On(ptransQ.RegistrationNo == rQ.RegistrationNo && ptransQ.IsApprove == true && ptransQ.FromServiceUnitID == filter.ServiceUnitID) 
+                .InnerJoin(pthQ).On(pthQ.RegistrationNo == ptransQ.RegistrationNo && pthQ.ServiceUnitID == ptransQ.ToServiceUnitID && pthQ.BedID == ptransQ.ToBedID)
+                .Where(rQ.Or(ptransQ.IsValidated.IsNull(), ptransQ.IsValidated == false), pthQ.DateOfExit.IsNull());
 
             if (!isInpatient)
-                rQ.InnerJoin(bQ).On(bQ.BedID == ptQ.ToBedID && bQ.IsNeedConfirmation == true);
+                rQ.InnerJoin(bQ).On(bQ.BedID == ptransQ.ToBedID && bQ.IsNeedConfirmation == true);
         }
 
         [Obsolete]

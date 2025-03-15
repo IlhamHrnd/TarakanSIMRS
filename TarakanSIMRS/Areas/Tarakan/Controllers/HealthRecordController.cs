@@ -14,18 +14,25 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
     {
         private readonly IParamedic _paramedic;
         private readonly IServiceUnit _serviceUnit;
-        public HealthRecordController(IRegistration registration, IParamedic paramedic, IAppStandardReferenceItem appStandardReferenceItem, IServiceUnit serviceUnit, IConfiguration config, IAppProgram appProgram, 
-            IAppParameter appParameter) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
+        private readonly IAppUser _appUser;
+        public HealthRecordController(IRegistration registration, IParamedic paramedic, IAppStandardReferenceItem appStandardReferenceItem, IServiceUnit serviceUnit, IConfiguration config, IAppProgram appProgram,
+            IAppParameter appParameter, IAppUser appUser) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
         {
             _paramedic = paramedic;
             _serviceUnit = serviceUnit;
+            _appUser = appUser;
         }
 
         public IActionResult HealthRecord()
         {
+            var au = _appUser.AppUserLoad(baseModel.UserID);
             var model = new HealthRecordViewModel
             {
-                getRegistration = _registration.RegistrationEmr(new RegistrationFilter { }, baseModel.UserID),
+                getRegistration = _registration.RegistrationEmr(new RegistrationFilter
+                {
+                    ParamedicID = !string.IsNullOrEmpty(baseModel.ParamedicID) ? baseModel.ParamedicID : string.Empty,
+                    ServiceUnitID = !string.IsNullOrEmpty(au.ParamedicId) && !string.IsNullOrEmpty(au.ServiceUnitId) && au.SruserType == Const.Doctor ? au.ServiceUnitId : string.Empty
+                }, baseModel.UserID),
                 IsLoadBillingProgress = IsLoadBillingProgress
             };
 
@@ -45,21 +52,27 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         public async Task<IActionResult> FilterHealthRecord()
         {
             var model = new FilterHealthRecordViewModel();
+            model.IsDropDownEnabled = !string.IsNullOrEmpty(baseModel.ParamedicID) && baseModel.Role == Const.Doctor;
 
-            model.getParamedic ??= [new() { ParamedicID = string.Empty, ParamedicName = string.Empty }];
-            if (model.getParamedic.Count > 0)
+            if (!string.IsNullOrEmpty(baseModel.ParamedicID) && baseModel.Role == Const.Doctor)
+                model.getParamedic ??= [new() { ParamedicID = baseModel.ParamedicID, ParamedicName = _paramedic.GetParamedicName(baseModel.ParamedicID) }];
+            else
             {
-                var paramedic = await _paramedic.GetParamedic(true);
-                if (paramedic.Count > 0)
+                model.getParamedic ??= [new() { ParamedicID = string.Empty, ParamedicName = string.Empty }];
+                if (model.getParamedic.Count > 0)
                 {
-                    foreach (var item in paramedic)
+                    var paramedic = await _paramedic.GetParamedic(true);
+                    if (paramedic.Count > 0)
                     {
-                        var par = new ParamedicDto
+                        foreach (var item in paramedic)
                         {
-                            ParamedicID = item.ParamedicID,
-                            ParamedicName = item.ParamedicName
-                        };
-                        model.getParamedic.Add(par);
+                            var par = new ParamedicDto
+                            {
+                                ParamedicID = item.ParamedicID,
+                                ParamedicName = item.ParamedicName
+                            };
+                            model.getParamedic.Add(par);
+                        }
                     }
                 }
             }
@@ -147,7 +160,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                 getRegistration = _registration.RegistrationEmr(new RegistrationFilter
                 {
                     RegistrationNo = model.RegistrationNo,
-                    ParamedicID = model.ParamedicID,
+                    ParamedicID = !string.IsNullOrEmpty(baseModel.ParamedicID) ? baseModel.ParamedicID : model.ParamedicID,
                     SRRegistrationType = model.SRRegistrationType,
                     ServiceUnitID = model.ServiceUnitID,
                     PatientName = model.PatientName,

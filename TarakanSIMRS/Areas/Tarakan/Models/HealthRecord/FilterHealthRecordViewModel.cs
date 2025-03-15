@@ -10,6 +10,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
         public List<ServiceUnitDto>? getServiceUnit { get; set; }
         public List<AppStandardReferenceItemDto>? getParamedicTeam { get; set; }
         public List<AppStandardReferenceItemDto>? getConfirmedAttendance { get; set; }
+        public bool IsDropDownEnabled { get; set; }
 
         #region Filter
         [DataType(DataType.Text)]
