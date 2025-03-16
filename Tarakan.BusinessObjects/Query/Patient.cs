@@ -19,39 +19,42 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrWhiteSpace(patId))
                 return string.Empty;
 
-            var pat = new EntitySpaces.Generated.Patient();
-            return !pat.LoadByPrimaryKey(patId) ? string.Empty : Converter.GetFullName(pat.FirstName, pat.MiddleName, pat.LastName);
+            var pat = _context.Patients
+                .Where(p => p.PatientId == patId).FirstOrDefault();
+
+            if (pat == null || string.IsNullOrEmpty(pat.PatientId))
+                return string.Empty;
+
+            return Converter.GetFullName(pat.FirstName, pat.MiddleName, pat.LastName);
 
         }
 
         public string PatientChronic(string patId)
         {
-            var edQ = new EntitySpaces.Generated.EpisodeDiagnoseQuery("edQ");
-            var dQ = new EntitySpaces.Generated.DiagnoseQuery("dQ");
-            var dtQ = new EntitySpaces.Generated.DtdQuery("dtQ");
-            var asriQ = new EntitySpaces.Generated.AppStandardReferenceItemQuery("asriQ");
-            var rQ = new EntitySpaces.Generated.RegistrationQuery("rQ");
+            var query = (from ed in _context.EpisodeDiagnoses
+                         join d in _context.Diagnoses
+                             on ed.DiagnoseId equals d.DiagnoseId
+                         join dt in _context.Dtds
+                             on d.DtdNo equals dt.DtdNo
+                         join asri in _context.AppStandardReferenceItems
+                             on new { StandardReferenceId = "DiagnoseType", ItemId = dt.SrchronicDisease }
+                             equals new { asri.StandardReferenceId, asri.ItemId }
+                         join r in _context.Registrations
+                             on ed.RegistrationNo equals r.RegistrationNo
+                         where r.PatientId == patId && r.IsVoid == false && ed.IsVoid == false
+                         select new { asri.ItemName }).Distinct().ToList();
 
-            edQ.Select(asriQ.ItemName)
-                .InnerJoin(dQ).On(dQ.DiagnoseID == edQ.DiagnoseID)
-                .InnerJoin(dtQ).On(dtQ.DtdNo == dQ.DtdNo)
-                .InnerJoin(asriQ).On(asriQ.StandardReferenceID == "ChronicDisease" && asriQ.ItemID == dtQ.SRChronicDisease)
-                .InnerJoin(rQ).On(rQ.RegistrationNo == edQ.RegistrationNo)
-                .Where(rQ.PatientID == patId, rQ.IsVoid == false, edQ.IsVoid == false)
-                .Distinct();
-            var dt = edQ.LoadDataTable();
-
-            if (dt.Rows.Count == 0)
+            if (query.Count == 0)
                 return string.Empty;
 
             string chronic = string.Empty;
-            foreach (DataRow dr in dt.Rows)
+            foreach (var item in query)
             {
-                chronic = $"{chronic}, {dr[0]}";
+                chronic = $"{chronic}, {item.ItemName}";
             }
 
             if (!string.IsNullOrEmpty(chronic))
-                chronic = chronic.Substring(2);
+                chronic = chronic[2..];
 
             return chronic;
         }
@@ -61,11 +64,14 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(riskStatus))
                 return new AppStandardReferenceItemDto();
 
-            var asri = new EntitySpaces.Generated.AppStandardReferenceItem();
-            if (!asri.LoadByPrimaryKey("PatientRiskStatus", riskStatus))
+            var query = (from asri in _context.AppStandardReferenceItems
+                         where asri.StandardReferenceId == "PatientRiskStatus" && asri.ItemId == riskStatus
+                         select new { asri.ItemId, asri.StandardReferenceId, asri.ItemName }).FirstOrDefault();
+
+            if (query == null || string.IsNullOrEmpty(query.ItemId))
                 return new AppStandardReferenceItemDto();
 
-            string color = asri.ItemID switch
+            string color = query.ItemId switch
             {
                 "0" => "green",
                 "1" => "yellow",
@@ -75,9 +81,9 @@ namespace Tarakan.BusinessObjects.Query
 
             return new AppStandardReferenceItemDto
             {
-                StandardReferenceID = asri.StandardReferenceID,
-                ItemID = asri.ItemID,
-                ItemName = asri.ItemName,
+                StandardReferenceID = query.StandardReferenceId,
+                ItemID = query.ItemId,
+                ItemName = query.ItemName,
                 ColorCSS = color
             };
         }
@@ -104,3 +110,4 @@ namespace Tarakan.BusinessObjects.Query
         }
     }
 }
+ 

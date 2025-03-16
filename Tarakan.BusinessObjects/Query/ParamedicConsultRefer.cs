@@ -8,7 +8,7 @@ namespace Tarakan.BusinessObjects.Query
     {
         public ParamedicConsultRefer(AppDbContext context) : base(context)
         {
-            
+
         }
 
         public ParamedicConsultReferDto LoadByPrimaryKey(string refNo)
@@ -16,42 +16,44 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(refNo))
                 return new ParamedicConsultReferDto();
 
-            var pcr = new EntitySpaces.Generated.ParamedicConsultRefer();
-            if (!pcr.LoadByPrimaryKey(refNo))
+            var pcr = _context.ParamedicConsultRefers
+                .Where(p => p.ConsultReferNo == refNo).FirstOrDefault();
+
+            if (pcr == null || string.IsNullOrEmpty(pcr.ConsultReferNo))
                 return new ParamedicConsultReferDto();
 
             return new ParamedicConsultReferDto
             {
                 ConsultReferNo = pcr.ConsultReferNo,
-                ConsultDateTime = pcr.ConsultDateTime ?? new DateTime(),
+                ConsultDateTime = pcr.ConsultDateTime,
                 RegistrationNo = pcr.RegistrationNo,
-                ParamedicId = pcr.ParamedicID,
-                SrparamedicConsultType = pcr.SRParamedicConsultType,
-                ConsultReferType = pcr.ConsultReferType == null ? string.Empty : Convert.ToString(pcr.ConsultReferType),
-                ToServiceUnitId = pcr.ToServiceUnitID,
-                ToParamedicId = pcr.ToParamedicID,
-                ToRoomId = pcr.ToRoomID,
+                ParamedicId = pcr.ParamedicId,
+                SrparamedicConsultType = pcr.SrparamedicConsultType ?? string.Empty,
+                ConsultReferType = pcr.ConsultReferType,
+                ToServiceUnitId = pcr.ToServiceUnitId ?? string.Empty,
+                ToParamedicId = pcr.ToParamedicId ?? string.Empty,
+                ToRoomId = pcr.ToRoomId ?? string.Empty,
                 ToRegistrationQue = pcr.ToRegistrationQue,
-                ChiefComplaint = pcr.ChiefComplaint,
-                PastMedicalHistory = pcr.PastMedicalHistory,
-                Hpi = pcr.Hpi,
-                ActionExamTreatment = pcr.ActionExamTreatment,
-                ActiveMotion = pcr.ActiveMotion,
-                PassiveMotion = pcr.PassiveMotion,
-                Notes = pcr.Notes,
+                ChiefComplaint = pcr.ChiefComplaint ?? string.Empty,
+                PastMedicalHistory = pcr.PastMedicalHistory ?? string.Empty,
+                Hpi = pcr.Hpi ?? string.Empty,
+                ActionExamTreatment = pcr.ActionExamTreatment ?? string.Empty,
+                ActiveMotion = pcr.ActiveMotion ?? string.Empty,
+                PassiveMotion = pcr.PassiveMotion ?? string.Empty,
+                Notes = pcr.Notes ?? string.Empty,
                 AnswerDateTime = pcr.AnswerDateTime,
-                Answer = pcr.Answer,
-                AnswerDiagnose = pcr.AnswerDiagnose,
-                AnswerPlan = pcr.AnswerPlan,
-                AnswerAction = pcr.AnswerAction,
-                ToRegistrationNo = pcr.ToRegistrationNo,
-                ToAppointmentNo = pcr.ToAppointmentNo,
+                Answer = pcr.Answer ?? string.Empty,
+                AnswerDiagnose = pcr.AnswerDiagnose ?? string.Empty,
+                AnswerPlan = pcr.AnswerPlan ?? string.Empty,
+                AnswerAction = pcr.AnswerAction ?? string.Empty,
+                ToRegistrationNo = pcr.ToRegistrationNo ?? string.Empty,
+                ToAppointmentNo = pcr.ToAppointmentNo ?? string.Empty,
                 IsPhysiotherapy = pcr.IsPhysiotherapy,
-                PatientId = pcr.PatientID,
-                SrconsultAnswerType = pcr.SRConsultAnswerType,
+                PatientId = pcr.PatientId ?? string.Empty,
+                SrconsultAnswerType = pcr.SrconsultAnswerType ?? string.Empty,
                 IsVoid = pcr.IsVoid,
-                PhysicianSign = pcr.PhysicianSign,
-                PhysicianAnswerSign = pcr.PhysicianAnswerSign
+                PhysicianSign = pcr.PhysicianSign ?? [],
+                PhysicianAnswerSign = pcr.PhysicianAnswerSign ?? []
             };
         }
     }
