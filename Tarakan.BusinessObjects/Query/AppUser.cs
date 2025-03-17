@@ -17,8 +17,9 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(password))
                 return new AppUserDto();
 
-            var query = _context.AppUsers
-                .Where(au => au.UserId == userId && au.Password == password).FirstOrDefault();
+            var query = (from au in _context.AppUsers
+                         where au.UserId == userId && au.Password == password
+                         select au).FirstOrDefault();
 
             if (query == null || string.IsNullOrEmpty(query.UserId))
                 return new AppUserDto();

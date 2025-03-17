@@ -13,9 +13,9 @@ namespace Tarakan.BusinessObjects.Query
 
         public string[] BringdingBpjs()
         {
-            var query = _context.GuarantorBridgings
-                .Where(gb => Const.Bpjstnipolripns.Contains(gb.SrbridgingType))
-                .Distinct().ToList();
+            var query = (from gb in _context.GuarantorBridgings
+                         where Const.GuarantorBpjs.Contains(gb.SrbridgingType)
+                         select new { gb.GuarantorId }).Distinct().ToList();
 
             return query.Count > 0 ? [..query.Select(g => g.GuarantorId)] : [string.Empty];
         }

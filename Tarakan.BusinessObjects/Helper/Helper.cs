@@ -121,6 +121,30 @@ namespace Tarakan.BusinessObjects.Helper
             return value;
         }
 
+        public static DateTime StringToDateTime(string value, string format)
+        {
+            try
+            {
+                return DateTime.ParseExact(value, format, CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                return new DateTime();
+            }
+        }
+
+        public static TimeSpan StringToTimeSpan(string value)
+        {
+            try
+            {
+                return TimeSpan.Parse(value);
+            }
+            catch
+            {
+                return new TimeSpan();
+            }
+        }
+
         public static string DateFormat(DateTime? dateTime, string format)
         {
             DateTime _dateTime = dateTime ?? DateTime.Now;
@@ -330,10 +354,12 @@ namespace Tarakan.BusinessObjects.Helper
         private static readonly List<string> _medicalNotes = ["SOAP", "SBAR", "ADIME", "Notes"];
         private static readonly List<string> _medicalNotes2 = ["SOAP", "MDS"];
         private static readonly List<string> _medicalNotes3 = ["SOAP", "SBAR", "ADIME", "Notes", "Handover Patient"];
+        private static readonly List<string> _guarantorBpjs = ["BridgingType-001", "BridgingType-004", "BridgingType-005"];
 
         public static IReadOnlyList<string> MedicalNotes => _medicalNotes;
         public static IReadOnlyList<string> MedicalNotes2 => _medicalNotes2;
         public static IReadOnlyList<string> MedicalNotes3 => _medicalNotes3;
+        public static IReadOnlyList<string> GuarantorBpjs => _guarantorBpjs;
         #endregion
     }
 

@@ -7,32 +7,30 @@ namespace Tarakan.BusinessObjects.Query
     {
         public PatientRelated(AppDbContext context) : base(context)
         {
-            
+
         }
 
         public List<string> PatientRelateds(string patId)
         {
-            var _patientRelateds = new List<string>();
+            if (string.IsNullOrWhiteSpace(patId))
+                return [];
 
-            if (string.IsNullOrEmpty(patId))
+            var _patientRelateds = new List<string>();
+            var pr = (from p in _context.PatientRelateds
+                      where p.RelatedPatientId == patId
+                      select new { p.PatientId }).FirstOrDefault();
+
+            _patientRelateds = pr != null && !string.IsNullOrEmpty(pr.PatientId) ? ([pr.PatientId]) : ([patId]);
+            var coll = (from p in _context.PatientRelateds
+                        where p.PatientId == patId
+                        select new { p.PatientId }).ToList();
+
+            if (coll == null || coll.Count == 0)
                 return _patientRelateds;
 
-            var pr = new EntitySpaces.Generated.PatientRelated();
-            pr.Query.Where(pr.Query.RelatedPatientID == patId);
-            pr.Query.Top(1);
-            if (pr.Query.Load() && !string.IsNullOrEmpty(pr.PatientID))
-                _patientRelateds = [pr.PatientID];
-            else
-                _patientRelateds.Add(patId);
-
-            var prColl = new EntitySpaces.Generated.PatientRelatedCollection();
-            prColl.Query.Where(prColl.Query.PatientID == patId);
-            if (prColl.Query.Load() && prColl.Count > 0)
+            foreach (var p in coll)
             {
-                foreach (var item in prColl)
-                {
-                    _patientRelateds.Add(item.PatientID);
-                }
+                _patientRelateds.Add(p.PatientId);
             }
             return _patientRelateds;
         }

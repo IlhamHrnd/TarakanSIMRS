@@ -19,8 +19,9 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrWhiteSpace(patId))
                 return string.Empty;
 
-            var pat = _context.Patients
-                .Where(p => p.PatientId == patId).FirstOrDefault();
+            var pat = (from p in _context.Patients
+                       where p.PatientId == patId
+                       select new { p.FirstName, p.MiddleName, p.LastName, p.PatientId }).FirstOrDefault();
 
             if (pat == null || string.IsNullOrEmpty(pat.PatientId))
                 return string.Empty;
@@ -90,9 +91,11 @@ namespace Tarakan.BusinessObjects.Query
 
         public string PatientAllergy(string patId)
         {
-            var pa = _context.PatientAllergies.Where(p => p.PatientId == patId);
+            var pa = (from p in _context.PatientAllergies
+                     where p.PatientId == patId
+                     select new { p.AllergenName, p.DescAndReaction }).ToList();
 
-            if (!pa.Any())
+            if (pa.Count == 0)
                 return string.Empty;
 
             var sb = new StringBuilder();

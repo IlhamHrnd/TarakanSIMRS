@@ -83,5 +83,8 @@
         public string AssessmentTypeName { get; set; }
         public string SRNursingDiagnosaLevel { get; set; }
         public bool IsFromAskep { get; set; }
+        public string SRAssessmentType { get; set; }
+        public bool IsInitialAssessment { get; set; }
+        public string FromRegistrationNo { get; set; }
     }
 }

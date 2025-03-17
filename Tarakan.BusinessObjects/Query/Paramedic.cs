@@ -18,8 +18,9 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrWhiteSpace(parId))
                 return string.Empty;
 
-            var query = _context.Paramedics.AsQueryable()
-                .Where(par => par.ParamedicId == parId).FirstOrDefault();
+            var query = (from par in _context.Paramedics
+                         where par.ParamedicId == parId
+                         select par).FirstOrDefault();
 
             if (query == null || string.IsNullOrEmpty(query.ParamedicId))
                 return string.Empty;

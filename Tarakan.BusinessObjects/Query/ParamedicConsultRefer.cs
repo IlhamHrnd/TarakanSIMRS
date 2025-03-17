@@ -16,44 +16,45 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(refNo))
                 return new ParamedicConsultReferDto();
 
-            var pcr = _context.ParamedicConsultRefers
-                .Where(p => p.ConsultReferNo == refNo).FirstOrDefault();
+            var query = (from pcr in _context.ParamedicConsultRefers
+                         where pcr.ConsultReferNo == refNo
+                         select pcr).FirstOrDefault();
 
-            if (pcr == null || string.IsNullOrEmpty(pcr.ConsultReferNo))
+            if (query == null || string.IsNullOrEmpty(query.ConsultReferNo))
                 return new ParamedicConsultReferDto();
 
             return new ParamedicConsultReferDto
             {
-                ConsultReferNo = pcr.ConsultReferNo,
-                ConsultDateTime = pcr.ConsultDateTime,
-                RegistrationNo = pcr.RegistrationNo,
-                ParamedicId = pcr.ParamedicId,
-                SrparamedicConsultType = pcr.SrparamedicConsultType ?? string.Empty,
-                ConsultReferType = pcr.ConsultReferType,
-                ToServiceUnitId = pcr.ToServiceUnitId ?? string.Empty,
-                ToParamedicId = pcr.ToParamedicId ?? string.Empty,
-                ToRoomId = pcr.ToRoomId ?? string.Empty,
-                ToRegistrationQue = pcr.ToRegistrationQue,
-                ChiefComplaint = pcr.ChiefComplaint ?? string.Empty,
-                PastMedicalHistory = pcr.PastMedicalHistory ?? string.Empty,
-                Hpi = pcr.Hpi ?? string.Empty,
-                ActionExamTreatment = pcr.ActionExamTreatment ?? string.Empty,
-                ActiveMotion = pcr.ActiveMotion ?? string.Empty,
-                PassiveMotion = pcr.PassiveMotion ?? string.Empty,
-                Notes = pcr.Notes ?? string.Empty,
-                AnswerDateTime = pcr.AnswerDateTime,
-                Answer = pcr.Answer ?? string.Empty,
-                AnswerDiagnose = pcr.AnswerDiagnose ?? string.Empty,
-                AnswerPlan = pcr.AnswerPlan ?? string.Empty,
-                AnswerAction = pcr.AnswerAction ?? string.Empty,
-                ToRegistrationNo = pcr.ToRegistrationNo ?? string.Empty,
-                ToAppointmentNo = pcr.ToAppointmentNo ?? string.Empty,
-                IsPhysiotherapy = pcr.IsPhysiotherapy,
-                PatientId = pcr.PatientId ?? string.Empty,
-                SrconsultAnswerType = pcr.SrconsultAnswerType ?? string.Empty,
-                IsVoid = pcr.IsVoid,
-                PhysicianSign = pcr.PhysicianSign ?? [],
-                PhysicianAnswerSign = pcr.PhysicianAnswerSign ?? []
+                ConsultReferNo = query.ConsultReferNo,
+                ConsultDateTime = query.ConsultDateTime,
+                RegistrationNo = query.RegistrationNo,
+                ParamedicId = query.ParamedicId,
+                SrparamedicConsultType = query.SrparamedicConsultType ?? string.Empty,
+                ConsultReferType = query.ConsultReferType,
+                ToServiceUnitId = query.ToServiceUnitId ?? string.Empty,
+                ToParamedicId = query.ToParamedicId ?? string.Empty,
+                ToRoomId = query.ToRoomId ?? string.Empty,
+                ToRegistrationQue = query.ToRegistrationQue,
+                ChiefComplaint = query.ChiefComplaint ?? string.Empty,
+                PastMedicalHistory = query.PastMedicalHistory ?? string.Empty,
+                Hpi = query.Hpi ?? string.Empty,
+                ActionExamTreatment = query.ActionExamTreatment ?? string.Empty,
+                ActiveMotion = query.ActiveMotion ?? string.Empty,
+                PassiveMotion = query.PassiveMotion ?? string.Empty,
+                Notes = query.Notes ?? string.Empty,
+                AnswerDateTime = query.AnswerDateTime,
+                Answer = query.Answer ?? string.Empty,
+                AnswerDiagnose = query.AnswerDiagnose ?? string.Empty,
+                AnswerPlan = query.AnswerPlan ?? string.Empty,
+                AnswerAction = query.AnswerAction ?? string.Empty,
+                ToRegistrationNo = query.ToRegistrationNo ?? string.Empty,
+                ToAppointmentNo = query.ToAppointmentNo ?? string.Empty,
+                IsPhysiotherapy = query.IsPhysiotherapy,
+                PatientId = query.PatientId ?? string.Empty,
+                SrconsultAnswerType = query.SrconsultAnswerType ?? string.Empty,
+                IsVoid = query.IsVoid,
+                PhysicianSign = query.PhysicianSign ?? [],
+                PhysicianAnswerSign = query.PhysicianAnswerSign ?? []
             };
         }
     }

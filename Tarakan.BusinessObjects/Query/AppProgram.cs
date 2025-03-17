@@ -16,8 +16,12 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrWhiteSpace(programId))
                 return new AppProgramDto();
 
-            var query = _context.AppPrograms.AsQueryable()
-                .Where(ap => ap.ProgramId == programId).FirstOrDefault();
+            var query = (from ap in _context.AppPrograms
+                         where ap.ProgramId == programId
+                         select new { ap.ProgramId, ap.ProgramName, ap.IsProgram, ap.ProgramType, ap.IsProgramAddAble, ap.IsProgramEditAble,
+                         ap.IsProgramDeleteAble, ap.IsProgramViewAble, ap.IsProgramApprovalAble, ap.IsProgramUnApprovalAble, ap.IsProgramVoidAble,
+                         ap.IsProgramUnVoidAble, ap.IsProgramPrintAble, ap.IsMenuAddVisible, ap.IsMenuHomeVisible, ap.IsVisible, ap.IsProgramExportAble,
+                         ap.IsProgramCrossUnitAble, ap.IsProgramPowerUserAble}).FirstOrDefault();
 
             if (query == null || string.IsNullOrEmpty(query.ProgramId))
                 return new AppProgramDto();

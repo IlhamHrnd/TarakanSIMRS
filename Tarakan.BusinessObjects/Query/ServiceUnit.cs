@@ -13,13 +13,16 @@ namespace Tarakan.BusinessObjects.Query
             
         }
 
-        public string GetServiceUnitName(string serviceUnitID)
+        public string GetServiceUnitName(string suId)
         {
-            if (string.IsNullOrEmpty(serviceUnitID))
+            if (string.IsNullOrEmpty(suId))
                 return string.Empty;
 
-            var su = new EntitySpaces.Generated.ServiceUnit();
-            return su.LoadByPrimaryKey(serviceUnitID) ? su.ServiceUnitName : string.Empty;
+            var query = (from su in _context.ServiceUnits
+                         where su.ServiceUnitId == suId
+                         select new { su.ServiceUnitId, su.ServiceUnitName }).FirstOrDefault();
+
+            return query == null || string.IsNullOrEmpty(query.ServiceUnitId) ? string.Empty : query.ServiceUnitName;
         }
 
         [Obsolete]

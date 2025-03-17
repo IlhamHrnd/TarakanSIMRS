@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel;
+using System.Drawing;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 
@@ -73,6 +75,13 @@ namespace Tarakan.BusinessObjects.Custom
                 return $"<a style=\"cursor:pointer;\" onclick=\"javascript:openCpptVerification('{rim.RegistrationInfoMedicId}_{rim.IsFromAskep}','{rim.ParamedicId}','{isUserParamedicDpjp}')\" alt=\"Verification Integrated Notes\" title=\"Verification Integrated Notes\"><i class=\"fa-solid fa-circle-check\"></i></a><br /><br />";
             else
                 return string.Empty;
+        }
+
+        public static string IntegratedEntryAssessment(RegistrationInfoMedicDto rim, string userId)
+        {
+            string mode = IsEditable(rim.IsApproved ?? false, rim.CreatedByUserId, userId) ? "edit" : "view";
+            string icon = IsEditable(rim.IsApproved ?? false, rim.CreatedByUserId, userId) ? "<i class=\"fa-solid fa-pen-to-square\"></i>" : "<i class=\"fa-solid fa-folder-open\"></i>";
+            return $"<a href=\"#\" onclick=\"javascript:entryAssessment('{mode}', '{rim.RegistrationNo}', '{rim.ServiceUnitId}','{rim.SRAssessmentType}','{rim.RegistrationInfoMedicId}','{rim.IsInitialAssessment}','{rim.SrmedicalNotesInputType}','{rim.ReferenceNo}','{rim.FromRegistrationNo}','{rim.ParamedicId}'); return false;\" alt=\"{mode}\" title=\"{mode}\">{icon}</a><br /><br />";
         }
         #endregion
     }

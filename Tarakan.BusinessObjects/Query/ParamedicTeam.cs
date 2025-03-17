@@ -1,4 +1,5 @@
-﻿using Tarakan.BusinessObjects.Dto;
+﻿using Microsoft.EntityFrameworkCore;
+using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Interface;
 using Tarakan.EntityFramework.Base;
 
@@ -19,21 +20,14 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(regNo))
                 return [];
 
-            var query = _context.ParamedicTeams
-                .Where(pt => pt.RegistrationNo == regNo)
-                .OrderBy(pt => pt.SrparamedicTeamStatus)
-                .Select(pt => new ParamedicTeamDto
-                {
-                    ParamedicId = pt.ParamedicId,
-                    SrparamedicTeamStatus = pt.SrparamedicTeamStatus,
-                    StartDate = pt.StartDate,
-                    EndDate = pt.EndDate
-                }).ToList();
+            var query = (from par in _context.ParamedicTeams
+                         where par.RegistrationNo == regNo
+                         select new { par.ParamedicId , par.SrparamedicTeamStatus, par.StartDate, par.EndDate}).ToList();
 
             if (query.Count == 0)
                 return [];
 
-            return query.AsEnumerable()
+            return query
                 .Select(item => new ParamedicTeamDto
                 {
                     ParamedicId = item.ParamedicId,

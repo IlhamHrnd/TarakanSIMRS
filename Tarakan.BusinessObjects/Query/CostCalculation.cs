@@ -16,14 +16,11 @@ namespace Tarakan.BusinessObjects.Query
 
         public void GetBillingTotalEMR(string[] regNos, string srBusinessMethod, decimal plafonAmount, bool isGlobalPlafond, string guarId, bool IsIncludeAdminValue, out decimal patientAmount, out decimal guarantorAmount)
         {
-            var ccQuery = _context.CostCalculations
-                .Join(_context.VwTransactions, cc => cc.TransactionNo, vt => vt.TransactionNo, (cc, vt) => cc)
-                .Where(cc => regNos.Contains(cc.RegistrationNo))
-                .Select(cc => new CostCalculationDto
-                {
-                    PatientAmount = cc.PatientAmount,
-                    GuarantorAmount = cc.GuarantorAmount
-                }).ToList();
+            var ccQuery = (from cc in _context.CostCalculations
+                           join vw in _context.VwTransactions
+                             on cc.TransactionNo equals vw.TransactionNo
+                           where regNos.Contains(cc.RegistrationNo)
+                           select new { cc.PatientAmount, cc.GuarantorAmount }).ToList();
 
             decimal? patient = 0, grr = 0;
             if (ccQuery.Count > 0)
@@ -32,16 +29,10 @@ namespace Tarakan.BusinessObjects.Query
                 grr = ccQuery.Sum(cc => cc.GuarantorAmount);
             }
 
-            var rQuery = _context.Registrations
-                .Where(r => regNos.Contains(r.RegistrationNo))
-                .Select(r => new RegistrationDto
-                {
-                    PatientAdm = r.PatientAdm,
-                    GuarantorAdm = r.GuarantorAdm,
-                    DiscAdmPatient = r.DiscAdmPatient,
-                    DiscAdmGuarantor = r.DiscAdmGuarantor
-                }).ToList();
-            decimal? admin = rQuery.Count > 0 ? rQuery.Sum(r => r.PatientAdm) + rQuery.Sum(r => r.GuarantorAdm) + rQuery.Sum(r => r.DiscAdmPatient) + rQuery.Sum(r => r.DiscAdmGuarantor) : 0;
+            var rQuery = (from r in _context.Registrations
+                         where regNos.Contains(r.RegistrationNo)
+                         select new { r.PatientAdm, r.GuarantorAdm, r.DiscAdmPatient, r.DiscAdmGuarantor}).ToList();
+            decimal ? admin = rQuery.Count > 0 ? rQuery.Sum(r => r.PatientAdm) + rQuery.Sum(r => r.GuarantorAdm) + rQuery.Sum(r => r.DiscAdmPatient) + rQuery.Sum(r => r.DiscAdmGuarantor) : 0;
 
             if (guarId == _appParameter.ParameterString("SelfGuarantor"))
                 patient += admin;

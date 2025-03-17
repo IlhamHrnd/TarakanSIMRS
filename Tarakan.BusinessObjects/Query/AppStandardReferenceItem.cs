@@ -37,18 +37,14 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(referenceId) || string.IsNullOrEmpty(itemId))
                 return string.Empty;
 
-            var query = _context.AppStandardReferenceItems
-                .Where(asri => asri.StandardReferenceId == referenceId && asri.ItemId == itemId)
-                .Select(asri => new AppStandardReferenceItemDto
-                {
-                    ItemID = asri.StandardReferenceId,
-                    ItemName = asri.ItemName ?? string.Empty
-                }).ToList();
+            var query = (from asri in _context.AppStandardReferenceItems
+                         where asri.StandardReferenceId == referenceId && asri.ItemId == itemId
+                         select asri).FirstOrDefault();
 
-            if (query.Count == 0)
+            if (query == null || string.IsNullOrEmpty(query.StandardReferenceId) || string.IsNullOrWhiteSpace(query.ItemName))
                 return string.Empty;
 
-            return query[0].ItemName;
+            return query.ItemName;
         }
     }
 }

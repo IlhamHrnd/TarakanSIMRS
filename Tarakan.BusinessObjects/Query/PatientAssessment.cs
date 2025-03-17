@@ -16,12 +16,9 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(assessmentName) || string.IsNullOrEmpty(regInfoMedicId))
                 return string.Empty;
 
-            var query = _context.PatientAssessments
-                .Where(pa => pa.RegistrationInfoMedicId == regInfoMedicId)
-                .Select(pa => new PatientAssessmentDto
-                {
-                    AdditionalNotes = pa.AdditionalNotes ?? string.Empty
-                }).ToList();
+            var query = (from pa in _context.PatientAssessments
+                        where pa.RegistrationInfoMedicId == regInfoMedicId
+                        select new { pa.AdditionalNotes }).ToList();
 
             if (query.Count == 0)
                 return string.Empty;

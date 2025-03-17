@@ -60,10 +60,11 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(parId))
                 return new AppParameterDto();
 
-            var query = _context.AppParameters.AsQueryable()
-                .Where(ap => ap.ParameterId == parId).FirstOrDefault();
+            var query = (from ap in _context.AppParameters
+                         where ap.ParameterId == parId
+                         select new { ap.ParameterValue, ap.ParameterId, ap.ParameterName, ap.ParameterType }).FirstOrDefault();
 
-            if (query == null || string.IsNullOrEmpty(query.ParameterId))
+            if (query == null || string.IsNullOrEmpty(query.ParameterValue))
                 return new AppParameterDto();
 
             return new AppParameterDto
