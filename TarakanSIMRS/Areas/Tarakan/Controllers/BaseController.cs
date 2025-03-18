@@ -40,6 +40,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         protected AppProgramDto baseAppProgram { get; set; }
         protected bool IsUserVisible { get; set; }
         protected List<string> MergeRegistration { get; set; }
+        protected List<string> RegistrationNos { get; set; }
         protected void SetSessionData<T>(string key, T data)
         {
             HttpContext.Session.SetString(key, JsonConvert.SerializeObject(data));
@@ -131,6 +132,9 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             IsUserVisible = _appProgram.IsUserProgramAllow(baseModel.UserID, programId);
             if (!string.IsNullOrEmpty(RegNo))
                 MergeRegistration = _registration.MergeRegistration(RegNo);
+
+            if (!string.IsNullOrEmpty(RegNo) && !string.IsNullOrEmpty(PatId))
+                RegistrationNos = _registration.RegistrationNos(PatId, _appParameter.ParameterInteger("EmrHistoryRegistrationCount"), RegNo);
         }
     }
 }

@@ -152,6 +152,12 @@ namespace Tarakan.BusinessObjects.Helper
             return _format;
         }
 
+        public static string Currency(decimal amount, string culture)
+        {
+            CultureInfo info = new CultureInfo(culture);
+            return amount.ToString("C", info);
+        }
+
         public static int GetAgeInYear(DateTime dateTime)
         {
             return GetAge(dateTime, DateTime.Today, 0);

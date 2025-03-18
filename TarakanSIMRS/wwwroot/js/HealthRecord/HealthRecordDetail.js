@@ -142,6 +142,20 @@
             console.error("Error loading IntegratedController:", error);
         }
     });
+
+    $.ajax({
+        url: "/Tarakan/Prescription/PrescriptionHistory",
+        type: "GET",
+        contentType: "application/json",
+        data: {},
+        success: function (data) {
+            $("#prescriptionHistory").html(data);
+            $.getScript("/js/Prescription/PrescriptionHistory.js");
+        },
+        error: function (xhr, status, error) {
+            console.error("Error loading PrescriptionController:", error);
+        }
+    });
 });
 
 function backToList() {

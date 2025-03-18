@@ -1,5 +1,4 @@
 ﻿using Tarakan.EntityFramework.Base;
-using G = Tarakan.EntitySpaces.Generated;
 
 namespace Tarakan.BusinessObjects.Query
 {

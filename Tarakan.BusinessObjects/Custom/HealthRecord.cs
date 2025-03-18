@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.EntitySpaces.Generated;

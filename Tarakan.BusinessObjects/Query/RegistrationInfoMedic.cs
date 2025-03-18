@@ -1,7 +1,6 @@
 ﻿using EntitySpaces.DynamicQuery;
 using System.Data;
 using System.Text;
-using System.Text.RegularExpressions;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;

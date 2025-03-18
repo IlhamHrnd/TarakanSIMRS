@@ -15,12 +15,14 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         private readonly IParamedic _paramedic;
         private readonly IServiceUnit _serviceUnit;
         private readonly IAppUser _appUser;
+        private readonly ITransPrescription _transPrescription;
         public HealthRecordController(IRegistration registration, IParamedic paramedic, IAppStandardReferenceItem appStandardReferenceItem, IServiceUnit serviceUnit, IConfiguration config, IAppProgram appProgram,
-            IAppParameter appParameter, IAppUser appUser) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
+            IAppParameter appParameter, IAppUser appUser, ITransPrescription transPrescription) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
         {
             _paramedic = paramedic;
             _serviceUnit = serviceUnit;
             _appUser = appUser;
+            _transPrescription = transPrescription;
         }
 
         public IActionResult HealthRecord()

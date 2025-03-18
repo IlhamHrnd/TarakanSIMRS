@@ -1,0 +1,25 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.Prescription
+@model TransPrescriptionViewModel
+
+@if (Model.getMedicationHistory.Count > 0)
+{
+    <div class="table-responsive">
+        <table id="listCurrentPrescription" class="display table table-striped table-bordered table-hover" style="width:100%">
+            <thead class="text-center">
+                <tr>
+                    <th>Reg. No</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-start">
+                @foreach (var item in Model.getMedicationHistory)
+                {
+                    <tr>
+                        <td>@item.tp.RegistrationNo</td>
+                        <td>@Html.Raw(item.Result)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
