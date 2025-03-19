@@ -1,6 +1,7 @@
 ﻿using EntitySpaces.DynamicQuery;
 using System.Data;
 using System.Text;
+using Tarakan.BusinessObjects.Custom;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
@@ -221,7 +222,7 @@ namespace Tarakan.BusinessObjects.Query
                                 if (!string.IsNullOrEmpty(info))
                                 {
                                     var au = _appUser.AppUserLoad(info);
-                                    var submitByValue = _appUser.AppUserString(au.UserName, info);
+                                    var submitByValue = _appUser.AppUserString(au.au.UserName, info);
                                     sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{"Submit By"}:</td><td valign='top'>{submitByValue}</td></tr>");
                                     sbNote.AppendLine();
                                 }
@@ -233,7 +234,7 @@ namespace Tarakan.BusinessObjects.Query
                                 if (!string.IsNullOrEmpty(info))
                                 {
                                     var au = _appUser.AppUserLoad(info);
-                                    var receiveByString = _appUser.AppUserString(au.UserName, info);
+                                    var receiveByString = _appUser.AppUserString(au.au.UserName, info);
                                     sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold;width:{collWidth}px; padding-left:2px'>{"Receive By"}:</td><td valign='top'>{receiveByString}</td></tr>");
                                     sbNote.AppendLine();
                                 }
@@ -287,7 +288,7 @@ namespace Tarakan.BusinessObjects.Query
                         var answerMenu = string.Empty;
                         var pcr = _paramedicConsultRefer.LoadByPrimaryKey((string)dr["ReferenceNo"]);
                         if (!string.IsNullOrEmpty(pcr.ConsultReferNo) && pcr.ToParamedicId == parId)
-                            answerMenu = $"<a href=\"javascript:void(0);\" onclick=\"javascript:entryParamedicConsultAnswer('{dr["ReferenceNo"]}','{dr["RegistrationNo"]}')\"><i class=\"fa-solid fa-pen-to-square\"></i></a>";
+                            answerMenu = $"<a href=\"javascript:void(0);\" onclick=\"javascript:entryParamedicConsultAnswer('{dr["ReferenceNo"]}','{dr["RegistrationNo"]}')\"><i class=\"{BaseIcon.Pensquare}\"></i></a>";
 
                         sbNote.AppendFormat($"<tr><td colspan='2' style='padding-left:2px;'>{answerMenu}Answer :</td></tr>");
                         sbNote.AppendFormat($"<tr><td width:10px'>&nbsp;</td><td>{Converter.FormatToHtml(pcr.Answer)}</td></tr>");
@@ -302,7 +303,7 @@ namespace Tarakan.BusinessObjects.Query
                         var info2 = Converter.ReplaceWitBreakLineHTML((string)dr["Info2"]);
                         if (!string.IsNullOrEmpty(info2))
                         {
-                            sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold; width:10px;padding-left:2px'>Respond:</td><td valign='top'>{info2}{((string.IsNullOrEmpty((string)dr["TemplateID"]) || (string)dr["TemplateID"] == "0") ? "" : $" <a href=\"javascript:void(0);\" onclick=\"javascript:OpenTableRespond('{(string)dr["TemplateID"]}')\"><i class=\"fa-solid fa-eye\"></i></a>")}</td></tr>");
+                            sbNote.AppendFormat($"<tr><td class='label' valign='top' style='font-weight: bold; width:10px;padding-left:2px'>Respond:</td><td valign='top'>{info2}{((string.IsNullOrEmpty((string)dr["TemplateID"]) || (string)dr["TemplateID"] == "0") ? "" : $" <a href=\"javascript:void(0);\" onclick=\"javascript:OpenTableRespond('{(string)dr["TemplateID"]}')\"><i class=\"{BaseIcon.Eye}\"></i></a>")}</td></tr>");
                             sbNote.AppendLine();
                         }
                         break;
@@ -318,7 +319,7 @@ namespace Tarakan.BusinessObjects.Query
                 if (dr["ApprovedDateTime"] != DBNull.Value)
                 {
                     var label = dr["ParamedicID"] == DBNull.Value ? _appParameter.ParameterString("IntNotesVerifLabelReview") : _appParameter.ParameterString("IntNotesVerifLabel");
-                    var approvedDate = $"<i class=\"fa-solid fa-square-check\"></i>&nbsp;{label}: {Convert.ToDateTime(dr["ApprovedDateTime"]).ToString(Const.Datetimesecond)} By: {_paramedic.GetParamedicName((string)dr["ApprovedByUserID"])} ({dr["ApprovedByUserID"]})";
+                    var approvedDate = $"<i class=\"{BaseIcon.Checksquare}\"></i>&nbsp;{label}: {Convert.ToDateTime(dr["ApprovedDateTime"]).ToString(Const.Datetimesecond)} By: {_paramedic.GetParamedicName((string)dr["ApprovedByUserID"])} ({dr["ApprovedByUserID"]})";
                     sbNote.AppendFormat($"<tr><td colspan='2' style='horiz-align: right;'>{approvedDate}</td></tr>");
                 }
 

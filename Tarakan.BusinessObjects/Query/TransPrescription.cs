@@ -56,7 +56,7 @@ namespace Tarakan.BusinessObjects.Query
                 var au = _appUser.AppUserLoad((string)dr["CreatedByUserID"]);
                 var sb = new StringBuilder();
                 sb.AppendLine($"<div class=\"card\" style=\"{((bool)dr["IsVoid"] ? "text-decoration: line-through" : "")}\">");
-                sb.AppendLine($"<h5 class=\"card-header text-center\" style=\"background-color: {Integrated.GetColorOfUserType(au.SruserType)}\">{dr["PrescriptionNo"]} @ {Converter.DateFormat((DateTime)dr["PrescriptionDate"], Const.Dateshortmonth)} By {au.UserName}</h5>");
+                sb.AppendLine($"<h5 class=\"card-header text-center\" style=\"background-color: {Integrated.GetColorOfUserType(au.au.SruserType)}\">{dr["PrescriptionNo"]} @ {Converter.DateFormat((DateTime)dr["PrescriptionDate"], Const.Dateshortmonth)} By {au.au.UserName}</h5>");
                 sb.AppendLine("<div class=\"card-body\">");
                 sb.AppendLine(sbItem.ToString());
                 sb.AppendLine("</div>");
@@ -115,7 +115,7 @@ namespace Tarakan.BusinessObjects.Query
                 var au = _appUser.AppUserLoad((string)dr["CreatedByUserID"]);
                 var sb = new StringBuilder();
                 sb.AppendLine($"<div class=\"card\" style=\"{((bool)dr["IsVoid"] ? "text-decoration: line-through" : "")}\">");
-                sb.AppendLine($"<h5 class=\"card-header text-center\" style=\"background-color: {Integrated.GetColorOfUserType(au.SruserType)}\">{dr["PrescriptionNo"]} @ {Converter.DateFormat((DateTime)dr["PrescriptionDate"], Const.Dateshortmonth)} By {au.UserName}</h5>");
+                sb.AppendLine($"<h5 class=\"card-header text-center\" style=\"background-color: {Integrated.GetColorOfUserType(au.au.SruserType)}\">{dr["PrescriptionNo"]} @ {Converter.DateFormat((DateTime)dr["PrescriptionDate"], Const.Dateshortmonth)} By {au.au.UserName}</h5>");
                 sb.AppendLine("<div class=\"card-body\">");
                 sb.AppendLine(sbItem.ToString());
                 sb.AppendLine("</div>");

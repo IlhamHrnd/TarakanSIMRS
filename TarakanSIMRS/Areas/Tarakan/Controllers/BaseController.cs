@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
+using Tarakan.BusinessObjects.Custom;
 using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
-using TarakanSIMRS.Areas.Tarakan.Models;
 
 namespace TarakanSIMRS.Areas.Tarakan.Controllers
 {
@@ -34,7 +34,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         protected string RoomId { get; set; }
         protected string PatId { get; set; }
         protected bool IsDoctorDuty { get; set; }
-        protected BaseModel baseModel { get; set; }
+        protected BaseCustom baseCustom { get; set; }
         protected bool IsLoadBillingProgress { get; set; }
         protected bool IsLoginDoctor { get; set; }
         protected AppProgramDto baseAppProgram { get; set; }
@@ -62,7 +62,13 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             Page = !string.IsNullOrEmpty(Request.Query["currentPage"]) ? Converter.StringToInt(Request.Query["currentPage"]) : 1;
             PageSize = !string.IsNullOrEmpty(Request.Query["pageSize"]) ? Converter.StringToInt(Request.Query["pageSize"]) : 1;
             IsDoctorDuty = Request.Query["isDocDuty"] == "True" || Request.Query["isDocDuty"] == "Yes";
-            string? programId = Request.Query.ContainsKey("pgId") && !string.IsNullOrEmpty(Request.Query["pgId"]) ? Request.Query["pgId"].ToString() : ViewData["pgId"]?.ToString();
+            string programId;
+            if (Request.Query.ContainsKey("pgId") && !string.IsNullOrEmpty(Request.Query["pgId"]))
+                programId = Request.Query["pgId"];
+            else if (ViewData["pgId"] != null)
+                programId = ViewData["pgId"].ToString();
+            else
+                programId = string.Empty;
 
             //View Bag
             ViewData["currentPage"] = Page;
@@ -100,9 +106,9 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             //User
             if (User.Identity.IsAuthenticated)
             {
-                var model = GetSessionData<BaseModel>("BaseModel");
-                if (model == null)
-                    SetSessionData("BaseModel", baseModel = new BaseModel
+                var custom = GetSessionData<BaseCustom>("BaseCustom");
+                if (custom == null)
+                    SetSessionData("BaseCustom", baseCustom = new BaseCustom
                     {
                         UserID = User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value,
                         Username = User.Claims.FirstOrDefault(c => c.Type == "Username")?.Value,
@@ -113,23 +119,26 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                     });
                 else
                 {
-                    baseModel = model;
-                    ViewData["UserId"] = model.UserID;
-                    ViewData["UserParId"] = model.ParamedicID;
-                    ViewData["UserRole"] = model.Role;
+                    baseCustom = custom;
+                    ViewData["UserId"] = custom.UserID;
+                    ViewData["UserParId"] = custom.ParamedicID;
+                    ViewData["UserRole"] = custom.Role;
                 }
             }
 
             //Condition
             IsLoadBillingProgress = _config["Tarakan:IsLoadBillingProgress"].ToLower() == "true" || _config["Tarakan:IsLoadBillingProgress"].ToLower() == "yes";
-            IsLoginDoctor = baseModel.Role == Const.Doctor && !string.IsNullOrEmpty(baseModel.ParamedicID);
+            IsLoginDoctor = baseCustom.Role == Const.Doctor && !string.IsNullOrEmpty(baseCustom.ParamedicID);
 
             //Load Program
-            baseAppProgram = _appProgram.LoadAppProgram(programId);
-            if (baseAppProgram != null && !string.IsNullOrEmpty(baseAppProgram.ProgramName))
-                ViewData["Title"] = baseAppProgram.ProgramName;
+            if (!string.IsNullOrEmpty(programId))
+            {
+                baseAppProgram = _appProgram.LoadAppProgram(programId);
+                if (baseAppProgram != null)
+                    ViewData["Title"] = baseAppProgram.ap.ProgramName;
+            }
 
-            IsUserVisible = _appProgram.IsUserProgramAllow(baseModel.UserID, programId);
+            IsUserVisible = _appProgram.IsUserProgramAllow(baseCustom.UserID, programId);
             if (!string.IsNullOrEmpty(RegNo))
                 MergeRegistration = _registration.MergeRegistration(RegNo);
 

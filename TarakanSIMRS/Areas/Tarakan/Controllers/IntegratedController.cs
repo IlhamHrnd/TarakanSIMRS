@@ -22,8 +22,8 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         {
             var model = new IntegratedNoteViewModel
             {
-                getIntegratedNote = _registrationInfoMedic.IntegratedNotes(RegType, RegNo, MergeRegistration, PatId, string.Empty, baseModel.UserID),
-                isUserParamedicDpjp = _paramedic.IsUserParamedicDpjp(baseModel.ParamedicID, RegNo, DateTime.Now)
+                getIntegratedNote = _registrationInfoMedic.IntegratedNotes(RegType, RegNo, MergeRegistration, PatId, string.Empty, baseCustom.UserID),
+                isUserParamedicDpjp = _paramedic.IsUserParamedicDpjp(baseCustom.ParamedicID, RegNo, DateTime.Now)
             };
 
             return PartialView(model);

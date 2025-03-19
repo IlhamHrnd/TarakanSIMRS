@@ -28,7 +28,7 @@ namespace Tarakan.BusinessObjects.Query
                 {
                     StandardReferenceID = asri.StandardReferenceId,
                     ItemID = asri.ItemId,
-                    ItemName = asri.ItemName ?? string.Empty
+                        ItemName = asri.ItemName ?? string.Empty
                 }).ToListAsync();
         }
 

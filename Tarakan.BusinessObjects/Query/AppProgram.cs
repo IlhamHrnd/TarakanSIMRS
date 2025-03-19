@@ -28,25 +28,28 @@ namespace Tarakan.BusinessObjects.Query
 
             return new AppProgramDto
             {
-                ProgramId = query.ProgramId,
-                ProgramName = query.ProgramName,
-                IsProgram = query.IsProgram,
-                ProgramType = query.ProgramType ?? string.Empty,
-                IsProgramAddAble = query.IsProgramAddAble,
-                IsProgramEditAble = query.IsProgramEditAble,
-                IsProgramDeleteAble = query.IsProgramDeleteAble,
-                IsProgramViewAble = query.IsProgramViewAble,
-                IsProgramApprovalAble = query.IsProgramApprovalAble,
-                IsProgramUnApprovalAble = query.IsProgramUnApprovalAble,
-                IsProgramVoidAble = query.IsProgramVoidAble,
-                IsProgramUnVoidAble = query.IsProgramUnVoidAble,
-                IsProgramPrintAble = query.IsProgramPrintAble,
-                IsMenuAddVisible = query.IsMenuAddVisible,
-                IsMenuHomeVisible = query.IsMenuHomeVisible,
-                IsVisible = query.IsVisible,
-                IsProgramExportAble = query.IsProgramExportAble,
-                IsProgramCrossUnitAble = query.IsProgramCrossUnitAble,
-                IsProgramPowerUserAble = query.IsProgramPowerUserAble
+                ap = new EntityFramework.Models.AppProgram
+                {
+                    ProgramId = query.ProgramId,
+                    ProgramName = query.ProgramName,
+                    IsProgram = query.IsProgram,
+                    ProgramType = query.ProgramType ?? string.Empty,
+                    IsProgramAddAble = query.IsProgramAddAble,
+                    IsProgramEditAble = query.IsProgramEditAble,
+                    IsProgramDeleteAble = query.IsProgramDeleteAble,
+                    IsProgramViewAble = query.IsProgramViewAble,
+                    IsProgramApprovalAble = query.IsProgramApprovalAble,
+                    IsProgramUnApprovalAble = query.IsProgramUnApprovalAble,
+                    IsProgramVoidAble = query.IsProgramVoidAble,
+                    IsProgramUnVoidAble = query.IsProgramUnVoidAble,
+                    IsProgramPrintAble = query.IsProgramPrintAble,
+                    IsMenuAddVisible = query.IsMenuAddVisible,
+                    IsMenuHomeVisible = query.IsMenuHomeVisible,
+                    IsVisible = query.IsVisible,
+                    IsProgramExportAble = query.IsProgramExportAble,
+                    IsProgramCrossUnitAble = query.IsProgramCrossUnitAble,
+                    IsProgramPowerUserAble = query.IsProgramPowerUserAble
+                }
             };
         }
 

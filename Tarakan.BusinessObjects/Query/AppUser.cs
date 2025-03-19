@@ -26,26 +26,29 @@ namespace Tarakan.BusinessObjects.Query
 
             return new AppUserDto
             {
-                UserId = query.UserId,
-                UserName = query.UserName,
-                Srlanguage = query.Srlanguage,
-                ActiveDate = query.ActiveDate,
-                ExpireDate = query.ExpireDate,
-                LastUpdateDateTime = query.LastUpdateDateTime,
-                LastUpdateByUserId = query.LastUpdateByUserId ?? string.Empty,
-                ParamedicId = query.ParamedicId ?? string.Empty,
-                ServiceUnitId = query.ServiceUnitId ?? string.Empty,
-                LicenseNo = query.LicenseNo ?? string.Empty,
-                PersonId = query.PersonId,
-                Email = query.Email ?? string.Empty,
-                IsLocked = query.IsLocked,
-                SruserType = query.SruserType ?? string.Empty,
-                CashManagementNo = query.CashManagementNo ?? string.Empty,
-                SignatureImage = query.SignatureImage ?? [],
-                LastCounterName = query.LastCounterName ?? string.Empty,
-                PasswordMd5 = query.PasswordMd5 ?? string.Empty,
-                LastLogin = query.LastLogin,
-                EsignNik = query.EsignNik ?? string.Empty
+                au = new EntityFramework.Models.AppUser
+                {
+                    UserId = query.UserId,
+                    UserName = query.UserName,
+                    Srlanguage = query.Srlanguage,
+                    ActiveDate = query.ActiveDate,
+                    ExpireDate = query.ExpireDate,
+                    LastUpdateDateTime = query.LastUpdateDateTime,
+                    LastUpdateByUserId = query.LastUpdateByUserId ?? string.Empty,
+                    ParamedicId = query.ParamedicId ?? string.Empty,
+                    ServiceUnitId = query.ServiceUnitId ?? string.Empty,
+                    LicenseNo = query.LicenseNo ?? string.Empty,
+                    PersonId = query.PersonId,
+                    Email = query.Email ?? string.Empty,
+                    IsLocked = query.IsLocked,
+                    SruserType = query.SruserType ?? string.Empty,
+                    CashManagementNo = query.CashManagementNo ?? string.Empty,
+                    SignatureImage = query.SignatureImage ?? [],
+                    LastCounterName = query.LastCounterName ?? string.Empty,
+                    PasswordMd5 = query.PasswordMd5 ?? string.Empty,
+                    LastLogin = query.LastLogin,
+                    EsignNik = query.EsignNik ?? string.Empty
+                }
             };
         }
 
@@ -54,18 +57,14 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(userId))
                 return string.Empty;
 
-            var query = _context.AppUsers
-                .Where(au => au.UserId == userId && au.IsLocked == false)
-                .Select(au => new AppUserDto
-                {
-                    UserId = au.UserId,
-                    UserName = au.UserName
-                }).ToList();
+            var query = (from au in _context.AppUsers
+                        where au.UserId == userId
+                        select new { au.UserId, au.UserName }).FirstOrDefault();
 
-            if (query.Count == 0)
+            if (query == null || string.IsNullOrEmpty(query.UserName))
                 return string.Empty;
 
-            return query[0].UserName;
+            return query.UserName;
         }
 
         public AppUserDto AppUserLoad(string userId)
@@ -73,27 +72,23 @@ namespace Tarakan.BusinessObjects.Query
             if (string.IsNullOrEmpty(userId))
                 return new AppUserDto();
 
-            var query = _context.AppUsers
-                .Where(au => au.UserId == userId)
-                .Select(au => new AppUserDto
-                {
-                    UserId = au.UserId,
-                    UserName = au.UserName,
-                    ServiceUnitId = au.ServiceUnitId ?? string.Empty,
-                    ParamedicId = au.ParamedicId ?? string.Empty,
-                    SruserType = au.SruserType ?? string.Empty
-                }).FirstOrDefault();
+            var query = (from au in _context.AppUsers
+                         where au.UserId == userId
+                         select new { au.UserId, au.UserName, au.ServiceUnitId, au.ParamedicId, au.SruserType }).FirstOrDefault();
 
-            if (query == null || string.IsNullOrEmpty(query.UserId))
+            if (query == null || string.IsNullOrEmpty(query.UserName))
                 return new AppUserDto();
 
             return new AppUserDto
             {
-                UserId = query.UserId,
-                UserName = query.UserName,
-                ServiceUnitId = query.ServiceUnitId,
-                ParamedicId = query.ParamedicId,
-                SruserType = query.SruserType
+                au = new EntityFramework.Models.AppUser
+                {
+                    UserId = query.UserId,
+                    UserName = query.UserName,
+                    ServiceUnitId = query.ServiceUnitId,
+                    ParamedicId = query.ParamedicId,
+                    SruserType = query.SruserType
+                }
             };
         }
 

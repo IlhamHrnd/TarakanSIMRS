@@ -1,5 +1,4 @@
-﻿using Tarakan.BusinessObjects.Dto;
-using Tarakan.BusinessObjects.Interface;
+﻿using Tarakan.BusinessObjects.Interface;
 using Tarakan.EntityFramework.Base;
 
 namespace Tarakan.BusinessObjects.Query

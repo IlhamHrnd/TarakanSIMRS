@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Tarakan.BusinessObjects.Dto;
+﻿using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Interface;
 using Tarakan.EntityFramework.Base;
 

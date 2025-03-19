@@ -18,10 +18,10 @@ namespace Tarakan.BusinessObjects.Query
                 return string.Empty;
 
             var ap = Parameter(parId);
-            if (ap == null || string.IsNullOrEmpty(ap.ParameterValue))
+            if (ap == null || ap.ap == null || string.IsNullOrEmpty(ap.ap.ParameterValue))
                 return string.Empty;
 
-            return ap.ParameterValue;
+            return ap.ap.ParameterValue;
         }
 
         public int ParameterInteger(string parId)
@@ -30,12 +30,12 @@ namespace Tarakan.BusinessObjects.Query
                 return 0;
 
             var ap = Parameter(parId);
-            if (ap == null || string.IsNullOrEmpty(ap.ParameterValue))
+            if (ap == null || string.IsNullOrEmpty(ap.ap.ParameterValue))
                 return 0;
 
             try
             {
-                return Converter.StringToInt(ap.ParameterValue);
+                return Converter.StringToInt(ap.ap.ParameterValue);
             }
             catch
             {
@@ -49,10 +49,10 @@ namespace Tarakan.BusinessObjects.Query
                 return false;
 
             var ap = Parameter(parId);
-            if (ap == null || string.IsNullOrEmpty(ap.ParameterValue))
+            if (ap == null || string.IsNullOrEmpty(ap.ap.ParameterValue))
                 return false;
 
-            return Converter.StringToBool(ap.ParameterValue);
+            return Converter.StringToBool(ap.ap.ParameterValue);
         }
 
         private AppParameterDto Parameter(string parId)
@@ -69,10 +69,13 @@ namespace Tarakan.BusinessObjects.Query
 
             return new AppParameterDto
             {
-                ParameterId = query.ParameterId,
-                ParameterName = query.ParameterName,
-                ParameterType = query.ParameterType,
-                ParameterValue = query.ParameterValue
+                ap = new EntityFramework.Models.AppParameter
+                {
+                    ParameterValue = query.ParameterValue,
+                    ParameterId = query.ParameterId,
+                    ParameterName = query.ParameterName,
+                    ParameterType = query.ParameterType
+                }
             };
         }
     }

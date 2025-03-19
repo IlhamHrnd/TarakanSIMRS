@@ -52,7 +52,7 @@ namespace TarakanSIMRS.Controllers
                 return View(model);
 
             var au = _appUser.LoadByPrimaryKey(model.UserId, SecureTarakan.Encrypt(model.Password, _config["Tarakan:Key01"], _config["Tarakan:Key02"]));
-            if (string.IsNullOrEmpty(au.UserName))
+            if (string.IsNullOrEmpty(au.au.UserName))
             {
                 ModelState.AddModelError("Failed", "User Not Found");
                 return View(model);
@@ -60,13 +60,13 @@ namespace TarakanSIMRS.Controllers
 
             var claims = new List<Claim>
             {
-                new Claim("UserID", au.UserId),
-                new Claim("Username", au.UserName),
-                new Claim("Expired", au.ExpireDate.ToString(Const.Date)),
-                new Claim("ParamedicID", au.ParamedicId),
-                new Claim("ServiceUnitID", au.ServiceUnitId),
-                new Claim("PersonID", au.PersonId is 0 or null ? string.Empty : au.PersonId.ToString()),
-                new Claim("Role", au.SruserType)
+                new Claim("UserID", au.au.UserId),
+                new Claim("Username", au.au.UserName),
+                new Claim("Expired", au.au.ExpireDate.ToString(Const.Date)),
+                new Claim("ParamedicID", au.au.ParamedicId ?? string.Empty),
+                new Claim("ServiceUnitID", au.au.ServiceUnitId ?? string.Empty),
+                new Claim("PersonID", au.au.PersonId == 0 || au.au.PersonId == null ? string.Empty : au.au.PersonId.ToString()),
+                new Claim("Role", au.au.SruserType ?? string.Empty)
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

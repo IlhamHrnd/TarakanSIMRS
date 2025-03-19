@@ -1,4 +1,5 @@
-﻿@using TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
+﻿@using Tarakan.BusinessObjects.Custom
+@using TarakanSIMRS.Areas.Tarakan.Models.HealthRecord
 @model HealtRecordDetailViewModel
 
 @section Scripts {
@@ -10,40 +11,40 @@
 
 <div class="d-flex flex-wrap gap-2 mb-2">
     <a class="btn btn-primary flex-grow-1 text-start" data-bs-toggle="offcanvas" data-bs-target="#patientDetail" aria-controls="patientDetail">
-        <i class="fa-solid fa-circle-info"></i> Information
+        <i class="@BaseIcon.Infocircle"></i> Information
     </a>
     <a class="btn btn-outline-primary flex-grow-1 text-start" onclick="backToList()">
-        <i class="fa-solid fa-bars"></i> Back To List
+        <i class="@BaseIcon.Bar"></i> Back To List
     </a>
 </div>
 <div class="d-flex flex-wrap gap-2 mb-2">
     <a class="btn btn-primary flex-grow-1 text-start" href="#scrollspyIntegratedNote">
-        <i class="fas fa-notes-medical"></i> Integrated Notes
+        <i class="@BaseIcon.Medicalnote"></i> Integrated Notes
     </a>
     <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyMedication">
-        <i class="fas fa-pills"></i> Medication
+        <i class="@BaseIcon.Pills"></i> Medication
     </a>
     <a class="btn btn-outline-primary flex-grow-1" href="#scrollspySurgicalHistory">
-        <i class="fas fa-history"></i> Surgical History
+        <i class="@BaseIcon.History"></i> Surgical History
     </a>
     <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyExamOrder">
-        <i class="fa-solid fa-laptop-medical"></i> Exam Order
+        <i class="@BaseIcon.Laptop"></i> Exam Order
     </a>
     <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyHealthRecord">
-        <i class="fa-solid fa-laptop-medical"></i> Health Record
+        <i class="@BaseIcon.Laptop"></i> Health Record
     </a>
     <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyCarePlan">
-        <i class="fa-solid fa-user-nurse"></i> Care Plan
+        <i class="@BaseIcon.Nurse"></i> Care Plan
     </a>
     <a class="btn btn-outline-primary flex-grow-1" href="#scrollspyScheduling">
-        <i class="fa-solid fa-calendar-days"></i> Scheduling
+        <i class="@BaseIcon.Calender"></i> Scheduling
     </a>
 </div>
 <div class="card" id="scrollspyIntegratedNote">
     <div class="card-header">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <i class="fa-solid fa-prescription-bottle-medical"></i> Integrated Note
+                <i class="@BaseIcon.Bottle"></i> Integrated Note
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#integratedBar" aria-controls="integratedBar" aria-expanded="false" aria-label="Toggle integratedBar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -58,19 +59,19 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Progress Note</a>
+                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-retweet"></i> PPA note</a>
+                            <a class="nav-link" href="#"><i class="@BaseIcon.Retweet"></i> PPA note</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Progress Note</a>
+                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Progress Note</a>
+                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Progress Note</a>
+                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
                         </li>
                     </ul>
                 </div>
@@ -83,17 +84,17 @@
     <div class="card-header">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <i class="fa-solid fa-prescription-bottle-medical"></i> Medication
+                <i class="@BaseIcon.Bottle"></i> Medication
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#medicationBar" aria-controls="medicationBar" aria-expanded="false" aria-label="Toggle medicationBar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="medicationBar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Add Prescription</a>
+                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Add Prescription</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-file"></i> Direct Prescription</a>
+                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Direct Prescription</a>
                         </li>
                     </ul>
                 </div>

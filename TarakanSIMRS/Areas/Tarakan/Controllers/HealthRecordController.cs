@@ -15,25 +15,23 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         private readonly IParamedic _paramedic;
         private readonly IServiceUnit _serviceUnit;
         private readonly IAppUser _appUser;
-        private readonly ITransPrescription _transPrescription;
         public HealthRecordController(IRegistration registration, IParamedic paramedic, IAppStandardReferenceItem appStandardReferenceItem, IServiceUnit serviceUnit, IConfiguration config, IAppProgram appProgram,
-            IAppParameter appParameter, IAppUser appUser, ITransPrescription transPrescription) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
+            IAppParameter appParameter, IAppUser appUser) : base(config, appProgram, registration, appParameter, appStandardReferenceItem)
         {
             _paramedic = paramedic;
             _serviceUnit = serviceUnit;
             _appUser = appUser;
-            _transPrescription = transPrescription;
         }
 
         public IActionResult HealthRecord()
         {
-            var au = _appUser.AppUserLoad(baseModel.UserID);
+            var au = _appUser.AppUserLoad(baseCustom.UserID);
             var model = new HealthRecordViewModel
             {
                 getRegistration = _registration.RegistrationEmr(new RegistrationFilter
                 {
-                    ParamedicID = !string.IsNullOrEmpty(baseModel.ParamedicID) ? baseModel.ParamedicID : string.Empty,
-                    ServiceUnitID = !string.IsNullOrEmpty(au.ParamedicId) && !string.IsNullOrEmpty(au.ServiceUnitId) && au.SruserType == Const.Doctor ? au.ServiceUnitId : string.Empty,
+                    ParamedicID = !string.IsNullOrEmpty(baseCustom.ParamedicID) ? baseCustom.ParamedicID : string.Empty,
+                    ServiceUnitID = !string.IsNullOrEmpty(au.au.ParamedicId) && !string.IsNullOrEmpty(au.au.ServiceUnitId) && au.au.SruserType == Const.Doctor ? au.au.ServiceUnitId : string.Empty,
                     IsIncludeClosed = false,
                     IsIncludeDischarge = false,
                     IsIncludeIPRSOAPInputted = false,
@@ -41,7 +39,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                     RegistrationDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day),
                     ExamOrderFromDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(-1).Day),
                     ExamOrderToDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day)
-                }, baseModel.UserID),
+                }, baseCustom.UserID),
                 IsLoadBillingProgress = IsLoadBillingProgress
             };
 
@@ -61,10 +59,10 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
         public async Task<IActionResult> FilterHealthRecord()
         {
             var model = new FilterHealthRecordViewModel();
-            model.IsDropDownEnabled = !string.IsNullOrEmpty(baseModel.ParamedicID) && baseModel.Role == Const.Doctor;
+            model.IsDropDownEnabled = !string.IsNullOrEmpty(baseCustom.ParamedicID) && baseCustom.Role == Const.Doctor;
 
-            if (!string.IsNullOrEmpty(baseModel.ParamedicID) && baseModel.Role == Const.Doctor)
-                model.getParamedic ??= [new() { ParamedicID = baseModel.ParamedicID, ParamedicName = _paramedic.GetParamedicName(baseModel.ParamedicID) }];
+            if (!string.IsNullOrEmpty(baseCustom.ParamedicID) && baseCustom.Role == Const.Doctor)
+                model.getParamedic ??= [new() { ParamedicID = baseCustom.ParamedicID, ParamedicName = _paramedic.GetParamedicName(baseCustom.ParamedicID) }];
             else
             {
                 model.getParamedic ??= [new() { ParamedicID = string.Empty, ParamedicName = string.Empty }];
@@ -108,7 +106,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
             model.getServiceUnit ??= [new() { ServiceUnitID = string.Empty, ServiceUnitName = string.Empty }];
             if (model.getServiceUnit.Count > 0)
             {
-                var unit = _serviceUnit.GetServiceUnit(baseModel.UserID, string.Empty, true);
+                var unit = _serviceUnit.GetServiceUnit(baseCustom.UserID, string.Empty, true);
                 if (unit.Count > 0)
                 {
                     foreach (var item in unit)
@@ -169,7 +167,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                 getRegistration = _registration.RegistrationEmr(new RegistrationFilter
                 {
                     RegistrationNo = model.RegistrationNo,
-                    ParamedicID = !string.IsNullOrEmpty(baseModel.ParamedicID) ? baseModel.ParamedicID : model.ParamedicID,
+                    ParamedicID = !string.IsNullOrEmpty(baseCustom.ParamedicID) ? baseCustom.ParamedicID : model.ParamedicID,
                     SRRegistrationType = model.SRRegistrationType,
                     ServiceUnitID = model.ServiceUnitID,
                     PatientName = model.PatientName,
@@ -184,7 +182,7 @@ namespace TarakanSIMRS.Areas.Tarakan.Controllers
                     ConfirmedAttendanceStatus = model.SRConfirmedAttend,
                     ExamOrderFromDate = model.FromExamOrder,
                     ExamOrderToDate = model.ToExamOrder
-                }, baseModel.UserID)
+                }, baseCustom.UserID)
             };
 
             return View("HealthRecord", filter);

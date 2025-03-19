@@ -1,4 +1,6 @@
-﻿namespace Tarakan.BusinessObjects.Dto
+﻿using Tarakan.EntityFramework.Models;
+
+namespace Tarakan.BusinessObjects.Dto
 {
     public class AppStandardReferenceItemDto
     {

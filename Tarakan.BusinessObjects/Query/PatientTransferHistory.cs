@@ -1,5 +1,4 @@
-﻿using Tarakan.BusinessObjects.Helper;
-using Tarakan.BusinessObjects.Interface;
+﻿using Tarakan.BusinessObjects.Interface;
 using Tarakan.EntityFramework.Base;
 using Cast = EntitySpaces.DynamicQuery;
 
