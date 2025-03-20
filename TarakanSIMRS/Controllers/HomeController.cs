@@ -52,7 +52,7 @@ namespace TarakanSIMRS.Controllers
                 return View(model);
 
             var au = _appUser.LoadByPrimaryKey(model.UserId, SecureTarakan.Encrypt(model.Password, _config["Tarakan:Key01"], _config["Tarakan:Key02"]));
-            if (string.IsNullOrEmpty(au.au.UserName))
+            if (au.au == null || string.IsNullOrEmpty(au.au.UserName))
             {
                 ModelState.AddModelError("Failed", "User Not Found");
                 return View(model);

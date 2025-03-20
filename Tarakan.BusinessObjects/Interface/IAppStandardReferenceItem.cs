@@ -6,5 +6,6 @@ namespace Tarakan.BusinessObjects.Interface
     {
         Task<List<AppStandardReferenceItemDto>> GetReferenceItem(string referenceId, bool? isActive, bool? isUsedBySystem);
         string GetItemName(string referenceId, string itemId);
+        AppStandardReferenceItemDto LoadByPrimaryKey(string referenceId, string itemId);
     }
 }

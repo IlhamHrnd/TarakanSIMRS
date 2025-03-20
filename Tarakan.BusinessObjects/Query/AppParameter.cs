@@ -58,14 +58,20 @@ namespace Tarakan.BusinessObjects.Query
         private AppParameterDto Parameter(string parId)
         {
             if (string.IsNullOrEmpty(parId))
-                return new AppParameterDto();
+                return new AppParameterDto
+                {
+                    ap = new EntityFramework.Models.AppParameter()
+                };
 
             var query = (from ap in _context.AppParameters
                          where ap.ParameterId == parId
                          select new { ap.ParameterValue, ap.ParameterId, ap.ParameterName, ap.ParameterType }).FirstOrDefault();
 
             if (query == null || string.IsNullOrEmpty(query.ParameterValue))
-                return new AppParameterDto();
+                return new AppParameterDto
+                {
+                    ap = new EntityFramework.Models.AppParameter()
+                };
 
             return new AppParameterDto
             {

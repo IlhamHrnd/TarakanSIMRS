@@ -14,7 +14,10 @@ namespace Tarakan.BusinessObjects.Query
         public AppProgramDto LoadAppProgram(string programId)
         {
             if (string.IsNullOrWhiteSpace(programId))
-                return new AppProgramDto();
+                return new AppProgramDto
+                {
+                    ap = new EntityFramework.Models.AppProgram()
+                };
 
             var query = (from ap in _context.AppPrograms
                          where ap.ProgramId == programId
@@ -24,7 +27,10 @@ namespace Tarakan.BusinessObjects.Query
                          ap.IsProgramCrossUnitAble, ap.IsProgramPowerUserAble}).FirstOrDefault();
 
             if (query == null || string.IsNullOrEmpty(query.ProgramId))
-                return new AppProgramDto();
+                return new AppProgramDto
+                {
+                    ap = new EntityFramework.Models.AppProgram()
+                };
 
             return new AppProgramDto
             {

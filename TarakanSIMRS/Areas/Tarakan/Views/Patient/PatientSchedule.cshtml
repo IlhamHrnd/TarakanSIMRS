@@ -1,0 +1,77 @@
+﻿@using TarakanSIMRS.Areas.Tarakan.Models.Patient
+@model PatientSchedulingViewModel
+
+<div class="mb-5 row align-items-center">
+    <label for="selectScheduleName" class="col-lg-3 col-md-4 col-sm-4 form-label">Schedule Name</label>
+    <div class="col-lg-9 col-md-8 col-sm-8">
+        <select class="form-select" id="selectScheduleName">
+            @if (Model.getScheduleName != null)
+            {
+                @foreach (var item in Model.getScheduleName)
+                {
+                    <option value="@item.ItemID">@item.ItemName</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+<div class="mb-5 row align-items-center">
+    <label for="selectScheduleType" class="col-lg-3 col-md-4 col-sm-4 form-label">Schedule Type</label>
+    <div class="col-lg-9 col-md-8 col-sm-8">
+        <select class="form-select" id="selectScheduleType">
+            @if (Model.getScheduleType != null)
+            {
+                @foreach (var item in Model.getScheduleType)
+                {
+                    <option value="@item.ItemID">@item.ItemName</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+<div class="mb-5 row align-items-center" id="scheduleYear">
+    <label for="selectScheduleYear" class="col-lg-3 col-md-4 col-sm-4 form-label">Year</label>
+    <div class="col-lg-9 col-md-8 col-sm-8">
+        <select class="form-select" id="selectScheduleYear">
+            @if (Model.getYear != null)
+            {
+                @foreach (var item in Model.getYear)
+                {
+                    <option value="@item.ItemID">@item.ItemName</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+<div class="mb-5 row align-items-center" id="scheduleMonth">
+    <label for="selectScheduleMonth" class="col-lg-3 col-md-4 col-sm-4 form-label">Month</label>
+    <div class="col-lg-9 col-md-8 col-sm-8">
+        <select class="form-select" id="selectScheduleMonth">
+            @if (Model.getMonth != null)
+            {
+                @foreach (var item in Model.getMonth)
+                {
+                    <option value="@item.ItemID">@item.ItemName</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+<div class="mb-5 row align-items-center" id="scheduleDay">
+    <label for="selectScheduleDay" class="col-lg-3 col-md-4 col-sm-4 form-label">Day</label>
+    <div class="col-lg-9 col-md-8 col-sm-8">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input class="form-control date-picker" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" id="selectScheduleFrom"/>
+                </div>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input class="form-control date-picker" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" id="selectScheduleTo" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary" onclick="AddSchedule()">Add Schedule</button>

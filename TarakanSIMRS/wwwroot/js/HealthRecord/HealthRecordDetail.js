@@ -156,6 +156,20 @@
             console.error("Error loading PrescriptionController:", error);
         }
     });
+
+    $.ajax({
+        url: "/Tarakan/Patient/PatientSchedule",
+        type: "GET",
+        contentType: "application/json",
+        data: {},
+        success: function (data) {
+            $("#patientSchedule").html(data);
+            $.getScript("/js/Patient/PatientSchedule.js");
+        },
+        error: function (xhr, status, error) {
+            console.error("Error loading PatientController:", error);
+        }
+    });
 });
 
 function backToList() {

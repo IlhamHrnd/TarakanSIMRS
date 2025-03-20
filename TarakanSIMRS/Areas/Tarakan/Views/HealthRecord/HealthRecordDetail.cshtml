@@ -17,7 +17,7 @@
         <i class="@BaseIcon.Bar"></i> Back To List
     </a>
 </div>
-<div class="d-flex flex-wrap gap-2 mb-2">
+<div class="d-flex flex-wrap gap-2 mb-2 mt-2">
     <a class="btn btn-primary flex-grow-1 text-start" href="#scrollspyIntegratedNote">
         <i class="@BaseIcon.Medicalnote"></i> Integrated Notes
     </a>
@@ -40,68 +40,52 @@
         <i class="@BaseIcon.Calender"></i> Scheduling
     </a>
 </div>
-<div class="card" id="scrollspyIntegratedNote">
+<div class="card d-flex flex-wrap gap-2 mb-2 mt-2" id="scrollspyIntegratedNote">
     <div class="card-header">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <i class="@BaseIcon.Bottle"></i> Integrated Note
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#integratedBar" aria-controls="integratedBar" aria-expanded="false" aria-label="Toggle integratedBar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="integratedBar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Add
-                            </a>
-                            <ul class="dropdown-menu">
-                                @* <li><a class="dropdown-item" href="#">Action</a></li> *@
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="@BaseIcon.Retweet"></i> PPA note</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Add
+                </a>
+                <ul class="dropdown-menu">
+                    @* <li><a class="dropdown-item" href="#">Action</a></li> *@
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="@BaseIcon.Retweet"></i> PPA note</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Progress Note</a>
+            </li>
+        </ul>
     </div>
     <div class="card-body"><div id="integratedNote"></div></div>
 </div>
-<div class="card" id="scrollspyMedication">
+<div class="card d-flex flex-wrap gap-2 mb-2 mt-2" id="scrollspyMedication">
     <div class="card-header">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <i class="@BaseIcon.Bottle"></i> Medication
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#medicationBar" aria-controls="medicationBar" aria-expanded="false" aria-label="Toggle medicationBar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="medicationBar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Add Prescription</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Direct Prescription</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Add Prescription</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="@BaseIcon.File"></i> Direct Prescription</a>
+            </li>
+        </ul>
     </div>
     <div class="card-body"><div id="prescriptionHistory"></div></div>
+</div>
+<div class="card" id="scrollspyScheduling">
+    <div class="card-header text-center">Schedule</div>
+    <div class="card-body" id="patientSchedule"></div>
 </div>
 <div class="offcanvas offcanvas-start" tabindex="-1" id="patientDetail" aria-labelledby="patientDetailLabel">
     <div class="offcanvas-header">

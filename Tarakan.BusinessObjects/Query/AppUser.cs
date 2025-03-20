@@ -22,7 +22,10 @@ namespace Tarakan.BusinessObjects.Query
                          select au).FirstOrDefault();
 
             if (query == null || string.IsNullOrEmpty(query.UserId))
-                return new AppUserDto();
+                return new AppUserDto
+                {
+                    au = new EntityFramework.Models.AppUser()
+                };
 
             return new AppUserDto
             {
@@ -77,7 +80,10 @@ namespace Tarakan.BusinessObjects.Query
                          select new { au.UserId, au.UserName, au.ServiceUnitId, au.ParamedicId, au.SruserType }).FirstOrDefault();
 
             if (query == null || string.IsNullOrEmpty(query.UserName))
-                return new AppUserDto();
+                return new AppUserDto
+                {
+                    au = new EntityFramework.Models.AppUser()
+                };
 
             return new AppUserDto
             {

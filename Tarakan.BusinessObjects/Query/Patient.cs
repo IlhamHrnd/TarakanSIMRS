@@ -4,14 +4,16 @@ using Tarakan.BusinessObjects.Dto;
 using Tarakan.BusinessObjects.Helper;
 using Tarakan.BusinessObjects.Interface;
 using Tarakan.EntityFramework.Base;
+using Tarakan.EntityFramework.Models;
 
 namespace Tarakan.BusinessObjects.Query
 {
     public class Patient : BaseQuery, IPatient
     {
-        public Patient(AppDbContext context) : base(context)
+        private readonly IAppStandardReferenceItem _appStandardReferenceItem;
+        public Patient(AppDbContext context, IAppStandardReferenceItem appStandardReferenceItem) : base(context)
         {
-
+            _appStandardReferenceItem = appStandardReferenceItem;
         }
 
         public string GetPatientName(string patId)
@@ -38,7 +40,7 @@ namespace Tarakan.BusinessObjects.Query
                          join dt in _context.Dtds
                              on d.DtdNo equals dt.DtdNo
                          join asri in _context.AppStandardReferenceItems
-                             on new { StandardReferenceId = "DiagnoseType", ItemId = dt.SrchronicDisease }
+                             on new { StandardReferenceId = "ChronicDisease", ItemId = dt.SrchronicDisease }
                              equals new { asri.StandardReferenceId, asri.ItemId }
                          join r in _context.Registrations
                              on ed.RegistrationNo equals r.RegistrationNo
@@ -110,6 +112,77 @@ namespace Tarakan.BusinessObjects.Query
             }
             sb.AppendLine("</table>");
             return sb.ToString();
+        }
+
+        public string PatientAddSchedule(string itemId, string scheduleType, int year, int month, DateTime from, DateTime to, string patId, string parId, string suId, string userId)
+        {
+            if (string.IsNullOrEmpty(itemId) || string.IsNullOrEmpty(scheduleType) || year == 0 || month == 0)
+                return "Data is required";
+
+            var asri = _appStandardReferenceItem.LoadByPrimaryKey("PatientScheduleName", itemId);
+            if (asri == null || string.IsNullOrEmpty(asri.StandardReferenceID))
+                return "Schedule not found";
+
+            var dayOfWeek = asri != null && asri.NumericValue != 0 ? asri.NumericValue : -1;
+            var dates = new List<DateTime>();
+            DateTime start = DateTime.Now.Date;
+            DateTime end = DateTime.Now.Date;
+
+            switch (scheduleType)
+            {
+                case "year":
+                    end = new DateTime(year, 12, 31);
+                    break;
+
+                case "month":
+                    start = new DateTime(year, month, 1);
+                    end = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+                    break;
+
+                case "day":
+                    start = from;
+                    end = to;
+                    break;
+            }
+
+            for (DateTime? i = start.Date; i <= end.Date; i = i?.AddDays(1))
+            {
+                if (i?.DayOfWeek == (DayOfWeek)dayOfWeek)
+                    dates.Add(i.Value.Date);
+            }
+
+            if (dates.Count == 0)
+                return "Date not found";
+
+            var msg = string.Empty;
+            foreach (var date in dates)
+            {
+                try
+                {
+                    var ps = new PatientScheduling
+                    {
+                        PatientId = patId,
+                        ServiceUnitId = suId,
+                        ParamedicId = parId,
+                        ScheduleDate = date,
+                        Srschedule = itemId,
+                        IsConfirmed = false,
+                        LastUpdateByUserId = userId,
+                        LastUpdateDateTime = DateTime.Now,
+                    };
+                    _context.PatientSchedulings.Add(ps);
+                    _context.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    msg += e.Message;
+                }
+            }
+            
+            if (!string.IsNullOrEmpty(msg))
+                return msg;
+            else
+                return "Success add schedule";
         }
     }
 }

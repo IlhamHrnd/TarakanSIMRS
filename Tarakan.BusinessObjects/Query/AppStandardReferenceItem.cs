@@ -46,5 +46,26 @@ namespace Tarakan.BusinessObjects.Query
 
             return query.ItemName;
         }
+
+        public AppStandardReferenceItemDto LoadByPrimaryKey(string referenceId, string itemId)
+        {
+            if (string.IsNullOrEmpty(referenceId) || string.IsNullOrEmpty(itemId))
+                return new AppStandardReferenceItemDto();
+
+            var query = (from asri in _context.AppStandardReferenceItems
+                        where asri.StandardReferenceId == referenceId && asri.ItemId == itemId
+                        select new { asri.StandardReferenceId, asri.ItemId, asri.ItemName, asri.NumericValue }).FirstOrDefault();
+
+            if (query == null || string.IsNullOrEmpty(query.StandardReferenceId))
+                return new AppStandardReferenceItemDto();
+
+            return new AppStandardReferenceItemDto
+            {
+                StandardReferenceID = query.StandardReferenceId,
+                ItemID = query.ItemId,
+                ItemName = query.ItemName,
+                NumericValue = Convert.ToInt32(query.NumericValue)
+            };
+        }
     }
 }

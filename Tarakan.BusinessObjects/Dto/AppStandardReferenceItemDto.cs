@@ -7,6 +7,7 @@ namespace Tarakan.BusinessObjects.Dto
         public string StandardReferenceID { get; set; }
         public string ItemID { get; set; }
         public string ItemName { get; set; }
+        public int NumericValue { get; set; }
 
         #region Custom Variabel
         public string IconCSS { get; set; }
